@@ -80,4 +80,12 @@ export const themeContract = {
     lg: null,
     xl: null,
   },
+
+  layout: {
+    controlHeight: {
+      sm: null,
+      md: null,
+      lg: null,
+    },
+  },
 } as const;

@@ -1,7 +1,7 @@
 import { createTheme } from '@vanilla-extract/css';
 
 import { vars } from '../contract';
-import { darkColors, darkShadows, radius, spacing, typography } from '../tokens';
+import { darkColors, darkShadows, layout, radius, spacing, typography } from '../tokens';
 
 export const darkThemeClass = createTheme(vars, {
   colors: darkColors,
@@ -9,4 +9,5 @@ export const darkThemeClass = createTheme(vars, {
   spacing,
   radius,
   typography,
+  layout,
 });
