@@ -5,6 +5,7 @@ import type { SurfaceProps } from './Surface.types';
 
 export const Surface = ({
   children,
+  tone,
   radius,
   shadow,
   border,
@@ -13,7 +14,7 @@ export const Surface = ({
   ...rest
 }: SurfaceProps) => {
   return (
-    <Component {...rest} className={clsx(root({ radius, shadow, border }), className)}>
+    <Component {...rest} className={clsx(root({ tone, radius, shadow, border }), className)}>
       {children}
     </Component>
   );
