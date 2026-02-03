@@ -6,7 +6,7 @@ import type { SurfaceProps } from '../Surface';
 
 export type Props = {
   children: ReactNode;
-  padding?: ContainerProps['paddingInline'];
+  paddingInline?: ContainerProps['paddingInline'];
   gap?: StackProps['gap'];
   className?: string;
 };

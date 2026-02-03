@@ -7,13 +7,13 @@ import type { CardProps } from './Card.types';
 export const Card = ({
   children,
   gap = 'md',
-  padding = 'md',
+  paddingInline = 'md',
   className,
   ...surfaceProps
 }: CardProps) => {
   return (
     <Surface {...surfaceProps} className={className}>
-      <Container paddingInline={padding}>
+      <Container paddingInline={paddingInline}>
         <Stack gap={gap}>{children}</Stack>
       </Container>
     </Surface>
