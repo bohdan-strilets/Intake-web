@@ -1,7 +1,7 @@
 import type { RecipeVariants } from '@vanilla-extract/recipes';
 import type { HTMLAttributes, ReactNode } from 'react';
 
-import type { root } from './Title/Title.css';
+import type { root } from './Title.css';
 
 export type TitleVariants = RecipeVariants<typeof root>;
 export type TitleLevel = 1 | 2 | 3 | 4 | 5 | 6;

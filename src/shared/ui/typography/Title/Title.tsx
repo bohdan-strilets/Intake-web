@@ -1,6 +1,6 @@
 import { clsx } from 'clsx';
 
-import { root } from './Title/Title.css';
+import { root } from './Title.css';
 import type { TitleProps } from './Title.types';
 
 export const Title = ({ children, level, size, tone, className }: TitleProps) => {
