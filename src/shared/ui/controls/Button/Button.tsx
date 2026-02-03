@@ -1,5 +1,6 @@
 import { clsx } from 'clsx';
 
+import { Spinner } from '@shared/ui/feedback/Spinner';
 import { Inline } from '@shared/ui/layout/Inline';
 
 import { Icon } from '../Icon';
@@ -34,11 +35,7 @@ export const Button = ({
         <span>{children}</span>
         {iconRight && <Icon icon={iconRight} />}
 
-        {loading && (
-          <span aria-hidden className="spinner">
-            ...
-          </span>
-        )}
+        {loading && <Spinner size="sm" color="primary" />}
       </Inline>
     </button>
   );
