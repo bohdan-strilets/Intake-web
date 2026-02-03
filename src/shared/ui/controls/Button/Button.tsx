@@ -2,6 +2,8 @@ import { clsx } from 'clsx';
 
 import { Inline } from '@shared/ui/layout/Inline';
 
+import { Icon } from '../Icon';
+
 import { root } from './Button.css';
 import type { ButtonProps } from './Button.types';
 
@@ -16,6 +18,7 @@ export const Button = ({
   disabled = false,
   iconLeft,
   iconRight,
+  iconColor,
   ...rest
 }: ButtonProps) => {
   return (
@@ -27,9 +30,9 @@ export const Button = ({
       aria-busy={loading || undefined}
     >
       <Inline gap="sm" align="center">
-        {iconLeft}
+        {iconLeft && <Icon icon={iconLeft} color={iconColor} />}
         <span>{children}</span>
-        {iconRight}
+        {iconRight && <Icon icon={iconRight} />}
 
         {loading && (
           <span aria-hidden className="spinner">
