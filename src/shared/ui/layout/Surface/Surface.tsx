@@ -1,0 +1,20 @@
+import { clsx } from 'clsx';
+
+import { root } from './Surface.css';
+import type { SurfaceProps } from './Surface.types';
+
+export const Surface = ({
+  children,
+  radius,
+  shadow,
+  border,
+  className,
+  as: Component = 'div',
+  ...rest
+}: SurfaceProps) => {
+  return (
+    <Component {...rest} className={clsx(root({ radius, shadow, border }), className)}>
+      {children}
+    </Component>
+  );
+};
