@@ -7,7 +7,7 @@ import type { TextLabelProps } from './TextLabel.types';
 export const TextLabel = ({ children, required }: TextLabelProps) => {
   return (
     <Inline gap="sm" align="center">
-      <Paragraph size="sm" tone="muted">
+      <Paragraph size="md" tone="secondary" weight="regular">
         {children}
       </Paragraph>
       {required && (

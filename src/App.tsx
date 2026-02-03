@@ -6,6 +6,7 @@ import { Divider } from '@shared/ui/layout/Divider';
 import { Grid } from '@shared/ui/layout/Grid';
 import { Inline } from '@shared/ui/layout/Inline';
 import { Stack } from '@shared/ui/layout/Stack';
+import { HelperText } from '@shared/ui/typography/HelperText';
 import { Paragraph } from '@shared/ui/typography/Paragraph';
 import { TextLabel } from '@shared/ui/typography/TextLabel';
 import { Title } from '@shared/ui/typography/Title';
@@ -77,10 +78,12 @@ const App = () => {
         <Stack gap="xl">
           <Stack gap="sm">
             <TextLabel required>First name</TextLabel>
+            <HelperText>Enter your first name</HelperText>
             <TextInput />
           </Stack>
           <Stack gap="sm">
             <TextLabel required>Last name</TextLabel>
+            <HelperText>Enter your last name</HelperText>
             <TextInput />
           </Stack>
         </Stack>
