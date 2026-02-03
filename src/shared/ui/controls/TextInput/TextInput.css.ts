@@ -4,7 +4,7 @@ import { vars } from '@shared/styles/contract';
 
 export const input = recipe({
   base: {
-    width: '100%',
+    maxWidth: '100%',
     minWidth: 0,
 
     appearance: 'none',
