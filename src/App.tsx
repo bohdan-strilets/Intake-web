@@ -1,5 +1,5 @@
 const App = () => {
-  return null;
+  return <h1>Hello Intake</h1>;
 };
 
 export default App;

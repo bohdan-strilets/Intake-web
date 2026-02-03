@@ -1,12 +1,12 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 
-import App from './App.tsx';
+import { AppProvider } from '@app/providers/AppProvider';
 
 const root = document.getElementById('root') as HTMLDivElement;
 
 createRoot(root).render(
   <StrictMode>
-    <App />
+    <AppProvider />
   </StrictMode>,
 );
