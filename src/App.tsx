@@ -6,6 +6,7 @@ import { Divider } from '@shared/ui/layout/Divider';
 import { Grid } from '@shared/ui/layout/Grid';
 import { Inline } from '@shared/ui/layout/Inline';
 import { Stack } from '@shared/ui/layout/Stack';
+import { ErrorText } from '@shared/ui/typography/ErrorText';
 import { HelperText } from '@shared/ui/typography/HelperText';
 import { Paragraph } from '@shared/ui/typography/Paragraph';
 import { TextLabel } from '@shared/ui/typography/TextLabel';
@@ -80,11 +81,13 @@ const App = () => {
             <TextLabel required>First name</TextLabel>
             <HelperText>Enter your first name</HelperText>
             <TextInput />
+            <ErrorText>Error message</ErrorText>
           </Stack>
           <Stack gap="sm">
             <TextLabel required>Last name</TextLabel>
             <HelperText>Enter your last name</HelperText>
             <TextInput />
+            <ErrorText>Error message</ErrorText>
           </Stack>
         </Stack>
 
