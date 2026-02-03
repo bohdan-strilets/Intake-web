@@ -1,10 +1,13 @@
 import App from '../../../App';
+import { QueryProvider } from '../QueryProvider';
 import { ThemeProvider } from '../ThemeProvider';
 
 export const AppProvider = () => {
   return (
     <ThemeProvider>
-      <App />
+      <QueryProvider>
+        <App />
+      </QueryProvider>
     </ThemeProvider>
   );
 };
