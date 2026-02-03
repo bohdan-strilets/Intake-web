@@ -1,5 +1,5 @@
-import type { ReactNode } from 'react';
+import type { HTMLAttributes, ReactNode } from 'react';
 
-export type HelperTextProps = {
+export type HelperTextProps = Omit<HTMLAttributes<HTMLParagraphElement>, 'className'> & {
   children: ReactNode;
 };

@@ -1,6 +1,6 @@
-import type { ReactNode } from 'react';
+import type { LabelHTMLAttributes, ReactNode } from 'react';
 
-export type TextLabelProps = {
+export type TextLabelProps = Omit<LabelHTMLAttributes<HTMLLabelElement>, 'className'> & {
   children: ReactNode;
   required?: boolean;
 };
