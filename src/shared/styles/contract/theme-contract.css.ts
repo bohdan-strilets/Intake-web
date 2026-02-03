@@ -87,5 +87,11 @@ export const themeContract = {
       md: null,
       lg: null,
     },
+
+    iconSize: {
+      sm: null,
+      md: null,
+      lg: null,
+    },
   },
 } as const;
