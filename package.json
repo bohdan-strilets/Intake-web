@@ -17,6 +17,7 @@
     "@vanilla-extract/css": "^1.18.0",
     "@vanilla-extract/recipes": "^0.5.7",
     "@vanilla-extract/vite-plugin": "^5.1.4",
+    "axios": "^1.13.4",
     "clsx": "^2.1.1",
     "i": "^0.3.7",
     "lucide-react": "^0.563.0",
@@ -24,6 +25,7 @@
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-hook-form": "^7.71.1",
+    "zod": "^4.3.6",
     "zustand": "^5.0.11"
   },
   "devDependencies": {
