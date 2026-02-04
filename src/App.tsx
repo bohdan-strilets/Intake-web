@@ -1,97 +1,54 @@
+import { useForm } from 'react-hook-form';
+
 import { Button } from '@shared/ui/controls/Button';
 import { TextInput } from '@shared/ui/controls/TextInput';
-import { Card } from '@shared/ui/layout/Card';
+import { Field } from '@shared/ui/form/Field';
+import { Form } from '@shared/ui/form/Form';
 import { Container } from '@shared/ui/layout/Container';
-import { Divider } from '@shared/ui/layout/Divider';
-import { Grid } from '@shared/ui/layout/Grid';
-import { Inline } from '@shared/ui/layout/Inline';
 import { Stack } from '@shared/ui/layout/Stack';
-import { ErrorText } from '@shared/ui/typography/ErrorText';
-import { HelperText } from '@shared/ui/typography/HelperText';
-import { Paragraph } from '@shared/ui/typography/Paragraph';
-import { TextLabel } from '@shared/ui/typography/TextLabel';
-import { Title } from '@shared/ui/typography/Title';
+
+type LoginFormValues = {
+  email: string;
+  password: string;
+};
 
 const App = () => {
+  const methods = useForm<LoginFormValues>({
+    defaultValues: {
+      email: '',
+      password: '',
+    },
+    mode: 'onSubmit',
+  });
+
+  const onSubmit = (data: LoginFormValues) => {
+    console.log('submit', data);
+  };
+
   return (
     <Container>
       <Stack gap="lg">
-        <Card tone="surface">
-          <Title level={1} size="lg">
-            Title
-          </Title>
-          <Paragraph>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas nemo ducimus esse
-            distinctio impedit necessitatibus error. Dolor, harum est. Iure quasi fugiat magnam
-            natus culpa, obcaecati dignissimos facilis quibusdam numquam.
-          </Paragraph>
-        </Card>
+        <Form<LoginFormValues> methods={methods} onSubmit={onSubmit}>
+          <Field<LoginFormValues>
+            name="email"
+            label="Email"
+            helperText="We will never share your email"
+            required
+          >
+            <TextInput type="email" placeholder="email@example.com" />
+          </Field>
 
-        <Card tone="secondary">
-          <Title level={2} size="md">
-            Title
-          </Title>
-          <Paragraph>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas nemo ducimus esse
-            distinctio impedit necessitatibus error. Dolor, harum est. Iure quasi fugiat magnam
-            natus culpa, obcaecati dignissimos facilis quibusdam numquam.
-          </Paragraph>
-        </Card>
+          <Field<LoginFormValues>
+            name="password"
+            label="Password"
+            helperText="Password must be longer than 8 characters"
+            required
+          >
+            <TextInput type="password" />
+          </Field>
 
-        <Card tone="accentSoft">
-          <Inline justify="between">
-            <Paragraph>First</Paragraph>
-            <Paragraph>Second</Paragraph>
-            <Paragraph>Third</Paragraph>
-          </Inline>
-        </Card>
-
-        <Card>
-          <Grid columns={5} gap="md">
-            <Paragraph align="center">1</Paragraph>
-            <Paragraph align="center">2</Paragraph>
-            <Paragraph align="center">3</Paragraph>
-            <Paragraph align="center">4</Paragraph>
-            <Paragraph align="center">5</Paragraph>
-            <Paragraph align="center">6</Paragraph>
-            <Paragraph align="center">7</Paragraph>
-            <Paragraph align="center">8</Paragraph>
-            <Paragraph align="center">9</Paragraph>
-            <Paragraph align="center">0</Paragraph>
-          </Grid>
-
-          <Divider />
-
-          <Grid columns={5} gap="md">
-            <Paragraph align="center">1</Paragraph>
-            <Paragraph align="center">2</Paragraph>
-            <Paragraph align="center">3</Paragraph>
-            <Paragraph align="center">4</Paragraph>
-            <Paragraph align="center">5</Paragraph>
-            <Paragraph align="center">6</Paragraph>
-            <Paragraph align="center">7</Paragraph>
-            <Paragraph align="center">8</Paragraph>
-            <Paragraph align="center">9</Paragraph>
-            <Paragraph align="center">0</Paragraph>
-          </Grid>
-        </Card>
-
-        <Stack gap="xl">
-          <Stack gap="sm">
-            <TextLabel required>First name</TextLabel>
-            <HelperText>Enter your first name</HelperText>
-            <TextInput />
-            <ErrorText>Error message</ErrorText>
-          </Stack>
-          <Stack gap="sm">
-            <TextLabel required>Last name</TextLabel>
-            <HelperText>Enter your last name</HelperText>
-            <TextInput />
-            <ErrorText>Error message</ErrorText>
-          </Stack>
-        </Stack>
-
-        <Button loading>Submit</Button>
+          <Button type="submit">Log in</Button>
+        </Form>
       </Stack>
     </Container>
   );
