@@ -15,7 +15,7 @@ export const AppShell = ({ header, navigation, children }: AppShellProps) => {
 
         <main className={content}>{children}</main>
 
-        {navigation && <nav className={navigationSection}>{navigation}</nav>}
+        {navigation && <div className={navigationSection}>{navigation}</div>}
       </div>
     </div>
   );

@@ -52,7 +52,6 @@ export const navigationSection = style({
   zIndex: vars.zIndex.navigation,
 
   flexShrink: 0,
-  paddingBlock: vars.spacing.lg,
 
   background: vars.colors.backgroundPrimary,
   borderTop: `1px solid ${vars.colors.borderMuted}`,
