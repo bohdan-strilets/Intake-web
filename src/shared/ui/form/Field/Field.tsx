@@ -1,4 +1,6 @@
-import { cloneElement, isValidElement } from 'react';
+import { cloneElement, isValidElement, useId } from 'react';
+import type { HTMLAttributes } from 'react';
+import { useFormContext, get, type FieldValues } from 'react-hook-form';
 
 import { Stack } from '@shared/ui/layout/Stack';
 import { ErrorText } from '@shared/ui/typography/ErrorText';
@@ -7,38 +9,50 @@ import { TextLabel } from '@shared/ui/typography/TextLabel';
 
 import type { FieldProps } from './Field.types';
 
-export const Field = ({ children, label, helperText, error, inputId, required }: FieldProps) => {
-  if (!isValidElement(children)) return null;
+export const Field = <T extends FieldValues>({
+  name,
+  children,
+  label,
+  helperText,
+  required,
+}: FieldProps<T>) => {
+  const id = useId();
 
-  const labelId = `${inputId}-label`;
-  const helperId = helperText ? `${inputId}-help` : undefined;
-  const errorId = error ? `${inputId}-error` : undefined;
+  const {
+    register,
+    formState: { errors },
+  } = useFormContext();
+
+  if (!isValidElement<HTMLAttributes<HTMLElement>>(children)) return null;
+
+  const error = get(errors, name)?.message as string | undefined;
+
+  const helperId = helperText ? `${id}-help` : undefined;
+  const errorId = error ? `${id}-error` : undefined;
 
   const ariaDescribedBy = [helperId, errorId].filter(Boolean).join(' ') || undefined;
-
-  const control = cloneElement(children, {
-    id: inputId,
-    error: Boolean(error),
-    'aria-invalid': Boolean(error) || undefined,
-    'aria-describedby': ariaDescribedBy,
-  });
 
   return (
     <Stack gap="xs">
       {label && (
-        <TextLabel htmlFor={inputId} id={labelId} required={required}>
+        <TextLabel htmlFor={id} required={required}>
           {label}
         </TextLabel>
       )}
 
-      {control}
+      {helperText && <HelperText id={helperId}>{helperText}</HelperText>}
 
-      {error ? (
+      {cloneElement(children, {
+        id,
+        ...register(name),
+        'aria-invalid': error ? true : undefined,
+        'aria-describedby': ariaDescribedBy,
+      })}
+
+      {error && (
         <ErrorText id={errorId} aria-live="polite">
           {error}
         </ErrorText>
-      ) : (
-        helperText && <HelperText id={helperId}>{helperText}</HelperText>
       )}
     </Stack>
   );

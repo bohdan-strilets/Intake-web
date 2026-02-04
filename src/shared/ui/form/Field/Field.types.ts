@@ -1,18 +1,23 @@
 import type { ReactElement } from 'react';
+import type { ChangeHandler, FieldValues, Path } from 'react-hook-form';
 
-type FieldControlProps = {
+type RHFControlProps = {
+  name?: string;
+  onChange?: ChangeHandler;
+  onBlur?: ChangeHandler;
+  ref?: React.Ref<unknown>;
+
   id?: string;
-  error?: boolean;
   'aria-invalid'?: boolean;
   'aria-describedby'?: string;
 };
 
-export type FieldProps = {
-  children: ReactElement<FieldControlProps>;
+type FieldControlElement = ReactElement<RHFControlProps>;
 
-  label?: React.ReactNode;
+export type FieldProps<T extends FieldValues = FieldValues> = {
+  name: Path<T>;
+  label?: string;
   helperText?: string;
-  error?: string;
-  inputId: string;
   required?: boolean;
+  children: FieldControlElement;
 };
