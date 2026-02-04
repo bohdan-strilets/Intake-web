@@ -1,4 +1,10 @@
-import { container, content, headerSection, navigationSection, root } from './AppShell.css';
+import {
+  container,
+  content,
+  headerSection,
+  navigationSection,
+  root,
+} from './AppShell.css';
 import type { AppShellProps } from './AppShell.types';
 
 export const AppShell = ({ header, navigation, children }: AppShellProps) => {

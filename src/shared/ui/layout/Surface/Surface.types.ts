@@ -13,4 +13,6 @@ export type Props = {
   as?: StructuralElement;
 };
 
-export type SurfaceProps = Props & SurfaceVariants & Omit<HTMLAttributes<HTMLElement>, 'className'>;
+export type SurfaceProps = Props &
+  SurfaceVariants &
+  Omit<HTMLAttributes<HTMLElement>, 'className'>;

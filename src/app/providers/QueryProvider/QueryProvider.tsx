@@ -5,5 +5,7 @@ import { queryClient } from '@shared/lib/react-query';
 import type { QueryProviderProps } from './QueryProvider.types';
 
 export const QueryProvider = ({ children }: QueryProviderProps) => {
-  return <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>;
+  return (
+    <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+  );
 };

@@ -13,4 +13,6 @@ export type Props = {
   as?: StructuralElement;
 };
 
-export type InlineProps = Props & InlineVariants & Omit<HTMLAttributes<HTMLElement>, 'className'>;
+export type InlineProps = Props &
+  InlineVariants &
+  Omit<HTMLAttributes<HTMLElement>, 'className'>;

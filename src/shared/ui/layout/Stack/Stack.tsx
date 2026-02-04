@@ -13,7 +13,10 @@ export const Stack = ({
   ...rest
 }: StackProps) => {
   return (
-    <Component {...rest} className={clsx(root({ gap, align, justify }), className)}>
+    <Component
+      {...rest}
+      className={clsx(root({ gap, align, justify }), className)}
+    >
       {children}
     </Component>
   );

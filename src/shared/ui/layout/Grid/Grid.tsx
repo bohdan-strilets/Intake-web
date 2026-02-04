@@ -13,7 +13,10 @@ export const Grid = ({
   ...rest
 }: GridProps) => {
   return (
-    <Component {...rest} className={clsx(root({ columns, gap, align }), className)}>
+    <Component
+      {...rest}
+      className={clsx(root({ columns, gap, align }), className)}
+    >
       {children}
     </Component>
   );

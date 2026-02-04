@@ -12,7 +12,8 @@ export const useThemeStore = create<ThemeState>()(
     }),
     {
       name: STORAGE_KEYS.THEME,
-      partialize: (state) => (state.theme === 'system' ? {} : { theme: state.theme }),
+      partialize: (state) =>
+        state.theme === 'system' ? {} : { theme: state.theme },
     },
   ),
 );

@@ -17,7 +17,9 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
       const resolved = resolveTheme(theme);
 
       root.classList.remove(lightThemeClass, darkThemeClass);
-      root.classList.add(resolved === 'dark' ? darkThemeClass : lightThemeClass);
+      root.classList.add(
+        resolved === 'dark' ? darkThemeClass : lightThemeClass,
+      );
     };
 
     applyTheme();

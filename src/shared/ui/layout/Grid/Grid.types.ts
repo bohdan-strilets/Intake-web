@@ -13,4 +13,6 @@ export type Props = {
   as?: StructuralElement;
 };
 
-export type GridProps = Props & GridVariants & Omit<HTMLAttributes<HTMLElement>, 'className'>;
+export type GridProps = Props &
+  GridVariants &
+  Omit<HTMLAttributes<HTMLElement>, 'className'>;

@@ -14,7 +14,10 @@ export const Inline = ({
   ...rest
 }: InlineProps) => {
   return (
-    <Component {...rest} className={clsx(root({ gap, align, justify, wrap }), className)}>
+    <Component
+      {...rest}
+      className={clsx(root({ gap, align, justify, wrap }), className)}
+    >
       {children}
     </Component>
   );

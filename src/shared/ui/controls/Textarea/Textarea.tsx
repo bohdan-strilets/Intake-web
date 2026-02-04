@@ -6,7 +6,13 @@ import type { TextareaProps } from './Textarea.types';
 
 export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
   ({ size, error, className, ...rest }, ref) => {
-    return <textarea ref={ref} className={clsx(textarea({ size, error }), className)} {...rest} />;
+    return (
+      <textarea
+        ref={ref}
+        className={clsx(textarea({ size, error }), className)}
+        {...rest}
+      />
+    );
   },
 );
 

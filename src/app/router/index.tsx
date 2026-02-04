@@ -1,4 +1,8 @@
-import { createRootRoute, createRoute, createRouter } from '@tanstack/react-router';
+import {
+  createRootRoute,
+  createRoute,
+  createRouter,
+} from '@tanstack/react-router';
 
 import { DashboardPage } from '@pages/dashboard';
 import { DayPage } from '@pages/day';

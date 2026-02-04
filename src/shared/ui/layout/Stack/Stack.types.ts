@@ -13,4 +13,6 @@ export type Props = {
   as?: StructuralElement;
 };
 
-export type StackProps = Props & Omit<HTMLAttributes<HTMLElement>, 'className'> & StackVariants;
+export type StackProps = Props &
+  Omit<HTMLAttributes<HTMLElement>, 'className'> &
+  StackVariants;

@@ -12,4 +12,6 @@ export type Props = {
   decorative?: boolean;
 };
 
-export type IconProps = Props & IconVariant & Omit<HTMLAttributes<SVGElement>, 'color'>;
+export type IconProps = Props &
+  IconVariant &
+  Omit<HTMLAttributes<SVGElement>, 'color'>;

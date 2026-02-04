@@ -30,7 +30,8 @@ export const Field = <T extends FieldValues>({
   const helperId = helperText ? `${id}-help` : undefined;
   const errorId = error ? `${id}-error` : undefined;
 
-  const ariaDescribedBy = [helperId, errorId].filter(Boolean).join(' ') || undefined;
+  const ariaDescribedBy =
+    [helperId, errorId].filter(Boolean).join(' ') || undefined;
 
   return (
     <Stack gap="xs">

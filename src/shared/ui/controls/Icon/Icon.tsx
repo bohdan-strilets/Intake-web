@@ -4,7 +4,14 @@ import { root } from './Icon.css';
 import type { IconProps } from './Icon.types';
 import { icons } from './icons';
 
-export const Icon = ({ icon, size, color, decorative = true, className, ...rest }: IconProps) => {
+export const Icon = ({
+  icon,
+  size,
+  color,
+  decorative = true,
+  className,
+  ...rest
+}: IconProps) => {
   const LucideIcon = icons[icon];
 
   return (
