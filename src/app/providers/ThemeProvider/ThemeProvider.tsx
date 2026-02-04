@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-import { resolveTheme } from '@shared/styles/lib';
+import { resolveTheme } from '@shared/styles/lib/resolve-theme';
 import { useTheme } from '@shared/styles/model';
 import { darkThemeClass, lightThemeClass } from '@shared/styles/themes';
 
