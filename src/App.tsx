@@ -1,6 +1,7 @@
 import { useForm } from 'react-hook-form';
 
 import { Button } from '@shared/ui/controls/Button';
+import { Textarea } from '@shared/ui/controls/Textarea';
 import { TextInput } from '@shared/ui/controls/TextInput';
 import { Field } from '@shared/ui/form/Field';
 import { Form } from '@shared/ui/form/Form';
@@ -10,6 +11,7 @@ import { Stack } from '@shared/ui/layout/Stack';
 type LoginFormValues = {
   email: string;
   password: string;
+  textarea: string;
 };
 
 const App = () => {
@@ -17,6 +19,7 @@ const App = () => {
     defaultValues: {
       email: '',
       password: '',
+      textarea: '',
     },
     mode: 'onSubmit',
   });
@@ -45,6 +48,15 @@ const App = () => {
             required
           >
             <TextInput type="password" />
+          </Field>
+
+          <Field<LoginFormValues>
+            name="textarea"
+            label="Textarea"
+            helperText="Enter your text here"
+            required
+          >
+            <Textarea size="lg" />
           </Field>
 
           <Button type="submit">Log in</Button>
