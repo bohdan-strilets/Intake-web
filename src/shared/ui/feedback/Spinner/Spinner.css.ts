@@ -21,18 +21,18 @@ export const root = recipe({
   variants: {
     size: {
       sm: {
-        width: vars.layout.iconSize.sm,
-        height: vars.layout.iconSize.sm,
+        width: '14px',
+        height: '14px',
       },
 
       md: {
-        width: vars.layout.iconSize.md,
-        height: vars.layout.iconSize.md,
+        width: '18px',
+        height: '18px',
       },
 
       lg: {
-        width: vars.layout.iconSize.lg,
-        height: vars.layout.iconSize.lg,
+        width: '22px',
+        height: '22px',
       },
     },
 
