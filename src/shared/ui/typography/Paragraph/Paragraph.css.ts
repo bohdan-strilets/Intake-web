@@ -39,6 +39,7 @@ export const root = recipe({
       danger: { color: vars.colors.danger },
       success: { color: vars.colors.success },
       info: { color: vars.colors.info },
+      accentPrimary: { color: vars.colors.accentPrimary },
     },
 
     align: {
