@@ -12,6 +12,9 @@ import {
   AlertTriangle,
   Utensils,
   BarChart3,
+  Sun,
+  Moon,
+  SunMoon,
 } from 'lucide-react';
 
 export const icons = {
@@ -33,4 +36,9 @@ export const icons = {
   settings: Settings,
   chevronLeft: ChevronLeft,
   chevronRight: ChevronRight,
+
+  // theme
+  themeLight: Sun,
+  themeDark: Moon,
+  themeSystem: SunMoon,
 } as const;
