@@ -25,16 +25,16 @@ export const root = recipe({
 
     size: {
       sm: {
-        width: vars.layout.iconSize.sm,
-        height: vars.layout.iconSize.sm,
+        width: '16px',
+        height: '16px',
       },
       md: {
-        width: vars.layout.iconSize.md,
-        height: vars.layout.iconSize.md,
+        width: '20px',
+        height: '20px',
       },
       lg: {
-        width: vars.layout.iconSize.lg,
-        height: vars.layout.iconSize.lg,
+        width: '24px',
+        height: '24px',
       },
     },
   },
