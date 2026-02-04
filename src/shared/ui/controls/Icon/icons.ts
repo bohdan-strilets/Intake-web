@@ -10,18 +10,27 @@ import {
   ChevronLeft,
   ChevronRight,
   AlertTriangle,
+  Utensils,
+  BarChart3,
 } from 'lucide-react';
 
 export const icons = {
+  // actions
   plus: Plus,
   trash: Trash,
   edit: Pencil,
   check: Check,
   close: X,
+  warning: AlertTriangle,
+
+  // navigation
   calendar: Calendar,
-  user: User,
+  today: Utensils,
+  stats: BarChart3,
+  profile: User,
+
+  // misc
   settings: Settings,
   chevronLeft: ChevronLeft,
   chevronRight: ChevronRight,
-  warning: AlertTriangle,
 } as const;
