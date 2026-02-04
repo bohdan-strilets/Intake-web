@@ -1,12 +1,12 @@
-import App from '../../../App';
 import { QueryProvider } from '../QueryProvider';
+import { AppRouterProvider } from '../RouterProvider';
 import { ThemeProvider } from '../ThemeProvider';
 
 export const AppProvider = () => {
   return (
     <ThemeProvider>
       <QueryProvider>
-        <App />
+        <AppRouterProvider />
       </QueryProvider>
     </ThemeProvider>
   );
