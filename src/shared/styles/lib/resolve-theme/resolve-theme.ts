@@ -1,4 +1,4 @@
-import type { Theme, ThemeMode } from '../types';
+import type { Theme, ThemeMode } from '../../types';
 
 export const resolveTheme = (theme: Theme): ThemeMode => {
   const media = window.matchMedia('(prefers-color-scheme: dark)');

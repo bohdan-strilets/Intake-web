@@ -6,3 +6,5 @@ export { radius } from './radius.css';
 export { spacing } from './spacing.css';
 export { typography } from './typography.css';
 export { layout } from './layout.css';
+export { zIndex } from './zIndex.css';
+export { breakpoints } from './breakpoints.css';
