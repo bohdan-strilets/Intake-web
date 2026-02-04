@@ -17,7 +17,6 @@ export const input = recipe({
     font: 'inherit',
 
     paddingInline: vars.spacing.md,
-    paddingBlock: vars.spacing.sm,
 
     selectors: {
       '&::placeholder': {
@@ -41,17 +40,14 @@ export const input = recipe({
     size: {
       sm: {
         height: vars.layout.controlHeight.sm,
-        paddingBlock: vars.spacing.xs,
         fontSize: vars.typography.fontSize.sm,
       },
       md: {
         height: vars.layout.controlHeight.md,
-        paddingBlock: vars.spacing.sm,
         fontSize: vars.typography.fontSize.md,
       },
       lg: {
         height: vars.layout.controlHeight.lg,
-        paddingBlock: vars.spacing.md,
         fontSize: vars.typography.fontSize.md,
       },
     },
