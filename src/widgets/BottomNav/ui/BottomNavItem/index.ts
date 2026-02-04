@@ -1,0 +1,1 @@
+export { BottomNavItem } from './BottomNavItem';
