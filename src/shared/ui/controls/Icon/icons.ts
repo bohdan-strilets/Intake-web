@@ -15,6 +15,8 @@ import {
   Sun,
   Moon,
   SunMoon,
+  ChevronDown,
+  ChevronUp,
 } from 'lucide-react';
 
 export const icons = {
@@ -36,6 +38,8 @@ export const icons = {
   settings: Settings,
   chevronLeft: ChevronLeft,
   chevronRight: ChevronRight,
+  chevronDown: ChevronDown,
+  chevronUp: ChevronUp,
 
   // theme
   themeLight: Sun,
