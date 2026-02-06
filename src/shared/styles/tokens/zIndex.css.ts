@@ -5,4 +5,5 @@ export const zIndex = {
   modal: '100',
   overlay: '200',
   tooltip: '300',
+  dropdown: '400',
 } as const;

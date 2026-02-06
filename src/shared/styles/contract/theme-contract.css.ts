@@ -95,5 +95,6 @@ export const themeContract = {
     modal: null,
     overlay: null,
     tooltip: null,
+    dropdown: null,
   },
 } as const;
