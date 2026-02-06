@@ -14,15 +14,19 @@ import { StatsPage } from '@pages/stats';
 import { ROUTES } from '@shared/routes';
 
 import { RootLayout } from './RootLayout';
+import type { LoginRouteSearch } from './router.types';
 
 const rootRoute = createRootRoute({
   component: RootLayout,
 });
 
-const loginRoute = createRoute({
+export const loginRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: ROUTES.auth.login,
   component: LoginPage,
+  validateSearch: (search: Record<string, unknown>): LoginRouteSearch => {
+    return { registered: search.registered === '1' ? '1' : undefined };
+  },
 });
 
 const registerRoute = createRoute({
