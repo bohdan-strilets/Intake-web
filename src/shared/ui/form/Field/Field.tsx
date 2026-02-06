@@ -1,6 +1,12 @@
 import { cloneElement, isValidElement, useId } from 'react';
 import type { HTMLAttributes } from 'react';
-import { useFormContext, get, type FieldValues } from 'react-hook-form';
+import {
+  useFormContext,
+  get,
+  type FieldValues,
+  Controller,
+  type PathValue,
+} from 'react-hook-form';
 
 import { Stack } from '@shared/ui/layout/Stack';
 import { ErrorText } from '@shared/ui/typography/ErrorText';
@@ -9,21 +15,19 @@ import { TextLabel } from '@shared/ui/typography/TextLabel';
 
 import type { FieldProps } from './Field.types';
 
-export const Field = <T extends FieldValues>({
-  name,
-  children,
-  label,
-  helperText,
-  required,
-}: FieldProps<T>) => {
+export const Field = <T extends FieldValues>(props: FieldProps<T>) => {
+  const { name, label, helperText, required } = props;
+
   const id = useId();
 
   const {
     register,
+    control,
+    setValue,
     formState: { errors },
-  } = useFormContext();
+  } = useFormContext<T>();
 
-  if (!isValidElement<HTMLAttributes<HTMLElement>>(children)) return null;
+  if (!isValidElement<HTMLAttributes<HTMLElement>>(props.children)) return null;
 
   const error = get(errors, name)?.message as string | undefined;
 
@@ -32,6 +36,12 @@ export const Field = <T extends FieldValues>({
 
   const ariaDescribedBy =
     [helperId, errorId].filter(Boolean).join(' ') || undefined;
+
+  const commonProps = {
+    id,
+    'aria-invalid': !!error,
+    'aria-describedby': ariaDescribedBy,
+  };
 
   return (
     <Stack gap="xs">
@@ -43,12 +53,36 @@ export const Field = <T extends FieldValues>({
 
       {helperText && <HelperText id={helperId}>{helperText}</HelperText>}
 
-      {cloneElement(children, {
-        id,
-        ...register(name),
-        'aria-invalid': error ? true : undefined,
-        'aria-describedby': ariaDescribedBy,
-      })}
+      {props.controlType !== 'controlled' ? (
+        cloneElement(props.children, {
+          ...commonProps,
+          ...register(name, { valueAsNumber: props.valueAsNumber }),
+        })
+      ) : (
+        <Controller
+          name={name}
+          control={control}
+          render={({ field }) =>
+            cloneElement(props.children, {
+              ...commonProps,
+
+              value: field.value,
+
+              onChange: (value: PathValue<T, typeof name>) => {
+                setValue(name, value, {
+                  shouldDirty: true,
+                  shouldTouch: true,
+                  shouldValidate: true,
+                });
+              },
+
+              onBlur: () => {
+                field.onBlur();
+              },
+            })
+          }
+        />
+      )}
 
       {error && (
         <ErrorText id={errorId} aria-live="polite">

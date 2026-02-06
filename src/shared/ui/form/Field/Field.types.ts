@@ -1,7 +1,8 @@
 import type { ReactElement } from 'react';
-import type { ChangeHandler, FieldValues, Path } from 'react-hook-form';
+import type { FieldValues, Path, PathValue } from 'react-hook-form';
+import type { ChangeHandler } from 'react-hook-form';
 
-type RHFControlProps = {
+export type InputUIProps = {
   name?: string;
   onChange?: ChangeHandler;
   onBlur?: ChangeHandler;
@@ -12,12 +13,34 @@ type RHFControlProps = {
   'aria-describedby'?: string;
 };
 
-type FieldControlElement = ReactElement<RHFControlProps>;
+export type ControlledUIProps<TValue> = {
+  value?: TValue;
+  onChange?: (value: TValue) => void | Promise<void>;
+  onBlur?: () => void;
 
-export type FieldProps<T extends FieldValues = FieldValues> = {
+  id?: string;
+  'aria-invalid'?: boolean;
+  'aria-describedby'?: string;
+};
+
+type BaseFieldProps<T extends FieldValues> = {
   name: Path<T>;
   label?: string;
   helperText?: string;
   required?: boolean;
-  children: FieldControlElement;
 };
+
+type FieldInputProps<T extends FieldValues> = {
+  controlType?: 'input';
+  valueAsNumber?: boolean;
+  children: ReactElement<InputUIProps>;
+} & BaseFieldProps<T>;
+
+type FieldControlledProps<T extends FieldValues> = {
+  controlType: 'controlled';
+  children: ReactElement<ControlledUIProps<PathValue<T, Path<T>>>>;
+} & BaseFieldProps<T>;
+
+export type FieldProps<T extends FieldValues> =
+  | FieldInputProps<T>
+  | FieldControlledProps<T>;
