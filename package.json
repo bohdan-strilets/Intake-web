@@ -12,6 +12,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@hookform/resolvers": "^5.2.2",
     "@tanstack/react-query": "^5.90.20",
     "@tanstack/react-router": "^1.158.0",
     "@vanilla-extract/css": "^1.18.0",
@@ -25,6 +26,7 @@
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-hook-form": "^7.71.1",
+    "sonner": "^2.0.7",
     "zod": "^4.3.6",
     "zustand": "^5.0.11"
   },
