@@ -1,6 +1,6 @@
 import type { AxiosInstance } from 'axios';
 
-import { tokenStorage } from '@shared/lib/token-storage';
+import { tokenStorage } from '@shared/lib/tokenStorage';
 
 export function setupAuthInterceptor(api: AxiosInstance) {
   api.interceptors.request.use((config) => {

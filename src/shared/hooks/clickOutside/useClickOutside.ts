@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-import type { AnyEvent } from './click-outside.types';
+import type { AnyEvent } from './clickOutside.types';
 
 export const useClickOutside = <T extends HTMLElement>(
   ref: React.RefObject<T | null>,

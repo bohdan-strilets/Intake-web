@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 
-import { tokenStorage } from '@shared/lib/token-storage';
+import { tokenStorage } from '@shared/lib/tokenStorage';
 
 import type { AuthState } from '../types';
 

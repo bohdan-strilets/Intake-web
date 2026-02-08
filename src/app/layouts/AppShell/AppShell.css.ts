@@ -1,7 +1,7 @@
 import { style } from '@vanilla-extract/css';
 
 import { vars } from '@shared/styles/contract';
-import { media } from '@shared/styles/lib/media-query';
+import { media } from '@shared/styles/lib/mediaQuery';
 
 export const root = style({
   display: 'flex',

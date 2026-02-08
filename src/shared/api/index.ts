@@ -1,2 +1,2 @@
-export { axiosInstance } from './axios-instance';
+export { axiosInstance } from './axiosInstance';
 export { API_ROUTES } from './routes';

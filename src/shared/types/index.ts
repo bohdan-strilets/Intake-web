@@ -1,1 +1,1 @@
-export type { StructuralElement } from './structural-element.type';
+export type { StructuralElement } from './structuralElement.type';

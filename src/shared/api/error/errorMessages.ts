@@ -1,4 +1,4 @@
-import type { ErrorCode } from './error-codes';
+import type { ErrorCode } from './errorCodes';
 
 export const errorMessages: Record<ErrorCode, string> = {
   EMAIL_ALREADY_EXISTS: 'Email already registered',

@@ -1,6 +1,6 @@
 import { useCallback, useState } from 'react';
 
-import type { UseKeyboardNavigationParams } from './keyboard-navigation.types';
+import type { UseKeyboardNavigationParams } from './keyboardNavigation.types';
 
 export function useKeyboardNavigation({
   isOpen,

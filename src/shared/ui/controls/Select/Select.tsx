@@ -1,8 +1,8 @@
 import clsx from 'clsx';
 import { useRef, useState } from 'react';
 
-import { useClickOutside } from '@shared/hooks/click-outside';
-import { useKeyboardNavigation } from '@shared/hooks/keyboard-navigation';
+import { useClickOutside } from '@shared/hooks/clickOutside';
+import { useKeyboardNavigation } from '@shared/hooks/keyboardNavigation';
 
 import { Icon } from '../Icon';
 

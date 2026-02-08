@@ -3,6 +3,6 @@ export {
   useLogin,
   useLogout,
   useAccessToken,
-} from './auth-selectors';
+} from './authSelectors';
 
 export { useAuthStore } from './useAuthStore';

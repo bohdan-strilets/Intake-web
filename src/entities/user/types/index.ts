@@ -1,2 +1,2 @@
 export type { User } from './user.type';
-export type { UserResponse } from './user-response.type';
+export type { UserResponse } from './userResponse.type';

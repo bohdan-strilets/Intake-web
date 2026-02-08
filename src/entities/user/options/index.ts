@@ -1,2 +1,2 @@
-export { sexOptions } from './sex-options';
-export { goalOptions } from './goal-options';
+export { sexOptions } from './sexOptions';
+export { goalOptions } from './goalOptions';

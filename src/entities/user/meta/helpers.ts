@@ -1,4 +1,4 @@
-import { PasswordConstraints } from './password-constraints';
+import { PasswordConstraints } from './passwordConstraints';
 
 export const UserFieldHelpers = {
   password: `Min. ${PasswordConstraints.password.min} chars, letter and number`,

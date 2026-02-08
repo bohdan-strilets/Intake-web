@@ -1,1 +1,1 @@
-export type { RegisterFormValues } from './register-form-values.type';
+export type { RegisterFormValues } from './registerFormValues.type';

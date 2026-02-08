@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 
-import { STORAGE_KEYS } from '@shared/config/storage-keys';
+import { STORAGE_KEYS } from '@shared/config/storageKeys';
 
 import type { ThemeState } from '../types';
 

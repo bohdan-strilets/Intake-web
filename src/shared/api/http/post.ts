@@ -1,4 +1,4 @@
-import { axiosInstance } from '../axios-instance';
+import { axiosInstance } from '../axiosInstance';
 
 export const post = async <Response, Body = void, Params = void>(
   url: string,

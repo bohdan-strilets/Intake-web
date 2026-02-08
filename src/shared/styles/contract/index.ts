@@ -1,2 +1,2 @@
-export { themeContract } from './theme-contract.css';
-export { vars } from './theme-vars.css';
+export { themeContract } from './themeContract.css';
+export { vars } from './themeVars.css';

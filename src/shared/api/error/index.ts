@@ -1,3 +1,3 @@
-export { ERROR_CODES, type ErrorCode } from './error-codes';
-export { errorMessages } from './error-messages';
-export { ApiError } from './api-error';
+export { ERROR_CODES, type ErrorCode } from './errorCodes';
+export { errorMessages } from './errorMessages';
+export { ApiError } from './apiError';

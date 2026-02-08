@@ -1,2 +1,2 @@
-export { digitRegex } from './digit-regex';
-export { letterRegex } from './letter-regex';
+export { digitRegex } from './digitRegex';
+export { letterRegex } from './letterRegex';

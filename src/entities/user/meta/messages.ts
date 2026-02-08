@@ -1,5 +1,5 @@
-import { PasswordConstraints } from './password-constraints';
-import { UserConstraints } from './user-constraints';
+import { PasswordConstraints } from './passwordConstraints';
+import { UserConstraints } from './userConstraints';
 
 export const UserValidationMessages = {
   name: {

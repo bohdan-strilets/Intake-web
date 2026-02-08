@@ -1,1 +1,1 @@
-export type { AuthState } from './auth-state.type';
+export type { AuthState } from './authState.type';
