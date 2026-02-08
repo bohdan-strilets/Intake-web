@@ -1,7 +1,8 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 
-import { STORAGE_KEYS } from '../config';
+import { STORAGE_KEYS } from '@shared/config/storage-keys';
+
 import type { ThemeState } from '../types';
 
 export const useThemeStore = create<ThemeState>()(
