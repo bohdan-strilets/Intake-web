@@ -1,0 +1,4 @@
+export const STORAGE_KEYS = {
+  THEME: 'app:theme',
+  AUTH: 'app:refresh-token',
+} as const;

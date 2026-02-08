@@ -13,7 +13,7 @@ import { FormError } from '@shared/ui/form/FormError';
 import { Divider } from '@shared/ui/layout/Divider';
 
 import { useRegisterSubmit } from '../model';
-import { registerSchema } from '../schema';
+import { registerSchema } from '../schemas';
 import type { RegisterFormValues } from '../types';
 
 export const RegisterForm = () => {

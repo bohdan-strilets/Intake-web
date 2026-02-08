@@ -1,3 +1,4 @@
+import { AppBootstrap } from '../AppBootstrap';
 import { QueryProvider } from '../QueryProvider';
 import { AppRouterProvider } from '../RouterProvider';
 import { ThemeProvider } from '../ThemeProvider';
@@ -7,7 +8,9 @@ export const AppProvider = () => {
   return (
     <ThemeProvider>
       <QueryProvider>
-        <AppRouterProvider />
+        <AppBootstrap>
+          <AppRouterProvider />
+        </AppBootstrap>
       </QueryProvider>
       <ToastProvider />
     </ThemeProvider>

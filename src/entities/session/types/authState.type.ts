@@ -1,7 +1,5 @@
 export type AuthState = {
   accessToken: string | null;
-  isAuthenticated: boolean;
-
-  login: (token: string) => void;
-  logout: () => void;
+  setAccessToken: (token: string) => void;
+  clear: () => void;
 };

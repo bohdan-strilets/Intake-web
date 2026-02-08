@@ -1,10 +1,10 @@
 import type { AxiosInstance } from 'axios';
 
-import { tokenStorage } from '@shared/lib/tokenStorage';
+import { authSelectors } from '@entities/session/model';
 
-export function setupAuthInterceptor(api: AxiosInstance) {
+export const setupAuthInterceptor = (api: AxiosInstance) => {
   api.interceptors.request.use((config) => {
-    const token = tokenStorage.get();
+    const token = authSelectors.getAccessToken();
 
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
@@ -12,4 +12,4 @@ export function setupAuthInterceptor(api: AxiosInstance) {
 
     return config;
   });
-}
+};

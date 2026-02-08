@@ -1,10 +1,19 @@
 import { useAuthStore } from './useAuthStore';
 
-export const useIsAuthenticated = () =>
-  useAuthStore((state) => state.isAuthenticated);
+export const authSelectors = {
+  getAccessToken(): string | null {
+    return useAuthStore.getState().accessToken;
+  },
 
-export const useAccessToken = () => useAuthStore((state) => state.accessToken);
+  isAuthenticated(): boolean {
+    return Boolean(useAuthStore.getState().accessToken);
+  },
 
-export const useLogin = () => useAuthStore((state) => state.login);
+  setAccessToken(token: string) {
+    useAuthStore.getState().setAccessToken(token);
+  },
 
-export const useLogout = () => useAuthStore((state) => state.logout);
+  clear() {
+    useAuthStore.getState().clear();
+  },
+};

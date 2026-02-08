@@ -1,11 +1,11 @@
 import { redirect } from '@tanstack/react-router';
 
-import { useAuthStore } from '@entities/session/model';
+import { authSelectors } from '@entities/session/model';
 
 import { ROUTES } from '@shared/routes';
 
 export const requireGuest = () => {
-  const { isAuthenticated } = useAuthStore.getState();
+  const isAuth = authSelectors.isAuthenticated();
 
-  if (isAuthenticated) throw redirect({ to: ROUTES.app.today });
+  if (isAuth) throw redirect({ to: ROUTES.app.today });
 };

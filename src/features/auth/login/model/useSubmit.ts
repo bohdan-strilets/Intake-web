@@ -1,24 +1,25 @@
 import { useNavigate } from '@tanstack/react-router';
 import type { UseFormReturn } from 'react-hook-form';
 
-import { useLogin } from '@entities/session/model';
+import { authSelectors, tokenStorage } from '@entities/session/model';
+import type { AuthTokensResponse } from '@entities/session/types';
 
 import { ApiError, errorMessages } from '@shared/api/error';
 import { ROUTES } from '@shared/routes';
 
-import type { LoginFormValues, LoginResponse } from '../types';
+import type { LoginFormValues } from '../types';
 
 import { useLoginMutation } from './useLogin';
 
 export const useLoginSubmit = (methods: UseFormReturn<LoginFormValues>) => {
   const navigate = useNavigate();
   const { mutate, isPending } = useLoginMutation();
-  const login = useLogin();
 
   const onSubmit = (values: LoginFormValues) => {
     mutate(values, {
-      onSuccess: (data: LoginResponse) => {
-        login(data.accessToken);
+      onSuccess: (data: AuthTokensResponse) => {
+        authSelectors.setAccessToken(data.accessToken);
+        tokenStorage.set(data.refreshToken);
         navigate({ to: ROUTES.app.today });
       },
 

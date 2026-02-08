@@ -1,11 +1,13 @@
+import type { AuthTokensResponse } from '@entities/session/types';
+
 import { API_ROUTES } from '@shared/api';
 import { post } from '@shared/api/http';
 
-import type { LoginFormValues, LoginResponse } from '../types';
+import type { LoginFormValues } from '../types';
 
-export const loginUser = async (userData: LoginFormValues) => {
-  return await post<LoginResponse, LoginFormValues>(
+export const loginUser = async (dto: LoginFormValues) => {
+  return await post<AuthTokensResponse, LoginFormValues>(
     API_ROUTES.auth.login,
-    userData,
+    dto,
   );
 };
