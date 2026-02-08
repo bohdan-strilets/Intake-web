@@ -1,9 +1,15 @@
 import { useMatch, useNavigate } from '@tanstack/react-router';
 import { useEffect } from 'react';
 
-import { loginRoute } from '@app/router';
+import { loginRoute } from '@app/router/routes/auth';
+
+import { LoginForm } from '@features/auth/login/ui';
 
 import { notify } from '@shared/lib/notify';
+import { ROUTES } from '@shared/routes';
+import { TextLink } from '@shared/ui/controls/TextLink';
+import { Card } from '@shared/ui/layout/Card';
+import { Title } from '@shared/ui/typography/Title';
 
 export const LoginPage = () => {
   const navigate = useNavigate();
@@ -19,5 +25,17 @@ export const LoginPage = () => {
     navigate({ to: loginRoute.id, search: {}, replace: true });
   }, [navigate, wasRegistered]);
 
-  return <div>Login form</div>;
+  return (
+    <Card gap="xl">
+      <Title level={1} size="lg">
+        Login
+      </Title>
+
+      <LoginForm />
+
+      <TextLink to={ROUTES.auth.register}>
+        Don't have an account? Register
+      </TextLink>
+    </Card>
+  );
 };
