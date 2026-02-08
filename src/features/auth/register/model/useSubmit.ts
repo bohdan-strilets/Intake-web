@@ -8,7 +8,9 @@ import type { RegisterFormValues } from '../types';
 
 import { useRegisterMutation } from './useRegister';
 
-export function useRegisterSubmit(methods: UseFormReturn<RegisterFormValues>) {
+export const useRegisterSubmit = (
+  methods: UseFormReturn<RegisterFormValues>,
+) => {
   const navigate = useNavigate();
   const { mutate, isPending } = useRegisterMutation();
 
@@ -23,15 +25,20 @@ export function useRegisterSubmit(methods: UseFormReturn<RegisterFormValues>) {
 
         if (error.code === 'EMAIL_ALREADY_EXISTS') {
           methods.setError('email', {
-            type: 'manual',
             message: errorMessages.EMAIL_ALREADY_EXISTS,
           });
-
           methods.setFocus('email');
+          return;
+        }
+
+        if (error.code === 'VALIDATION_ERROR') {
+          methods.setError('root', {
+            message: errorMessages.VALIDATION_ERROR,
+          });
         }
       },
     });
   };
 
   return { onSubmit, isPending };
-}
+};

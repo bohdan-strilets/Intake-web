@@ -38,7 +38,7 @@ export const registerSchema = z.object({
   sex: z.enum(SEX, { message: UserValidationMessages.sex.required }),
 
   age: z
-    .number()
+    .number(UserValidationMessages.age.type)
     .int({ message: UserValidationMessages.age.integer })
     .min(UserConstraints.age.min, { message: UserValidationMessages.age.min })
     .max(UserConstraints.age.max, {
@@ -46,7 +46,7 @@ export const registerSchema = z.object({
     }),
 
   height: z
-    .number()
+    .number(UserValidationMessages.height.type)
     .int({ message: UserValidationMessages.height.integer })
     .min(UserConstraints.height.min, {
       message: UserValidationMessages.height.min,
@@ -56,7 +56,7 @@ export const registerSchema = z.object({
     }),
 
   weight: z
-    .number()
+    .number(UserValidationMessages.weight.type)
     .int({ message: UserValidationMessages.weight.integer })
     .min(UserConstraints.weight.min, {
       message: UserValidationMessages.weight.min,

@@ -9,6 +9,7 @@ import { Select } from '@shared/ui/controls/Select';
 import { TextInput } from '@shared/ui/controls/TextInput';
 import { Field } from '@shared/ui/form/Field';
 import { Form } from '@shared/ui/form/Form';
+import { FormError } from '@shared/ui/form/FormError';
 import { Divider } from '@shared/ui/layout/Divider';
 
 import { useRegisterSubmit } from '../model';
@@ -17,9 +18,9 @@ import type { RegisterFormValues } from '../types';
 
 export const RegisterForm = () => {
   const resolver = zodResolver(registerSchema);
-  const methods = useForm<RegisterFormValues>({ resolver });
+  const methods = useForm<RegisterFormValues>({ resolver, mode: 'onChange' });
 
-  const { isDirty } = methods.formState;
+  const { isValid, errors } = methods.formState;
   const { onSubmit, isPending } = useRegisterSubmit(methods);
 
   return (
@@ -103,7 +104,9 @@ export const RegisterForm = () => {
         <Select options={goalOptions} />
       </Field>
 
-      <Button type="submit" disabled={!isDirty} loading={isPending} fullWidth>
+      {errors.root && <FormError>{errors.root.message}</FormError>}
+
+      <Button type="submit" disabled={!isValid} loading={isPending} fullWidth>
         Create account
       </Button>
     </Form>
