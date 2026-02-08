@@ -1,4 +1,8 @@
 export const ROUTES = {
+  public: {
+    home: '/',
+  },
+
   auth: {
     login: '/login',
     register: '/register',
