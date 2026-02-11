@@ -34,6 +34,7 @@ import {
   Shell,
   Salad,
   Apple,
+  EllipsisVertical,
 } from 'lucide-react';
 
 export const icons = {
@@ -44,6 +45,7 @@ export const icons = {
   check: Check,
   close: X,
   warning: AlertTriangle,
+  more: EllipsisVertical,
 
   // navigation
   calendar: Calendar,
