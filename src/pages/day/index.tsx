@@ -41,10 +41,10 @@ export const DayPage = () => {
       <DailyStats consumed={totalCalories} target={2500} />
 
       <Card>
-        <AddFood date={date} />
+        <AddFood date={dayDetails?.day.date} />
       </Card>
 
-      <FoodList foods={foodList} />
+      <FoodList foods={foodList} date={dayDetails?.day.date} />
     </Stack>
   );
 };

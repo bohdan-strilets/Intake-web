@@ -6,15 +6,13 @@ import { Title } from '@shared/ui/typography/Title';
 
 import type { FoodListProps } from './FoodList.types';
 
-export const FoodList = ({ foods }: FoodListProps) => {
+export const FoodList = ({ foods, date }: FoodListProps) => {
   return (
     <Card gap="xs">
       <Title level={2}>Food list:</Title>
       <Stack as="ul" gap="sm">
         {foods.map((food) => {
-          console.log(food);
-
-          return <FoodItem key={food.id} {...food} />;
+          return <FoodItem key={food.id} {...food} date={date} />;
         })}
       </Stack>
     </Card>
