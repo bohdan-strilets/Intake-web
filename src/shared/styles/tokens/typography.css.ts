@@ -1,6 +1,6 @@
 export const typography = {
   fontFamily: {
-    base: '-apple-system, BlinkMacSystemFont, Inter, sans-serif',
+    base: 'Inter, sans-serif',
   },
 
   fontSize: {
