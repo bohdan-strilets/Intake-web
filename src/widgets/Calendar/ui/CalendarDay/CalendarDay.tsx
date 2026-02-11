@@ -1,4 +1,5 @@
 import { Button } from '@shared/ui/controls/Button';
+import { Stack } from '@shared/ui/layout/Stack';
 import { Paragraph } from '@shared/ui/typography/Paragraph';
 
 import { root } from './CalendarDay.css';
@@ -18,8 +19,14 @@ export const CalendarDay = ({ cell, onClick, calories }: CalendarDayProps) => {
       disabled={!cell.isCurrentMonth}
       className={root({ isToday: cell.isToday })}
     >
-      <Paragraph>{calories ?? ''}</Paragraph>
-      <div>{cell.dayNumber}</div>
+      <Stack gap="xs">
+        <Paragraph align="center" size="sm">
+          {calories ?? ''}
+        </Paragraph>
+        <Paragraph align="center" size="sm" weight="medium">
+          {cell.dayNumber}
+        </Paragraph>
+      </Stack>
     </Button>
   );
 };
