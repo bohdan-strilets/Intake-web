@@ -19,7 +19,7 @@ export const BottomNavItem = ({
   return (
     <Link to={to} params={params} className={navLink}>
       <Stack align="center" gap="sm">
-        <Icon icon={icon} color={isActive ? 'accentPrimary' : 'primary'} />
+        <Icon name={icon} color={isActive ? 'accentPrimary' : 'primary'} />
         <Paragraph size="sm" tone={isActive ? 'accentPrimary' : 'default'}>
           {label}
         </Paragraph>

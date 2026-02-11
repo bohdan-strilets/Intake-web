@@ -31,9 +31,9 @@ export const Button = ({
       aria-busy={loading || undefined}
     >
       <Inline gap="sm" align="center">
-        {iconLeft && <Icon icon={iconLeft} color={iconColor} />}
+        {iconLeft && <Icon name={iconLeft} color={iconColor} />}
         <span>{children}</span>
-        {iconRight && <Icon icon={iconRight} />}
+        {iconRight && <Icon name={iconRight} />}
 
         {loading && <Spinner size="sm" color="primary" />}
       </Inline>

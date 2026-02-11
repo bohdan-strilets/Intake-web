@@ -22,7 +22,7 @@ export const ThemeToggle = () => {
       className={root({})}
       onClick={toggleTheme}
     >
-      <Icon icon={isDark ? 'themeDark' : 'themeLight'} color="accentPrimary" />
+      <Icon name={isDark ? 'themeDark' : 'themeLight'} color="accentPrimary" />
     </button>
   );
 };

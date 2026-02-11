@@ -99,7 +99,7 @@ export const Select = ({
                   disabled={option.isDisabled || disabled}
                 >
                   {option.label}
-                  {isSelected && <Icon icon="check" color="accentPrimary" />}
+                  {isSelected && <Icon name="check" color="accentPrimary" />}
                 </button>
               </li>
             );

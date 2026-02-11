@@ -8,7 +8,7 @@ export type IconVariant = RecipeVariants<typeof root>;
 export type IconName = keyof typeof icons;
 
 export type Props = {
-  icon: IconName;
+  name: IconName;
   decorative?: boolean;
 };
 

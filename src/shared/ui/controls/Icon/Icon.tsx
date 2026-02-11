@@ -5,14 +5,14 @@ import type { IconProps } from './Icon.types';
 import { icons } from './icons';
 
 export const Icon = ({
-  icon,
+  name,
   size,
   color,
   decorative = true,
   className,
   ...rest
 }: IconProps) => {
-  const LucideIcon = icons[icon];
+  const LucideIcon = icons[name];
 
   return (
     <LucideIcon

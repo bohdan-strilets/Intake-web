@@ -13,13 +13,13 @@ export const CalendarMonthHeader = ({
   return (
     <Inline gap="md" align="center" justify="between">
       <Button onClick={onPrev} size="sm" variant="secondary">
-        <Icon icon="chevronLeft" />
+        <Icon name="chevronLeft" />
       </Button>
 
       <Paragraph>{label}</Paragraph>
 
       <Button onClick={onNext} size="sm" variant="secondary">
-        <Icon icon="chevronRight" />
+        <Icon name="chevronRight" />
       </Button>
     </Inline>
   );

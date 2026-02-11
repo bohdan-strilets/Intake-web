@@ -20,7 +20,7 @@ export const FoodItem = ({
       <Card tone="primary" shadow="sm" gap="none">
         <Inline gap="sm">
           <Card tone="accentSoft">
-            <Icon icon={icon} color="accentPrimary" />
+            <Icon name={icon} color="accentPrimary" />
           </Card>
           <Paragraph weight="medium">{title}</Paragraph>
         </Inline>
