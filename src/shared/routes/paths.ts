@@ -10,7 +10,6 @@ export const ROUTES = {
 
   app: {
     calendar: '/calendar',
-    today: '/today',
     day: '/day/$date',
     stats: '/stats',
     profile: '/profile',
