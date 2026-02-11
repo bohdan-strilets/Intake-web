@@ -17,6 +17,23 @@ import {
   SunMoon,
   ChevronDown,
   ChevronUp,
+  Fish,
+  Egg,
+  Milk,
+  Dumbbell,
+  Carrot,
+  Bean,
+  Wheat,
+  Cookie,
+  Soup,
+  Nut,
+  Hamburger,
+  Ham,
+  GlassWater,
+  Lollipop,
+  Shell,
+  Salad,
+  Apple,
 } from 'lucide-react';
 
 export const icons = {
@@ -45,4 +62,29 @@ export const icons = {
   themeLight: Sun,
   themeDark: Moon,
   themeSystem: SunMoon,
+
+  // Food
+  meat: Ham,
+  fish: Fish,
+  egg: Egg,
+  dairy: Milk,
+  protein: Dumbbell,
+
+  vegetable: Carrot,
+  fruit: Apple,
+  legume: Bean,
+  nut: Nut,
+
+  grain: Wheat,
+
+  sauce: Shell,
+  sweet: Lollipop,
+  snack: Cookie,
+  fast_food: Hamburger,
+
+  drink: GlassWater,
+
+  mixed_dish: Soup,
+
+  other: Salad,
 } as const;

@@ -12,6 +12,8 @@ export const FoodList = ({ foods }: FoodListProps) => {
       <Title level={2}>Food list:</Title>
       <Stack as="ul" gap="sm">
         {foods.map((food) => {
+          console.log(food);
+
           return <FoodItem key={food.id} {...food} />;
         })}
       </Stack>

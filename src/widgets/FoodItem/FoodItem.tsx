@@ -1,3 +1,4 @@
+import { Icon } from '@shared/ui/controls/Icon';
 import { Card } from '@shared/ui/layout/Card';
 import { Divider } from '@shared/ui/layout/Divider';
 import { Inline } from '@shared/ui/layout/Inline';
@@ -7,6 +8,7 @@ import type { FoodItemProps } from './FoodItem.types';
 
 export const FoodItem = ({
   title,
+  icon,
   weight,
   calories,
   protein,
@@ -16,7 +18,12 @@ export const FoodItem = ({
   return (
     <li>
       <Card tone="primary" shadow="sm" gap="none">
-        <Paragraph weight="bold">{title}</Paragraph>
+        <Inline gap="sm">
+          <Card tone="accentSoft">
+            <Icon icon={icon} color="accentPrimary" />
+          </Card>
+          <Paragraph weight="medium">{title}</Paragraph>
+        </Inline>
 
         <Divider />
 
