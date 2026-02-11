@@ -9,6 +9,10 @@ export const root = recipe({
     height: 28,
     borderRadius: vars.radius.full,
 
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+
     border: `1px solid ${vars.colors.borderMuted}`,
     backgroundColor: vars.colors.backgroundSecondary,
 
