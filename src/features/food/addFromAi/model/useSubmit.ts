@@ -2,7 +2,6 @@ import type { UseFormReturn } from 'react-hook-form';
 
 import { ApiError, errorMessages } from '@shared/api/error';
 import { notify } from '@shared/lib/notify';
-import { queryClient } from '@shared/lib/reactQuery';
 
 import type { AddFromAiFormValues } from '../types';
 
@@ -20,10 +19,6 @@ export const useAddFromAiSubmit = (
       onSuccess: () => {
         methods.reset();
         notify.success('Food added successfully!');
-
-        queryClient.invalidateQueries({
-          queryKey: ['day', date],
-        });
       },
 
       onError: (error) => {
