@@ -1,0 +1,1 @@
+export { addFromAiSchema } from './addFromAiSchema';
