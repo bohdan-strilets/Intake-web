@@ -8,11 +8,15 @@ export const Paragraph = ({
   size,
   tone,
   align,
+  weight,
   className,
   ...rest
 }: ParagraphProps) => {
   return (
-    <p {...rest} className={clsx(root({ size, tone, align }), className)}>
+    <p
+      {...rest}
+      className={clsx(root({ size, tone, align, weight }), className)}
+    >
       {children}
     </p>
   );

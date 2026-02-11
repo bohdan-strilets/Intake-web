@@ -21,6 +21,7 @@ export const root = recipe({
     weight: {
       regular: { fontWeight: vars.typography.fontWeight.regular },
       medium: { fontWeight: vars.typography.fontWeight.medium },
+      bold: { fontWeight: vars.typography.fontWeight.bold },
     },
 
     lineHeight: {
