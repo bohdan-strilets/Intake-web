@@ -34,8 +34,6 @@ export const container = style({
 export const headerSection = style({
   flexShrink: 0,
   zIndex: vars.zIndex.header,
-
-  paddingBlock: vars.spacing.xl,
 });
 
 export const content = style({
