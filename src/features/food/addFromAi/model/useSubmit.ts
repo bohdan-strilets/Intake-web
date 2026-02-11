@@ -1,7 +1,6 @@
 import type { UseFormReturn } from 'react-hook-form';
 
 import { ApiError, errorMessages } from '@shared/api/error';
-import { notify } from '@shared/lib/notify';
 
 import type { AddFromAiFormValues } from '../types';
 
@@ -18,11 +17,17 @@ export const useAddFromAiSubmit = (
     mutate(payload, {
       onSuccess: () => {
         methods.reset();
-        notify.success('Food added successfully!');
       },
 
       onError: (error) => {
         if (!(error instanceof ApiError)) return;
+
+        if (error.code === 'AI_PARSE_FAILED') {
+          methods.setError('root', {
+            message: errorMessages.AI_PARSE_FAILED,
+          });
+          return;
+        }
 
         if (error.code === 'VALIDATION_ERROR') {
           methods.setError('root', {

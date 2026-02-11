@@ -1,10 +1,14 @@
+import { FoodConstraints, FoodValidationMessages } from '@entities/food/meta';
+
 import { z } from '@shared/lib/zod';
 
 export const addFromAiSchema = z.object({
   text: z
-    .string()
-    // .min(3, { message: UserValidationMessages.minLength(3) })
-    .min(3)
-    // .max(1000, { message: UserValidationMessages.maxLength(1000) }),
-    .max(1000),
+    .string(FoodValidationMessages.text.required)
+    .min(FoodConstraints.text.minLength, {
+      message: FoodValidationMessages.text.minLength,
+    })
+    .max(FoodConstraints.text.maxLength, {
+      message: FoodValidationMessages.text.maxLength,
+    }),
 });
