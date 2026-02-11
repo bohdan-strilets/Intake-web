@@ -5,6 +5,7 @@ import { authSelectors, tokenStorage } from '@entities/session/model';
 import type { AuthTokensResponse } from '@entities/session/types';
 
 import { ApiError, errorMessages } from '@shared/api/error';
+import { formatDate } from '@shared/lib/date';
 import { ROUTES } from '@shared/routes';
 
 import type { LoginFormValues } from '../types';
@@ -20,7 +21,10 @@ export const useLoginSubmit = (methods: UseFormReturn<LoginFormValues>) => {
       onSuccess: (data: AuthTokensResponse) => {
         authSelectors.setAccessToken(data.accessToken);
         tokenStorage.set(data.refreshToken);
-        navigate({ to: ROUTES.app.today });
+        navigate({
+          to: ROUTES.app.day,
+          params: { date: formatDate(new Date()) },
+        });
       },
 
       onError: (error) => {
