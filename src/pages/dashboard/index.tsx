@@ -29,7 +29,7 @@ export const DashboardPage = () => {
     });
   };
 
-  const monthLabel = formatMonthLabel(year, month, 'uk-UA');
+  const monthLabel = formatMonthLabel(year, month);
   const caloriesByDate = useMemo(() => mapCaloriesByDate(data), [data]);
 
   if (isLoading) {
