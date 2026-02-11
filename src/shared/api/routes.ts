@@ -16,12 +16,11 @@ export const API_ROUTES = {
 
   days: {
     list: '/days',
-    byDate: (date: string) => `/days/${date}`,
+    byDate: (date: string) => `/day-details/${date}`,
   },
 
   food: {
-    addManual: '/food/manual',
-    addAI: '/food/ai',
+    addAI: '/food/add/from-ai',
     delete: (id: string) => `/food/${id}`,
   },
 
