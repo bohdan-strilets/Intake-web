@@ -15,12 +15,6 @@ export const calendarRoute = createRoute({
   component: DashboardPage,
 });
 
-export const todayRoute = createRoute({
-  getParentRoute: () => protectedRoute,
-  path: ROUTES.app.today,
-  component: DayPage,
-});
-
 export const dayRoute = createRoute({
   getParentRoute: () => protectedRoute,
   path: ROUTES.app.day,

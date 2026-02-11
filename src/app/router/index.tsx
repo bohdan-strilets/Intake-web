@@ -7,7 +7,6 @@ import {
   dayRoute,
   profileRoute,
   statsRoute,
-  todayRoute,
 } from './routes/protected';
 import { homeRoute } from './routes/public';
 
@@ -18,7 +17,6 @@ const routeTree = rootRoute.addChildren([
 
   protectedRoute.addChildren([
     calendarRoute,
-    todayRoute,
     dayRoute,
     statsRoute,
     profileRoute,

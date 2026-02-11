@@ -3,5 +3,4 @@ export {
   dayRoute,
   profileRoute,
   statsRoute,
-  todayRoute,
 } from './protectedRoutes';
