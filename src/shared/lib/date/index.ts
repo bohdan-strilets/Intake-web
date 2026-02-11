@@ -4,3 +4,4 @@ export { formatDate } from './formatDate';
 export { formatMonthLabel } from './formatMonthLabel';
 export { formatDisplayDate } from './formatDisplayDate';
 export { getRelativeDayLabel } from './getRelativeDayLabel';
+export { getMonthFromDate } from './getMonthFromDate';
