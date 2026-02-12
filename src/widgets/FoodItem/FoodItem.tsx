@@ -29,7 +29,7 @@ export const FoodItem = ({
 
   const handleDelete = () => {
     openConfirm({
-      title: 'Delete food entry?',
+      title: `Delete ${title}?`,
       description: 'This action cannot be undone.',
       confirmText: 'Delete',
       confirmVariant: 'danger',

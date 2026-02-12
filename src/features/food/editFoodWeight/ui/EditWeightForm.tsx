@@ -1,6 +1,8 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 
+import { FoodFieldHelpers, FoodFieldLabels } from '@entities/food/meta';
+
 import { Button } from '@shared/ui/controls/Button';
 import { TextInput } from '@shared/ui/controls/TextInput';
 import { Field } from '@shared/ui/form/Field';
@@ -36,8 +38,8 @@ export const EditWeightForm = ({
     >
       <Field<EditWeightFormValues>
         name="weight"
-        label="Food Weight (grams)"
-        helperText="Enter the weight of the food in grams. This will help us calculate the nutritional information accurately."
+        label={FoodFieldLabels.weight}
+        helperText={FoodFieldHelpers.weight}
         valueAsNumber
       >
         <TextInput type="number" step={1} inputMode="numeric" />
@@ -46,7 +48,7 @@ export const EditWeightForm = ({
       {errors.root && <FormError>{errors.root.message}</FormError>}
 
       <Button type="submit" disabled={!isValid} loading={isPending} fullWidth>
-        Edit Weight
+        Save
       </Button>
     </Form>
   );
