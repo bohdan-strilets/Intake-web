@@ -47,4 +47,8 @@ export const UserValidationMessages = {
   goal: {
     required: 'Goal must be selected',
   },
+
+  activityLevel: {
+    required: 'Activity level must be selected',
+  },
 } as const;

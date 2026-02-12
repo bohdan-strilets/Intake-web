@@ -7,4 +7,5 @@ export const UserFieldLabels = {
   height: 'Height (cm)',
   weight: 'Weight (kg)',
   goal: 'Goal',
+  activityLevel: 'Activity level',
 } as const;
