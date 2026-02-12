@@ -48,7 +48,7 @@ export const FoodItem = ({
       <Card tone="primary" shadow="sm" gap="none">
         <Inline justify="between">
           <Inline gap="sm" align="center">
-            <Card tone="accentSoft">
+            <Card tone="accentSoft" shadow="sm">
               <Icon name={icon} color="accentPrimary" />
             </Card>
             <Paragraph weight="medium">{title}</Paragraph>

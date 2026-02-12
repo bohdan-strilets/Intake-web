@@ -9,7 +9,7 @@ export const DayHeader = ({ date }: DayHeaderProps) => {
   const relativeLabel = getRelativeDayLabel(date);
 
   return (
-    <Card gap="xs">
+    <Card gap="xs" shadow="sm">
       {relativeLabel && (
         <Paragraph weight="medium" tone="muted">
           {relativeLabel}

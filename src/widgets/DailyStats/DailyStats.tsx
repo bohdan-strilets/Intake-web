@@ -10,7 +10,7 @@ export const DailyStats = ({ consumed, target }: DailyStatsProps) => {
   const isExceeded = remaining < 0;
 
   return (
-    <Card gap="md">
+    <Card gap="md" shadow="sm">
       <Inline justify="between">
         <Paragraph size="sm">Daily Goal</Paragraph>
         <Paragraph weight="medium">{target}cal</Paragraph>

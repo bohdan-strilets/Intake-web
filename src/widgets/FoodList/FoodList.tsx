@@ -8,7 +8,7 @@ import type { FoodListProps } from './FoodList.types';
 
 export const FoodList = ({ foods, date }: FoodListProps) => {
   return (
-    <Card gap="xs">
+    <Card gap="xs" shadow="sm">
       <Title level={2}>Food list:</Title>
       <Stack as="ul" gap="sm">
         {foods.map((food) => {

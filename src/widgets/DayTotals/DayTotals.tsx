@@ -12,7 +12,7 @@ export const DayTotals = ({
   carbs = 0,
 }: DayTotalsProps) => {
   return (
-    <Card>
+    <Card shadow="sm">
       <Inline align="baseline">
         <Paragraph tone="accentPrimary" weight="bold" className={caloriesValue}>
           {calories}
