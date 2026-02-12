@@ -35,6 +35,9 @@ import {
   Salad,
   Apple,
   EllipsisVertical,
+  Mail,
+  UserRoundPen,
+  LockKeyhole,
 } from 'lucide-react';
 
 export const icons = {
@@ -46,6 +49,7 @@ export const icons = {
   close: X,
   warning: AlertTriangle,
   more: EllipsisVertical,
+  editUser: UserRoundPen,
 
   // navigation
   calendar: Calendar,
@@ -59,6 +63,8 @@ export const icons = {
   chevronRight: ChevronRight,
   chevronDown: ChevronDown,
   chevronUp: ChevronUp,
+  email: Mail,
+  password: LockKeyhole,
 
   // theme
   themeLight: Sun,
