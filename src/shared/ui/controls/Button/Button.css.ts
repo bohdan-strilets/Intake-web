@@ -68,6 +68,42 @@ export const root = recipe({
           },
         },
       },
+
+      danger: {
+        backgroundColor: vars.colors.dangerSoft,
+        color: vars.colors.danger,
+
+        selectors: {
+          '&:hover:not(:disabled)': {
+            backgroundColor: vars.colors.danger,
+            color: vars.colors.textPrimary,
+          },
+        },
+      },
+
+      success: {
+        backgroundColor: vars.colors.successSoft,
+        color: vars.colors.success,
+
+        selectors: {
+          '&:hover:not(:disabled)': {
+            backgroundColor: vars.colors.success,
+            color: vars.colors.textPrimary,
+          },
+        },
+      },
+
+      info: {
+        backgroundColor: vars.colors.infoSoft,
+        color: vars.colors.info,
+
+        selectors: {
+          '&:hover:not(:disabled)': {
+            backgroundColor: vars.colors.info,
+            color: vars.colors.textPrimary,
+          },
+        },
+      },
     },
 
     size: {
