@@ -9,7 +9,9 @@ export const errorMessages: Record<ErrorCode, string> = {
   VALIDATION_ERROR: 'Invalid input data',
 
   USER_NOT_FOUND: 'User not found',
+
   FOOD_NOT_FOUND: 'Food entry not found',
+  FOOD_BAD_REQUEST: 'Invalid food data',
 
   AI_PARSE_FAILED: 'Could not analyze food description',
 

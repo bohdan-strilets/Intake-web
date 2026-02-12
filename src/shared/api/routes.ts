@@ -22,6 +22,7 @@ export const API_ROUTES = {
   food: {
     addAI: '/food/add/from-ai',
     delete: (id: string) => `/food/${id}`,
+    editWeight: (id: string) => `/food/${id}/weight`,
   },
 
   stats: {
