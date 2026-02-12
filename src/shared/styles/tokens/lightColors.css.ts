@@ -1,20 +1,20 @@
 export const lightColors = {
-  backgroundPrimary: '#F9FAFB',
+  backgroundPrimary: '#EEF1F4',
   backgroundSurface: '#FFFFFF',
-  backgroundSecondary: '#F1F3F5',
-  backgroundInverted: '#0E0E0E',
+  backgroundSecondary: '#E2E6EB',
+  backgroundInverted: '#0F1113',
 
-  textPrimary: '#0E0E0E',
-  textSecondary: '#3A3A3A',
-  textMuted: '#8A8A8A',
+  textPrimary: '#111315',
+  textSecondary: '#3E434A',
+  textMuted: '#8A9098',
   textInverted: '#FFFFFF',
-  textOnAccent: '#0E0E0E',
+  textOnAccent: '#04130C',
 
-  borderStrong: '#D0D4DA',
-  borderMuted: '#E6E8EB',
+  borderStrong: '#C9CED6',
+  borderMuted: '#DDE2E8',
 
-  accentPrimary: '#3ED598',
-  accentSoft: '#DFF7EE',
+  accentPrimary: '#39C98A',
+  accentSoft: '#DFF6ED',
 
   danger: '#E5484D',
   dangerSoft: '#FCEBEC',
@@ -22,11 +22,11 @@ export const lightColors = {
   warning: '#F5A524',
   warningSoft: '#FFF4D6',
 
-  success: '#3ED598',
+  success: '#39C98A',
   successSoft: '#E6FAF3',
 
   info: '#3B82F6',
   infoSoft: '#EAF1FF',
 
-  overlay: 'rgba(0,0,0,0.4)',
+  overlay: 'rgba(0,0,0,0.5)',
 } as const;
