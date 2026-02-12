@@ -1,3 +1,5 @@
+import { ModalHost } from '@shared/ui/overlay/ModalHost';
+
 import { AppBootstrap } from '../AppBootstrap';
 import { QueryProvider } from '../QueryProvider';
 import { AppRouterProvider } from '../RouterProvider';
@@ -10,9 +12,10 @@ export const AppProvider = () => {
       <QueryProvider>
         <AppBootstrap>
           <AppRouterProvider />
+          <ToastProvider />
+          <ModalHost />
         </AppBootstrap>
       </QueryProvider>
-      <ToastProvider />
     </ThemeProvider>
   );
 };
