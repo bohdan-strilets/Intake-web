@@ -26,7 +26,7 @@ export const LoginPage = () => {
   }, [navigate, wasRegistered]);
 
   return (
-    <Card gap="xl">
+    <Card gap="xl" shadow="sm">
       <Title level={1} size="lg">
         Login
       </Title>

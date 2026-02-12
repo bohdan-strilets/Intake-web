@@ -28,7 +28,7 @@ export const DayPage = () => {
   if (isPending) return <Spinner />;
 
   return (
-    <Stack gap="md">
+    <Stack gap="lg">
       <DayHeader date={dayDetails?.day.date} />
 
       <DayTotals
@@ -40,7 +40,7 @@ export const DayPage = () => {
 
       <DailyStats consumed={totalCalories} target={2500} />
 
-      <Card>
+      <Card shadow="sm">
         <AddFood date={dayDetails?.day.date} />
       </Card>
 
