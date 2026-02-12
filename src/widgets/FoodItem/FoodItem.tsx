@@ -1,5 +1,8 @@
 import { useDeleteFoodMutation } from '@features/food/deleteFood/model';
+import { EditWeightForm } from '@features/food/editFoodWeight/ui';
 
+import { useConfirm } from '@shared/lib/confirm';
+import { useModal } from '@shared/lib/modal';
 import { Icon } from '@shared/ui/controls/Icon';
 import { Card } from '@shared/ui/layout/Card';
 import { Divider } from '@shared/ui/layout/Divider';
@@ -21,9 +24,23 @@ export const FoodItem = ({
   carbs,
 }: FoodItemProps) => {
   const deleteFoodMutation = useDeleteFoodMutation();
+  const { open } = useModal();
+  const { openConfirm } = useConfirm();
 
   const handleDelete = () => {
-    deleteFoodMutation.mutate({ foodId: id, date });
+    openConfirm({
+      title: 'Delete food entry?',
+      description: 'This action cannot be undone.',
+      confirmText: 'Delete',
+      confirmVariant: 'danger',
+      onConfirm: async () => {
+        await deleteFoodMutation.mutateAsync({ foodId: id, date });
+      },
+    });
+  };
+
+  const handleEdit = () => {
+    open(<EditWeightForm foodId={id} date={date} initialState={{ weight }} />);
   };
 
   return (
@@ -44,7 +61,7 @@ export const FoodItem = ({
                 id: 'edit',
                 label: 'Edit',
                 icon: 'edit',
-                onSelect: () => void 0,
+                onSelect: handleEdit,
               },
               {
                 id: 'delete',
