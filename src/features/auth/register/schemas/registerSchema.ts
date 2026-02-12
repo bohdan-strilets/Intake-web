@@ -1,4 +1,4 @@
-import { GOAL, SEX } from '@entities/user/enums';
+import { ACTIVITY_LEVEL, GOAL, SEX } from '@entities/user/enums';
 import {
   PasswordConstraints,
   UserConstraints,
@@ -66,4 +66,8 @@ export const registerSchema = z.object({
     }),
 
   goal: z.enum(GOAL, { message: UserValidationMessages.goal.required }),
+
+  activityLevel: z.enum(ACTIVITY_LEVEL, {
+    message: UserValidationMessages.activityLevel.required,
+  }),
 });
