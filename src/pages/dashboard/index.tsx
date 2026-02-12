@@ -10,6 +10,7 @@ import { useCalendarMonth } from '@features/calendar/model';
 import { formatMonthLabel } from '@shared/lib/date';
 import { ROUTES } from '@shared/routes';
 import { Spinner } from '@shared/ui/feedback/Spinner';
+import { Card } from '@shared/ui/layout/Card';
 import { Divider } from '@shared/ui/layout/Divider';
 
 export const DashboardPage = () => {
@@ -37,7 +38,7 @@ export const DashboardPage = () => {
   }
 
   return (
-    <>
+    <Card shadow="sm">
       <CalendarMonthHeader
         label={monthLabel}
         onPrev={goPrevMonth}
@@ -51,6 +52,6 @@ export const DashboardPage = () => {
         onDayClick={handleDayClick}
         caloriesByDate={caloriesByDate}
       />
-    </>
+    </Card>
   );
 };
