@@ -4,13 +4,13 @@ import { dayRoute } from '@app/router/routes/protected';
 
 import { DailyStats } from '@widgets/day/DailyStats';
 import { DayHeader } from '@widgets/day/DayHeader';
+import { DaySkeleton } from '@widgets/day/DaySkeleton';
 import { DayTotals } from '@widgets/day/DayTotals';
 import { FoodList } from '@widgets/day/FoodList';
 
 import { useDayDetailsQury } from '@features/day/dayDetails';
 import { AddFoodForm } from '@features/food/addFood';
 
-import { Spinner } from '@shared/ui/feedback/Spinner';
 import { Card } from '@shared/ui/layout/Card';
 import { Stack } from '@shared/ui/layout/Stack';
 
@@ -25,7 +25,7 @@ export const DayPage = () => {
 
   if (isError) return <p>Error</p>;
 
-  if (isPending) return <Spinner />;
+  if (isPending) return <DaySkeleton />;
 
   return (
     <Stack gap="lg">

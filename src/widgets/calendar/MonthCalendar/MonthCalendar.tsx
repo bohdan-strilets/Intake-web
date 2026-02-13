@@ -3,14 +3,14 @@ import { Grid } from '@shared/ui/layout/Grid';
 import { CalendarCell } from '../CalendarCell';
 import { CalendarWeekDays } from '../CalendarWeekDays';
 
-import type { CalendarProps } from './types';
+import type { MonthCalendarProps } from './types/props.type';
 
-export const Calendar = ({
+export const MonthCalendar = ({
   matrix,
   onDayClick,
   showWeekDays = true,
   caloriesByDate,
-}: CalendarProps) => {
+}: MonthCalendarProps) => {
   return (
     <>
       {showWeekDays && <CalendarWeekDays />}

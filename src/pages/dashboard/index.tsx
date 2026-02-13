@@ -5,13 +5,13 @@ import {
   CalendarController,
   useCalendarNavigation,
 } from '@widgets/calendar/CalendarController';
-import { Calendar, getMonthMatrix } from '@widgets/calendar/MonthCalendar';
+import { CallendarSkeleton } from '@widgets/calendar/CallendarSkeleton';
+import { MonthCalendar, getMonthMatrix } from '@widgets/calendar/MonthCalendar';
 
 import { useMonthDetailsQuery } from '@features/calendar/monthDetails';
 
 import { formatMonthLabel } from '@shared/lib/date';
 import { ROUTES } from '@shared/routes';
-import { Spinner } from '@shared/ui/feedback/Spinner';
 import { Card } from '@shared/ui/layout/Card';
 import { Divider } from '@shared/ui/layout/Divider';
 
@@ -40,9 +40,7 @@ export const DashboardPage = () => {
     );
   }, [data]);
 
-  if (isLoading) {
-    return <Spinner size="lg" />;
-  }
+  if (isLoading) return <CallendarSkeleton />;
 
   return (
     <Card shadow="sm">
@@ -54,7 +52,7 @@ export const DashboardPage = () => {
 
       <Divider />
 
-      <Calendar
+      <MonthCalendar
         matrix={matrix}
         onDayClick={handleDayClick}
         caloriesByDate={caloriesByDate}

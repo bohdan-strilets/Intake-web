@@ -3,16 +3,16 @@ import { ProfileBodySection } from '@widgets/profile/ProfileBodySection';
 import { ProfileDailyIntake } from '@widgets/profile/ProfileDailyIntake/ProfileDailyIntake';
 import { ProfileDangerZone } from '@widgets/profile/ProfileDangerZone';
 import { ProfileHeader } from '@widgets/profile/ProfileHeader';
+import { ProfileSkeleton } from '@widgets/profile/ProfileSkeleton';
 
 import { useProfileDetailsQuery } from '@features/user/profileDetails';
 
-import { Spinner } from '@shared/ui/feedback/Spinner';
 import { Stack } from '@shared/ui/layout/Stack';
 
 export const ProfilePage = () => {
   const { data: userProfile, isPending, isError } = useProfileDetailsQuery();
 
-  if (isPending) return <Spinner />;
+  if (isPending) return <ProfileSkeleton />;
 
   if (isError) return <p>Error loading profile</p>;
 

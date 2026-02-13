@@ -1,6 +1,6 @@
 import type { CalendarCell } from '@widgets/calendar/MonthCalendar/types';
 
-export type CalendarProps = {
+export type MonthCalendarProps = {
   matrix: CalendarCell[][];
   onDayClick: (date: string) => void;
   showWeekDays?: boolean;

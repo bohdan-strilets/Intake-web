@@ -1,2 +1,2 @@
-export { Calendar } from './Calendar';
+export { MonthCalendar } from './MonthCalendar';
 export { getMonthMatrix } from './model';
