@@ -1,0 +1,1 @@
+export { ProfileSectionTitle } from './ProfileSectionTitle';
