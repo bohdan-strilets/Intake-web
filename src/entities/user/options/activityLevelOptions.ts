@@ -1,4 +1,4 @@
-import { activityLabelMap } from '@entities/mappers';
+import { activityLabelMap } from '@entities/user/mappers';
 
 import type { SelectOption } from '@shared/ui/controls/Select';
 

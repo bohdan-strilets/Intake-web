@@ -1,1 +1,0 @@
-export { activityLabelMap } from './activityLabelMap';
