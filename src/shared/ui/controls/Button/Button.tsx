@@ -20,6 +20,7 @@ export const Button = ({
   iconLeft,
   iconRight,
   iconColor,
+  iconSize,
   ...rest
 }: ButtonProps) => {
   return (
@@ -31,9 +32,13 @@ export const Button = ({
       aria-busy={loading || undefined}
     >
       <Inline gap="sm" align="center">
-        {iconLeft && <Icon name={iconLeft} color={iconColor} />}
+        {iconLeft && <Icon name={iconLeft} color={iconColor} size={iconSize} />}
+
         <span>{children}</span>
-        {iconRight && <Icon name={iconRight} />}
+
+        {iconRight && (
+          <Icon name={iconRight} color={iconColor} size={iconSize} />
+        )}
 
         {loading && <Spinner size="sm" color="primary" />}
       </Inline>

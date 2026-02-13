@@ -14,6 +14,7 @@ export type Props = {
   iconLeft?: IconName;
   iconRight?: IconName;
   iconColor?: IconProps['color'];
+  iconSize?: IconProps['size'];
   className?: string;
 };
 
