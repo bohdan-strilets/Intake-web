@@ -13,9 +13,12 @@ export const root = recipe({
 
   variants: {
     size: {
+      xs: { fontSize: vars.typography.fontSize.xs },
       sm: { fontSize: vars.typography.fontSize.sm },
       md: { fontSize: vars.typography.fontSize.md },
       lg: { fontSize: vars.typography.fontSize.lg },
+      xl: { fontSize: vars.typography.fontSize.xl },
+      '2xl': { fontSize: vars.typography.fontSize['2xl'] },
     },
 
     weight: {
