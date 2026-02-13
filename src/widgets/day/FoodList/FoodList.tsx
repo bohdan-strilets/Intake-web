@@ -1,4 +1,4 @@
-import { FoodItem } from '@widgets/FoodItem';
+import { FoodItem } from '@widgets/day/FoodItem';
 
 import { Card } from '@shared/ui/layout/Card';
 import { Stack } from '@shared/ui/layout/Stack';

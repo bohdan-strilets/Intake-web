@@ -2,10 +2,14 @@ import { Button } from '@shared/ui/controls/Button';
 import { Stack } from '@shared/ui/layout/Stack';
 import { Paragraph } from '@shared/ui/typography/Paragraph';
 
-import { root } from './CalendarDay.css';
-import type { CalendarDayProps } from './CalendarDay.type';
+import { root } from './CalendarCell.css';
+import type { CalendarCellProps } from './CalendarCell.type';
 
-export const CalendarDay = ({ cell, onClick, calories }: CalendarDayProps) => {
+export const CalendarCell = ({
+  cell,
+  onClick,
+  calories,
+}: CalendarCellProps) => {
   const { date } = cell;
   if (!date) return <div aria-hidden />;
 

@@ -3,9 +3,9 @@ import { Icon } from '@shared/ui/controls/Icon';
 import { Inline } from '@shared/ui/layout/Inline';
 import { Paragraph } from '@shared/ui/typography/Paragraph';
 
-import type { CalendarMonthHeaderProps } from './CalendarMonthHeader.types';
+import type { CalendarMonthHeaderProps } from './CalendarController.types';
 
-export const CalendarMonthHeader = ({
+export const CalendarController = ({
   label,
   onPrev,
   onNext,

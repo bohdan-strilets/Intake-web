@@ -1,9 +1,9 @@
 import { Grid } from '@shared/ui/layout/Grid';
 
-import { CalendarDay } from '../CalendarDay';
-import { CalendarWeekHeader } from '../CalendarWeekHeader';
+import { CalendarCell } from '../CalendarCell';
+import { CalendarWeekDays } from '../CalendarWeekDays';
 
-import type { CalendarProps } from './Calendar.type';
+import type { CalendarProps } from './types';
 
 export const Calendar = ({
   matrix,
@@ -13,11 +13,11 @@ export const Calendar = ({
 }: CalendarProps) => {
   return (
     <>
-      {showWeekDays && <CalendarWeekHeader />}
+      {showWeekDays && <CalendarWeekDays />}
 
       <Grid columns={7} gap="sm">
         {matrix.flat().map((cell, index) => (
-          <CalendarDay
+          <CalendarCell
             key={cell.date ?? `empty-${index}`}
             cell={cell}
             onClick={onDayClick}

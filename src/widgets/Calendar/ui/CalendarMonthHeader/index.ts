@@ -1,1 +1,0 @@
-export { CalendarMonthHeader } from './CalendarMonthHeader';

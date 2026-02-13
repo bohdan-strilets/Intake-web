@@ -1,4 +1,4 @@
-import { ThemeToggle } from '@widgets/ThemeToggle';
+import { ThemeToggle } from '@widgets/theme/ThemeToggle';
 
 import { Logo } from '@shared/ui/brand/Logo';
 import { Container } from '@shared/ui/layout/Container';

@@ -1,8 +1,11 @@
 import { useNavigate } from '@tanstack/react-router';
 import { useMemo } from 'react';
 
-import { getMonthMatrix, useCalendarNavigation } from '@widgets/Calendar/model';
-import { Calendar, CalendarMonthHeader } from '@widgets/Calendar/ui';
+import {
+  CalendarController,
+  useCalendarNavigation,
+} from '@widgets/calendar/CalendarController';
+import { Calendar, getMonthMatrix } from '@widgets/calendar/MonthCalendar';
 
 import { useMonthDetailsQuery } from '@features/calendar/monthDetails';
 
@@ -43,7 +46,7 @@ export const DashboardPage = () => {
 
   return (
     <Card shadow="sm">
-      <CalendarMonthHeader
+      <CalendarController
         label={monthLabel}
         onPrev={goPrevMonth}
         onNext={goNextMonth}

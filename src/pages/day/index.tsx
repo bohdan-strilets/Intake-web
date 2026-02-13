@@ -2,10 +2,10 @@ import { useParams } from '@tanstack/react-router';
 
 import { dayRoute } from '@app/router/routes/protected';
 
-import { DailyStats } from '@widgets/DailyStats';
-import { DayHeader } from '@widgets/DayHeader';
-import { DayTotals } from '@widgets/DayTotals';
-import { FoodList } from '@widgets/FoodList';
+import { DailyStats } from '@widgets/day/DailyStats';
+import { DayHeader } from '@widgets/day/DayHeader';
+import { DayTotals } from '@widgets/day/DayTotals';
+import { FoodList } from '@widgets/day/FoodList';
 
 import { useDayDetailsQury } from '@features/day/dayDetails';
 import { AddFoodForm } from '@features/food/addFood';

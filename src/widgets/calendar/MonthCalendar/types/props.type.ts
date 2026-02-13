@@ -1,4 +1,4 @@
-import type { CalendarCell } from '@widgets/Calendar/types';
+import type { CalendarCell } from '@widgets/calendar/MonthCalendar/types';
 
 export type CalendarProps = {
   matrix: CalendarCell[][];

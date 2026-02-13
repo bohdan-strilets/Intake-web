@@ -2,8 +2,9 @@ import { formatDate } from '@shared/lib/date';
 import { ROUTES } from '@shared/routes';
 import { Inline } from '@shared/ui/layout/Inline';
 
+import { BottomNavItem } from '../BottomNavItem';
+
 import { root } from './BottomNav.css';
-import { BottomNavItem } from './ui/BottomNavItem';
 
 export const BottomNav = () => {
   return (
