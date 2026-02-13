@@ -1,8 +1,8 @@
 import type { AxiosInstance } from 'axios';
 
-import { refreshAccessToken } from '@features/auth/refresh/model';
+import { refreshAccessToken } from '@features/auth/refresh';
 
-import { authSelectors, tokenStorage } from '@entities/session/model';
+import { authSelectors, tokenStorage } from '@entities/session';
 
 export const setupRefreshInterceptor = (api: AxiosInstance) => {
   api.interceptors.response.use(

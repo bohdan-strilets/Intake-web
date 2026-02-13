@@ -1,2 +1,2 @@
-export { useEditWeightMutation } from './useEditWeight';
-export { useEditWeightSubmit } from './useSubmit';
+export { useEditWeightMutation } from './useMutation';
+export { useSubmit } from './useSubmit';

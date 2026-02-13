@@ -4,8 +4,7 @@ import { useMemo } from 'react';
 import { getMonthMatrix, useCalendarNavigation } from '@widgets/Calendar/model';
 import { Calendar, CalendarMonthHeader } from '@widgets/Calendar/ui';
 
-import { mapCaloriesByDate } from '@features/calendar/mappers';
-import { useCalendarMonth } from '@features/calendar/model';
+import { useMonthDetailsQuery } from '@features/calendar/monthDetails';
 
 import { formatMonthLabel } from '@shared/lib/date';
 import { ROUTES } from '@shared/routes';
@@ -19,7 +18,7 @@ export const DashboardPage = () => {
   const { year, month, monthParam, goPrevMonth, goNextMonth } =
     useCalendarNavigation();
 
-  const { data = [], isLoading } = useCalendarMonth({ month: monthParam });
+  const { data = [], isLoading } = useMonthDetailsQuery({ month: monthParam });
 
   const matrix = useMemo(() => getMonthMatrix(year, month), [year, month]);
 
@@ -31,7 +30,12 @@ export const DashboardPage = () => {
   };
 
   const monthLabel = formatMonthLabel(year, month);
-  const caloriesByDate = useMemo(() => mapCaloriesByDate(data), [data]);
+
+  const caloriesByDate = useMemo(() => {
+    return Object.fromEntries(
+      data.map((cell) => [cell.date, cell.totals.calories]),
+    );
+  }, [data]);
 
   if (isLoading) {
     return <Spinner size="lg" />;

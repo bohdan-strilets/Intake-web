@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 
 import { loginRoute } from '@app/router/routes/auth';
 
-import { LoginForm } from '@features/auth/login/ui';
+import { LoginForm } from '@features/auth/login';
 
 import { notify } from '@shared/lib/notify';
 import { ROUTES } from '@shared/routes';

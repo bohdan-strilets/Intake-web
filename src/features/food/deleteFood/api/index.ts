@@ -1,1 +1,0 @@
-export { deleteFood } from './deleteFood';

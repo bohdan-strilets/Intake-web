@@ -18,7 +18,7 @@ export const Calendar = ({
       <Grid columns={7} gap="sm">
         {matrix.flat().map((cell, index) => (
           <CalendarDay
-            key={index}
+            key={cell.date ?? `empty-${index}`}
             cell={cell}
             onClick={onDayClick}
             calories={cell.date ? caloriesByDate?.[cell.date] : undefined}

@@ -1,1 +1,0 @@
-export { addFromAi } from './addFromAi';

@@ -1,6 +1,6 @@
 import { redirect } from '@tanstack/react-router';
 
-import { authSelectors } from '@entities/session/model';
+import { authSelectors } from '@entities/session';
 
 import { ROUTES } from '@shared/routes';
 

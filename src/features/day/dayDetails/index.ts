@@ -1,0 +1,1 @@
+export { useDayDetailsQury } from './useQuery';

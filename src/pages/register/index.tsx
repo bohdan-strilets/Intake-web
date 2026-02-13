@@ -1,4 +1,4 @@
-import { RegisterForm } from '@features/auth/register/ui';
+import { RegisterForm } from '@features/auth/register';
 
 import { ROUTES } from '@shared/routes';
 import { TextLink } from '@shared/ui/controls/TextLink';

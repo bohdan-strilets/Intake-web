@@ -1,2 +1,2 @@
-export { useRegisterMutation } from './useRegister';
-export { useRegisterSubmit } from './useSubmit';
+export { useRegisterMutation } from './useMutation';
+export { useSubmit } from './useSubmit';

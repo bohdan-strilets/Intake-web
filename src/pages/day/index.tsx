@@ -7,8 +7,8 @@ import { DayHeader } from '@widgets/DayHeader';
 import { DayTotals } from '@widgets/DayTotals';
 import { FoodList } from '@widgets/FoodList';
 
-import { useDayDetails } from '@features/day/model';
-import { AddFood } from '@features/food/addFromAi/ui';
+import { useDayDetailsQury } from '@features/day/dayDetails';
+import { AddFoodForm } from '@features/food/addFood';
 
 import { Spinner } from '@shared/ui/feedback/Spinner';
 import { Card } from '@shared/ui/layout/Card';
@@ -16,7 +16,7 @@ import { Stack } from '@shared/ui/layout/Stack';
 
 export const DayPage = () => {
   const { date } = useParams({ from: dayRoute.id });
-  const { data: dayDetails, isPending, isError } = useDayDetails(date);
+  const { data: dayDetails, isPending, isError } = useDayDetailsQury(date);
 
   const dayTotal = dayDetails?.day.totals;
   const totalCalories = dayTotal?.calories || 0;
@@ -41,7 +41,7 @@ export const DayPage = () => {
       <DailyStats consumed={totalCalories} target={2500} />
 
       <Card shadow="sm">
-        <AddFood date={dayDetails?.day.date} />
+        <AddFoodForm date={dayDetails?.day.date} />
       </Card>
 
       <FoodList foods={foodList} date={dayDetails?.day.date} />

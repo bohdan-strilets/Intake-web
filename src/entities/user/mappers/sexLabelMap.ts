@@ -1,4 +1,4 @@
-import { SEX, type Sex } from '@entities/user/enums';
+import { SEX, type Sex } from '../enums';
 
 export const sexLabelMap: Record<Sex, string> = {
   [SEX.Male]: 'Male',

@@ -1,6 +1,6 @@
 import type { FoodIcon } from '../enums';
 
-export type Food = {
+export type FoodEntity = {
   id: string;
 
   title: string;

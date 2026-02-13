@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import { bootstrapAuth } from '@features/auth/bootstrap/model';
+import { bootstrapAuth } from '@features/auth/bootstrap';
 
 import type { AppBootstrapProps } from './AppBootstrap.type';
 

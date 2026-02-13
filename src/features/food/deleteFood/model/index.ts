@@ -1,1 +1,0 @@
-export { useDeleteFoodMutation } from './useDeleteFood';

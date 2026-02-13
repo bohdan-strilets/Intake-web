@@ -1,1 +1,0 @@
-export { getDayDetails } from './getDayDetails';

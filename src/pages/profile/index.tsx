@@ -1,10 +1,6 @@
-import { useUserProfile } from '@features/user/getUserProfile/model';
+import { useProfileDetailsQuery } from '@features/user/profileDetails';
 
-import {
-  activityLabelMap,
-  goalLabelMap,
-  sexLabelMap,
-} from '@entities/user/mappers';
+import { activityLabelMap, goalLabelMap, sexLabelMap } from '@entities/user';
 
 import { Button } from '@shared/ui/controls/Button';
 import { Icon } from '@shared/ui/controls/Icon';
@@ -19,7 +15,7 @@ import { Paragraph } from '@shared/ui/typography/Paragraph';
 import { Title } from '@shared/ui/typography/Title';
 
 export const ProfilePage = () => {
-  const { data: userProfile, isPending, isError } = useUserProfile();
+  const { data: userProfile, isPending, isError } = useProfileDetailsQuery();
 
   if (isPending) return <Spinner />;
 

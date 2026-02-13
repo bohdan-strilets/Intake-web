@@ -1,6 +1,6 @@
-import type { Food } from '@entities/food/type';
+import type { FoodEntity } from '@entities/food';
 
 export type FoodListProps = {
-  foods: Food[];
+  foods: FoodEntity[];
   date: string;
 };

@@ -1,6 +1,6 @@
 import type { AxiosInstance } from 'axios';
 
-import { authSelectors } from '@entities/session/model';
+import { authSelectors } from '@entities/session';
 
 export const setupAuthInterceptor = (api: AxiosInstance) => {
   api.interceptors.request.use((config) => {

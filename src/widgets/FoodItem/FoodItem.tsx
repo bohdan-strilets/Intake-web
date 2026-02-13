@@ -1,5 +1,5 @@
-import { useDeleteFoodMutation } from '@features/food/deleteFood/model';
-import { EditWeightForm } from '@features/food/editFoodWeight/ui';
+import { useDeleteFoodMutation } from '@features/food/deleteFood';
+import { EditWeightForm } from '@features/food/editFoodWeight';
 
 import { useConfirm } from '@shared/lib/confirm';
 import { useModal } from '@shared/lib/modal';

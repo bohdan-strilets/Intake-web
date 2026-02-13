@@ -1,0 +1,1 @@
+export { useMonthDetailsQuery } from './useQuery';
