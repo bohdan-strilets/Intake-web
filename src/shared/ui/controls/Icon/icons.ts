@@ -38,6 +38,7 @@ import {
   Mail,
   UserRoundPen,
   LockKeyhole,
+  LogOut,
 } from 'lucide-react';
 
 export const icons = {
@@ -56,6 +57,7 @@ export const icons = {
   today: Utensils,
   stats: BarChart3,
   profile: User,
+  logout: LogOut,
 
   // misc
   settings: Settings,
