@@ -38,7 +38,7 @@ export const DayPage = () => {
     );
   }
 
-  const { day, food } = dayDetails;
+  const { day, food, targetCalories } = dayDetails;
   const dayTotals = day.totals;
 
   return (
@@ -52,7 +52,7 @@ export const DayPage = () => {
         carbs={dayTotals.carbs}
       />
 
-      <DailyStats consumed={dayTotals.calories} target={2500} />
+      <DailyStats consumed={dayTotals.calories} target={targetCalories} />
 
       <Card shadow="sm">
         <AddFoodForm date={day.date} />
