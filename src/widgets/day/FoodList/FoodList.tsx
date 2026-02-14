@@ -8,7 +8,7 @@ import { Title } from '@shared/ui/typography/Title';
 import type { FoodListProps } from './FoodList.types';
 
 export const FoodList = ({ foods, date }: FoodListProps) => {
-  const isEmpty = foods.length === 0;
+  const isEmpty = foods?.length === 0;
 
   return (
     <Card gap="xs" shadow="sm">

@@ -11,40 +11,54 @@ import { FoodList } from '@widgets/day/FoodList';
 import { useDayDetailsQury } from '@features/day/dayDetails';
 import { AddFoodForm } from '@features/food/addFood';
 
+import { ErrorState } from '@shared/ui/feedback/ErrorState';
 import { Card } from '@shared/ui/layout/Card';
 import { Stack } from '@shared/ui/layout/Stack';
 
 export const DayPage = () => {
   const { date } = useParams({ from: dayRoute.id });
-  const { data: dayDetails, isPending, isError } = useDayDetailsQury(date);
 
-  const dayTotal = dayDetails?.day.totals;
-  const totalCalories = dayTotal?.calories || 0;
-
-  const foodList = dayDetails?.food || [];
-
-  if (isError) return <p>Error</p>;
+  const {
+    data: dayDetails,
+    isPending,
+    isError,
+    refetch,
+  } = useDayDetailsQury(date);
 
   if (isPending) return <DaySkeleton />;
 
+  if (isError) {
+    return (
+      <ErrorState
+        title="Failed to load day"
+        description="Please check your connection and try again."
+        actionLabel="Try again"
+        onAction={refetch}
+      />
+    );
+  }
+
+  const { day, food } = dayDetails;
+  const dayTotals = day.totals;
+
   return (
     <Stack gap="lg">
-      <DayHeader date={dayDetails?.day.date} />
+      <DayHeader date={day.date} />
 
       <DayTotals
-        calories={totalCalories}
-        protein={dayTotal?.protein}
-        fat={dayTotal?.fat}
-        carbs={dayTotal?.carbs}
+        calories={dayTotals.calories}
+        protein={dayTotals.protein}
+        fat={dayTotals.fat}
+        carbs={dayTotals.carbs}
       />
 
-      <DailyStats consumed={totalCalories} target={2500} />
+      <DailyStats consumed={dayTotals.calories} target={2500} />
 
       <Card shadow="sm">
-        <AddFoodForm date={dayDetails?.day.date} />
+        <AddFoodForm date={day.date} />
       </Card>
 
-      <FoodList foods={foodList} date={dayDetails?.day.date} />
+      <FoodList foods={food} date={day.date} />
     </Stack>
   );
 };
