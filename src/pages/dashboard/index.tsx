@@ -12,6 +12,7 @@ import { useMonthDetailsQuery } from '@features/calendar/monthDetails';
 
 import { formatMonthLabel } from '@shared/lib/date';
 import { ROUTES } from '@shared/routes';
+import { ErrorState } from '@shared/ui/feedback/ErrorState';
 import { Card } from '@shared/ui/layout/Card';
 import { Divider } from '@shared/ui/layout/Divider';
 
@@ -21,7 +22,15 @@ export const DashboardPage = () => {
   const { year, month, monthParam, goPrevMonth, goNextMonth } =
     useCalendarNavigation();
 
-  const { data = [], isLoading } = useMonthDetailsQuery({ month: monthParam });
+  const {
+    data: monthDays,
+    isLoading,
+    isError,
+
+    refetch,
+  } = useMonthDetailsQuery({
+    month: monthParam,
+  });
 
   const matrix = useMemo(() => getMonthMatrix(year, month), [year, month]);
 
@@ -35,12 +44,25 @@ export const DashboardPage = () => {
   const monthLabel = formatMonthLabel(year, month);
 
   const caloriesByDate = useMemo(() => {
+    if (!monthDays) return {};
+
     return Object.fromEntries(
-      data.map((cell) => [cell.date, cell.totals.calories]),
+      monthDays.map((cell) => [cell.date, cell.totals.calories]),
     );
-  }, [data]);
+  }, [monthDays]);
 
   if (isLoading) return <CallendarSkeleton />;
+
+  if (isError) {
+    return (
+      <ErrorState
+        title="Failed to load calendar"
+        description="Please check your connection and try again."
+        actionLabel="Try again"
+        onAction={refetch}
+      />
+    );
+  }
 
   return (
     <Card shadow="sm">
