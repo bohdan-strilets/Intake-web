@@ -16,12 +16,18 @@ export const refreshAccessToken = async (): Promise<string> => {
     const refreshToken = tokenStorage.get();
     if (!refreshToken) throw new Error('No refresh token');
 
-    const data = await refreshUserApi({ refreshToken });
+    try {
+      const data = await refreshUserApi({ refreshToken });
 
-    authSelectors.setAccessToken(data.accessToken);
-    tokenStorage.set(data.refreshToken);
+      authSelectors.setAccessToken(data.accessToken);
+      tokenStorage.set(data.refreshToken);
 
-    return data.accessToken;
+      return data.accessToken;
+    } catch (error) {
+      authSelectors.clear();
+      tokenStorage.clear();
+      throw error;
+    }
   })();
 
   try {
