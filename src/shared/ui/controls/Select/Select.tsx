@@ -9,7 +9,7 @@ import { Icon } from '../Icon';
 import { item, list, optionBtn, trigger, wrapper } from './Select.css';
 import type { SelectProps } from './Select.types';
 
-export const Select = ({
+export const Select = <T extends string | number | null>({
   placeholder,
   options,
   onChange,
@@ -19,7 +19,7 @@ export const Select = ({
   error,
   size,
   className,
-}: SelectProps) => {
+}: SelectProps<T>) => {
   const [isOpen, setIsOpen] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
 
@@ -82,7 +82,7 @@ export const Select = ({
 
             return (
               <li
-                key={option.value}
+                key={`${option.value ?? 'null'}-${index}`}
                 id={getOptionId(index)}
                 className={item}
                 role="option"
