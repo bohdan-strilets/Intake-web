@@ -13,5 +13,6 @@ export const ROUTES = {
     day: '/day/$date',
     stats: '/stats',
     profile: '/profile',
+    editProfile: '/profile/edit',
   },
 } as const;

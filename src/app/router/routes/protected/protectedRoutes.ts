@@ -4,6 +4,7 @@ import { protectedRoute } from '@app/router/core';
 
 import { DashboardPage } from '@pages/dashboard';
 import { DayPage } from '@pages/day';
+import { EditProfilePage } from '@pages/editProfile';
 import { ProfilePage } from '@pages/profile';
 import { StatsPage } from '@pages/stats';
 
@@ -31,4 +32,10 @@ export const profileRoute = createRoute({
   getParentRoute: () => protectedRoute,
   path: ROUTES.app.profile,
   component: ProfilePage,
+});
+
+export const editProfileRoute = createRoute({
+  getParentRoute: () => protectedRoute,
+  path: ROUTES.app.editProfile,
+  component: EditProfilePage,
 });

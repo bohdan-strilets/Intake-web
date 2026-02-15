@@ -5,6 +5,7 @@ import { loginRoute, registerRoute } from './routes/auth';
 import {
   calendarRoute,
   dayRoute,
+  editProfileRoute,
   profileRoute,
   statsRoute,
 } from './routes/protected';
@@ -20,6 +21,7 @@ const routeTree = rootRoute.addChildren([
     dayRoute,
     statsRoute,
     profileRoute,
+    editProfileRoute,
   ]),
 ]);
 
