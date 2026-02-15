@@ -6,6 +6,8 @@ export const UserFieldLabels = {
   age: 'Age',
   height: 'Height (cm)',
   weight: 'Weight (kg)',
+  targetWeight: 'Target weight (kg)',
   goal: 'Goal',
+  goalDelta: 'Daily calorie adjustment',
   activityLevel: 'Activity level',
 } as const;

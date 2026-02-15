@@ -1,9 +1,9 @@
 import type { SelectOption } from '@shared/ui/controls/Select';
 
-import { GOAL } from '../enums';
+import { GOAL, type Goal } from '../enums';
 import { goalLabelMap } from '../mappers';
 
-export const goalOptions: SelectOption[] = [
+export const goalOptions: SelectOption<Goal>[] = [
   { value: GOAL.Lose, label: goalLabelMap[GOAL.Lose], isDisabled: false },
   {
     value: GOAL.Maintain,

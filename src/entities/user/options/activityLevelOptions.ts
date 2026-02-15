@@ -2,9 +2,9 @@ import { activityLabelMap } from '@entities/user/mappers';
 
 import type { SelectOption } from '@shared/ui/controls/Select';
 
-import { ACTIVITY_LEVEL } from '../enums';
+import { ACTIVITY_LEVEL, type ActivityLevel } from '../enums';
 
-export const activityLevelOptions: SelectOption[] = [
+export const activityLevelOptions: SelectOption<ActivityLevel>[] = [
   {
     value: ACTIVITY_LEVEL.SEDENTARY,
     label: activityLabelMap[ACTIVITY_LEVEL.SEDENTARY],
