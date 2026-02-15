@@ -37,19 +37,19 @@ export const schema = z.object({
       message: UserValidationMessages.password.digit,
     }),
 
-  sex: z.enum(SEX, { message: UserValidationMessages.sex.required }),
+  sex: z.enum(SEX, { message: UserValidationMessages.common.required }),
 
   age: z
-    .number(UserValidationMessages.age.type)
-    .int({ message: UserValidationMessages.age.integer })
+    .number(UserValidationMessages.common.type)
+    .int({ message: UserValidationMessages.common.integer })
     .min(UserConstraints.age.min, { message: UserValidationMessages.age.min })
     .max(UserConstraints.age.max, {
       message: UserValidationMessages.age.max,
     }),
 
   height: z
-    .number(UserValidationMessages.height.type)
-    .int({ message: UserValidationMessages.height.integer })
+    .number(UserValidationMessages.common.type)
+    .int({ message: UserValidationMessages.common.integer })
     .min(UserConstraints.height.min, {
       message: UserValidationMessages.height.min,
     })
@@ -58,8 +58,8 @@ export const schema = z.object({
     }),
 
   weight: z
-    .number(UserValidationMessages.weight.type)
-    .int({ message: UserValidationMessages.weight.integer })
+    .number(UserValidationMessages.common.type)
+    .int({ message: UserValidationMessages.common.integer })
     .min(UserConstraints.weight.min, {
       message: UserValidationMessages.weight.min,
     })
@@ -67,9 +67,9 @@ export const schema = z.object({
       message: UserValidationMessages.weight.max,
     }),
 
-  goal: z.enum(GOAL, { message: UserValidationMessages.goal.required }),
+  goal: z.enum(GOAL, { message: UserValidationMessages.common.required }),
 
   activityLevel: z.enum(ACTIVITY_LEVEL, {
-    message: UserValidationMessages.activityLevel.required,
+    message: UserValidationMessages.common.required,
   }),
 });

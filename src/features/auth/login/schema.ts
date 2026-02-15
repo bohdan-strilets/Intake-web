@@ -6,6 +6,6 @@ export const schema = z.object({
   email: z.string().email({ message: UserValidationMessages.email.invalid }),
 
   password: z.string().min(1, {
-    message: UserValidationMessages.password.required,
+    message: UserValidationMessages.common.required,
   }),
 });
