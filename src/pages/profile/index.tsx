@@ -33,7 +33,7 @@ export const ProfilePage = () => {
 
   return (
     <Stack gap="lg">
-      <ProfileHeader />
+      <ProfileHeader title="Profile" showDropdown />
 
       <ProfileDailyIntake
         recommendedCalories={userProfile.metabolism.recommendedCalories}
