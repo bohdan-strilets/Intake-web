@@ -56,7 +56,12 @@ export const Field = <T extends FieldValues>(props: FieldProps<T>) => {
       {props.controlType !== 'controlled' ? (
         cloneElement(props.children, {
           ...commonProps,
-          ...register(name, { valueAsNumber: props.valueAsNumber }),
+          ...register(name, {
+            setValueAs: props.valueAsNumber
+              ? (value) =>
+                  value === '' || value === null ? undefined : Number(value)
+              : undefined,
+          }),
         })
       ) : (
         <Controller
