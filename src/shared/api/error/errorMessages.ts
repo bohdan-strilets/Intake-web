@@ -9,6 +9,8 @@ export const errorMessages: Record<ErrorCode, string> = {
   VALIDATION_ERROR: 'Invalid input data',
 
   USER_NOT_FOUND: 'User not found',
+  ACCOUNT_DELETED:
+    'Your account is deactivated. You can restore it by signing in again.',
 
   FOOD_NOT_FOUND: 'Food entry not found',
   FOOD_BAD_REQUEST: 'Invalid food data',

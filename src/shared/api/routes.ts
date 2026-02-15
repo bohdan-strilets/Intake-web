@@ -5,6 +5,7 @@ export const API_ROUTES = {
     refresh: '/auth/refresh',
     logout: '/auth/logout',
     me: '/auth/me',
+    restore: '/auth/restore',
   },
 
   users: {
@@ -12,6 +13,7 @@ export const API_ROUTES = {
     profile: '/users/me/profile',
     email: '/users/me/email',
     password: '/users/me/password',
+    delete: '/users/me/delete',
   },
 
   days: {
