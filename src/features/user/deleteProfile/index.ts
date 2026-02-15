@@ -1,0 +1,1 @@
+export { useDeleteProfileMutation } from './useMutation';
