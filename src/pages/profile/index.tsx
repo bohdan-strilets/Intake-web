@@ -1,39 +1,26 @@
+import { PageHeader } from '@widgets/profile/PageHeader';
 import { ProfileAccountSection } from '@widgets/profile/ProfileAccountSection';
 import { ProfileBodySection } from '@widgets/profile/ProfileBodySection';
 import { ProfileDailyIntake } from '@widgets/profile/ProfileDailyIntake/ProfileDailyIntake';
 import { ProfileDangerZone } from '@widgets/profile/ProfileDangerZone';
-import { ProfileHeader } from '@widgets/profile/ProfileHeader';
+import { ProfileErrorState } from '@widgets/profile/ProfileErrorState';
 import { ProfileSkeleton } from '@widgets/profile/ProfileSkeleton';
 
 import { useProfileDetailsQuery } from '@features/user/profileDetails';
 
-import { ErrorState } from '@shared/ui/feedback/ErrorState';
 import { Stack } from '@shared/ui/layout/Stack';
 
 export const ProfilePage = () => {
-  const {
-    data: userProfile,
-    isPending,
-    isError,
-    refetch,
-  } = useProfileDetailsQuery();
+  const { data, isPending, isError, refetch } = useProfileDetailsQuery();
 
   if (isPending) return <ProfileSkeleton />;
+  if (isError) return <ProfileErrorState refetch={refetch} />;
 
-  if (isError) {
-    return (
-      <ErrorState
-        title="Failed to load profile"
-        description="Please check your connection and try again."
-        actionLabel="Try again"
-        onAction={refetch}
-      />
-    );
-  }
+  const userProfile = data;
 
   return (
     <Stack gap="lg">
-      <ProfileHeader title="Profile" showDropdown />
+      <PageHeader title="Profile" showDropdown />
 
       <ProfileDailyIntake
         recommendedCalories={userProfile.metabolism.recommendedCalories}
