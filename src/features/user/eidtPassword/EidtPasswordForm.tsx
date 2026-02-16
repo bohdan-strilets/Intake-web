@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form';
 import { UserFieldLabels } from '@entities/user';
 
 import { Button } from '@shared/ui/controls/Button';
-import { TextInput } from '@shared/ui/controls/TextInput';
+import { PasswordInput } from '@shared/ui/controls/PasswordInput';
 import { Field } from '@shared/ui/form/Field';
 import { Form } from '@shared/ui/form/Form';
 import { FormError } from '@shared/ui/form/FormError';
@@ -31,7 +31,7 @@ export const EditPasswordForm = () => {
           label={UserFieldLabels.currentPassword}
           required
         >
-          <TextInput type="password" />
+          <PasswordInput />
         </Field>
 
         <Field<FormValues>
@@ -39,7 +39,15 @@ export const EditPasswordForm = () => {
           label={UserFieldLabels.newPassword}
           required
         >
-          <TextInput type="password" />
+          <PasswordInput />
+        </Field>
+
+        <Field<FormValues>
+          name="confirmNewPassword"
+          label={UserFieldLabels.confirmNewPassword}
+          required
+        >
+          <PasswordInput />
         </Field>
       </Card>
 

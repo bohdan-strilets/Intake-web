@@ -8,6 +8,7 @@ import { ApiError, errorMessages } from '@shared/api/error';
 import { notify } from '@shared/lib/notify';
 import { ROUTES } from '@shared/routes';
 
+import { mapToEditPasswordDto } from '../mappers';
 import type { FormValues } from '../types';
 
 import { useEditPasswordMutation } from './useMutation';
@@ -19,7 +20,7 @@ export const useSubmit = (methods: UseFormReturn<FormValues>) => {
 
   const onSubmit = async (values: FormValues) => {
     try {
-      await mutateAsync(values);
+      await mutateAsync(mapToEditPasswordDto(values));
 
       notify.success('Password changed. Please log in again');
 

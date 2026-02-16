@@ -1,0 +1,1 @@
+export { mapToEditPasswordDto } from './mapToEditPasswordDto';

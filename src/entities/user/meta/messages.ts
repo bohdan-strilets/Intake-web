@@ -24,6 +24,7 @@ export const UserValidationMessages = {
     max: `Password must be at most ${PasswordConstraints.password.max} characters`,
     letter: 'Password must contain at least one letter',
     digit: 'Password must contain at least one digit',
+    match: 'New password and confirmation do not match',
   },
 
   age: {
