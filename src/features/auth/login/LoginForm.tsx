@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 import { UserFieldLabels } from '@entities/user/meta';
 
 import { Button } from '@shared/ui/controls/Button';
+import { PasswordInput } from '@shared/ui/controls/PasswordInput';
 import { TextInput } from '@shared/ui/controls/TextInput';
 import { Field } from '@shared/ui/form/Field';
 import { Form } from '@shared/ui/form/Form';
@@ -41,7 +42,7 @@ export const LoginForm = () => {
         label={UserFieldLabels.password}
         required
       >
-        <TextInput type="password" />
+        <PasswordInput />
       </Field>
 
       {errors.root && <FormError>{errors.root.message}</FormError>}
