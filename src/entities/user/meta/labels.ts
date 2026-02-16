@@ -5,7 +5,7 @@ export const UserFieldLabels = {
   password: 'Password',
   newPassword: 'New password',
   currentPassword: 'Current password',
-  confirmNewPassword: 'Confirm new password',
+  confirmNewPassword: 'Confirm password',
 
   sex: 'Sex',
   age: 'Age',

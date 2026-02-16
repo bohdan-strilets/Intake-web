@@ -10,6 +10,7 @@ import {
 } from '@entities/user';
 
 import { Button } from '@shared/ui/controls/Button';
+import { PasswordInput } from '@shared/ui/controls/PasswordInput';
 import { Select } from '@shared/ui/controls/Select';
 import { TextInput } from '@shared/ui/controls/TextInput';
 import { Field } from '@shared/ui/form/Field';
@@ -50,7 +51,15 @@ export const RegisterForm = () => {
           helperText={UserFieldHelpers.password}
           required
         >
-          <TextInput type="password" />
+          <PasswordInput />
+        </Field>
+
+        <Field<FormValues>
+          name="confirmPassword"
+          label={UserFieldLabels.confirmNewPassword}
+          required
+        >
+          <PasswordInput />
         </Field>
       </Card>
 

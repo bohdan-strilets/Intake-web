@@ -4,6 +4,7 @@ import type { UseFormReturn } from 'react-hook-form';
 import { ApiError, errorMessages } from '@shared/api/error';
 import { ROUTES } from '@shared/routes';
 
+import { mapToRegisterDto } from '../mappers';
 import type { FormValues } from '../types';
 
 import { useRegisterMutation } from './useMutation';
@@ -14,7 +15,8 @@ export const useSubmit = (methods: UseFormReturn<FormValues>) => {
 
   const onSubmit = async (values: FormValues) => {
     try {
-      await mutateAsync(values);
+      const dto = mapToRegisterDto(values);
+      await mutateAsync(dto);
       navigate({ to: ROUTES.auth.login, search: { registered: '1' } });
     } catch (error) {
       if (!(error instanceof ApiError)) return;

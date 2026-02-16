@@ -1,0 +1,1 @@
+export { mapToRegisterDto } from './mapToRegisterDto';
