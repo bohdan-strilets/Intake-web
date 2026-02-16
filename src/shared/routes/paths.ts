@@ -14,5 +14,6 @@ export const ROUTES = {
     stats: '/stats',
     profile: '/profile',
     editProfile: '/profile/edit',
+    editEmail: '/profile/edit-email',
   },
 } as const;

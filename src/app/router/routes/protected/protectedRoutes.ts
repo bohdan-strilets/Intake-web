@@ -5,6 +5,7 @@ import { protectedRoute } from '@app/router/core';
 import { DashboardPage } from '@pages/dashboard';
 import { DayPage } from '@pages/day';
 import { ProfilePage } from '@pages/profile';
+import { EditEmailPage } from '@pages/profile/editEmail';
 import { EditProfilePage } from '@pages/profile/editProfile';
 import { StatsPage } from '@pages/stats';
 
@@ -38,4 +39,10 @@ export const editProfileRoute = createRoute({
   getParentRoute: () => protectedRoute,
   path: ROUTES.app.editProfile,
   component: EditProfilePage,
+});
+
+export const editEmailRoute = createRoute({
+  getParentRoute: () => protectedRoute,
+  path: ROUTES.app.editEmail,
+  component: EditEmailPage,
 });

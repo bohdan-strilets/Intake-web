@@ -3,5 +3,6 @@ export {
   dayRoute,
   profileRoute,
   editProfileRoute,
+  editEmailRoute,
   statsRoute,
 } from './protectedRoutes';

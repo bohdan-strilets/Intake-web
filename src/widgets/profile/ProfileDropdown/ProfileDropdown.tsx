@@ -21,7 +21,7 @@ export const ProfileDropdown = () => {
           id: 'edit-email',
           label: 'Edit email',
           icon: 'email',
-          onSelect: () => null,
+          onSelect: () => navigate({ to: ROUTES.app.editEmail }),
         },
         {
           id: 'edit-password',
