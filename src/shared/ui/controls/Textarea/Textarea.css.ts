@@ -4,7 +4,7 @@ import { vars } from '@shared/styles/contract';
 
 export const textarea = recipe({
   base: {
-    maxWidth: '100%',
+    width: '100%',
     minWidth: 0,
 
     resize: 'none',
