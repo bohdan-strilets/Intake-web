@@ -39,6 +39,8 @@ import {
   UserRoundPen,
   LockKeyhole,
   LogOut,
+  EyeOff,
+  Eye,
 } from 'lucide-react';
 
 export const icons = {
@@ -67,6 +69,8 @@ export const icons = {
   chevronUp: ChevronUp,
   email: Mail,
   password: LockKeyhole,
+  eye: Eye,
+  eyeOff: EyeOff,
 
   // theme
   themeLight: Sun,
