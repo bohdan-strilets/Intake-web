@@ -4,8 +4,8 @@ import { protectedRoute } from '@app/router/core';
 
 import { DashboardPage } from '@pages/dashboard';
 import { DayPage } from '@pages/day';
-import { EditProfilePage } from '@pages/editProfile';
 import { ProfilePage } from '@pages/profile';
+import { EditProfilePage } from '@pages/profile/editProfile';
 import { StatsPage } from '@pages/stats';
 
 import { ROUTES } from '@shared/routes';
