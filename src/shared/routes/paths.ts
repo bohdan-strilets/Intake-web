@@ -15,5 +15,6 @@ export const ROUTES = {
     profile: '/profile',
     editProfile: '/profile/edit',
     editEmail: '/profile/edit-email',
+    editPassword: '/profile/edit-password',
   },
 } as const;

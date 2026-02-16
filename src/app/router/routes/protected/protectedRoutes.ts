@@ -6,6 +6,7 @@ import { DashboardPage } from '@pages/dashboard';
 import { DayPage } from '@pages/day';
 import { ProfilePage } from '@pages/profile';
 import { EditEmailPage } from '@pages/profile/editEmail';
+import { EditPasswordPage } from '@pages/profile/editPassword';
 import { EditProfilePage } from '@pages/profile/editProfile';
 import { StatsPage } from '@pages/stats';
 
@@ -45,4 +46,10 @@ export const editEmailRoute = createRoute({
   getParentRoute: () => protectedRoute,
   path: ROUTES.app.editEmail,
   component: EditEmailPage,
+});
+
+export const editPasswordRoute = createRoute({
+  getParentRoute: () => protectedRoute,
+  path: ROUTES.app.editPassword,
+  component: EditPasswordPage,
 });

@@ -3,6 +3,8 @@ import type { ErrorCode } from './errorCodes';
 export const errorMessages: Record<ErrorCode, string> = {
   EMAIL_ALREADY_EXISTS: 'Email already registered',
   INVALID_CREDENTIALS: 'Invalid email or password',
+  INVALID_CURRENT_PASSWORD: 'Invalid current password',
+  NEW_PASSWORD_MUST_BE_DIFFERENT: 'New password must be different',
   UNAUTHORIZED: 'Unauthorized',
 
   INVALID_SESSION: 'Session expired',

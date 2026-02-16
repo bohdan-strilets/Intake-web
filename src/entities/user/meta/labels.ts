@@ -2,6 +2,8 @@ export const UserFieldLabels = {
   name: 'Name',
   email: 'Email',
   password: 'Password',
+  newPassword: 'New password',
+  currentPassword: 'Current password',
   sex: 'Sex',
   age: 'Age',
   height: 'Height (cm)',

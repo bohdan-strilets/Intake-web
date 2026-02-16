@@ -27,7 +27,7 @@ export const ProfileDropdown = () => {
           id: 'edit-password',
           label: 'Edit password',
           icon: 'password',
-          onSelect: () => null,
+          onSelect: () => navigate({ to: ROUTES.app.editPassword }),
         },
       ]}
     />

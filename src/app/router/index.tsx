@@ -6,6 +6,7 @@ import {
   calendarRoute,
   dayRoute,
   editEmailRoute,
+  editPasswordRoute,
   editProfileRoute,
   profileRoute,
   statsRoute,
@@ -24,6 +25,7 @@ const routeTree = rootRoute.addChildren([
     profileRoute,
     editProfileRoute,
     editEmailRoute,
+    editPasswordRoute,
   ]),
 ]);
 
