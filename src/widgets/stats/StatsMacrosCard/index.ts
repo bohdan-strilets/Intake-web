@@ -1,0 +1,1 @@
+export { StatsMacrosCard } from './StatsMacrosCard';

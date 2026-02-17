@@ -2,7 +2,6 @@ import { Card } from '@shared/ui/layout/Card';
 import { Inline } from '@shared/ui/layout/Inline';
 import { Paragraph } from '@shared/ui/typography/Paragraph';
 
-import { caloriesValue } from './DayTotals.css';
 import type { DayTotalsProps } from './DayTotals.types';
 
 export const DayTotals = ({
@@ -14,7 +13,7 @@ export const DayTotals = ({
   return (
     <Card shadow="sm">
       <Inline align="baseline">
-        <Paragraph tone="accentPrimary" weight="bold" className={caloriesValue}>
+        <Paragraph tone="accentPrimary" weight="bold" size="display">
           {calories}
         </Paragraph>
         <Paragraph weight="medium" size="lg" tone="muted">
