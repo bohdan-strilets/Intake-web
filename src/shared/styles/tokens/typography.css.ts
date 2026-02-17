@@ -10,6 +10,8 @@ export const typography = {
     lg: '18px',
     xl: '22px',
     '2xl': '28px',
+    '3xl': '36px',
+    display: '64px',
   },
 
   fontWeight: {

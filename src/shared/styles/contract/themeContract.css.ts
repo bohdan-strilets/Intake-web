@@ -41,6 +41,8 @@ export const themeContract = {
       lg: null,
       xl: null,
       '2xl': null,
+      '3xl': null,
+      display: null,
     },
 
     fontWeight: {
