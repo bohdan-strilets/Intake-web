@@ -27,6 +27,6 @@ export const API_ROUTES = {
   },
 
   stats: {
-    range: '/stats/range',
+    range: '/stats',
   },
 } as const;
