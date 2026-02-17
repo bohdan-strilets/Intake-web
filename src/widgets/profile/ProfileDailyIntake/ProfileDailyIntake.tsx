@@ -19,7 +19,7 @@ export const ProfileDailyIntake = ({
         </Paragraph>
 
         <Stack gap="none" align="center">
-          <Paragraph size="2xl" weight="bold" tone="accentPrimary">
+          <Paragraph size="3xl" weight="bold" tone="accentPrimary">
             {recommendedCalories}
           </Paragraph>
           <Paragraph size="sm" tone="muted">
