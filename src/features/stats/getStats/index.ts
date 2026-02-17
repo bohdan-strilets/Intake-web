@@ -1,0 +1,1 @@
+export { useStatsQuery } from './useQuery';
