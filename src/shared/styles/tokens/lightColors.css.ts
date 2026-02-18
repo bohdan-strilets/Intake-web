@@ -16,17 +16,17 @@ export const lightColors = {
   accentPrimary: '#39C98A',
   accentSoft: '#DFF6ED',
 
-  danger: '#E5484D',
-  dangerSoft: '#FCEBEC',
+  danger: '#D64545',
+  dangerSoft: '#F7C7CB',
 
-  warning: '#F5A524',
-  warningSoft: '#FFF4D6',
+  warning: '#E89B1F',
+  warningSoft: '#FFE2B0',
 
-  success: '#39C98A',
-  successSoft: '#E6FAF3',
+  success: '#2FBF78',
+  successSoft: '#C9EEDF',
 
   info: '#3B82F6',
-  infoSoft: '#EAF1FF',
+  infoSoft: '#CFE1FF',
 
   overlay: 'rgba(0,0,0,0.5)',
 } as const;

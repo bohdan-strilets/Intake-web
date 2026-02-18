@@ -13,20 +13,20 @@ export const darkColors = {
   borderStrong: '#30343A',
   borderMuted: '#24272D',
 
-  accentPrimary: '#39C98A',
-  accentSoft: '#173A2C',
+  accentPrimary: '#4CD7A2',
+  accentSoft: '#12382A',
 
-  danger: '#FF6161',
-  dangerSoft: '#3B1C1C',
+  danger: '#E15A5A',
+  dangerSoft: '#5A2B2B',
 
-  warning: '#F6B23C',
-  warningSoft: '#3A2A14',
+  warning: '#D99A32',
+  warningSoft: '#5A3E17',
 
-  success: '#39C98A',
-  successSoft: '#173A2C',
+  success: '#3ACF8B',
+  successSoft: '#225643',
 
   info: '#5FA8FF',
-  infoSoft: '#1E2D45',
+  infoSoft: '#2F5696',
 
   overlay: 'rgba(0,0,0,0.8)',
 } as const;

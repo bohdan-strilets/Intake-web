@@ -4,4 +4,5 @@ export type CalendarCellProps = {
   cell: CalendarCell;
   onClick?: (date: string) => void;
   calories?: number;
+  targetCalories?: number;
 };

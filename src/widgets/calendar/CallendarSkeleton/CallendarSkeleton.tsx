@@ -17,7 +17,7 @@ export const CallendarSkeleton = () => {
 
       <Grid columns={7} gap="sm">
         {Array.from({ length: 42 }).map((_, index) => (
-          <Skeleton key={index} height={64} />
+          <Skeleton key={index} height={100} />
         ))}
       </Grid>
     </Card>

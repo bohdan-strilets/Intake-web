@@ -1,10 +1,11 @@
 import { useNavigate } from '@tanstack/react-router';
-import { useMemo } from 'react';
 
 import {
   CalendarController,
   useCalendarNavigation,
 } from '@widgets/calendar/CalendarController';
+import { CalendarErrorState } from '@widgets/calendar/CalendarErrorState';
+import { CalendarWeekDays } from '@widgets/calendar/CalendarWeekDays';
 import { CallendarSkeleton } from '@widgets/calendar/CallendarSkeleton';
 import { MonthCalendar, getMonthMatrix } from '@widgets/calendar/MonthCalendar';
 
@@ -12,9 +13,8 @@ import { useMonthDetailsQuery } from '@features/calendar/monthDetails';
 
 import { formatMonthLabel } from '@shared/lib/date';
 import { ROUTES } from '@shared/routes';
-import { ErrorState } from '@shared/ui/feedback/ErrorState';
 import { Card } from '@shared/ui/layout/Card';
-import { Divider } from '@shared/ui/layout/Divider';
+import { Stack } from '@shared/ui/layout/Stack';
 
 export const DashboardPage = () => {
   const navigate = useNavigate();
@@ -22,17 +22,15 @@ export const DashboardPage = () => {
   const { year, month, monthParam, goPrevMonth, goNextMonth } =
     useCalendarNavigation();
 
-  const {
-    data: monthDays,
-    isLoading,
-    isError,
-
-    refetch,
-  } = useMonthDetailsQuery({
+  const { data, isLoading, isError, refetch } = useMonthDetailsQuery({
     month: monthParam,
   });
 
-  const matrix = useMemo(() => getMonthMatrix(year, month), [year, month]);
+  if (isLoading) return <CallendarSkeleton />;
+  if (isError) return <CalendarErrorState refetch={refetch} />;
+  if (!data) return null;
+
+  const matrix = getMonthMatrix(year, month);
 
   const handleDayClick = (date: string) => {
     navigate({
@@ -41,44 +39,39 @@ export const DashboardPage = () => {
     });
   };
 
-  const monthLabel = formatMonthLabel(year, month);
-
-  const caloriesByDate = useMemo(() => {
+  const caloriesByDate = () => {
     if (!monthDays) return {};
 
     return Object.fromEntries(
-      monthDays.map((cell) => [cell.date, cell.totals.calories]),
+      monthDays.days.map((cell) => [cell.date, cell.totals.calories]),
     );
-  }, [monthDays]);
+  };
 
-  if (isLoading) return <CallendarSkeleton />;
+  const monthDays = data;
+  const targetCalories = monthDays.targetCalories;
 
-  if (isError) {
-    return (
-      <ErrorState
-        title="Failed to load calendar"
-        description="Please check your connection and try again."
-        actionLabel="Try again"
-        onAction={refetch}
-      />
-    );
-  }
+  const monthLabel = formatMonthLabel(year, month);
 
   return (
-    <Card shadow="sm">
-      <CalendarController
-        label={monthLabel}
-        onPrev={goPrevMonth}
-        onNext={goNextMonth}
-      />
+    <Stack gap="lg">
+      <Card shadow="sm">
+        <CalendarController
+          label={monthLabel}
+          onPrev={goPrevMonth}
+          onNext={goNextMonth}
+        />
+      </Card>
 
-      <Divider />
+      <Card shadow="sm">
+        <CalendarWeekDays />
 
-      <MonthCalendar
-        matrix={matrix}
-        onDayClick={handleDayClick}
-        caloriesByDate={caloriesByDate}
-      />
-    </Card>
+        <MonthCalendar
+          matrix={matrix}
+          onDayClick={handleDayClick}
+          caloriesByDate={caloriesByDate()}
+          targetCalories={targetCalories}
+        />
+      </Card>
+    </Stack>
   );
 };

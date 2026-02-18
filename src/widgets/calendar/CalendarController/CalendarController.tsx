@@ -16,7 +16,9 @@ export const CalendarController = ({
         <Icon name="chevronLeft" />
       </Button>
 
-      <Paragraph>{label}</Paragraph>
+      <Paragraph weight="bold" size="lg">
+        {label}
+      </Paragraph>
 
       <Button onClick={onNext} size="sm" variant="secondary">
         <Icon name="chevronRight" />
