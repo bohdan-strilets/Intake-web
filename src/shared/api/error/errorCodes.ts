@@ -17,6 +17,7 @@ export const ERROR_CODES = {
   AI_PARSE_FAILED: 'AI_PARSE_FAILED',
 
   SERVER_ERROR: 'SERVER_ERROR',
+  NETWORK_ERROR: 'NETWORK_ERROR',
 } as const;
 
 export type ErrorCode = (typeof ERROR_CODES)[keyof typeof ERROR_CODES];

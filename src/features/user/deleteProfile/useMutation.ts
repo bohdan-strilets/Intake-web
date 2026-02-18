@@ -3,6 +3,7 @@ import { useNavigate } from '@tanstack/react-router';
 
 import { authSelectors, tokenStorage } from '@entities/session';
 
+import { errorMessages } from '@shared/api/error';
 import { notify } from '@shared/lib/notify';
 import { ROUTES } from '@shared/routes';
 
@@ -22,6 +23,10 @@ export const useDeleteProfileMutation = () => {
 
       navigate({ to: ROUTES.auth.login });
       notify.success('Your account has been deleted');
+    },
+
+    onError: () => {
+      notify.error(errorMessages.SERVER_ERROR);
     },
   });
 };

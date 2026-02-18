@@ -15,9 +15,9 @@ export const useLogoutMutation = () => {
     mutationFn: async () => {
       const refreshToken = tokenStorage.get();
 
-      if (refreshToken) {
-        await logoutApi({ refreshToken });
-      }
+      if (!refreshToken) return;
+
+      await logoutApi({ refreshToken }).catch(() => {});
     },
 
     onSettled: () => {

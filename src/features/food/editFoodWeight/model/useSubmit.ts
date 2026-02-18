@@ -23,21 +23,32 @@ export const useSubmit = (
       });
 
       close();
-    } catch (error) {
-      if (!(error instanceof ApiError)) return;
-
-      if (error.code === 'FOOD_BAD_REQUEST') {
-        methods.setError('weight', {
-          message: errorMessages.FOOD_BAD_REQUEST,
+    } catch (error: unknown) {
+      if (!(error instanceof ApiError)) {
+        methods.setError('root', {
+          message: errorMessages.NETWORK_ERROR,
         });
-        methods.setFocus('weight');
         return;
       }
 
-      if (error.code === 'FOOD_NOT_FOUND') {
-        methods.setError('root', {
-          message: errorMessages.FOOD_NOT_FOUND,
-        });
+      switch (error.code) {
+        case 'FOOD_BAD_REQUEST':
+          methods.setError('weight', {
+            message: errorMessages.FOOD_BAD_REQUEST,
+          });
+          methods.setFocus('weight');
+          return;
+
+        case 'FOOD_NOT_FOUND':
+          methods.setError('root', {
+            message: errorMessages.FOOD_NOT_FOUND,
+          });
+          return;
+
+        default:
+          methods.setError('root', {
+            message: errorMessages.SERVER_ERROR,
+          });
       }
     }
   };

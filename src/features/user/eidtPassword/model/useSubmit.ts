@@ -29,23 +29,33 @@ export const useSubmit = (methods: UseFormReturn<FormValues>) => {
       queryClient.clear();
 
       navigate({ to: ROUTES.auth.login });
-    } catch (error) {
-      if (!(error instanceof ApiError)) return;
-
-      if (error.code === 'INVALID_CURRENT_PASSWORD') {
+    } catch (error: unknown) {
+      if (!(error instanceof ApiError)) {
         methods.setError('root', {
-          message: errorMessages.INVALID_CURRENT_PASSWORD,
+          message: errorMessages.NETWORK_ERROR,
         });
-        methods.setFocus('currentPassword');
         return;
       }
 
-      if (error.code === 'NEW_PASSWORD_MUST_BE_DIFFERENT') {
-        methods.setError('root', {
-          message: errorMessages.NEW_PASSWORD_MUST_BE_DIFFERENT,
-        });
-        methods.setFocus('newPassword');
-        return;
+      switch (error.code) {
+        case 'INVALID_CURRENT_PASSWORD':
+          methods.setError('root', {
+            message: errorMessages.INVALID_CURRENT_PASSWORD,
+          });
+          methods.setFocus('currentPassword');
+          return;
+
+        case 'NEW_PASSWORD_MUST_BE_DIFFERENT':
+          methods.setError('root', {
+            message: errorMessages.NEW_PASSWORD_MUST_BE_DIFFERENT,
+          });
+          methods.setFocus('newPassword');
+          return;
+
+        default:
+          methods.setError('root', {
+            message: errorMessages.SERVER_ERROR,
+          });
       }
     }
   };

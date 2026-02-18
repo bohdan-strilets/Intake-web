@@ -19,5 +19,6 @@ export const errorMessages: Record<ErrorCode, string> = {
 
   AI_PARSE_FAILED: 'Could not analyze food description',
 
-  SERVER_ERROR: 'Something went wrong',
+  SERVER_ERROR: 'Something went wrong. Please try again.',
+  NETWORK_ERROR: 'Connection problem. Please try again.',
 };

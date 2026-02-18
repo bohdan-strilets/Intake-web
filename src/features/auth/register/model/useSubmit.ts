@@ -18,21 +18,32 @@ export const useSubmit = (methods: UseFormReturn<FormValues>) => {
       const dto = mapToRegisterDto(values);
       await mutateAsync(dto);
       navigate({ to: ROUTES.auth.login, search: { registered: '1' } });
-    } catch (error) {
-      if (!(error instanceof ApiError)) return;
-
-      if (error.code === 'EMAIL_ALREADY_EXISTS') {
-        methods.setError('email', {
-          message: errorMessages.EMAIL_ALREADY_EXISTS,
+    } catch (error: unknown) {
+      if (!(error instanceof ApiError)) {
+        methods.setError('root', {
+          message: errorMessages.NETWORK_ERROR,
         });
-        methods.setFocus('email');
         return;
       }
 
-      if (error.code === 'VALIDATION_ERROR') {
-        methods.setError('root', {
-          message: errorMessages.VALIDATION_ERROR,
-        });
+      switch (error.code) {
+        case 'EMAIL_ALREADY_EXISTS':
+          methods.setError('email', {
+            message: errorMessages.EMAIL_ALREADY_EXISTS,
+          });
+          methods.setFocus('email');
+          return;
+
+        case 'VALIDATION_ERROR':
+          methods.setError('root', {
+            message: errorMessages.VALIDATION_ERROR,
+          });
+          return;
+
+        default:
+          methods.setError('root', {
+            message: errorMessages.SERVER_ERROR,
+          });
       }
     }
   };

@@ -17,20 +17,31 @@ export const useSubmit = (methods: UseFormReturn<FormValues>, date: string) => {
       });
 
       methods.reset();
-    } catch (error) {
-      if (!(error instanceof ApiError)) return;
-
-      if (error.code === 'AI_PARSE_FAILED') {
+    } catch (error: unknown) {
+      if (!(error instanceof ApiError)) {
         methods.setError('root', {
-          message: errorMessages.AI_PARSE_FAILED,
+          message: errorMessages.NETWORK_ERROR,
         });
         return;
       }
 
-      if (error.code === 'VALIDATION_ERROR') {
-        methods.setError('root', {
-          message: errorMessages.VALIDATION_ERROR,
-        });
+      switch (error.code) {
+        case 'AI_PARSE_FAILED':
+          methods.setError('root', {
+            message: errorMessages.AI_PARSE_FAILED,
+          });
+          return;
+
+        case 'VALIDATION_ERROR':
+          methods.setError('root', {
+            message: errorMessages.VALIDATION_ERROR,
+          });
+          return;
+
+        default:
+          methods.setError('root', {
+            message: errorMessages.SERVER_ERROR,
+          });
       }
     }
   };

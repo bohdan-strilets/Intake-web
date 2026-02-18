@@ -27,23 +27,33 @@ export const useSubmit = (methods: UseFormReturn<FormValues>) => {
 
       const loginRouteParams = { date: formatDate(new Date()) };
       navigate({ to: ROUTES.app.day, params: loginRouteParams });
-    } catch (error) {
-      if (!(error instanceof ApiError)) return;
-
-      if (error.code === 'INVALID_CREDENTIALS') {
-        setCanRestore(false);
-
+    } catch (error: unknown) {
+      if (!(error instanceof ApiError)) {
         methods.setError('root', {
-          message: errorMessages.INVALID_CREDENTIALS,
+          message: errorMessages.NETWORK_ERROR,
         });
+        return;
       }
 
-      if (error.code === 'ACCOUNT_DELETED') {
-        setCanRestore(true);
+      switch (error.code) {
+        case 'INVALID_CREDENTIALS':
+          setCanRestore(false);
+          methods.setError('root', {
+            message: errorMessages.INVALID_CREDENTIALS,
+          });
+          return;
 
-        methods.setError('root', {
-          message: errorMessages.ACCOUNT_DELETED,
-        });
+        case 'ACCOUNT_DELETED':
+          setCanRestore(true);
+          methods.setError('root', {
+            message: errorMessages.ACCOUNT_DELETED,
+          });
+          return;
+
+        default:
+          methods.setError('root', {
+            message: errorMessages.SERVER_ERROR,
+          });
       }
     }
   };

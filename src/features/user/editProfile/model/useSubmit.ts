@@ -21,20 +21,31 @@ export const useSubmit = (methods: UseFormReturn<FormValues>) => {
 
       notify.success('Profile updated successfully');
       navigate({ to: ROUTES.app.profile });
-    } catch (error) {
-      if (!(error instanceof ApiError)) return;
-
-      if (error.code === 'UNAUTHORIZED') {
+    } catch (error: unknown) {
+      if (!(error instanceof ApiError)) {
         methods.setError('root', {
-          message: errorMessages.UNAUTHORIZED,
+          message: errorMessages.NETWORK_ERROR,
         });
         return;
       }
 
-      if (error.code === 'VALIDATION_ERROR') {
-        methods.setError('root', {
-          message: errorMessages.VALIDATION_ERROR,
-        });
+      switch (error.code) {
+        case 'UNAUTHORIZED':
+          methods.setError('root', {
+            message: errorMessages.UNAUTHORIZED,
+          });
+          return;
+
+        case 'VALIDATION_ERROR':
+          methods.setError('root', {
+            message: errorMessages.VALIDATION_ERROR,
+          });
+          return;
+
+        default:
+          methods.setError('root', {
+            message: errorMessages.SERVER_ERROR,
+          });
       }
     }
   };

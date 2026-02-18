@@ -2,7 +2,9 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 
 import { dayQueryKeys } from '@entities/day';
 
+import { errorMessages } from '@shared/api/error';
 import { getMonthFromDate } from '@shared/lib/date';
+import { notify } from '@shared/lib/notify';
 
 import { deleteFoodApi } from './api';
 import type { MutationParams } from './types';
@@ -23,6 +25,10 @@ export const useDeleteFoodMutation = () => {
       queryClient.invalidateQueries({
         queryKey: dayQueryKeys.calendar(getMonthFromDate(date)),
       });
+    },
+
+    onError: () => {
+      notify.error(errorMessages.SERVER_ERROR);
     },
   });
 };
