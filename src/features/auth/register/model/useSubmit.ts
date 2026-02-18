@@ -2,6 +2,7 @@ import { useNavigate } from '@tanstack/react-router';
 import type { UseFormReturn } from 'react-hook-form';
 
 import { ApiError, errorMessages } from '@shared/api/error';
+import { notify } from '@shared/lib/notify';
 import { ROUTES } from '@shared/routes';
 
 import { mapToRegisterDto } from '../mappers';
@@ -17,6 +18,8 @@ export const useSubmit = (methods: UseFormReturn<FormValues>) => {
     try {
       const dto = mapToRegisterDto(values);
       await mutateAsync(dto);
+
+      notify.success('Account created. Please log in.');
       navigate({ to: ROUTES.auth.login, search: { registered: '1' } });
     } catch (error: unknown) {
       if (!(error instanceof ApiError)) {

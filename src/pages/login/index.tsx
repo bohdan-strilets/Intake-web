@@ -5,7 +5,6 @@ import { loginRoute } from '@app/router/routes/auth';
 
 import { LoginForm } from '@features/auth/login';
 
-import { notify } from '@shared/lib/notify';
 import { ROUTES } from '@shared/routes';
 import { TextLink } from '@shared/ui/controls/TextLink';
 import { Card } from '@shared/ui/layout/Card';
@@ -20,9 +19,9 @@ export const LoginPage = () => {
   useEffect(() => {
     if (!wasRegistered) return;
 
-    notify.success('Account created. Please log in.');
+    // notify.success('Account created. Please log in.');
 
-    navigate({ to: loginRoute.id, search: {}, replace: true });
+    navigate({ to: ROUTES.auth.login, search: {}, replace: true });
   }, [navigate, wasRegistered]);
 
   return (
