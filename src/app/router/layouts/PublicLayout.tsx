@@ -1,9 +1,11 @@
 import { Outlet } from '@tanstack/react-router';
 
+import { PublicShell } from '@app/layouts/PublicShell';
+
 export const PublicLayout = () => {
   return (
-    <div>
+    <PublicShell>
       <Outlet />
-    </div>
+    </PublicShell>
   );
 };
