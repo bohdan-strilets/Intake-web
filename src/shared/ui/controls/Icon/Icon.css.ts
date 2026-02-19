@@ -21,6 +21,7 @@ export const root = recipe({
       infoSoft: { color: vars.colors.infoSoft },
       accentPrimary: { color: vars.colors.accentPrimary },
       accentSoft: { color: vars.colors.accentSoft },
+      accentOn: { color: vars.colors.textOnAccent },
     },
 
     size: {

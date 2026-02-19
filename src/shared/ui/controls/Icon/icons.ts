@@ -41,6 +41,9 @@ import {
   LogOut,
   EyeOff,
   Eye,
+  Sparkles,
+  BadgeCheck,
+  CameraOff,
 } from 'lucide-react';
 
 export const icons = {
@@ -51,6 +54,7 @@ export const icons = {
   check: Check,
   close: X,
   warning: AlertTriangle,
+  success: BadgeCheck,
   more: EllipsisVertical,
   editUser: UserRoundPen,
 
@@ -71,6 +75,8 @@ export const icons = {
   password: LockKeyhole,
   eye: Eye,
   eyeOff: EyeOff,
+  magic: Sparkles,
+  cameraOff: CameraOff,
 
   // theme
   themeLight: Sun,
