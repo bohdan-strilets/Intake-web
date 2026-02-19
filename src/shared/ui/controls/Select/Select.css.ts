@@ -75,7 +75,9 @@ export const list = style({
   top: '100%',
   left: 0,
   right: 0,
+  zIndex: vars.zIndex.dropdown,
 
+  maxHeight: '280px',
   padding: 0,
   marginTop: vars.spacing.xs,
   backgroundColor: vars.colors.backgroundSurface,
@@ -84,7 +86,7 @@ export const list = style({
   border: `1px solid ${vars.colors.borderMuted}`,
   boxShadow: vars.shadows.md,
 
-  zIndex: 10,
+  overflowY: 'auto',
 });
 
 export const item = style({
