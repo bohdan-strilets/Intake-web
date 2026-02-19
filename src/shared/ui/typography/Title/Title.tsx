@@ -7,13 +7,14 @@ export const Title = ({
   children,
   level,
   size,
+  align,
   tone,
   className,
 }: TitleProps) => {
   const Component = `h${level}` as const;
 
   return (
-    <Component className={clsx(root({ size, tone }), className)}>
+    <Component className={clsx(root({ size, align, tone }), className)}>
       {children}
     </Component>
   );

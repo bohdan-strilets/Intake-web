@@ -21,6 +21,14 @@ export const root = recipe({
       md: { fontSize: vars.typography.fontSize.lg },
       lg: { fontSize: vars.typography.fontSize.xl },
       xl: { fontSize: vars.typography.fontSize['2xl'] },
+      '2xl': { fontSize: vars.typography.fontSize['3xl'] },
+      '3xl': { fontSize: vars.typography.fontSize.display },
+    },
+
+    align: {
+      left: { textAlign: 'left' },
+      center: { textAlign: 'center' },
+      right: { textAlign: 'right' },
     },
 
     tone: {
