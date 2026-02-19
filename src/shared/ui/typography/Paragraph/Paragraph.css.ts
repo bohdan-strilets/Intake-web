@@ -53,6 +53,10 @@ export const root = recipe({
       center: { textAlign: 'center' },
       right: { textAlign: 'right' },
     },
+
+    uppercase: {
+      true: { textTransform: 'uppercase' },
+    },
   },
 
   defaultVariants: {

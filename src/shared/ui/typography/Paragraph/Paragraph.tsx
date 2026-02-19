@@ -9,13 +9,17 @@ export const Paragraph = ({
   tone,
   align,
   weight,
+  uppercase,
   className,
   ...rest
 }: ParagraphProps) => {
   return (
     <p
       {...rest}
-      className={clsx(root({ size, tone, align, weight }), className)}
+      className={clsx(
+        root({ size, tone, align, weight, uppercase }),
+        className,
+      )}
     >
       {children}
     </p>
