@@ -1,11 +1,10 @@
 import { Button } from '@shared/ui/controls/Button';
-import { Icon } from '@shared/ui/controls/Icon';
+import { IconBadge } from '@shared/ui/controls/IconBadge';
 import { Card } from '@shared/ui/layout/Card';
 import { Inline } from '@shared/ui/layout/Inline';
 import { Spacer } from '@shared/ui/layout/Spacer';
 import { Paragraph } from '@shared/ui/typography/Paragraph';
 
-import { iconWrapper } from './ErrorState.css';
 import type { ErrorStateProps } from './ErrorState.types';
 
 export const ErrorState = ({
@@ -17,14 +16,17 @@ export const ErrorState = ({
   return (
     <Card shadow="sm">
       <Inline justify="center">
-        <div className={iconWrapper}>
-          <Icon name="warning" color="warning" size="lg" />
-        </div>
+        <IconBadge
+          name="warning"
+          color="warning"
+          background="warningSoft"
+          size="md"
+        />
       </Inline>
 
       <Spacer size="lg" />
 
-      <Paragraph weight="bold" align="center">
+      <Paragraph weight="bold" align="center" size="lg">
         {title}
       </Paragraph>
 
@@ -34,12 +36,14 @@ export const ErrorState = ({
         </Paragraph>
       )}
 
-      <Spacer size="lg" />
-
       {actionLabel && onAction && (
-        <Button variant="secondary" size="sm" onClick={onAction} fullWidth>
-          {actionLabel}
-        </Button>
+        <>
+          <Spacer size="lg" />
+
+          <Button variant="secondary" size="sm" onClick={onAction} fullWidth>
+            {actionLabel}
+          </Button>
+        </>
       )}
     </Card>
   );
