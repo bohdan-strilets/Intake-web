@@ -21,7 +21,7 @@ export const useDeleteProfileMutation = () => {
       authSelectors.clear();
       tokenStorage.clear();
 
-      navigate({ to: ROUTES.auth.login });
+      navigate({ to: ROUTES.public.home });
       notify.success('Your account has been deleted');
     },
 

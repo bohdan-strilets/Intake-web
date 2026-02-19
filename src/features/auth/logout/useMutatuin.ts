@@ -25,7 +25,7 @@ export const useLogoutMutation = () => {
       authSelectors.clear();
       tokenStorage.clear();
 
-      navigate({ to: ROUTES.auth.login });
+      navigate({ to: ROUTES.public.home });
     },
   });
 };
