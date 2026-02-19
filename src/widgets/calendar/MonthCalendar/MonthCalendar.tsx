@@ -2,7 +2,7 @@ import { Grid } from '@shared/ui/layout/Grid';
 
 import { CalendarCell } from '../CalendarCell';
 
-import type { MonthCalendarProps } from './types/props.type';
+import type { MonthCalendarProps } from './MonthCalendar.types';
 
 export const MonthCalendar = ({
   matrix,

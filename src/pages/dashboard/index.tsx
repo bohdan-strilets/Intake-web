@@ -7,10 +7,11 @@ import {
 import { CalendarErrorState } from '@widgets/calendar/CalendarErrorState';
 import { CalendarWeekDays } from '@widgets/calendar/CalendarWeekDays';
 import { CallendarSkeleton } from '@widgets/calendar/CallendarSkeleton';
-import { MonthCalendar, getMonthMatrix } from '@widgets/calendar/MonthCalendar';
+import { MonthCalendar } from '@widgets/calendar/MonthCalendar';
 
 import { useMonthDetailsQuery } from '@features/calendar/monthDetails';
 
+import { getMonthMatrix } from '@shared/lib/calendar';
 import { formatMonthLabel } from '@shared/lib/date';
 import { ROUTES } from '@shared/routes';
 import { Card } from '@shared/ui/layout/Card';

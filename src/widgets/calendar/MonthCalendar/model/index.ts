@@ -1,1 +1,0 @@
-export { getMonthMatrix } from './getMonthMatrix';

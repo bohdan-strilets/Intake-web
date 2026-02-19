@@ -35,6 +35,7 @@ export const ProfilePage = () => {
       <ProfileBodySection
         sex={userProfile.sex}
         age={userProfile.age}
+        dateOfBirth={userProfile.dateOfBirth}
         height={userProfile.height}
         weight={userProfile.weight}
         targetWeight={userProfile.targetWeight}

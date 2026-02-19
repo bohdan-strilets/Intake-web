@@ -10,6 +10,7 @@ import {
 } from '@entities/user';
 
 import { Button } from '@shared/ui/controls/Button';
+import { DatePicker } from '@shared/ui/controls/DatePicker';
 import { PasswordInput } from '@shared/ui/controls/PasswordInput';
 import { Select } from '@shared/ui/controls/Select';
 import { TextInput } from '@shared/ui/controls/TextInput';
@@ -78,13 +79,12 @@ export const RegisterForm = () => {
         </Field>
 
         <Field<FormValues>
-          name="age"
-          label={UserFieldLabels.age}
-          helperText={UserFieldHelpers.age}
+          name="dateOfBirth"
+          label={UserFieldLabels.dateOfBirth}
           required
-          valueAsNumber
+          controlType="controlled"
         >
-          <TextInput type="number" step={1} inputMode="numeric" />
+          <DatePicker />
         </Field>
 
         <Field<FormValues>

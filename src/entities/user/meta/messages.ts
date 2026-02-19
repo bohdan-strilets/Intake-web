@@ -27,9 +27,8 @@ export const UserValidationMessages = {
     match: 'New password and confirmation do not match',
   },
 
-  age: {
-    min: `Age must be at least ${UserConstraints.age.min}`,
-    max: `Age must be at most ${UserConstraints.age.max}`,
+  dateOfBirth: {
+    invalid: 'Date of birth must be a valid date',
   },
 
   height: {

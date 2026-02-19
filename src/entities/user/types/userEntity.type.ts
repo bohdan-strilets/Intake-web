@@ -9,6 +9,7 @@ export type UserEntity = {
   name: string;
 
   sex: Sex;
+  dateOfBirth: string;
   age: number;
 
   height: number;

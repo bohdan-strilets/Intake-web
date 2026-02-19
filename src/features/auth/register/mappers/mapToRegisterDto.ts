@@ -6,7 +6,7 @@ export const mapToRegisterDto = (values: FormValues) => {
     email: values.email,
     password: values.password,
     sex: values.sex,
-    age: values.age,
+    dateOfBirth: values.dateOfBirth,
     height: values.height,
     weight: values.weight,
     goal: values.goal,

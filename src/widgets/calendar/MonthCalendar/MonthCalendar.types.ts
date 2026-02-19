@@ -1,7 +1,7 @@
-import type { CalendarCell } from '@widgets/calendar/MonthCalendar/types';
+import type { MatrixCell } from '@shared/lib/calendar';
 
 export type MonthCalendarProps = {
-  matrix: CalendarCell[][];
+  matrix: MatrixCell[][];
   onDayClick: (date: string) => void;
   caloriesByDate?: Record<string, number>;
   targetCalories?: number;

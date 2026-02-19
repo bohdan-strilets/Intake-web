@@ -6,7 +6,7 @@ export const mapProfileToForm = (user: UserEntity): FormValues => {
   return {
     name: user.name,
     sex: user.sex,
-    age: user.age,
+    dateOfBirth: user.dateOfBirth,
     height: user.height,
     weight: user.weight,
     targetWeight: user.targetWeight ?? undefined,

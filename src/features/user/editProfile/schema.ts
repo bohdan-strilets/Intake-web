@@ -6,8 +6,10 @@ import {
   UserValidationMessages,
 } from '@entities/user';
 
+import { isValidISODate, isWithinRange } from '@shared/lib/date';
 import { hasOneDecimal } from '@shared/lib/number';
 import { z } from '@shared/lib/zod';
+import { dateRegex } from '@shared/regex';
 
 export const schema = z
   .object({
@@ -25,13 +27,25 @@ export const schema = z
       .enum(SEX, { message: UserValidationMessages.common.required })
       .optional(),
 
-    age: z
-      .number(UserValidationMessages.common.type)
-      .int({ message: UserValidationMessages.common.integer })
-      .min(UserConstraints.age.min, { message: UserValidationMessages.age.min })
-      .max(UserConstraints.age.max, {
-        message: UserValidationMessages.age.max,
+    dateOfBirth: z
+      .string()
+      .regex(dateRegex, {
+        message: UserValidationMessages.dateOfBirth.invalid,
       })
+      .refine(isValidISODate, {
+        message: UserValidationMessages.dateOfBirth.invalid,
+      })
+      .refine(
+        (value) =>
+          isWithinRange(
+            value,
+            UserConstraints.dateOfBirth.minDate,
+            UserConstraints.dateOfBirth.maxDate,
+          ),
+        {
+          message: UserValidationMessages.dateOfBirth.invalid,
+        },
+      )
       .optional(),
 
     height: z
@@ -96,7 +110,7 @@ export const schema = z
     const requiredFields: (keyof typeof data)[] = [
       'name',
       'sex',
-      'age',
+      'dateOfBirth',
       'height',
       'weight',
       'goal',

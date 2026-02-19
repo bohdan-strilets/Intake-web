@@ -6,7 +6,7 @@ export type ApiDto = {
   password: string;
 
   sex: Sex;
-  age: number;
+  dateOfBirth: string;
 
   height: number;
   weight: number;

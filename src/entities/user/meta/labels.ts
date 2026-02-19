@@ -8,7 +8,7 @@ export const UserFieldLabels = {
   confirmNewPassword: 'Confirm password',
 
   sex: 'Sex',
-  age: 'Age',
+  dateOfBirth: 'Date of Birth',
 
   height: 'Height (cm)',
   weight: 'Weight (kg)',

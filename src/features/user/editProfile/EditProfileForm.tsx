@@ -13,6 +13,7 @@ import {
 } from '@entities/user';
 
 import { Button } from '@shared/ui/controls/Button';
+import { DatePicker } from '@shared/ui/controls/DatePicker';
 import { Select } from '@shared/ui/controls/Select';
 import { TextInput } from '@shared/ui/controls/TextInput';
 import { Field } from '@shared/ui/form/Field';
@@ -73,12 +74,12 @@ export const EditProfileForm = ({ initialState }: FormProps) => {
         </Field>
 
         <Field<FormValues>
-          name="age"
-          label={UserFieldLabels.age}
-          helperText={UserFieldHelpers.age}
-          valueAsNumber
+          name="dateOfBirth"
+          label={UserFieldLabels.dateOfBirth}
+          required
+          controlType="controlled"
         >
-          <TextInput type="number" step={1} inputMode="numeric" />
+          <DatePicker />
         </Field>
 
         <Field<FormValues>
