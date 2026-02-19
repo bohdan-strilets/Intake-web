@@ -19,8 +19,6 @@ export const LoginPage = () => {
   useEffect(() => {
     if (!wasRegistered) return;
 
-    // notify.success('Account created. Please log in.');
-
     navigate({ to: ROUTES.auth.login, search: {}, replace: true });
   }, [navigate, wasRegistered]);
 
