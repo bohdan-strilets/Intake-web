@@ -7,3 +7,6 @@ export { getRelativeDayLabel } from './getRelativeDayLabel';
 export { getMonthFromDate } from './getMonthFromDate';
 export { getWeekRange } from './getWeekRange';
 export { getMonthRange } from './getMonthRange';
+export { isValidISODate } from './isValidISODate';
+export { isWithinRange } from './isWithinRange';
+export { toMidnight } from './toMidnight';
