@@ -1,5 +1,7 @@
 import { createRouter } from '@tanstack/react-router';
 
+import { NotFoundPage } from '@pages/notFound';
+
 import { authRoute, protectedRoute, publicRoute, rootRoute } from './core';
 import { loginRoute, registerRoute } from './routes/auth';
 import {
@@ -33,4 +35,5 @@ export const router = createRouter({
   routeTree,
   defaultPreload: 'intent',
   scrollRestoration: true,
+  defaultNotFoundComponent: NotFoundPage,
 });
