@@ -11,19 +11,22 @@ import { FoodList } from '@widgets/day/FoodList';
 import { useDayDetailsQury } from '@features/day/dayDetails';
 import { AddFoodForm } from '@features/food/addFood';
 
+import { resolveDayParam } from '@entities/day';
+
 import { ErrorState } from '@shared/ui/feedback/ErrorState';
 import { Card } from '@shared/ui/layout/Card';
 import { Stack } from '@shared/ui/layout/Stack';
 
 export const DayPage = () => {
   const { date } = useParams({ from: dayRoute.id });
+  const resolvedDate = resolveDayParam(date);
 
   const {
     data: dayDetails,
     isPending,
     isError,
     refetch,
-  } = useDayDetailsQury(date);
+  } = useDayDetailsQury(resolvedDate);
 
   if (isPending) return <DaySkeleton />;
 

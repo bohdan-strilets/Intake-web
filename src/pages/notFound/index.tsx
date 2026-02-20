@@ -1,6 +1,7 @@
 import { useNavigate } from '@tanstack/react-router';
 
-import { formatDate } from '@shared/lib/date';
+import { DAY_ALIAS } from '@entities/day';
+
 import { ROUTES } from '@shared/routes';
 import { Button } from '@shared/ui/controls/Button';
 import { Card } from '@shared/ui/layout/Card';
@@ -12,10 +13,7 @@ export const NotFoundPage = () => {
   const navigate = useNavigate();
 
   const handleGoToToday = () => {
-    navigate({
-      to: ROUTES.app.day,
-      params: { date: formatDate(new Date()) },
-    });
+    navigate({ to: ROUTES.app.day, params: { date: DAY_ALIAS.TODAY } });
   };
 
   return (

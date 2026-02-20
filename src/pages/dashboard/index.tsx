@@ -34,10 +34,7 @@ export const DashboardPage = () => {
   const matrix = getMonthMatrix(year, month);
 
   const handleDayClick = (date: string) => {
-    navigate({
-      to: ROUTES.app.day,
-      params: { date },
-    });
+    navigate({ to: ROUTES.app.day, params: { date } });
   };
 
   const caloriesByDate = () => {

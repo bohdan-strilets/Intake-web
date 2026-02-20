@@ -1,0 +1,1 @@
+export { resolveDayParam } from './resolveDayParam';

@@ -2,10 +2,10 @@ import { useNavigate } from '@tanstack/react-router';
 import { useState } from 'react';
 import type { UseFormReturn } from 'react-hook-form';
 
+import { DAY_ALIAS } from '@entities/day';
 import { authSelectors, tokenStorage } from '@entities/session';
 
 import { ApiError, errorMessages } from '@shared/api/error';
-import { formatDate } from '@shared/lib/date';
 import { ROUTES } from '@shared/routes';
 
 import type { FormValues } from '../types';
@@ -25,8 +25,7 @@ export const useSubmit = (methods: UseFormReturn<FormValues>) => {
       authSelectors.setAccessToken(data.accessToken);
       tokenStorage.set(data.refreshToken);
 
-      const loginRouteParams = { date: formatDate(new Date()) };
-      navigate({ to: ROUTES.app.day, params: loginRouteParams });
+      navigate({ to: ROUTES.app.day, params: { date: DAY_ALIAS.TODAY } });
     } catch (error: unknown) {
       if (!(error instanceof ApiError)) {
         methods.setError('root', {

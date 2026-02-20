@@ -47,10 +47,10 @@ export const content = style({
 export const navigationSection = style({
   position: 'sticky',
   bottom: 0,
+  flexShrink: 0,
   zIndex: vars.zIndex.navigation,
 
-  flexShrink: 0,
-
-  background: vars.colors.backgroundPrimary,
+  background: vars.colors.backgroundSurface,
   borderTop: `1px solid ${vars.colors.borderMuted}`,
+  boxShadow: vars.shadows.md,
 });
