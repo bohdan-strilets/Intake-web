@@ -1,17 +1,11 @@
-import { useCallback } from 'react';
-
-import { useTheme } from '@shared/styles/model';
+import { useResolvedTheme } from '@shared/styles/model';
 import { Icon } from '@shared/ui/controls/Icon';
 
 import { root } from './ThemeToggle.css';
 
 export const ThemeToggle = () => {
-  const { theme, setTheme } = useTheme();
-  const isDark = theme === 'dark';
-
-  const toggleTheme = useCallback(() => {
-    setTheme(isDark ? 'light' : 'dark');
-  }, [isDark, setTheme]);
+  const { resolved, toggleLightDark } = useResolvedTheme();
+  const isDark = resolved === 'dark';
 
   return (
     <button
@@ -19,8 +13,8 @@ export const ThemeToggle = () => {
       role="switch"
       aria-checked={isDark}
       aria-label="Toggle theme"
-      className={root({})}
-      onClick={toggleTheme}
+      className={root}
+      onClick={toggleLightDark}
     >
       <Icon name={isDark ? 'themeDark' : 'themeLight'} color="accentPrimary" />
     </button>
