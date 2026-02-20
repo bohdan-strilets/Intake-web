@@ -2,6 +2,16 @@ import { globalStyle } from '@vanilla-extract/css';
 
 import { vars } from './contract';
 
+globalStyle(
+  'input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:focus, input:-webkit-autofill:active',
+  {
+    WebkitBoxShadow: `0 0 0 1000px ${vars.colors.backgroundSurface} inset !important`,
+    WebkitTextFillColor: `${vars.colors.textPrimary} !important`,
+    caretColor: vars.colors.textPrimary,
+    transition: 'background-color 9999s ease-out 0s',
+  },
+);
+
 globalStyle('body, button, input, textarea, div, section', {
   transition: `
     background-color 180ms ease,
