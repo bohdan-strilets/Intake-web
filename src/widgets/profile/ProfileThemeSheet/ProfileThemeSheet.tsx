@@ -29,16 +29,11 @@ export const ProfileThemeSheet = () => {
           <Inline align="center" justify="between">
             <Inline gap="lg" align="center">
               <Icon name={'themeSystem'} size="lg" />
-              <Paragraph>{themeLabelMap[THEME.SYSTEM]}</Paragraph>
+              <Paragraph>{themeLabelMap[theme]}</Paragraph>
             </Inline>
 
             {theme === THEME.SYSTEM && (
-              <Stack align="end">
-                <Icon name="check" color="accentPrimary" />
-                <Paragraph size="xs" tone="muted">
-                  {themeLabelMap[THEME.SYSTEM]}
-                </Paragraph>
-              </Stack>
+              <Icon name="check" color="accentPrimary" />
             )}
           </Inline>
         </button>

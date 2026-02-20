@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 
+import { THEME } from '@shared/styles/enums';
 import { resolveTheme } from '@shared/styles/lib/resolveTheme';
 import { useTheme } from '@shared/styles/model';
 import { darkThemeClass, lightThemeClass } from '@shared/styles/themes';
@@ -28,13 +29,13 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
     const applyTheme = () => {
       const resolved = resolveTheme(theme);
 
-      root.classList.toggle(darkThemeClass, resolved === 'dark');
-      root.classList.toggle(lightThemeClass, resolved === 'light');
+      root.classList.toggle(darkThemeClass, resolved === THEME.DARK);
+      root.classList.toggle(lightThemeClass, resolved === THEME.LIGHT);
     };
 
     applyTheme();
 
-    if (theme === 'system') {
+    if (theme === THEME.SYSTEM) {
       media.addEventListener('change', applyTheme);
       return () => media.removeEventListener('change', applyTheme);
     }
