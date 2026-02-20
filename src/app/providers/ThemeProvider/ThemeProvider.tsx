@@ -11,15 +11,25 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
 
   useEffect(() => {
     const root = document.documentElement;
+
+    root.classList.add('no-theme-transition');
+
+    const id = requestAnimationFrame(() => {
+      root.classList.remove('no-theme-transition');
+    });
+
+    return () => cancelAnimationFrame(id);
+  }, []);
+
+  useEffect(() => {
+    const root = document.documentElement;
     const media = window.matchMedia('(prefers-color-scheme: dark)');
 
     const applyTheme = () => {
       const resolved = resolveTheme(theme);
 
-      root.classList.remove(lightThemeClass, darkThemeClass);
-      root.classList.add(
-        resolved === 'dark' ? darkThemeClass : lightThemeClass,
-      );
+      root.classList.toggle(darkThemeClass, resolved === 'dark');
+      root.classList.toggle(lightThemeClass, resolved === 'light');
     };
 
     applyTheme();

@@ -2,6 +2,18 @@ import { globalStyle } from '@vanilla-extract/css';
 
 import { vars } from './contract';
 
+globalStyle('body, button, input, textarea, div, section', {
+  transition: `
+    background-color 180ms ease,
+    color 180ms ease,
+    border-color 180ms ease
+  `,
+});
+
+globalStyle('.no-theme-transition *', {
+  transition: 'none !important',
+});
+
 globalStyle('html, body', {
   height: '100%',
 });

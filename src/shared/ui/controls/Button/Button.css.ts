@@ -9,8 +9,11 @@ export const root = recipe({
     justifyContent: 'center',
 
     appearance: 'none',
-    border: 'none',
     background: 'transparent',
+
+    borderWidth: '1px',
+    borderStyle: 'solid',
+    borderColor: 'transparent',
 
     font: 'inherit',
     color: 'inherit',
@@ -59,8 +62,8 @@ export const root = recipe({
 
       ghost: {
         backgroundColor: 'transparent',
-        border: `1px solid ${vars.colors.borderMuted}`,
         color: vars.colors.textPrimary,
+        borderColor: vars.colors.borderMuted,
 
         selectors: {
           '&:hover:not(:disabled)': {
