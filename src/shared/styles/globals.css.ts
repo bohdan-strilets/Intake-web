@@ -39,8 +39,8 @@ globalStyle('h1, h2, h3, h4, h5, h6', {
 });
 
 globalStyle(':focus-visible', {
-  outline: `2px solid ${vars.colors.accentPrimary}`,
-  outlineOffset: '2px',
+  outline: `2px dotted ${vars.colors.accentPrimary}`,
+  outlineOffset: '4px',
 });
 
 globalStyle('::selection', {

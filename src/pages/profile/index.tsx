@@ -4,6 +4,7 @@ import { ProfileBodySection } from '@widgets/profile/ProfileBodySection';
 import { ProfileDailyIntake } from '@widgets/profile/ProfileDailyIntake/ProfileDailyIntake';
 import { ProfileDangerZone } from '@widgets/profile/ProfileDangerZone';
 import { ProfileErrorState } from '@widgets/profile/ProfileErrorState';
+import { ProfileSettingsSection } from '@widgets/profile/ProfileSettingsSection';
 import { ProfileSkeleton } from '@widgets/profile/ProfileSkeleton';
 
 import { useProfileDetailsQuery } from '@features/user/profileDetails';
@@ -42,6 +43,8 @@ export const ProfilePage = () => {
         goal={userProfile.goal}
         activityLevel={userProfile.activityLevel}
       />
+
+      <ProfileSettingsSection />
 
       <ProfileDangerZone />
     </Stack>

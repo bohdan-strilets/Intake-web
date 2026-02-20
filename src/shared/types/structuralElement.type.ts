@@ -10,4 +10,5 @@ export type StructuralElement =
   | 'ul'
   | 'ol'
   | 'li'
-  | 'form';
+  | 'form'
+  | 'button';
