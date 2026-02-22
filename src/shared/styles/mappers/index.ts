@@ -1,1 +1,0 @@
-export { themeLabelMap } from './themeLabelMap';

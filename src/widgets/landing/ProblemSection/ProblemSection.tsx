@@ -1,3 +1,4 @@
+import { useTranslation } from '@shared/i18n';
 import { Container } from '@shared/ui/layout/Container';
 import { Spacer } from '@shared/ui/layout/Spacer';
 import { Stack } from '@shared/ui/layout/Stack';
@@ -6,6 +7,8 @@ import { Paragraph } from '@shared/ui/typography/Paragraph';
 import { Title } from '@shared/ui/typography/Title';
 
 export const ProblemSection = () => {
+  const { t } = useTranslation('landing');
+
   return (
     <Surface tone="secondary">
       <Container>
@@ -13,26 +16,26 @@ export const ProblemSection = () => {
           <Spacer size="3xl" />
 
           <Title level={2} size="xl" align="center">
-            Food tracking
+            {t('problem.title.line1')}
             <br />
-            is broken
+            {t('problem.title.line2')}
           </Title>
 
           <Stack gap="md">
             <Paragraph weight="bold" align="center">
-              Too many fields
+              {t('problem.points.tooManyFields.title')}
             </Paragraph>
             <Paragraph align="center" tone="muted">
-              Search databases, select portions, adjust serving sizes
+              {t('problem.points.tooManyFields.description')}
             </Paragraph>
           </Stack>
 
           <Stack gap="md">
             <Paragraph weight="bold" align="center">
-              Too much counting
+              {t('problem.points.tooMuchCounting.title')}
             </Paragraph>
             <Paragraph align="center" tone="muted">
-              Manual math, endless tracking, constant calculations
+              {t('problem.points.tooMuchCounting.description')}
             </Paragraph>
           </Stack>
 

@@ -1,1 +1,0 @@
-export { languageLabelMap } from './languageLabelMap';

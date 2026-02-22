@@ -1,0 +1,55 @@
+{
+  "title": "Profil",
+
+  "sections": {
+    "account": "Konto",
+    "body": "Parametry ciała",
+    "goals": "Cele",
+    "settings": "Ustawienia"
+  },
+
+  "actions": {
+    "editProfile": "Edytuj profil",
+    "editEmail": "Zmień e-mail",
+    "editPassword": "Zmień hasło",
+    "logout": "Wyloguj się",
+    "deleteAccount": "Usuń konto",
+    "chooseLanguage": "Wybierz język",
+    "chooseTheme": "Wybierz motyw"
+  },
+
+  "fields": {
+    "theme": "Motyw",
+    "language": "Język"
+  },
+
+  "intake": {
+    "recommended": "Zalecane dzienne spożycie",
+    "kcalPerDay": "kcal dziennie",
+    "includesDeficit": "Uwzględnia deficyt kaloryczny",
+    "includesSurplus": "Uwzględnia nadwyżkę kaloryczną",
+    "maintainsCurrentWeight": "Utrzymuje obecną masę ciała",
+    "basedOnParams": "Na podstawie wieku, wagi i poziomu aktywności"
+  },
+
+  "dialogs": {
+    "confirmDelete": {
+      "title": "Usunąć konto?",
+      "description": "Twoje konto zostanie dezaktywowane i utracisz dostęp. Możesz je później przywrócić, logując się ponownie."
+    }
+  },
+
+  "feedback": {
+    "accountDeleted": "Konto zostało usunięte",
+    "emailUpdated": "E-mail został zaktualizowany",
+    "profileUpdated": "Profil został zaktualizowany",
+    "passwordChangedRelogin": "Hasło zmienione. Zaloguj się ponownie"
+  },
+
+  "errors": {
+    "profileLoad": {
+      "title": "Nie udało się wczytać profilu",
+      "description": "Nie udało się pobrać Twoich danych."
+    }
+  }
+}

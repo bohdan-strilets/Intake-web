@@ -1,3 +1,4 @@
+import { useTranslation } from '@shared/i18n';
 import { Progress } from '@shared/ui/feedback/Progress';
 import { Card } from '@shared/ui/layout/Card';
 import { Divider } from '@shared/ui/layout/Divider';
@@ -12,44 +13,73 @@ export const StatsMacrosCard = ({
   fat,
   carbs,
 }: StatsMacrosCardProps) => {
+  const { t: tStats } = useTranslation('stats');
+  const { t: tCommon } = useTranslation('common');
+
   return (
     <Card shadow="sm" gap="lg">
-      <Paragraph>Average Macros</Paragraph>
+      <Paragraph>{tStats('summary.averageMacros')}</Paragraph>
       <Stack gap="xs">
         <Paragraph size="sm" tone="muted">
-          Protein
+          {tCommon('macroNutrients.protein')}
         </Paragraph>
         <Inline justify="between">
-          <Paragraph>{protein.average}g</Paragraph>
-          <Paragraph>{protein.target}g</Paragraph>
+          <Paragraph>
+            {protein.average}
+            {tCommon('units.gramsShort')}
+          </Paragraph>
+          <Paragraph>
+            {protein.target}
+            {tCommon('units.gramsShort')}
+          </Paragraph>
         </Inline>
-        <Progress value={protein.average} target={protein.target} unit="g" />
+        <Progress
+          value={protein.average}
+          target={protein.target}
+          unit={tCommon('units.gramsShort')}
+        />
       </Stack>
 
       <Divider spacing="none" />
 
       <Stack gap="xs">
         <Paragraph size="sm" tone="muted">
-          Fat
+          {tCommon('macroNutrients.fat')}
         </Paragraph>
         <Inline justify="between">
-          <Paragraph>{fat.average}g</Paragraph>
-          <Paragraph>{fat.target}g</Paragraph>
+          <Paragraph>
+            {fat.average} {tCommon('units.gramsShort')}
+          </Paragraph>
+          <Paragraph>
+            {fat.target} {tCommon('units.gramsShort')}
+          </Paragraph>
         </Inline>
-        <Progress value={fat.average} target={fat.target} unit="g" />
+        <Progress
+          value={fat.average}
+          target={fat.target}
+          unit={tCommon('units.gramsShort')}
+        />
       </Stack>
 
       <Divider spacing="none" />
 
       <Stack gap="xs">
         <Paragraph size="sm" tone="muted">
-          Carbs
+          {tCommon('macroNutrients.carbs')}
         </Paragraph>
         <Inline justify="between">
-          <Paragraph>{carbs.average}g</Paragraph>
-          <Paragraph>{carbs.target}g</Paragraph>
+          <Paragraph>
+            {carbs.average} {tCommon('units.gramsShort')}
+          </Paragraph>
+          <Paragraph>
+            {carbs.target} {tCommon('units.gramsShort')}
+          </Paragraph>
         </Inline>
-        <Progress value={carbs.average} target={carbs.target} unit="g" />
+        <Progress
+          value={carbs.average}
+          target={carbs.target}
+          unit={tCommon('units.gramsShort')}
+        />
       </Stack>
     </Card>
   );

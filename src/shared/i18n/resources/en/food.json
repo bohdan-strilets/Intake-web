@@ -1,0 +1,43 @@
+{
+  "actions": {
+    "addFood": "Add Food"
+  },
+
+  "states": {
+    "analyzing": "Analyzing...",
+    "calculating": "Calculating nutrition..."
+  },
+
+  "fields": {
+    "text": {
+      "label": "What did you eat?",
+      "helper": "Example: 2 fried eggs and a slice of bread"
+    },
+
+    "weight": {
+      "label": "Weight (g)",
+      "helper": "Used to calculate calories and macros."
+    }
+  },
+
+  "validation": {
+    "text": {
+      "required": "Please describe what you ate",
+      "minLength": "Description is too short",
+      "maxLength": "Description is too long"
+    },
+
+    "weight": {
+      "required": "Weight is required",
+      "min": "Must be greater than 0",
+      "max": "Value is too large",
+      "integer": "Must be a whole number"
+    }
+  },
+
+  "errors": {
+    "foodNotFound": "Food entry not found",
+    "foodBadRequest": "Invalid food data",
+    "aiParseFailed": "Could not analyze food description"
+  }
+}

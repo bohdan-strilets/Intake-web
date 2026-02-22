@@ -1,6 +1,7 @@
 import type { UseFormReturn } from 'react-hook-form';
 
-import { ApiError, errorMessages } from '@shared/api/error';
+import { ApiError, errorKeyMap } from '@shared/api/error';
+import { useTranslation } from '@shared/i18n';
 import { useModal } from '@shared/lib/modal';
 
 import type { FormValues, SubmitParams } from '../types';
@@ -14,6 +15,9 @@ export const useSubmit = (
   const { mutateAsync, isPending } = useEditWeightMutation();
   const { close } = useModal();
 
+  const { t: tCommon } = useTranslation('common');
+  const { t: tFood } = useTranslation('food');
+
   const onSubmit = async (values: FormValues) => {
     try {
       await mutateAsync({
@@ -26,7 +30,7 @@ export const useSubmit = (
     } catch (error: unknown) {
       if (!(error instanceof ApiError)) {
         methods.setError('root', {
-          message: errorMessages.NETWORK_ERROR,
+          message: tCommon(errorKeyMap.NETWORK_ERROR),
         });
         return;
       }
@@ -34,20 +38,20 @@ export const useSubmit = (
       switch (error.code) {
         case 'FOOD_BAD_REQUEST':
           methods.setError('weight', {
-            message: errorMessages.FOOD_BAD_REQUEST,
+            message: tFood(errorKeyMap.FOOD_BAD_REQUEST),
           });
           methods.setFocus('weight');
           return;
 
         case 'FOOD_NOT_FOUND':
           methods.setError('root', {
-            message: errorMessages.FOOD_NOT_FOUND,
+            message: tFood(errorKeyMap.FOOD_NOT_FOUND),
           });
           return;
 
         default:
           methods.setError('root', {
-            message: errorMessages.SERVER_ERROR,
+            message: tCommon(errorKeyMap.SERVER_ERROR),
           });
       }
     }

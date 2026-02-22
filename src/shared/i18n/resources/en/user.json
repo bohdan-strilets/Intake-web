@@ -1,0 +1,120 @@
+{
+  "fields": {
+    "name": "Name",
+    "email": "Email",
+    "password": "Password",
+    "newPassword": "New password",
+    "currentPassword": "Current password",
+    "confirmPassword": "Confirm password",
+    "sex": "Sex",
+    "dateOfBirth": "Date of birth",
+    "age": "Age",
+    "height": "Height (cm)",
+    "weight": "Weight (kg)",
+    "targetWeight": "Target weight (kg)",
+    "goal": "Goal",
+    "goalDelta": "Daily calorie adjustment",
+    "activityLevel": "Activity level",
+    "theme": "Theme",
+    "language": "Language"
+  },
+
+  "activityLevels": {
+    "sedentary": "Sedentary",
+    "light": "Light activity",
+    "moderate": "Moderate activity",
+    "high": "High activity",
+    "veryHigh": "Very high activity"
+  },
+
+  "goals": {
+    "lose": "Lose weight",
+    "maintain": "Maintain weight",
+    "gain": "Gain weight"
+  },
+
+  "sex": {
+    "male": "Male",
+    "female": "Female"
+  },
+
+  "goalDelta": {
+    "none": "None",
+
+    "deficit": {
+      "small": "Small deficit ({{value}} kcal/day)",
+      "moderate": "Moderate deficit ({{value}} kcal/day)",
+      "aggressive": "Aggressive deficit ({{value}} kcal/day)"
+    },
+
+    "surplus": {
+      "small": "Small surplus (+{{value}} kcal/day)",
+      "moderate": "Moderate surplus (+{{value}} kcal/day)",
+      "aggressive": "Aggressive surplus (+{{value}} kcal/day)"
+    }
+  },
+
+  "helpers": {
+    "password": "Min. {{min}} chars, letter and number",
+    "height": "Enter your height in centimeters",
+    "weight": "Enter your current body weight",
+    "targetWeight": "Enter your target body weight",
+    "goalDelta": "Fine-tune your daily calorie target",
+    "activityLevel": "Affects your daily calorie recommendation"
+  },
+
+  "validation": {
+    "common": {
+      "required": "This field is required",
+      "integer": "Value must be an integer",
+      "number": "Value must be a number",
+      "decimal": "Only one decimal place is allowed",
+      "immutable": "Field cannot be removed"
+    },
+
+    "name": {
+      "min": "Name must be at least {{min}} characters",
+      "max": "Name must be at most {{max}} characters"
+    },
+
+    "email": {
+      "invalid": "Email must be a valid email address"
+    },
+
+    "password": {
+      "min": "Password must be at least {{min}} characters",
+      "max": "Password must be at most {{max}} characters",
+      "letter": "Password must contain at least one letter",
+      "digit": "Password must contain at least one digit",
+      "match": "Passwords must match"
+    },
+
+    "dateOfBirth": {
+      "invalid": "Date of birth must be a valid date"
+    },
+
+    "height": {
+      "min": "Height must be at least {{min}} cm",
+      "max": "Height must be at most {{max}} cm"
+    },
+
+    "weight": {
+      "min": "Weight must be at least {{min}} kg",
+      "max": "Weight must be at most {{max}} kg"
+    },
+
+    "targetWeight": {
+      "min": "Target weight must be at least {{min}} kg",
+      "max": "Target weight must be at most {{max}} kg"
+    },
+
+    "goalDelta": {
+      "min": "Goal delta must be at least {{min}}",
+      "max": "Goal delta must be at most {{max}}"
+    }
+  },
+
+  "errors": {
+    "userNotFound": "User not found"
+  }
+}

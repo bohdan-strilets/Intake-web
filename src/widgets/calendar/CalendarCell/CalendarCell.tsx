@@ -1,3 +1,4 @@
+import { useTranslation } from '@shared/i18n';
 import { Button } from '@shared/ui/controls/Button';
 import { Stack } from '@shared/ui/layout/Stack';
 import { Paragraph } from '@shared/ui/typography/Paragraph';
@@ -11,6 +12,8 @@ export const CalendarCell = ({
   calories,
   targetCalories,
 }: CalendarCellProps) => {
+  const { t: tCommon } = useTranslation('common');
+
   const { date } = cell;
 
   if (!date) return <div aria-hidden />;
@@ -53,7 +56,7 @@ export const CalendarCell = ({
         </Paragraph>
 
         <Paragraph align="center" size="xs">
-          kcal
+          {tCommon('units.kcal')}
         </Paragraph>
       </Stack>
     </Button>

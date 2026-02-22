@@ -1,11 +1,13 @@
 import { useNavigate } from '@tanstack/react-router';
 
+import { useTranslation } from '@shared/i18n';
 import { ROUTES } from '@shared/routes';
 import { Icon } from '@shared/ui/controls/Icon';
 import { Dropdown } from '@shared/ui/overlay/Dropdown';
 
 export const ProfileDropdown = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation('profile');
 
   return (
     <Dropdown
@@ -13,19 +15,19 @@ export const ProfileDropdown = () => {
       items={[
         {
           id: 'edit-profile',
-          label: 'Edit profile',
+          label: t('actions.editProfile'),
           icon: 'editUser',
           onSelect: () => navigate({ to: ROUTES.app.editProfile }),
         },
         {
           id: 'edit-email',
-          label: 'Edit email',
+          label: t('actions.editEmail'),
           icon: 'email',
           onSelect: () => navigate({ to: ROUTES.app.editEmail }),
         },
         {
           id: 'edit-password',
-          label: 'Edit password',
+          label: t('actions.editPassword'),
           icon: 'password',
           onSelect: () => navigate({ to: ROUTES.app.editPassword }),
         },

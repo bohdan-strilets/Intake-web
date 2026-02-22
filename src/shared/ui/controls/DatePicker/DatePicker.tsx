@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react';
 
 import { useClickOutside } from '@shared/hooks/clickOutside';
+import { useTranslation } from '@shared/i18n';
 import { formatDisplayDate } from '@shared/lib/date';
 import { Card } from '@shared/ui/layout/Card';
 import { Grid } from '@shared/ui/layout/Grid';
@@ -24,6 +25,9 @@ export const DatePicker = ({
   size,
 }: DatePickerProps) => {
   const [isOpen, setIsOpen] = useState(false);
+
+  const { t: tCommon } = useTranslation('common');
+  const { t: tCalendar } = useTranslation('calendar');
 
   const handleToggle = () => setIsOpen((prev) => !prev);
   const handleClose = () => setIsOpen(false);
@@ -51,7 +55,9 @@ export const DatePicker = ({
         className={trigger({ error, size })}
       >
         <Inline justify="between">
-          {value ? formatDisplayDate(value, 'en-US', true) : 'Select date'}
+          {value
+            ? formatDisplayDate(value, 'en-US', true)
+            : tCommon('actions.selectDate')}
           <Icon name="calendar" size="md" color="muted" />
         </Inline>
       </button>
@@ -63,14 +69,14 @@ export const DatePicker = ({
               options={monthOptions}
               value={String(viewMonth)}
               onChange={(month) => setViewMonth(Number(month))}
-              placeholder="Month"
+              placeholder={tCalendar('range.month')}
               className={select}
             />
             <Select
               options={yearOptions}
               value={String(viewYear)}
               onChange={(year) => setViewYear(Number(year))}
-              placeholder="Year"
+              placeholder={tCalendar('range.year')}
               className={select}
             />
           </Inline>

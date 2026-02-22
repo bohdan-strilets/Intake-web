@@ -1,3 +1,4 @@
+import { useTranslation } from '@shared/i18n';
 import { Container } from '@shared/ui/layout/Container';
 import { Spacer } from '@shared/ui/layout/Spacer';
 import { Stack } from '@shared/ui/layout/Stack';
@@ -7,6 +8,8 @@ import { Title } from '@shared/ui/typography/Title';
 import { Image } from '@shared/ui/visual/Image';
 
 export const CalendarSection = () => {
+  const { t } = useTranslation('landing');
+
   return (
     <Surface tone="secondary">
       <Container>
@@ -14,19 +17,18 @@ export const CalendarSection = () => {
           <Spacer size="3xl" />
 
           <Title level={2} size="xl" align="center">
-            Your history.
+            {t('calendar.title.line1')}
             <br />
-            At a glance.
+            {t('calendar.title.line2')}
           </Title>
 
           <Paragraph align="center" tone="muted">
-            See your daily intake on a simple calendar view. Review any past day
-            instantly.
+            {t('calendar.description')}
           </Paragraph>
 
           <Image
             src="/landing/calendar-scr.webp"
-            alt="Calendar view of daily intake"
+            alt={t('calendar.imageAlt')}
           />
 
           <Spacer size="3xl" />

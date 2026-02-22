@@ -3,6 +3,7 @@ import { useRef, useState } from 'react';
 
 import { useClickOutside } from '@shared/hooks/clickOutside';
 import { useKeyboardNavigation } from '@shared/hooks/keyboardNavigation';
+import { useTranslation } from '@shared/i18n';
 
 import { Icon } from '../Icon';
 
@@ -22,6 +23,8 @@ export const Select = <T extends string | number | null>({
 }: SelectProps<T>) => {
   const [isOpen, setIsOpen] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
+
+  const { t } = useTranslation('common');
 
   const selectedIndex = options.findIndex((option) => option.value === value);
   const selectedLabel = options.find((option) => option.value === value)?.label;
@@ -71,7 +74,7 @@ export const Select = <T extends string | number | null>({
         }
         aria-controls={listboxId}
       >
-        {selectedLabel || placeholder || 'Select'}
+        {selectedLabel || placeholder || t('actions.select')}
       </button>
 
       {isOpen && (

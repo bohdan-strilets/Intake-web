@@ -20,7 +20,7 @@ export const menu = recipe({
     zIndex: vars.zIndex.dropdown,
 
     marginTop: vars.spacing.sm,
-    minWidth: 180,
+    minWidth: 220,
 
     background: vars.colors.backgroundSurface,
     borderRadius: vars.radius.md,

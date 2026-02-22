@@ -1,5 +1,6 @@
 import { useState } from 'react';
 
+import { useTranslation } from '@shared/i18n';
 import { useModal } from '@shared/lib/modal';
 import { Button } from '@shared/ui/controls/Button';
 import { Stack } from '@shared/ui/layout/Stack';
@@ -10,13 +11,14 @@ import type { ConfirmModalProps } from './ConfirmModal.types';
 export const ConfirmModal = ({
   title,
   description,
-  confirmText = 'Confirm',
-  cancelText = 'Cancel',
+  confirmText,
+  cancelText,
   confirmVariant = 'primary',
   onConfirm,
 }: ConfirmModalProps) => {
   const [isLoading, setIsLoading] = useState(false);
 
+  const { t } = useTranslation('common');
   const { close } = useModal();
 
   const handleConfirm = async () => {
@@ -43,11 +45,11 @@ export const ConfirmModal = ({
           loading={isLoading}
           fullWidth
         >
-          {confirmText}
+          {confirmText ? confirmText : t('actions.confirm')}
         </Button>
 
         <Button variant="secondary" onClick={close} fullWidth>
-          {cancelText}
+          {cancelText ? cancelText : t('actions.cancel')}
         </Button>
       </Stack>
     </Stack>

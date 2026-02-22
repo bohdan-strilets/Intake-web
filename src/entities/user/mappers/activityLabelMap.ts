@@ -1,9 +1,19 @@
-import { ACTIVITY_LEVEL, type ActivityLevel } from '@entities/user/enums';
+import { ACTIVITY_LEVEL } from '../enums';
+import type { ActivityLevel } from '../enums';
 
-export const activityLabelMap: Record<ActivityLevel, string> = {
-  [ACTIVITY_LEVEL.SEDENTARY]: 'Sedentary',
-  [ACTIVITY_LEVEL.LIGHT]: 'Light activity',
-  [ACTIVITY_LEVEL.MODERATE]: 'Moderate activity',
-  [ACTIVITY_LEVEL.HIGH]: 'High activity',
-  [ACTIVITY_LEVEL.VERY_HIGH]: 'Very high activity',
+export const activityLabelMap = (activityLevel: ActivityLevel) => {
+  switch (activityLevel) {
+    case ACTIVITY_LEVEL.SEDENTARY:
+      return 'sedentary';
+    case ACTIVITY_LEVEL.LIGHT:
+      return 'light';
+    case ACTIVITY_LEVEL.MODERATE:
+      return 'moderate';
+    case ACTIVITY_LEVEL.HIGH:
+      return 'high';
+    case ACTIVITY_LEVEL.VERY_HIGH:
+      return 'veryHigh';
+    default:
+      throw new Error('Unknown activity level');
+  }
 };

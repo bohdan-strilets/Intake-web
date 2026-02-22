@@ -1,0 +1,120 @@
+{
+  "fields": {
+    "name": "Imię",
+    "email": "E-mail",
+    "password": "Hasło",
+    "newPassword": "Nowe hasło",
+    "currentPassword": "Obecne hasło",
+    "confirmPassword": "Potwierdź hasło",
+    "sex": "Płeć",
+    "dateOfBirth": "Data urodzenia",
+    "age": "Wiek",
+    "height": "Wzrost (cm)",
+    "weight": "Waga (kg)",
+    "targetWeight": "Docelowa waga (kg)",
+    "goal": "Cel",
+    "goalDelta": "Dzienna korekta kalorii",
+    "activityLevel": "Poziom aktywności",
+    "theme": "Motyw",
+    "language": "Język"
+  },
+
+  "activityLevels": {
+    "sedentary": "Siedzący tryb życia",
+    "light": "Lekka aktywność",
+    "moderate": "Umiarkowana aktywność",
+    "high": "Wysoka aktywność",
+    "veryHigh": "Bardzo wysoka aktywność"
+  },
+
+  "goals": {
+    "lose": "Redukcja masy ciała",
+    "maintain": "Utrzymanie masy ciała",
+    "gain": "Budowanie masy"
+  },
+
+  "sex": {
+    "male": "Mężczyzna",
+    "female": "Kobieta"
+  },
+
+  "goalDelta": {
+    "none": "Brak korekty",
+
+    "deficit": {
+      "small": "Mały deficyt ({{value}} kcal/dzień)",
+      "moderate": "Umiarkowany deficyt ({{value}} kcal/dzień)",
+      "aggressive": "Duży deficyt ({{value}} kcal/dzień)"
+    },
+
+    "surplus": {
+      "small": "Mała nadwyżka (+{{value}} kcal/dzień)",
+      "moderate": "Umiarkowana nadwyżka (+{{value}} kcal/dzień)",
+      "aggressive": "Duża nadwyżka (+{{value}} kcal/dzień)"
+    }
+  },
+
+  "helpers": {
+    "password": "Min. {{min}} znaków, litera i cyfra",
+    "height": "Podaj wzrost w centymetrach",
+    "weight": "Podaj aktualną masę ciała",
+    "targetWeight": "Podaj docelową masę ciała",
+    "goalDelta": "Dostosuj dzienny cel kaloryczny",
+    "activityLevel": "Wpływa na dzienne zapotrzebowanie kaloryczne"
+  },
+
+  "validation": {
+    "common": {
+      "required": "To pole jest wymagane",
+      "integer": "Wartość musi być liczbą całkowitą",
+      "number": "Wartość musi być liczbą",
+      "decimal": "Dozwolone jest tylko jedno miejsce po przecinku",
+      "immutable": "Pole nie może zostać usunięte"
+    },
+
+    "name": {
+      "min": "Imię musi mieć co najmniej {{min}} znaków",
+      "max": "Imię może mieć maksymalnie {{max}} znaków"
+    },
+
+    "email": {
+      "invalid": "Podaj prawidłowy adres e-mail"
+    },
+
+    "password": {
+      "min": "Hasło musi mieć co najmniej {{min}} znaków",
+      "max": "Hasło może mieć maksymalnie {{max}} znaków",
+      "letter": "Hasło musi zawierać co najmniej jedną literę",
+      "digit": "Hasło musi zawierać co najmniej jedną cyfrę",
+      "match": "Hasła muszą być takie same"
+    },
+
+    "dateOfBirth": {
+      "invalid": "Podaj prawidłową datę urodzenia"
+    },
+
+    "height": {
+      "min": "Wzrost musi wynosić co najmniej {{min}} cm",
+      "max": "Wzrost może wynosić maksymalnie {{max}} cm"
+    },
+
+    "weight": {
+      "min": "Waga musi wynosić co najmniej {{min}} kg",
+      "max": "Waga może wynosić maksymalnie {{max}} kg"
+    },
+
+    "targetWeight": {
+      "min": "Docelowa waga musi wynosić co najmniej {{min}} kg",
+      "max": "Docelowa waga może wynosić maksymalnie {{max}} kg"
+    },
+
+    "goalDelta": {
+      "min": "Korekta kalorii musi wynosić co najmniej {{min}}",
+      "max": "Korekta kalorii może wynosić maksymalnie {{max}}"
+    }
+  },
+
+  "errors": {
+    "userNotFound": "Nie znaleziono użytkownika"
+  }
+}

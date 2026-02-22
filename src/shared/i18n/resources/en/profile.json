@@ -1,0 +1,55 @@
+{
+  "title": "Profile",
+
+  "sections": {
+    "account": "Account",
+    "body": "Body parameters",
+    "goals": "Goals",
+    "settings": "Settings"
+  },
+
+  "actions": {
+    "editProfile": "Edit profile",
+    "editEmail": "Edit email",
+    "editPassword": "Edit password",
+    "logout": "Logout",
+    "deleteAccount": "Delete account",
+    "chooseLanguage": "Choose language",
+    "chooseTheme": "Choose theme"
+  },
+
+  "fields": {
+    "theme": "Theme",
+    "language": "Language"
+  },
+
+  "intake": {
+    "recommended": "Recommended daily intake",
+    "kcalPerDay": "kcal per day",
+    "includesDeficit": "Includes calorie deficit",
+    "includesSurplus": "Includes calorie surplus",
+    "maintainsCurrentWeight": "Maintains current weight",
+    "basedOnParams": "Based on your age, weight and activity level"
+  },
+
+  "dialogs": {
+    "confirmDelete": {
+      "title": "Delete your account?",
+      "description": "Your account will be deactivated and you will lose access. You can restore it later by signing in again."
+    }
+  },
+
+  "feedback": {
+    "accountDeleted": "Your account has been deleted",
+    "emailUpdated": "Email updated successfully",
+    "profileUpdated": "Profile updated successfully",
+    "passwordChangedRelogin": "Password changed. Please log in again"
+  },
+
+  "errors": {
+    "profileLoad": {
+      "title": "Failed to load profile",
+      "description": "We couldn't retrieve your data."
+    }
+  }
+}

@@ -1,1 +1,56 @@
-{}
+{
+  "actions": {
+    "save": "Zapisz",
+    "cancel": "Anuluj",
+    "confirm": "Potwierdź",
+    "edit": "Edytuj",
+    "delete": "Usuń",
+    "tryAgain": "Spróbuj ponownie",
+    "select": "Wybierz",
+    "selectDate": "Wybierz datę"
+  },
+
+  "units": {
+    "kcal": "kcal",
+    "cal": "cal",
+    "gramsShort": "g",
+    "kilograms": "kg"
+  },
+
+  "macroNutrients": {
+    "calories": "Kalorie",
+    "protein": "Białko",
+    "fat": "Tłuszcz",
+    "carbs": "Węglowodany"
+  },
+
+  "states": {
+    "notSpecified": "Nie określono"
+  },
+
+  "languages": {
+    "en": "Angielski",
+    "pl": "Polski",
+    "uk": "Ukraiński"
+  },
+
+  "themes": {
+    "light": "Jasny",
+    "dark": "Ciemny",
+    "system": "Systemowy"
+  },
+
+  "errors": {
+    "connection": "Sprawdź połączenie z internetem i spróbuj ponownie.",
+    "server": "Coś poszło nie tak. Spróbuj ponownie.",
+    "validation": "Nieprawidłowe dane wejściowe"
+  },
+
+  "notFound": {
+    "title": "Strona nie znaleziona",
+    "description": "Ta strona nie istnieje.",
+    "actions": {
+      "goToToday": "Przejdź do dzisiaj"
+    }
+  }
+}

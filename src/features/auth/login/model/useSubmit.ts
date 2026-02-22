@@ -5,7 +5,8 @@ import type { UseFormReturn } from 'react-hook-form';
 import { DAY_ALIAS } from '@entities/day';
 import { authSelectors, tokenStorage } from '@entities/session';
 
-import { ApiError, errorMessages } from '@shared/api/error';
+import { ApiError, errorKeyMap } from '@shared/api/error';
+import { useTranslation } from '@shared/i18n';
 import { ROUTES } from '@shared/routes';
 
 import type { FormValues } from '../types';
@@ -14,6 +15,9 @@ import { useLoginMutation } from './useMutation';
 
 export const useSubmit = (methods: UseFormReturn<FormValues>) => {
   const [canRestore, setCanRestore] = useState(false);
+
+  const { t: tCommon } = useTranslation('common');
+  const { t: tAuth } = useTranslation('auth');
 
   const navigate = useNavigate();
   const { mutateAsync, isPending } = useLoginMutation();
@@ -29,7 +33,7 @@ export const useSubmit = (methods: UseFormReturn<FormValues>) => {
     } catch (error: unknown) {
       if (!(error instanceof ApiError)) {
         methods.setError('root', {
-          message: errorMessages.NETWORK_ERROR,
+          message: tCommon(errorKeyMap.NETWORK_ERROR),
         });
         return;
       }
@@ -38,20 +42,20 @@ export const useSubmit = (methods: UseFormReturn<FormValues>) => {
         case 'INVALID_CREDENTIALS':
           setCanRestore(false);
           methods.setError('root', {
-            message: errorMessages.INVALID_CREDENTIALS,
+            message: tAuth(errorKeyMap.INVALID_CREDENTIALS),
           });
           return;
 
         case 'ACCOUNT_DELETED':
           setCanRestore(true);
           methods.setError('root', {
-            message: errorMessages.ACCOUNT_DELETED,
+            message: tAuth(errorKeyMap.ACCOUNT_DELETED),
           });
           return;
 
         default:
           methods.setError('root', {
-            message: errorMessages.SERVER_ERROR,
+            message: tCommon(errorKeyMap.SERVER_ERROR),
           });
       }
     }

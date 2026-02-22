@@ -1,8 +1,7 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 
-import { UserFieldLabels } from '@entities/user';
-
+import { useTranslation } from '@shared/i18n';
 import { Button } from '@shared/ui/controls/Button';
 import { PasswordInput } from '@shared/ui/controls/PasswordInput';
 import { Field } from '@shared/ui/form/Field';
@@ -11,10 +10,15 @@ import { FormError } from '@shared/ui/form/FormError';
 import { Card } from '@shared/ui/layout/Card';
 
 import { useSubmit } from './model';
-import { schema } from './schema';
+import { createSchema } from './schema';
 import type { FormValues } from './types';
 
 export const EditPasswordForm = () => {
+  const { t: tCommon } = useTranslation('common');
+  const { t: tUser } = useTranslation('user');
+
+  const schema = createSchema(tUser);
+
   const methods = useForm<FormValues>({
     resolver: zodResolver(schema),
     mode: 'onChange',
@@ -28,7 +32,7 @@ export const EditPasswordForm = () => {
       <Card gap="lg" shadow="sm">
         <Field<FormValues>
           name="currentPassword"
-          label={UserFieldLabels.currentPassword}
+          label={tUser('fields.currentPassword')}
           required
         >
           <PasswordInput />
@@ -36,7 +40,7 @@ export const EditPasswordForm = () => {
 
         <Field<FormValues>
           name="newPassword"
-          label={UserFieldLabels.newPassword}
+          label={tUser('fields.newPassword')}
           required
         >
           <PasswordInput />
@@ -44,7 +48,7 @@ export const EditPasswordForm = () => {
 
         <Field<FormValues>
           name="confirmNewPassword"
-          label={UserFieldLabels.confirmNewPassword}
+          label={tUser('fields.confirmPassword')}
           required
         >
           <PasswordInput />
@@ -59,7 +63,7 @@ export const EditPasswordForm = () => {
         loading={isPending}
         fullWidth
       >
-        Save
+        {tCommon('actions.save')}
       </Button>
     </Form>
   );

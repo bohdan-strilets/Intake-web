@@ -1,7 +1,5 @@
 import { useTranslation, type Language } from '@shared/i18n';
-import { languageLabelMap } from '@shared/i18n/mappers';
 import { useModal } from '@shared/lib/modal';
-import { themeLabelMap } from '@shared/styles/mappers';
 import { useResolvedTheme } from '@shared/styles/model';
 import { Card } from '@shared/ui/layout/Card';
 
@@ -17,6 +15,9 @@ export const ProfileSettingsSection = () => {
 
   const language = i18n.language as Language;
 
+  const { t: tProfile } = useTranslation('profile');
+  const { t: tCommon } = useTranslation('common');
+
   const handleTheme = () => {
     open(<ProfileThemeSheet />);
   };
@@ -27,17 +28,17 @@ export const ProfileSettingsSection = () => {
 
   return (
     <Card shadow="sm" gap="lg">
-      <ProfileSectionTitle title="Settings" />
+      <ProfileSectionTitle title={tProfile('sections.settings')} />
 
       <ProfileField
-        label="Theme"
-        value={themeLabelMap[theme]}
+        label={tProfile('fields.theme')}
+        value={tCommon(`themes.${theme}`)}
         onClick={handleTheme}
       />
 
       <ProfileField
-        label="Language"
-        value={languageLabelMap[language]}
+        label={tProfile('fields.language')}
+        value={tCommon(`languages.${language}`)}
         onClick={handleLanguage}
       />
     </Card>

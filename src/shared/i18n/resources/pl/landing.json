@@ -1,0 +1,115 @@
+{
+  "hero": {
+    "title": {
+      "line1": "Śledź jedzenie.",
+      "line2": "Nie liczby."
+    },
+
+    "subtitle": "Opisz posiłek. Intake zrobi obliczenia.",
+
+    "description": "Opisz, co zjadłeś, własnymi słowami. Intake zrozumie i automatycznie wszystko obliczy.",
+    "imageAlt": "Ekran codziennego śledzenia jedzenia"
+  },
+
+  "problem": {
+    "title": {
+      "line1": "Śledzenie jedzenia",
+      "line2": "nie działa"
+    },
+
+    "points": {
+      "tooManyFields": {
+        "title": "Za dużo pól",
+        "description": "Przeszukiwanie baz danych, wybór porcji, dopasowywanie gramatury"
+      },
+
+      "tooMuchCounting": {
+        "title": "Za dużo liczenia",
+        "description": "Ręczne obliczenia, ciągłe śledzenie, niekończące się kalkulacje"
+      }
+    }
+  },
+
+  "howItWorks": {
+    "title": {
+      "line1": "Jedno pole. Jeden dzień.",
+      "line2": "Jeden wynik."
+    },
+
+    "subtitle": "Po prostu opisz, co zjadłeś. AI zrobi resztę.",
+    "youType": {
+      "label": "Ty wpisujesz",
+      "example": "Pierś z kurczaka 200 g i ryż"
+    },
+
+    "systemCalculates": {
+      "label": "System oblicza",
+      "caloriesExample": "383 kcal"
+    }
+  },
+
+  "calendar": {
+    "title": {
+      "line1": "Twoja historia.",
+      "line2": "W jednym spojrzeniu."
+    },
+
+    "description": "Zobacz swoje dzienne spożycie w prostym widoku kalendarza. Sprawdź dowolny dzień natychmiast.",
+
+    "imageAlt": "Widok kalendarza dziennego spożycia"
+  },
+
+  "dailyFocus": {
+    "title": {
+      "line1": "Stworzone",
+      "line2": "na każdy dzień."
+    },
+
+    "description": "Bez przeładowanych dashboardów. Bez skomplikowanych wykresów. Tylko dzisiejsze dane.",
+
+    "imageAlt": "Widok statystyk dziennego spożycia"
+  },
+
+  "philosophy": {
+    "intake": {
+      "title": {
+        "line1": "Zobacz swoje",
+        "line2": "prawdziwe spożycie."
+      },
+
+      "description": "Średnie tygodniowe i miesięczne. Porównanie z celem. Prosty podział makroskładników.",
+
+      "imageAlt": "Owoce i warzywa"
+    },
+
+    "design": {
+      "title": "Spokój w projekcie.",
+      "points": {
+        "minimalInterface": {
+          "title": "Minimalny interfejs",
+          "description": "Tylko to, czego potrzebujesz do śledzenia dnia"
+        },
+
+        "noBloat": {
+          "title": "Bez zbędnych funkcji",
+          "description": "Bez grywalizacji, bez funkcji społecznościowych, bez rozpraszaczy"
+        },
+
+        "dataByDay": {
+          "title": "Dane według dni",
+          "description": "Wszystko uporządkowane według daty w kalendarzu"
+        },
+
+        "clearFeedback": {
+          "title": "Jasna informacja zwrotna",
+          "description": "Proste porównanie z Twoim celem"
+        }
+      }
+    }
+  },
+
+  "cta": {
+    "title": "Zacznij już dziś.",
+    "description": "Załóż konto w mniej niż minutę."
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "summary": {
+    "dailyGoal": "Daily Goal",
+    "remaining": "Remaining"
+  },
+
+  "states": {
+    "empty": "No entries for this day."
+  },
+
+  "entities": {
+    "food": "Food"
+  },
+
+  "dialogs": {
+    "deleteFood": {
+      "title": "Delete {{title}}?",
+      "description": "This action cannot be undone."
+    }
+  },
+
+  "errors": {
+    "dayLoad": {
+      "title": "Failed to load day",
+      "description": "Please check your connection and try again."
+    }
+  }
+}

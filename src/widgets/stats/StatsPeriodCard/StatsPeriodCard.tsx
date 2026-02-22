@@ -1,3 +1,4 @@
+import { useTranslation } from '@shared/i18n';
 import { formatDisplayDate } from '@shared/lib/date';
 import { Card } from '@shared/ui/layout/Card';
 import { Paragraph } from '@shared/ui/typography/Paragraph';
@@ -10,6 +11,8 @@ export const StatsPeriodCard = ({
   loggedDays,
   totalDays,
 }: StatsPeriodCardProps) => {
+  const { t } = useTranslation('stats');
+
   return (
     <Card shadow="sm">
       <Paragraph align="center" tone="muted">
@@ -17,7 +20,7 @@ export const StatsPeriodCard = ({
       </Paragraph>
 
       <Paragraph align="center">
-        {loggedDays} of {totalDays} days logged
+        {t('progress.loggedDays', { logged: loggedDays, total: totalDays })}
       </Paragraph>
     </Card>
   );

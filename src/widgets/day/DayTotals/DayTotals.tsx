@@ -1,3 +1,4 @@
+import { useTranslation } from '@shared/i18n';
 import { Card } from '@shared/ui/layout/Card';
 import { Inline } from '@shared/ui/layout/Inline';
 import { Paragraph } from '@shared/ui/typography/Paragraph';
@@ -10,6 +11,8 @@ export const DayTotals = ({
   fat = 0,
   carbs = 0,
 }: DayTotalsProps) => {
+  const { t: tCommon } = useTranslation('common');
+
   return (
     <Card shadow="sm">
       <Inline align="baseline">
@@ -17,32 +20,35 @@ export const DayTotals = ({
           {calories}
         </Paragraph>
         <Paragraph weight="medium" size="lg" tone="muted">
-          calories
+          {tCommon('macroNutrients.calories')}
         </Paragraph>
       </Inline>
 
       <Inline justify="between">
         <Card tone="accentSoft" shadow="sm">
           <Inline gap="xs">
-            <Paragraph size="sm">Protein</Paragraph>
+            <Paragraph size="sm">{tCommon('macroNutrients.protein')}</Paragraph>
             <Paragraph weight="bold" size="sm">
-              {protein}g
+              {protein}
+              {tCommon('units.gramsShort')}
             </Paragraph>
           </Inline>
         </Card>
         <Card tone="accentSoft" shadow="sm">
           <Inline gap="xs">
-            <Paragraph size="sm">Fat</Paragraph>
+            <Paragraph size="sm">{tCommon('macroNutrients.fat')}</Paragraph>
             <Paragraph weight="bold" size="sm">
-              {fat}g
+              {fat}
+              {tCommon('units.gramsShort')}
             </Paragraph>
           </Inline>
         </Card>
         <Card tone="accentSoft" shadow="sm">
           <Inline gap="xs">
-            <Paragraph size="sm">Carbs</Paragraph>
+            <Paragraph size="sm">{tCommon('macroNutrients.carbs')}</Paragraph>
             <Paragraph weight="bold" size="sm">
-              {carbs}g
+              {carbs}
+              {tCommon('units.gramsShort')}
             </Paragraph>
           </Inline>
         </Card>

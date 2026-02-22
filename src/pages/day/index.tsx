@@ -13,6 +13,7 @@ import { AddFoodForm } from '@features/food/addFood';
 
 import { resolveDayParam } from '@entities/day';
 
+import { useTranslation } from '@shared/i18n';
 import { ErrorState } from '@shared/ui/feedback/ErrorState';
 import { Card } from '@shared/ui/layout/Card';
 import { Stack } from '@shared/ui/layout/Stack';
@@ -20,6 +21,9 @@ import { Stack } from '@shared/ui/layout/Stack';
 export const DayPage = () => {
   const { date } = useParams({ from: dayRoute.id });
   const resolvedDate = resolveDayParam(date);
+
+  const { t: tDay } = useTranslation('day');
+  const { t: tCommon } = useTranslation('common');
 
   const {
     data: dayDetails,
@@ -33,9 +37,9 @@ export const DayPage = () => {
   if (isError) {
     return (
       <ErrorState
-        title="Failed to load day"
-        description="Please check your connection and try again."
-        actionLabel="Try again"
+        title={tDay('errors.dayLoad.title')}
+        description={tDay('errors.dayLoad.description')}
+        actionLabel={tCommon('actions.tryAgain')}
         onAction={refetch}
       />
     );

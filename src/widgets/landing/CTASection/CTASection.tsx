@@ -1,5 +1,6 @@
 import { useNavigate } from '@tanstack/react-router';
 
+import { useTranslation } from '@shared/i18n';
 import { ROUTES } from '@shared/routes';
 import { Button } from '@shared/ui/controls/Button';
 import { Container } from '@shared/ui/layout/Container';
@@ -10,6 +11,9 @@ import { Paragraph } from '@shared/ui/typography/Paragraph';
 import { Title } from '@shared/ui/typography/Title';
 
 export const CTASection = () => {
+  const { t: tLanding } = useTranslation('landing');
+  const { t: tAuth } = useTranslation('auth');
+
   const navigate = useNavigate();
 
   const handleCreateAccount = () => navigate({ to: ROUTES.auth.register });
@@ -21,15 +25,15 @@ export const CTASection = () => {
           <Spacer size="3xl" />
 
           <Title level={2} size="xl" align="center">
-            Start tracking today.
+            {tLanding('cta.title')}
           </Title>
 
           <Paragraph tone="muted" align="center">
-            Create your account in less than a minute.
+            {tLanding('cta.description')}
           </Paragraph>
 
           <Button size="lg" onClick={handleCreateAccount}>
-            Create account
+            {tAuth('actions.createAccount')}
           </Button>
 
           <Spacer size="3xl" />

@@ -1,0 +1,21 @@
+{
+  "summary": {
+    "averagePerDay": "Average per day",
+    "kcalPerDay": "kcal per day",
+    "onTarget": "On target",
+    "kcalVsGoal": "kcal vs goal",
+    "averageMacros": "Average Macros",
+    "weightChange": "Weight change"
+  },
+
+  "progress": {
+    "loggedDays": "{{logged}} of {{total}} days logged"
+  },
+
+  "errors": {
+    "statsLoad": {
+      "title": "Failed to load statistics",
+      "description": "Unable to fetch your stats for this period. Please check your connection and try again."
+    }
+  }
+}

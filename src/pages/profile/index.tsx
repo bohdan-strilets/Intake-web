@@ -9,10 +9,12 @@ import { ProfileSkeleton } from '@widgets/profile/ProfileSkeleton';
 
 import { useProfileDetailsQuery } from '@features/user/profileDetails';
 
+import { useTranslation } from '@shared/i18n';
 import { Stack } from '@shared/ui/layout/Stack';
 
 export const ProfilePage = () => {
   const { data, isPending, isError, refetch } = useProfileDetailsQuery();
+  const { t } = useTranslation('profile');
 
   if (isPending) return <ProfileSkeleton />;
   if (isError) return <ProfileErrorState refetch={refetch} />;
@@ -21,7 +23,7 @@ export const ProfilePage = () => {
 
   return (
     <Stack gap="lg">
-      <PageHeader title="Profile" showDropdown />
+      <PageHeader title={t('title')} showDropdown />
 
       <ProfileDailyIntake
         recommendedCalories={userProfile.metabolism.recommendedCalories}

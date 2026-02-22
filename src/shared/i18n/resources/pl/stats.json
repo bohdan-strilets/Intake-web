@@ -1,0 +1,21 @@
+{
+  "summary": {
+    "averagePerDay": "Średnio na dzień",
+    "kcalPerDay": "kcal dziennie",
+    "onTarget": "Zgodnie z celem",
+    "kcalVsGoal": "kcal vs cel",
+    "averageMacros": "Średnie makroskładniki",
+    "weightChange": "Zmiana wagi"
+  },
+
+  "progress": {
+    "loggedDays": "{{logged}} z {{total}} dni zapisanych"
+  },
+
+  "errors": {
+    "statsLoad": {
+      "title": "Nie udało się wczytać statystyk",
+      "description": "Nie można pobrać statystyk dla tego okresu. Sprawdź połączenie z internetem i spróbuj ponownie."
+    }
+  }
+}

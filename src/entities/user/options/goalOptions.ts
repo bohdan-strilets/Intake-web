@@ -1,14 +1,11 @@
+import type { TFunction } from '@shared/i18n';
 import type { SelectOption } from '@shared/ui/controls/Select';
 
 import { GOAL, type Goal } from '../enums';
-import { goalLabelMap } from '../mappers';
 
-export const goalOptions: SelectOption<Goal>[] = [
-  { value: GOAL.Lose, label: goalLabelMap[GOAL.Lose], isDisabled: false },
-  {
-    value: GOAL.Maintain,
-    label: goalLabelMap[GOAL.Maintain],
+export const createGoalOptions = (t: TFunction<'user'>): SelectOption<Goal>[] =>
+  Object.values(GOAL).map((value) => ({
+    value,
+    label: t(`goals.${value}`),
     isDisabled: false,
-  },
-  { value: GOAL.Gain, label: goalLabelMap[GOAL.Gain], isDisabled: false },
-];
+  }));

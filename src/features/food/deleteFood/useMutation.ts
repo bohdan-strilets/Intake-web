@@ -2,7 +2,8 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 
 import { dayQueryKeys } from '@entities/day';
 
-import { errorMessages } from '@shared/api/error';
+import { errorKeyMap } from '@shared/api/error';
+import { useTranslation } from '@shared/i18n';
 import { getMonthFromDate } from '@shared/lib/date';
 import { notify } from '@shared/lib/notify';
 
@@ -11,6 +12,7 @@ import type { MutationParams } from './types';
 
 export const useDeleteFoodMutation = () => {
   const queryClient = useQueryClient();
+  const { t: tCommon } = useTranslation('common');
 
   return useMutation({
     mutationFn: ({ foodId }: MutationParams) => deleteFoodApi(foodId),
@@ -28,7 +30,7 @@ export const useDeleteFoodMutation = () => {
     },
 
     onError: () => {
-      notify.error(errorMessages.SERVER_ERROR);
+      notify.error(tCommon(errorKeyMap.SERVER_ERROR));
     },
   });
 };

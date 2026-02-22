@@ -11,12 +11,15 @@ import { useStatsQuery } from '@features/stats/getStats';
 
 import type { PeriodStats } from '@entities/stats';
 
+import { useTranslation } from '@shared/i18n';
 import { getMonthRange, getWeekRange } from '@shared/lib/date';
 import { SegmentedControl } from '@shared/ui/controls/SegmentedControl';
 import { Stack } from '@shared/ui/layout/Stack';
 
 export const StatsPage = () => {
   const [period, setPeriod] = useState<PeriodStats>('week');
+
+  const { t } = useTranslation('calendar');
 
   const range = useMemo(() => {
     return period === 'week' ? getWeekRange() : getMonthRange();
@@ -34,8 +37,8 @@ export const StatsPage = () => {
       <SegmentedControl
         value={period}
         options={[
-          { label: 'Week', value: 'week' },
-          { label: 'Month', value: 'month' },
+          { label: t('range.week'), value: 'week' },
+          { label: t('range.month'), value: 'month' },
         ]}
         onChange={setPeriod}
       />

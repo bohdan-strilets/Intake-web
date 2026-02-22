@@ -1,3 +1,4 @@
+import { useTranslation } from '@shared/i18n';
 import { Card } from '@shared/ui/layout/Card';
 
 import { ProfileField } from '../ProfileField';
@@ -9,12 +10,15 @@ export const ProfileAccountSection = ({
   name,
   email,
 }: ProfileAccountSectionProps) => {
+  const { t: tUser } = useTranslation('user');
+  const { t: tProfile } = useTranslation('profile');
+
   return (
     <Card shadow="sm" gap="lg">
-      <ProfileSectionTitle title="Account" />
+      <ProfileSectionTitle title={tProfile('sections.account')} />
 
-      <ProfileField label="Name" value={name} />
-      <ProfileField label="Email" value={email} />
+      <ProfileField label={tUser('fields.name')} value={name} />
+      <ProfileField label={tUser('fields.email')} value={email} />
     </Card>
   );
 };

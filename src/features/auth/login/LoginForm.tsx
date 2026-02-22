@@ -1,8 +1,7 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 
-import { UserFieldLabels } from '@entities/user/meta';
-
+import { useTranslation } from '@shared/i18n';
 import { Button } from '@shared/ui/controls/Button';
 import { PasswordInput } from '@shared/ui/controls/PasswordInput';
 import { TextInput } from '@shared/ui/controls/TextInput';
@@ -15,10 +14,14 @@ import { Stack } from '@shared/ui/layout/Stack';
 import { useRestoreAccountMutation } from '../restoreAccount';
 
 import { useSubmit } from './model';
-import { schema } from './schema';
+import { createSchema } from './schema';
 import type { FormValues } from './types';
 
 export const LoginForm = () => {
+  const { t: tUser } = useTranslation('user');
+  const { t: tAuth } = useTranslation('auth');
+
+  const schema = createSchema(tUser);
   const methods = useForm<FormValues>({ resolver: zodResolver(schema) });
 
   const { isValid, errors } = methods.formState;
@@ -33,13 +36,13 @@ export const LoginForm = () => {
 
   return (
     <Form<FormValues> methods={methods} onSubmit={onSubmit}>
-      <Field<FormValues> name="email" label={UserFieldLabels.email} required>
+      <Field<FormValues> name="email" label={tUser('fields.email')} required>
         <TextInput type="email" />
       </Field>
 
       <Field<FormValues>
         name="password"
-        label={UserFieldLabels.password}
+        label={tUser('fields.password')}
         required
       >
         <PasswordInput />
@@ -58,14 +61,14 @@ export const LoginForm = () => {
               onClick={handleRestore}
               loading={restoreAccount.isPending}
             >
-              Restore account
+              {tAuth('actions.restoreAccount')}
             </Button>
             <Divider />
           </>
         )}
 
         <Button type="submit" disabled={!isValid} loading={isPending} fullWidth>
-          Log In
+          {tAuth('actions.logIn')}
         </Button>
       </Stack>
     </Form>

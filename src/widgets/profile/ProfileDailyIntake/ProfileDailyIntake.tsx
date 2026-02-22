@@ -1,21 +1,21 @@
+import { useTranslation } from '@shared/i18n';
 import { Card } from '@shared/ui/layout/Card';
 import { Stack } from '@shared/ui/layout/Stack';
 import { Paragraph } from '@shared/ui/typography/Paragraph';
 
-export type ProfileDailyIntakeProps = {
-  recommendedCalories: number;
-  goal: 'lose' | 'gain' | 'maintain';
-};
+import type { ProfileDailyIntakeProps } from './ProfileDailyIntake.types';
 
 export const ProfileDailyIntake = ({
   recommendedCalories,
   goal,
 }: ProfileDailyIntakeProps) => {
+  const { t } = useTranslation('profile');
+
   return (
     <Card shadow="md" tone="accentSoft">
       <Stack align="center" gap="lg">
         <Paragraph tone="muted" weight="medium">
-          Recommended daily intake
+          {t('intake.recommended')}
         </Paragraph>
 
         <Stack gap="none" align="center">
@@ -23,18 +23,18 @@ export const ProfileDailyIntake = ({
             {recommendedCalories}
           </Paragraph>
           <Paragraph size="sm" tone="muted">
-            kcal per day
+            {t('intake.kcalPerDay')}
           </Paragraph>
         </Stack>
 
         <Stack align="center">
           <Paragraph size="sm" tone="muted">
-            {goal === 'lose' && 'Includes calorie deficit'}
-            {goal === 'gain' && 'Includes calorie surplus'}
-            {goal === 'maintain' && 'Maintains current weight'}
+            {goal === 'lose' && t('intake.includesDeficit')}
+            {goal === 'gain' && t('intake.includesSurplus')}
+            {goal === 'maintain' && t('intake.maintainsCurrentWeight')}
           </Paragraph>
           <Paragraph size="xs" tone="muted">
-            Based on your age, weight and activity level
+            {t('intake.basedOnParams')}
           </Paragraph>
         </Stack>
       </Stack>

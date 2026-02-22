@@ -1,1 +1,56 @@
-{}
+{
+  "actions": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "edit": "Edit",
+    "delete": "Delete",
+    "tryAgain": "Try again",
+    "select": "Select",
+    "selectDate": "Select Date"
+  },
+
+  "units": {
+    "kcal": "kcal",
+    "cal": "cal",
+    "gramsShort": "g",
+    "kilograms": "kg"
+  },
+
+  "macroNutrients": {
+    "calories": "Calories",
+    "protein": "Protein",
+    "fat": "Fat",
+    "carbs": "Carbs"
+  },
+
+  "states": {
+    "notSpecified": "Not specified"
+  },
+
+  "languages": {
+    "en": "English",
+    "pl": "Polish",
+    "uk": "Ukrainian"
+  },
+
+  "themes": {
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
+  },
+
+  "errors": {
+    "connection": "Please check your connection and try again.",
+    "server": "Something went wrong. Please try again.",
+    "validation": "Invalid input data"
+  },
+
+  "notFound": {
+    "title": "Page not found",
+    "description": "The page doesn’t exist.",
+    "actions": {
+      "goToToday": "Go to Today"
+    }
+  }
+}

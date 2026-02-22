@@ -1,0 +1,115 @@
+{
+  "hero": {
+    "title": {
+      "line1": "Track food.",
+      "line2": "Not numbers."
+    },
+
+    "subtitle": "Describe your meal. Intake does the math.",
+
+    "description": "Describe what you ate in your own words. Intake understands and calculates everything automatically.",
+    "imageAlt": "Daily food tracking screen"
+  },
+
+  "problem": {
+    "title": {
+      "line1": "Food tracking",
+      "line2": "is broken"
+    },
+
+    "points": {
+      "tooManyFields": {
+        "title": "Too many fields",
+        "description": "Search databases, select portions, adjust serving sizes"
+      },
+
+      "tooMuchCounting": {
+        "title": "Too much counting",
+        "description": "Manual math, endless tracking, constant calculations"
+      }
+    }
+  },
+
+  "howItWorks": {
+    "title": {
+      "line1": "One field. One day.",
+      "line2": "One result."
+    },
+
+    "subtitle": "Just describe what you ate. AI does the rest.",
+    "youType": {
+      "label": "You type",
+      "example": "Chicken breast 200g and rice"
+    },
+
+    "systemCalculates": {
+      "label": "System calculates",
+      "caloriesExample": "383 kcal"
+    }
+  },
+
+  "calendar": {
+    "title": {
+      "line1": "Your history.",
+      "line2": "At a glance."
+    },
+
+    "description": "See your daily intake on a simple calendar view. Review any past day instantly.",
+
+    "imageAlt": "Calendar view of daily intake"
+  },
+
+  "dailyFocus": {
+    "title": {
+      "line1": "Built for",
+      "line2": "every day."
+    },
+
+    "description": "No dashboard overload. No complex charts. Just today's intake.",
+
+    "imageAlt": "Statistics view of daily intake"
+  },
+
+  "philosophy": {
+    "intake": {
+      "title": {
+        "line1": "See your",
+        "line2": "real intake."
+      },
+
+      "description": "Weekly and monthly averages. Compare to your goal. Simple macro breakdown.",
+
+      "imageAlt": "Fruits and vegetables"
+    },
+
+    "design": {
+      "title": "Calm by design.",
+      "points": {
+        "minimalInterface": {
+          "title": "Minimal interface",
+          "description": "Only what you need to track your day"
+        },
+
+        "noBloat": {
+          "title": "No feature bloat",
+          "description": "No gamification, no social features, no distractions"
+        },
+
+        "dataByDay": {
+          "title": "Data by day",
+          "description": "Everything organized by calendar date"
+        },
+
+        "clearFeedback": {
+          "title": "Clear feedback",
+          "description": "Simple comparison to your personal goal"
+        }
+      }
+    }
+  },
+
+  "cta": {
+    "title": "Start tracking today.",
+    "description": "Create your account in less than a minute."
+  }
+}

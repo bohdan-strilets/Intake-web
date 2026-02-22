@@ -1,8 +1,7 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 
-import { FoodFieldHelpers, FoodFieldLabels } from '@entities/food';
-
+import { useTranslation } from '@shared/i18n';
 import { Button } from '@shared/ui/controls/Button';
 import { Textarea } from '@shared/ui/controls/Textarea';
 import { Field } from '@shared/ui/form/Field';
@@ -11,10 +10,13 @@ import { FormError } from '@shared/ui/form/FormError';
 import { Paragraph } from '@shared/ui/typography/Paragraph';
 
 import { useSubmit } from './model';
-import { schema } from './schema';
+import { createSchema } from './schema';
 import type { FormProps, FormValues } from './types';
 
 export const AddFoodForm = ({ date }: FormProps) => {
+  const { t: tFood } = useTranslation('food');
+
+  const schema = createSchema(tFood);
   const methods = useForm<FormValues>({
     resolver: zodResolver(schema),
     mode: 'onChange',
@@ -27,8 +29,8 @@ export const AddFoodForm = ({ date }: FormProps) => {
     <Form<FormValues> methods={methods} onSubmit={onSubmit}>
       <Field<FormValues>
         name="text"
-        label={FoodFieldLabels.text}
-        helperText={FoodFieldHelpers.text}
+        label={tFood('fields.text.label')}
+        helperText={tFood('fields.text.helper')}
         required
       >
         <Textarea readOnly={isPending} />
@@ -37,12 +39,12 @@ export const AddFoodForm = ({ date }: FormProps) => {
       {errors.root && <FormError>{errors.root.message}</FormError>}
 
       <Button type="submit" disabled={!isValid} loading={isPending} fullWidth>
-        {isPending ? 'Analyzing...' : 'Add Food'}
+        {isPending ? tFood('states.analyzing') : tFood('actions.addFood')}
       </Button>
 
       {isPending && (
         <Paragraph size="sm" tone="muted">
-          Calculating nutrition...
+          {tFood('states.calculating')}
         </Paragraph>
       )}
     </Form>

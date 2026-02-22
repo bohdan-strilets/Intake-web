@@ -1,9 +1,11 @@
+import type { TFunction } from '@shared/i18n';
 import type { SelectOption } from '@shared/ui/controls/Select';
 
 import { SEX, type Sex } from '../enums';
-import { sexLabelMap } from '../mappers';
 
-export const sexOptions: SelectOption<Sex>[] = [
-  { value: SEX.Male, label: sexLabelMap[SEX.Male], isDisabled: false },
-  { value: SEX.Female, label: sexLabelMap[SEX.Female], isDisabled: false },
-];
+export const createSexOptions = (t: TFunction<'user'>): SelectOption<Sex>[] =>
+  Object.values(SEX).map((value) => ({
+    value,
+    label: t(`sex.${value}`),
+    isDisabled: false,
+  }));

@@ -2,13 +2,13 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 
 import {
-  UserFieldHelpers,
-  UserFieldLabels,
-  activityLevelOptions,
-  goalOptions,
-  sexOptions,
+  createActivityLevelOptions,
+  createGoalOptions,
+  createSexOptions,
+  PasswordConstraints,
 } from '@entities/user';
 
+import { useTranslation } from '@shared/i18n';
 import { Button } from '@shared/ui/controls/Button';
 import { DatePicker } from '@shared/ui/controls/DatePicker';
 import { PasswordInput } from '@shared/ui/controls/PasswordInput';
@@ -21,12 +21,19 @@ import { Card } from '@shared/ui/layout/Card';
 import { Title } from '@shared/ui/typography/Title';
 
 import { useSubmit } from './model';
-import { schema } from './schema';
+import { createSchema } from './schema';
 import type { FormValues } from './types';
 
 export const RegisterForm = () => {
-  const resolver = zodResolver(schema);
-  const methods = useForm<FormValues>({ resolver, mode: 'onChange' });
+  const { t: tUser } = useTranslation('user');
+  const { t: tProfile } = useTranslation('profile');
+  const { t: tAuth } = useTranslation('auth');
+
+  const schema = createSchema(tUser);
+  const methods = useForm<FormValues>({
+    resolver: zodResolver(schema),
+    mode: 'onChange',
+  });
 
   const { isValid, errors } = methods.formState;
   const { onSubmit, isPending } = useSubmit(methods);
@@ -35,21 +42,23 @@ export const RegisterForm = () => {
     <Form<FormValues> methods={methods} onSubmit={onSubmit}>
       <Card gap="lg" shadow="sm">
         <Title level={2} size="md">
-          Account
+          {tProfile('sections.account')}
         </Title>
 
-        <Field<FormValues> name="name" label={UserFieldLabels.name} required>
+        <Field<FormValues> name="name" label={tUser('fields.name')} required>
           <TextInput />
         </Field>
 
-        <Field<FormValues> name="email" label={UserFieldLabels.email} required>
+        <Field<FormValues> name="email" label={tUser('fields.email')} required>
           <TextInput type="email" />
         </Field>
 
         <Field<FormValues>
           name="password"
-          label={UserFieldLabels.password}
-          helperText={UserFieldHelpers.password}
+          label={tUser('fields.password')}
+          helperText={tUser('helpers.password', {
+            min: PasswordConstraints.password.min,
+          })}
           required
         >
           <PasswordInput />
@@ -57,7 +66,7 @@ export const RegisterForm = () => {
 
         <Field<FormValues>
           name="confirmPassword"
-          label={UserFieldLabels.confirmNewPassword}
+          label={tUser('fields.confirmPassword')}
           required
         >
           <PasswordInput />
@@ -66,21 +75,21 @@ export const RegisterForm = () => {
 
       <Card gap="lg" shadow="sm">
         <Title level={2} size="md">
-          Body parameters
+          {tProfile('sections.body')}
         </Title>
 
         <Field<FormValues>
           name="sex"
-          label={UserFieldLabels.sex}
+          label={tUser('fields.sex')}
           controlType="controlled"
           required
         >
-          <Select options={sexOptions} />
+          <Select options={createSexOptions(tUser)} />
         </Field>
 
         <Field<FormValues>
           name="dateOfBirth"
-          label={UserFieldLabels.dateOfBirth}
+          label={tUser('fields.dateOfBirth')}
           required
           controlType="controlled"
         >
@@ -89,8 +98,8 @@ export const RegisterForm = () => {
 
         <Field<FormValues>
           name="height"
-          label={UserFieldLabels.height}
-          helperText={UserFieldHelpers.height}
+          label={tUser('fields.height')}
+          helperText={tUser('helpers.height')}
           required
           valueAsNumber
         >
@@ -99,8 +108,8 @@ export const RegisterForm = () => {
 
         <Field<FormValues>
           name="weight"
-          label={UserFieldLabels.weight}
-          helperText={UserFieldHelpers.weight}
+          label={tUser('fields.weight')}
+          helperText={tUser('helpers.weight')}
           required
           valueAsNumber
         >
@@ -110,33 +119,33 @@ export const RegisterForm = () => {
 
       <Card gap="lg" shadow="sm">
         <Title level={2} size="md">
-          Goals
+          {tProfile('sections.goals')}
         </Title>
 
         <Field<FormValues>
           name="goal"
-          label={UserFieldLabels.goal}
+          label={tUser('fields.goal')}
           controlType="controlled"
           required
         >
-          <Select options={goalOptions} />
+          <Select options={createGoalOptions(tUser)} />
         </Field>
 
         <Field<FormValues>
           name="activityLevel"
-          label={UserFieldLabels.activityLevel}
-          helperText={UserFieldHelpers.activityLevel}
+          label={tUser('fields.activityLevel')}
+          helperText={tUser('helpers.activityLevel')}
           controlType="controlled"
           required
         >
-          <Select options={activityLevelOptions} />
+          <Select options={createActivityLevelOptions(tUser)} />
         </Field>
       </Card>
 
       {errors.root && <FormError>{errors.root.message}</FormError>}
 
       <Button type="submit" disabled={!isValid} loading={isPending} fullWidth>
-        Create account
+        {tAuth('actions.createAccount')}
       </Button>
     </Form>
   );

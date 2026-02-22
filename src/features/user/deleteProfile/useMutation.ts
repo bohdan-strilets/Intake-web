@@ -3,7 +3,8 @@ import { useNavigate } from '@tanstack/react-router';
 
 import { authSelectors, tokenStorage } from '@entities/session';
 
-import { errorMessages } from '@shared/api/error';
+import { errorKeyMap } from '@shared/api/error';
+import { useTranslation } from '@shared/i18n';
 import { notify } from '@shared/lib/notify';
 import { ROUTES } from '@shared/routes';
 
@@ -12,6 +13,9 @@ import { deleteProfileApi } from './api';
 export const useDeleteProfileMutation = () => {
   const queryClient = useQueryClient();
   const navigate = useNavigate();
+
+  const { t: tProfile } = useTranslation('profile');
+  const { t: tCommon } = useTranslation('common');
 
   return useMutation({
     mutationFn: deleteProfileApi,
@@ -22,11 +26,11 @@ export const useDeleteProfileMutation = () => {
       tokenStorage.clear();
 
       navigate({ to: ROUTES.public.home });
-      notify.success('Your account has been deleted');
+      notify.success(tProfile('feedback.accountDeleted'));
     },
 
     onError: () => {
-      notify.error(errorMessages.SERVER_ERROR);
+      notify.error(tCommon(errorKeyMap.SERVER_ERROR));
     },
   });
 };

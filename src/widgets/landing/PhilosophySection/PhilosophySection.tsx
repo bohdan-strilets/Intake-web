@@ -1,3 +1,4 @@
+import { useTranslation } from '@shared/i18n';
 import { Icon } from '@shared/ui/controls/Icon';
 import { Container } from '@shared/ui/layout/Container';
 import { Inline } from '@shared/ui/layout/Inline';
@@ -9,6 +10,8 @@ import { Title } from '@shared/ui/typography/Title';
 import { Image } from '@shared/ui/visual/Image';
 
 export const PhilosophySection = () => {
+  const { t } = useTranslation('landing');
+
   return (
     <>
       <Surface tone="secondary">
@@ -17,17 +20,19 @@ export const PhilosophySection = () => {
             <Spacer size="3xl" />
 
             <Title level={2} size="xl" align="center">
-              See your
+              {t('philosophy.intake.title.line1')}
               <br />
-              real intake.
+              {t('philosophy.intake.title.line2')}
             </Title>
 
             <Paragraph align="center" tone="muted">
-              Weekly and monthly averages. Compare to your goal. Simple macro
-              breakdown.
+              {t('philosophy.intake.description')}
             </Paragraph>
 
-            <Image src="/landing/fruits.webp" alt="Fruits and vegetables" />
+            <Image
+              src="/landing/fruits.webp"
+              alt={t('philosophy.intake.imageAlt')}
+            />
 
             <Spacer size="3xl" />
           </Stack>
@@ -39,16 +44,18 @@ export const PhilosophySection = () => {
           <Spacer size="3xl" />
 
           <Title level={2} size="xl" align="center">
-            Calm by design.
+            {t('philosophy.design.title')}
           </Title>
 
           <Stack gap="2xl">
             <Inline gap="lg">
               <Icon name="success" color="accentPrimary" />
               <Stack gap="xs">
-                <Paragraph weight="bold">Minimal interface</Paragraph>
+                <Paragraph weight="bold">
+                  {t('philosophy.design.points.minimalInterface.title')}
+                </Paragraph>
                 <Paragraph tone="muted">
-                  Only what you need to track your day
+                  {t('philosophy.design.points.minimalInterface.description')}
                 </Paragraph>
               </Stack>
             </Inline>
@@ -56,9 +63,11 @@ export const PhilosophySection = () => {
             <Inline gap="lg">
               <Icon name="success" color="accentPrimary" />
               <Stack gap="xs">
-                <Paragraph weight="bold">No feature bloat</Paragraph>
+                <Paragraph weight="bold">
+                  {t('philosophy.design.points.noBloat.title')}
+                </Paragraph>
                 <Paragraph tone="muted">
-                  No gamification, no social features, no distractions
+                  {t('philosophy.design.points.noBloat.description')}
                 </Paragraph>
               </Stack>
             </Inline>
@@ -66,9 +75,11 @@ export const PhilosophySection = () => {
             <Inline gap="lg">
               <Icon name="success" color="accentPrimary" />
               <Stack gap="xs">
-                <Paragraph weight="bold">Data by day</Paragraph>
+                <Paragraph weight="bold">
+                  {t('philosophy.design.points.dataByDay.title')}
+                </Paragraph>
                 <Paragraph tone="muted">
-                  Everything organized by calendar date
+                  {t('philosophy.design.points.dataByDay.description')}
                 </Paragraph>
               </Stack>
             </Inline>
@@ -76,9 +87,11 @@ export const PhilosophySection = () => {
             <Inline gap="lg">
               <Icon name="success" color="accentPrimary" />
               <Stack gap="xs">
-                <Paragraph weight="bold">Clear feedback</Paragraph>
+                <Paragraph weight="bold">
+                  {t('philosophy.design.points.clearFeedback.title')}
+                </Paragraph>
                 <Paragraph tone="muted">
-                  Simple comparison to your personal goal
+                  {t('philosophy.design.points.clearFeedback.description')}
                 </Paragraph>
               </Stack>
             </Inline>

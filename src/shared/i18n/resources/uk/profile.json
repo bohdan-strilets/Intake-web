@@ -1,0 +1,55 @@
+{
+  "title": "Профіль",
+
+  "sections": {
+    "account": "Акаунт",
+    "body": "Параметри тіла",
+    "goals": "Цілі",
+    "settings": "Налаштування"
+  },
+
+  "actions": {
+    "editProfile": "Редагувати профіль",
+    "editEmail": "Змінити email",
+    "editPassword": "Змінити пароль",
+    "logout": "Вийти",
+    "deleteAccount": "Видалити акаунт",
+    "chooseLanguage": "Обрати мову",
+    "chooseTheme": "Обрати тему"
+  },
+
+  "fields": {
+    "theme": "Тема",
+    "language": "Мова"
+  },
+
+  "intake": {
+    "recommended": "Рекомендоване добове споживання",
+    "kcalPerDay": "ккал на день",
+    "includesDeficit": "Включає калорійний дефіцит",
+    "includesSurplus": "Включає калорійний профіцит",
+    "maintainsCurrentWeight": "Підтримує поточну вагу",
+    "basedOnParams": "На основі віку, ваги та рівня активності"
+  },
+
+  "dialogs": {
+    "confirmDelete": {
+      "title": "Видалити акаунт?",
+      "description": "Ваш акаунт буде деактивовано і ви втратите доступ. Ви зможете відновити його пізніше, увійшовши знову."
+    }
+  },
+
+  "feedback": {
+    "accountDeleted": "Акаунт видалено",
+    "emailUpdated": "Email успішно оновлено",
+    "profileUpdated": "Профіль успішно оновлено",
+    "passwordChangedRelogin": "Пароль змінено. Увійдіть знову"
+  },
+
+  "errors": {
+    "profileLoad": {
+      "title": "Не вдалося завантажити профіль",
+      "description": "Не вдалося отримати ваші дані."
+    }
+  }
+}

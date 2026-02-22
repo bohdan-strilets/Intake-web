@@ -1,6 +1,7 @@
 import { useLogoutMutation } from '@features/auth/logout';
 import { useDeleteProfileMutation } from '@features/user/deleteProfile';
 
+import { useTranslation } from '@shared/i18n';
 import { useConfirm } from '@shared/lib/confirm';
 import { Button } from '@shared/ui/controls/Button';
 import { Card } from '@shared/ui/layout/Card';
@@ -11,14 +12,15 @@ export const ProfileDangerZone = () => {
   const { mutate: deleteProfile, isPending: isDeleting } =
     useDeleteProfileMutation();
 
+  const { t } = useTranslation('profile');
+
   const { openConfirm } = useConfirm();
 
   const handleDelete = () => {
     openConfirm({
-      title: 'Delete your account?',
-      description:
-        'Your account will be deactivated and you will lose access. You can restore it later by signing in again.',
-      confirmText: 'Delete account',
+      title: t('dialogs.confirmDelete.title'),
+      description: t('dialogs.confirmDelete.description'),
+      confirmText: t('actions.deleteAccount'),
       confirmVariant: 'danger',
       onConfirm: deleteProfile,
     });
@@ -33,7 +35,7 @@ export const ProfileDangerZone = () => {
         onClick={() => logout()}
         loading={isLogout}
       >
-        Logout
+        {t('actions.logout')}
       </Button>
 
       <Divider />
@@ -47,7 +49,7 @@ export const ProfileDangerZone = () => {
         onClick={handleDelete}
         loading={isDeleting}
       >
-        Delete Profile
+        {t('actions.deleteAccount')}
       </Button>
     </Card>
   );

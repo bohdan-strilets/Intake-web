@@ -1,8 +1,7 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 
-import { UserFieldLabels } from '@entities/user';
-
+import { useTranslation } from '@shared/i18n';
 import { Button } from '@shared/ui/controls/Button';
 import { TextInput } from '@shared/ui/controls/TextInput';
 import { Field } from '@shared/ui/form/Field';
@@ -11,10 +10,15 @@ import { FormError } from '@shared/ui/form/FormError';
 import { Card } from '@shared/ui/layout/Card';
 
 import { useSubmit } from './model';
-import { schema } from './schema';
+import { createSchema } from './schema';
 import type { FormProps, FormValues } from './types';
 
 export const EditEmailForm = ({ initialState }: FormProps) => {
+  const { t: tUser } = useTranslation('user');
+  const { t: tCommon } = useTranslation('common');
+
+  const schema = createSchema(tUser);
+
   const methods = useForm<FormValues>({
     resolver: zodResolver(schema),
     mode: 'onChange',
@@ -27,7 +31,7 @@ export const EditEmailForm = ({ initialState }: FormProps) => {
   return (
     <Form<FormValues> methods={methods} onSubmit={onSubmit}>
       <Card gap="lg" shadow="sm">
-        <Field<FormValues> name="email" label={UserFieldLabels.email} required>
+        <Field<FormValues> name="email" label={tUser('fields.email')} required>
           <TextInput type="email" />
         </Field>
       </Card>
@@ -40,7 +44,7 @@ export const EditEmailForm = ({ initialState }: FormProps) => {
         loading={isPending}
         fullWidth
       >
-        Save
+        {tCommon('actions.save')}
       </Button>
     </Form>
   );

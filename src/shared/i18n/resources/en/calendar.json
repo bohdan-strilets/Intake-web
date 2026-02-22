@@ -1,0 +1,29 @@
+{
+  "days": {
+    "mn": "Mn",
+    "tu": "Tu",
+    "we": "We",
+    "th": "Th",
+    "fr": "Fr",
+    "sa": "Sa",
+    "su": "Su"
+  },
+
+  "range": {
+    "week": "Week",
+    "month": "Month",
+    "year": "Year"
+  },
+
+  "relative": {
+    "today": "Today",
+    "yesterday": "Yesterday"
+  },
+
+  "errors": {
+    "calendarLoad": {
+      "title": "Failed to load calendar",
+      "description": "Please check your connection and try again."
+    }
+  }
+}

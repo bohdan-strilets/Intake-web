@@ -1,0 +1,28 @@
+{
+  "summary": {
+    "dailyGoal": "Cel dzienny",
+    "remaining": "Pozostało"
+  },
+
+  "states": {
+    "empty": "Brak wpisów w tym dniu."
+  },
+
+  "entities": {
+    "food": "Jedzenie"
+  },
+
+  "dialogs": {
+    "deleteFood": {
+      "title": "Usunąć {{title}}?",
+      "description": "Tej operacji nie można cofnąć."
+    }
+  },
+
+  "errors": {
+    "dayLoad": {
+      "title": "Nie udało się wczytać dnia",
+      "description": "Sprawdź połączenie z internetem i spróbuj ponownie."
+    }
+  }
+}

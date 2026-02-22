@@ -3,15 +3,13 @@ import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 
 import {
-  UserFieldHelpers,
-  UserFieldLabels,
-  activityLevelOptions,
-  gainDeltaOptions,
-  goalOptions,
-  lossDeltaOptions,
-  sexOptions,
+  createActivityLevelOptions,
+  createGoalDeltaOptions,
+  createGoalOptions,
+  createSexOptions,
 } from '@entities/user';
 
+import { useTranslation } from '@shared/i18n';
 import { Button } from '@shared/ui/controls/Button';
 import { DatePicker } from '@shared/ui/controls/DatePicker';
 import { Select } from '@shared/ui/controls/Select';
@@ -23,10 +21,16 @@ import { Card } from '@shared/ui/layout/Card';
 import { Title } from '@shared/ui/typography/Title';
 
 import { useSubmit } from './model';
-import { schema } from './schema';
+import { createSchema } from './schema';
 import type { FormProps, FormValues } from './types';
 
 export const EditProfileForm = ({ initialState }: FormProps) => {
+  const { t: tUser } = useTranslation('user');
+  const { t: tProfile } = useTranslation('profile');
+  const { t: tCommon } = useTranslation('common');
+
+  const schema = createSchema(tUser);
+
   const methods = useForm<FormValues>({
     resolver: zodResolver(schema),
     mode: 'onChange',
@@ -52,31 +56,30 @@ export const EditProfileForm = ({ initialState }: FormProps) => {
     <Form<FormValues> methods={methods} onSubmit={onSubmit}>
       <Card gap="lg" shadow="sm">
         <Title level={2} size="md">
-          Account
+          {tProfile('sections.account')}
         </Title>
 
-        <Field<FormValues> name="name" label={UserFieldLabels.name}>
+        <Field<FormValues> name="name" label={tUser('fields.name')}>
           <TextInput />
         </Field>
       </Card>
 
       <Card gap="lg" shadow="sm">
         <Title level={2} size="md">
-          Body parameters
+          {tProfile('sections.body')}
         </Title>
 
         <Field<FormValues>
           name="sex"
-          label={UserFieldLabels.sex}
+          label={tUser('fields.sex')}
           controlType="controlled"
         >
-          <Select options={sexOptions} />
+          <Select options={createSexOptions(tUser)} />
         </Field>
 
         <Field<FormValues>
           name="dateOfBirth"
-          label={UserFieldLabels.dateOfBirth}
-          required
+          label={tUser('fields.dateOfBirth')}
           controlType="controlled"
         >
           <DatePicker />
@@ -84,8 +87,8 @@ export const EditProfileForm = ({ initialState }: FormProps) => {
 
         <Field<FormValues>
           name="height"
-          label={UserFieldLabels.height}
-          helperText={UserFieldHelpers.height}
+          label={tUser('fields.height')}
+          helperText={tUser('helpers.height')}
           valueAsNumber
         >
           <TextInput type="number" />
@@ -93,8 +96,8 @@ export const EditProfileForm = ({ initialState }: FormProps) => {
 
         <Field<FormValues>
           name="weight"
-          label={UserFieldLabels.weight}
-          helperText={UserFieldHelpers.weight}
+          label={tUser('fields.weight')}
+          helperText={tUser('helpers.weight')}
           valueAsNumber
         >
           <TextInput type="number" />
@@ -102,8 +105,8 @@ export const EditProfileForm = ({ initialState }: FormProps) => {
 
         <Field<FormValues>
           name="targetWeight"
-          label={UserFieldLabels.targetWeight}
-          helperText={UserFieldHelpers.targetWeight}
+          label={tUser('fields.targetWeight')}
+          helperText={tUser('helpers.targetWeight')}
           valueAsNumber
         >
           <TextInput type="number" />
@@ -112,44 +115,48 @@ export const EditProfileForm = ({ initialState }: FormProps) => {
 
       <Card gap="lg" shadow="sm">
         <Title level={2} size="md">
-          Goals
+          {tProfile('sections.goals')}
         </Title>
 
         <Field<FormValues>
           name="goal"
-          label={UserFieldLabels.goal}
+          label={tUser('fields.goal')}
           controlType="controlled"
         >
-          <Select options={goalOptions} />
+          <Select options={createGoalOptions(tUser)} />
         </Field>
 
         {!isMaintainGoal && (
           <Field<FormValues>
             name="goalDelta"
-            label={UserFieldLabels.goalDelta}
-            helperText={UserFieldHelpers.goalDelta}
+            label={tUser('fields.goalDelta')}
+            helperText={tUser('helpers.goalDelta')}
             controlType="controlled"
           >
             <Select
-              options={goal === 'lose' ? lossDeltaOptions : gainDeltaOptions}
+              options={
+                goal === 'lose'
+                  ? createGoalDeltaOptions(tUser, 'deficit')
+                  : createGoalDeltaOptions(tUser, 'surplus')
+              }
             />
           </Field>
         )}
 
         <Field<FormValues>
           name="activityLevel"
-          label={UserFieldLabels.activityLevel}
-          helperText={UserFieldHelpers.activityLevel}
+          label={tUser('fields.activityLevel')}
+          helperText={tUser('helpers.activityLevel')}
           controlType="controlled"
         >
-          <Select options={activityLevelOptions} />
+          <Select options={createActivityLevelOptions(tUser)} />
         </Field>
       </Card>
 
       {errors.root && <FormError>{errors.root.message}</FormError>}
 
       <Button type="submit" disabled={!isValid} loading={isPending} fullWidth>
-        Save
+        {tCommon('actions.save')}
       </Button>
     </Form>
   );

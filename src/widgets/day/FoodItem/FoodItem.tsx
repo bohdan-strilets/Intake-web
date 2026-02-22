@@ -1,6 +1,7 @@
 import { useDeleteFoodMutation } from '@features/food/deleteFood';
 import { EditWeightForm } from '@features/food/editFoodWeight';
 
+import { useTranslation } from '@shared/i18n';
 import { useConfirm } from '@shared/lib/confirm';
 import { useModal } from '@shared/lib/modal';
 import { Icon } from '@shared/ui/controls/Icon';
@@ -23,15 +24,18 @@ export const FoodItem = ({
   fat,
   carbs,
 }: FoodItemProps) => {
+  const { t: tCommon } = useTranslation('common');
+  const { t: tDay } = useTranslation('day');
+
   const deleteFoodMutation = useDeleteFoodMutation();
   const { open } = useModal();
   const { openConfirm } = useConfirm();
 
   const handleDelete = () => {
     openConfirm({
-      title: `Delete ${title}?`,
-      description: 'This action cannot be undone.',
-      confirmText: 'Delete',
+      title: tDay('dialogs.deleteFood.title', { title }),
+      description: tDay('dialogs.deleteFood.description'),
+      confirmText: tCommon('actions.delete'),
       confirmVariant: 'danger',
       onConfirm: async () => {
         await deleteFoodMutation.mutateAsync({ foodId: id, date });
@@ -59,13 +63,13 @@ export const FoodItem = ({
             items={[
               {
                 id: 'edit',
-                label: 'Edit',
+                label: tCommon('actions.edit'),
                 icon: 'edit',
                 onSelect: handleEdit,
               },
               {
                 id: 'delete',
-                label: 'Delete',
+                label: tCommon('actions.delete'),
                 icon: 'trash',
                 danger: true,
                 onSelect: handleDelete,
@@ -77,19 +81,28 @@ export const FoodItem = ({
         <Divider />
 
         <Inline justify="between">
-          <Paragraph>{weight}g</Paragraph>
-          <Paragraph>{calories}cal</Paragraph>
+          <Paragraph>
+            {weight}
+            {tCommon('units.gramsShort')}
+          </Paragraph>
+          <Paragraph>
+            {calories}
+            {tCommon('units.cal')}
+          </Paragraph>
         </Inline>
 
         <Inline justify="between">
           <Paragraph size="sm" tone="muted">
-            Protein {protein}g
+            {tCommon('macroNutrients.protein')} {protein}
+            {tCommon('units.gramsShort')}
           </Paragraph>
           <Paragraph size="sm" tone="muted">
-            Fat {fat}g
+            {tCommon('macroNutrients.fat')} {fat}
+            {tCommon('units.gramsShort')}
           </Paragraph>
           <Paragraph size="sm" tone="muted">
-            Carbs {carbs}g
+            {tCommon('macroNutrients.carbs')} {carbs}
+            {tCommon('units.gramsShort')}
           </Paragraph>
         </Inline>
       </Card>

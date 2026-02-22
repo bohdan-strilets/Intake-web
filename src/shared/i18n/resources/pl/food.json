@@ -1,0 +1,43 @@
+{
+  "actions": {
+    "addFood": "Dodaj jedzenie"
+  },
+
+  "states": {
+    "analyzing": "Analizowanie...",
+    "calculating": "Obliczanie wartości odżywczych..."
+  },
+
+  "fields": {
+    "text": {
+      "label": "Co zjadłeś?",
+      "helper": "Przykład: 2 jajka sadzone i kromka chleba"
+    },
+
+    "weight": {
+      "label": "Waga (g)",
+      "helper": "Używana do obliczania kalorii i makroskładników."
+    }
+  },
+
+  "validation": {
+    "text": {
+      "required": "Opisz, co zjadłeś",
+      "minLength": "Opis jest zbyt krótki",
+      "maxLength": "Opis jest zbyt długi"
+    },
+
+    "weight": {
+      "required": "Waga jest wymagana",
+      "min": "Wartość musi być większa niż 0",
+      "max": "Wartość jest zbyt duża",
+      "integer": "Wartość musi być liczbą całkowitą"
+    }
+  },
+
+  "errors": {
+    "foodNotFound": "Nie znaleziono wpisu",
+    "foodBadRequest": "Nieprawidłowe dane jedzenia",
+    "aiParseFailed": "Nie udało się przeanalizować opisu jedzenia"
+  }
+}

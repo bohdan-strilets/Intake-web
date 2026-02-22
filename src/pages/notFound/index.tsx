@@ -2,6 +2,7 @@ import { useNavigate } from '@tanstack/react-router';
 
 import { DAY_ALIAS } from '@entities/day';
 
+import { useTranslation } from '@shared/i18n';
 import { ROUTES } from '@shared/routes';
 import { Button } from '@shared/ui/controls/Button';
 import { Card } from '@shared/ui/layout/Card';
@@ -11,6 +12,7 @@ import { Paragraph } from '@shared/ui/typography/Paragraph';
 
 export const NotFoundPage = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation('common');
 
   const handleGoToToday = () => {
     navigate({ to: ROUTES.app.day, params: { date: DAY_ALIAS.TODAY } });
@@ -24,9 +26,9 @@ export const NotFoundPage = () => {
         </Paragraph>
 
         <Paragraph align="center" size="lg" tone="muted">
-          Page not found
+          {t('notFound.title')}
           <br />
-          The page doesn’t exist.
+          {t('notFound.description')}
         </Paragraph>
       </Stack>
 
@@ -37,7 +39,7 @@ export const NotFoundPage = () => {
         iconColor="accentOn"
         onClick={handleGoToToday}
       >
-        Go to Today
+        {t('notFound.actions.goToToday')}
       </Button>
     </Card>
   );

@@ -1,33 +1,14 @@
-import { activityLabelMap } from '@entities/user/mappers';
-
+import type { TFunction } from '@shared/i18n';
 import type { SelectOption } from '@shared/ui/controls/Select';
 
 import { ACTIVITY_LEVEL, type ActivityLevel } from '../enums';
+import { activityLabelMap } from '../mappers';
 
-export const activityLevelOptions: SelectOption<ActivityLevel>[] = [
-  {
-    value: ACTIVITY_LEVEL.SEDENTARY,
-    label: activityLabelMap[ACTIVITY_LEVEL.SEDENTARY],
+export const createActivityLevelOptions = (
+  t: TFunction<'user'>,
+): SelectOption<ActivityLevel>[] =>
+  Object.values(ACTIVITY_LEVEL).map((value) => ({
+    value,
+    label: t(`activityLevels.${activityLabelMap(value)}`),
     isDisabled: false,
-  },
-  {
-    value: ACTIVITY_LEVEL.LIGHT,
-    label: activityLabelMap[ACTIVITY_LEVEL.LIGHT],
-    isDisabled: false,
-  },
-  {
-    value: ACTIVITY_LEVEL.MODERATE,
-    label: activityLabelMap[ACTIVITY_LEVEL.MODERATE],
-    isDisabled: false,
-  },
-  {
-    value: ACTIVITY_LEVEL.HIGH,
-    label: activityLabelMap[ACTIVITY_LEVEL.HIGH],
-    isDisabled: false,
-  },
-  {
-    value: ACTIVITY_LEVEL.VERY_HIGH,
-    label: activityLabelMap[ACTIVITY_LEVEL.VERY_HIGH],
-    isDisabled: false,
-  },
-];
+  }));

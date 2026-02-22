@@ -1,0 +1,29 @@
+{
+  "days": {
+    "mn": "Pn",
+    "tu": "Wt",
+    "we": "Śr",
+    "th": "Cz",
+    "fr": "Pt",
+    "sa": "Sb",
+    "su": "Nd"
+  },
+
+  "range": {
+    "week": "Tydzień",
+    "month": "Miesiąc",
+    "year": "Rok"
+  },
+
+  "relative": {
+    "today": "Dziś",
+    "yesterday": "Wczoraj"
+  },
+
+  "errors": {
+    "calendarLoad": {
+      "title": "Nie udało się wczytać kalendarza",
+      "description": "Sprawdź połączenie z internetem i spróbuj ponownie."
+    }
+  }
+}

@@ -1,31 +1,32 @@
+import type { TFunction } from '@shared/i18n';
 import type { SelectOption } from '@shared/ui/controls/Select';
 
-export const lossDeltaOptions: SelectOption<number | null>[] = [
-  { label: 'None', value: null, isDisabled: false },
-  { label: 'Small deficit (-200 kcal/day)', value: -200, isDisabled: false },
-  {
-    label: 'Moderate deficit (-400 kcal/day)',
-    value: -400,
-    isDisabled: false,
-  },
-  {
-    label: 'Aggressive deficit (-600 kcal/day)',
-    value: -600,
-    isDisabled: false,
-  },
-];
+const DELTA_VALUES = [200, 400, 600] as const;
 
-export const gainDeltaOptions: SelectOption<number | null>[] = [
-  { label: 'None', value: null, isDisabled: false },
-  { label: 'Small surplus (+200 kcal/day)', value: 200, isDisabled: false },
-  {
-    label: 'Moderate surplus (+400 kcal/day)',
-    value: 400,
-    isDisabled: false,
-  },
-  {
-    label: 'Aggressive surplus (+600 kcal/day)',
-    value: 600,
-    isDisabled: false,
-  },
-];
+export const createGoalDeltaOptions = (
+  t: TFunction<'user'>,
+  type: 'deficit' | 'surplus',
+): SelectOption<number | null>[] => {
+  const sign = type === 'deficit' ? -1 : 1;
+
+  const options: SelectOption<number | null>[] = [
+    {
+      value: null,
+      label: t('goalDelta.none'),
+      isDisabled: false,
+    },
+  ];
+
+  DELTA_VALUES.forEach((value, index) => {
+    const intensities = ['small', 'moderate', 'aggressive'] as const;
+    const intensity = intensities[index];
+
+    options.push({
+      value: value * sign,
+      label: t(`goalDelta.${type}.${intensity}`, { value }),
+      isDisabled: false,
+    });
+  });
+
+  return options;
+};
