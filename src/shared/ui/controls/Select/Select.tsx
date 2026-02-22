@@ -4,6 +4,7 @@ import { useRef, useState } from 'react';
 import { useClickOutside } from '@shared/hooks/clickOutside';
 import { useKeyboardNavigation } from '@shared/hooks/keyboardNavigation';
 import { useTranslation } from '@shared/i18n';
+import { Inline } from '@shared/ui/layout/Inline';
 
 import { Icon } from '../Icon';
 
@@ -74,7 +75,10 @@ export const Select = <T extends string | number | null>({
         }
         aria-controls={listboxId}
       >
-        {selectedLabel || placeholder || t('actions.select')}
+        <Inline justify="between">
+          {selectedLabel || placeholder || t('actions.select')}
+          <Icon name="chevronDown" color="muted" />
+        </Inline>
       </button>
 
       {isOpen && (
