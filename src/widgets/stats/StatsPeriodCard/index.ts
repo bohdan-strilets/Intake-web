@@ -1,1 +1,0 @@
-export { StatsPeriodCard } from './StatsPeriodCard';

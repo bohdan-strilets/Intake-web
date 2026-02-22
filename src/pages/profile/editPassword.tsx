@@ -1,4 +1,4 @@
-import { PageHeader } from '@widgets/profile/PageHeader';
+import { Header } from '@widgets/profile/Header';
 
 import { EditPasswordForm } from '@features/user/eidtPassword';
 
@@ -10,7 +10,7 @@ export const EditPasswordPage = () => {
 
   return (
     <Stack gap="lg">
-      <PageHeader title={t('actions.editPassword')} />
+      <Header title={t('actions.editPassword')} />
       <EditPasswordForm />
     </Stack>
   );

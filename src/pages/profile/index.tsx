@@ -1,11 +1,11 @@
-import { PageHeader } from '@widgets/profile/PageHeader';
-import { ProfileAccountSection } from '@widgets/profile/ProfileAccountSection';
-import { ProfileBodySection } from '@widgets/profile/ProfileBodySection';
-import { ProfileDailyIntake } from '@widgets/profile/ProfileDailyIntake/ProfileDailyIntake';
-import { ProfileDangerZone } from '@widgets/profile/ProfileDangerZone';
-import { ProfileErrorState } from '@widgets/profile/ProfileErrorState';
-import { ProfileSettingsSection } from '@widgets/profile/ProfileSettingsSection';
-import { ProfileSkeleton } from '@widgets/profile/ProfileSkeleton';
+import { AccountSection } from '@widgets/profile/AccountSection';
+import { BodySection } from '@widgets/profile/BodySection';
+import { DailyIntake } from '@widgets/profile/DailyIntake/DailyIntake';
+import { DangerZone } from '@widgets/profile/DangerZone';
+import { Error } from '@widgets/profile/Error';
+import { Header } from '@widgets/profile/Header';
+import { Loading } from '@widgets/profile/Loading';
+import { SettingsSection } from '@widgets/profile/SettingsSection';
 
 import { useProfileDetailsQuery } from '@features/user/profileDetails';
 
@@ -16,26 +16,23 @@ export const ProfilePage = () => {
   const { data, isPending, isError, refetch } = useProfileDetailsQuery();
   const { t } = useTranslation('profile');
 
-  if (isPending) return <ProfileSkeleton />;
-  if (isError) return <ProfileErrorState refetch={refetch} />;
+  if (isPending) return <Loading />;
+  if (isError) return <Error refetch={refetch} />;
 
   const userProfile = data;
 
   return (
     <Stack gap="lg">
-      <PageHeader title={t('title')} showDropdown />
+      <Header title={t('title')} showDropdown />
 
-      <ProfileDailyIntake
+      <DailyIntake
         recommendedCalories={userProfile.metabolism.recommendedCalories}
         goal={userProfile.goal}
       />
 
-      <ProfileAccountSection
-        name={userProfile.name}
-        email={userProfile.email}
-      />
+      <AccountSection name={userProfile.name} email={userProfile.email} />
 
-      <ProfileBodySection
+      <BodySection
         sex={userProfile.sex}
         age={userProfile.age}
         dateOfBirth={userProfile.dateOfBirth}
@@ -46,9 +43,9 @@ export const ProfilePage = () => {
         activityLevel={userProfile.activityLevel}
       />
 
-      <ProfileSettingsSection settings={userProfile.settings} />
+      <SettingsSection settings={userProfile.settings} />
 
-      <ProfileDangerZone />
+      <DangerZone />
     </Stack>
   );
 };

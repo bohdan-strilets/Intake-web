@@ -21,11 +21,13 @@ export const DailyStats = ({ consumed, target }: DailyStatsProps) => {
           {target} {tCommon('units.cal')}
         </Paragraph>
       </Inline>
+
       <Progress
         value={consumed}
         target={target}
         unit={tCommon('macroNutrients.calories')}
       />
+
       <Inline justify="between">
         <Paragraph size="sm">{tDay('summary.remaining')}</Paragraph>
         <Paragraph weight="medium" tone={isExceeded ? 'warning' : 'default'}>

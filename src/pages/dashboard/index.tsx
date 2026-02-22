@@ -1,13 +1,13 @@
 import { useNavigate } from '@tanstack/react-router';
 
 import {
-  CalendarController,
+  Controller,
   useCalendarNavigation,
-} from '@widgets/calendar/CalendarController';
-import { CalendarErrorState } from '@widgets/calendar/CalendarErrorState';
-import { CalendarWeekDays } from '@widgets/calendar/CalendarWeekDays';
-import { CallendarSkeleton } from '@widgets/calendar/CallendarSkeleton';
-import { MonthCalendar } from '@widgets/calendar/MonthCalendar';
+} from '@widgets/calendar/Controller';
+import { Error } from '@widgets/calendar/Error';
+import { Loading } from '@widgets/calendar/Loading';
+import { MonthGrid } from '@widgets/calendar/MonthGrid';
+import { WeekDays } from '@widgets/calendar/WeekDays';
 
 import { useMonthDetailsQuery } from '@features/calendar/monthDetails';
 
@@ -27,33 +27,28 @@ export const DashboardPage = () => {
     month: monthParam,
   });
 
-  if (isLoading) return <CallendarSkeleton />;
-  if (isError) return <CalendarErrorState refetch={refetch} />;
+  if (isLoading) return <Loading />;
+  if (isError) return <Error refetch={refetch} />;
   if (!data) return null;
 
+  const monthDays = data;
+  const targetCalories = monthDays.targetCalories;
+
   const matrix = getMonthMatrix(year, month);
+  const monthLabel = formatMonthLabel(year, month);
+
+  const caloriesByDate = Object.fromEntries(
+    monthDays.days.map((day) => [day.date, day.totals.calories]),
+  );
 
   const handleDayClick = (date: string) => {
     navigate({ to: ROUTES.app.day, params: { date } });
   };
 
-  const caloriesByDate = () => {
-    if (!monthDays) return {};
-
-    return Object.fromEntries(
-      monthDays.days.map((cell) => [cell.date, cell.totals.calories]),
-    );
-  };
-
-  const monthDays = data;
-  const targetCalories = monthDays.targetCalories;
-
-  const monthLabel = formatMonthLabel(year, month);
-
   return (
     <Stack gap="lg">
       <Card shadow="sm">
-        <CalendarController
+        <Controller
           label={monthLabel}
           onPrev={goPrevMonth}
           onNext={goNextMonth}
@@ -61,12 +56,12 @@ export const DashboardPage = () => {
       </Card>
 
       <Card shadow="sm">
-        <CalendarWeekDays />
+        <WeekDays />
 
-        <MonthCalendar
+        <MonthGrid
           matrix={matrix}
           onDayClick={handleDayClick}
-          caloriesByDate={caloriesByDate()}
+          caloriesByDate={caloriesByDate}
           targetCalories={targetCalories}
         />
       </Card>

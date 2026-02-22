@@ -1,11 +1,11 @@
 import { useMemo, useState } from 'react';
 
-import { StatsCaloriesCard } from '@widgets/stats/StatsCaloriesCard';
-import { StatsErrorState } from '@widgets/stats/StatsErrorState';
-import { StatsMacrosCard } from '@widgets/stats/StatsMacrosCard';
-import { StatsPeriodCard } from '@widgets/stats/StatsPeriodCard';
-import { StatsSkeleton } from '@widgets/stats/StatsSkeleton';
-import { StatsWeightCard } from '@widgets/stats/StatsWeightCard';
+import { CaloriesCard } from '@widgets/stats/CaloriesCard';
+import { Error } from '@widgets/stats/Error';
+import { Loading } from '@widgets/stats/Loading';
+import { MacrosCard } from '@widgets/stats/MacrosCard';
+import { PeriodCard } from '@widgets/stats/PeriodCard';
+import { WeightCard } from '@widgets/stats/WeightCard';
 
 import { useStatsQuery } from '@features/stats/getStats';
 
@@ -27,8 +27,8 @@ export const StatsPage = () => {
 
   const { data, isPending, isError, refetch } = useStatsQuery(range);
 
-  if (isPending) return <StatsSkeleton />;
-  if (isError) return <StatsErrorState refetch={refetch} />;
+  if (isPending) return <Loading />;
+  if (isError) return <Error refetch={refetch} />;
 
   const stats = data;
 
@@ -43,26 +43,26 @@ export const StatsPage = () => {
         onChange={setPeriod}
       />
 
-      <StatsPeriodCard
+      <PeriodCard
         periodStart={stats.period.start}
         periodEnd={stats.period.end}
         loggedDays={stats.period.loggedDays}
         totalDays={stats.period.totalDays}
       />
 
-      <StatsCaloriesCard
+      <CaloriesCard
         caloriesAverage={stats.calories.average}
         caloriesGoal={stats.calories.goal}
         caloriesDelta={stats.calories.delta}
       />
 
-      <StatsMacrosCard
+      <MacrosCard
         protein={stats.macros.protein}
         fat={stats.macros.fat}
         carbs={stats.macros.carbs}
       />
 
-      {stats.weight && <StatsWeightCard weightDelta={stats.weight.delta} />}
+      {stats.weight && <WeightCard weightDelta={stats.weight.delta} />}
     </Stack>
   );
 };

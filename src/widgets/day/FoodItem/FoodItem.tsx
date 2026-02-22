@@ -27,7 +27,7 @@ export const FoodItem = ({
   const { t: tCommon } = useTranslation('common');
   const { t: tDay } = useTranslation('day');
 
-  const deleteFoodMutation = useDeleteFoodMutation();
+  const { mutateAsync: deleteFoodMutation } = useDeleteFoodMutation();
   const { open } = useModal();
   const { openConfirm } = useConfirm();
 
@@ -37,9 +37,7 @@ export const FoodItem = ({
       description: tDay('dialogs.deleteFood.description'),
       confirmText: tCommon('actions.delete'),
       confirmVariant: 'danger',
-      onConfirm: async () => {
-        await deleteFoodMutation.mutateAsync({ foodId: id, date });
-      },
+      onConfirm: async () => await deleteFoodMutation({ foodId: id, date }),
     });
   };
 

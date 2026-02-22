@@ -1,1 +1,0 @@
-export { CalendarWeekDays } from './CalendarWeekDays';

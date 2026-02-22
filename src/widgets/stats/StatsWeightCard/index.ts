@@ -1,1 +1,0 @@
-export { StatsWeightCard } from './StatsWeightCard';
