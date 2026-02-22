@@ -41,6 +41,7 @@
   },
 
   "errors": {
+    "generic": "Coś poszło nie tak. Spróbuj ponownie.",
     "connection": "Sprawdź połączenie z internetem i spróbuj ponownie.",
     "server": "Coś poszło nie tak. Spróbuj ponownie.",
     "validation": "Nieprawidłowe dane wejściowe"

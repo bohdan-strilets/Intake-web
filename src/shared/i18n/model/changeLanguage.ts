@@ -1,5 +1,6 @@
+import type { Language } from '@entities/user';
+
 import i18n from '../config';
-import type { Language } from '../enums';
 
 import { setStoredLanguage } from './languageStorage';
 

@@ -1,8 +1,8 @@
 import { useCallback, useMemo } from 'react';
 
-import { resolveTheme } from '@shared/styles/lib/resolveTheme';
+import { THEME } from '@entities/user';
 
-import { THEME } from '../enums';
+import { resolveTheme } from '@shared/styles/lib/resolveTheme';
 
 import { useTheme } from './useTheme';
 
@@ -12,7 +12,7 @@ export const useResolvedTheme = () => {
   const resolved = useMemo(() => resolveTheme(theme), [theme]);
 
   const toggleLightDark = useCallback(() => {
-    const next = resolved === THEME.DARK ? THEME.LIGHT : THEME.DARK;
+    const next = resolved === THEME.Dark ? THEME.Light : THEME.Dark;
     setTheme(next);
   }, [resolved, setTheme]);
 

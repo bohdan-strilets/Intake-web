@@ -1,6 +1,6 @@
-import { STORAGE_KEYS } from '@shared/config/storageKeys';
+import type { Language } from '@entities/user';
 
-import { type Language } from '../enums';
+import { STORAGE_KEYS } from '@shared/config/storageKeys';
 
 import { isLanguage } from './isLanguage';
 

@@ -1,7 +1,7 @@
 export const LANGUAGE = {
-  EN: 'en',
-  PL: 'pl',
-  UK: 'uk',
+  English: 'en',
+  Polish: 'pl',
+  Ukrainian: 'uk',
 } as const;
 
 export type Language = (typeof LANGUAGE)[keyof typeof LANGUAGE];

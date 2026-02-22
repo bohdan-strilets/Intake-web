@@ -1,6 +1,5 @@
-import { useTranslation, type Language } from '@shared/i18n';
+import { useTranslation } from '@shared/i18n';
 import { useModal } from '@shared/lib/modal';
-import { useResolvedTheme } from '@shared/styles/model';
 import { Card } from '@shared/ui/layout/Card';
 
 import { ProfileField } from '../ProfileField';
@@ -8,22 +7,24 @@ import { ProfileLanguageSheet } from '../ProfileLanguageSheet';
 import { ProfileSectionTitle } from '../ProfileSectionTitle';
 import { ProfileThemeSheet } from '../ProfileThemeSheet';
 
-export const ProfileSettingsSection = () => {
-  const { theme } = useResolvedTheme();
-  const { open } = useModal();
-  const { i18n } = useTranslation();
+import type { ProfileSettingsSectionProps } from './ProfileSettingsSectionProps';
 
-  const language = i18n.language as Language;
+export const ProfileSettingsSection = ({
+  settings,
+}: ProfileSettingsSectionProps) => {
+  const { theme, language } = settings;
+
+  const { open } = useModal();
 
   const { t: tProfile } = useTranslation('profile');
   const { t: tCommon } = useTranslation('common');
 
   const handleTheme = () => {
-    open(<ProfileThemeSheet />);
+    open(<ProfileThemeSheet theme={theme} />);
   };
 
   const handleLanguage = () => {
-    open(<ProfileLanguageSheet />);
+    open(<ProfileLanguageSheet language={language} />);
   };
 
   return (

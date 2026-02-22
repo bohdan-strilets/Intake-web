@@ -5,4 +5,6 @@ export type SelectionItemProps = {
   selected: boolean;
   onClick: () => void;
   iconName?: IconName;
+  disabled?: boolean;
+  loading?: boolean;
 };

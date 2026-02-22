@@ -13,6 +13,7 @@ export const API_ROUTES = {
     email: '/users/me/email',
     password: '/users/me/password',
     delete: '/users/me/delete',
+    settings: '/users/me/settings',
   },
 
   days: {

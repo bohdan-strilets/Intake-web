@@ -1,21 +1,22 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 
+import { THEME } from '@entities/user';
+
 import { STORAGE_KEYS } from '@shared/config/storageKeys';
 
-import { THEME } from '../enums';
 import type { ThemeState } from '../types';
 
 export const useThemeStore = create<ThemeState>()(
   persist(
     (set) => ({
-      theme: THEME.SYSTEM,
+      theme: THEME.System,
       setTheme: (theme) => set({ theme }),
     }),
     {
       name: STORAGE_KEYS.THEME,
       partialize: (state) =>
-        state.theme === THEME.SYSTEM ? {} : { theme: state.theme },
+        state.theme === THEME.System ? {} : { theme: state.theme },
     },
   ),
 );

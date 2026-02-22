@@ -46,7 +46,7 @@ export const ProfilePage = () => {
         activityLevel={userProfile.activityLevel}
       />
 
-      <ProfileSettingsSection />
+      <ProfileSettingsSection settings={userProfile.settings} />
 
       <ProfileDangerZone />
     </Stack>

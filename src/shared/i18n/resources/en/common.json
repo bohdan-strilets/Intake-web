@@ -41,6 +41,7 @@
   },
 
   "errors": {
+    "generic": "Something went wrong. Please try again.",
     "connection": "Please check your connection and try again.",
     "server": "Something went wrong. Please try again.",
     "validation": "Invalid input data"

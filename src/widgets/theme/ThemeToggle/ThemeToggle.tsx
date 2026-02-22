@@ -1,4 +1,5 @@
-import { THEME } from '@shared/styles/enums';
+import { THEME } from '@entities/user';
+
 import { useResolvedTheme } from '@shared/styles/model';
 import { Icon } from '@shared/ui/controls/Icon';
 
@@ -6,7 +7,7 @@ import { root } from './ThemeToggle.css';
 
 export const ThemeToggle = () => {
   const { resolved, toggleLightDark } = useResolvedTheme();
-  const isDark = resolved === THEME.DARK;
+  const isDark = resolved === THEME.Dark;
 
   return (
     <button

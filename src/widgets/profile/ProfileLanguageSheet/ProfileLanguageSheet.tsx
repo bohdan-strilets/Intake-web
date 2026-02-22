@@ -1,24 +1,38 @@
-import {
-  changeLanguage,
-  LANGUAGE,
-  useTranslation,
-  type Language,
-} from '@shared/i18n';
+import { useUpdateSettingsMutation } from '@features/user/updateSettings';
+
+import { LANGUAGE, type Language } from '@entities/user';
+
+import { changeLanguage, useTranslation } from '@shared/i18n';
 import { useModal } from '@shared/lib/modal';
+import { notify } from '@shared/lib/notify';
 import { Stack } from '@shared/ui/layout/Stack';
 import { Paragraph } from '@shared/ui/typography/Paragraph';
 
 import { SelectionItem } from '../SelectionItem';
 
-export const ProfileLanguageSheet = () => {
+import type { ProfileLanguageSheetProps } from './ProfileLanguageSheetProps';
+
+export const ProfileLanguageSheet = ({
+  language,
+}: ProfileLanguageSheetProps) => {
   const { close } = useModal();
-  const { i18n } = useTranslation();
 
-  const language = i18n.language as Language;
+  const { mutateAsync: updateSettings, isPending } =
+    useUpdateSettingsMutation();
 
-  const changeLanguageHandler = (lang: Language) => {
-    changeLanguage(lang);
-    close();
+  const changeLanguageHandler = async (lang: Language) => {
+    if (lang === language || isPending) return;
+
+    const previousLanguage = language;
+
+    try {
+      await changeLanguage(lang);
+      await updateSettings({ language: lang });
+      close();
+    } catch {
+      await changeLanguage(previousLanguage);
+      notify.error(tCommon('errors.generic'));
+    }
   };
 
   const { t: tCommon } = useTranslation('common');
@@ -32,21 +46,24 @@ export const ProfileLanguageSheet = () => {
 
       <Stack gap="xl">
         <SelectionItem
-          label={tCommon(`languages.${LANGUAGE.EN}`)}
-          selected={language === LANGUAGE.EN}
-          onClick={() => changeLanguageHandler(LANGUAGE.EN)}
+          label={tCommon(`languages.${LANGUAGE.English}`)}
+          selected={language === LANGUAGE.English}
+          onClick={() => changeLanguageHandler(LANGUAGE.English)}
+          loading={isPending}
         />
 
         <SelectionItem
-          label={tCommon(`languages.${LANGUAGE.PL}`)}
-          selected={language === LANGUAGE.PL}
-          onClick={() => changeLanguageHandler(LANGUAGE.PL)}
+          label={tCommon(`languages.${LANGUAGE.Polish}`)}
+          selected={language === LANGUAGE.Polish}
+          onClick={() => changeLanguageHandler(LANGUAGE.Polish)}
+          loading={isPending}
         />
 
         <SelectionItem
-          label={tCommon(`languages.${LANGUAGE.UK}`)}
-          selected={language === LANGUAGE.UK}
-          onClick={() => changeLanguageHandler(LANGUAGE.UK)}
+          label={tCommon(`languages.${LANGUAGE.Ukrainian}`)}
+          selected={language === LANGUAGE.Ukrainian}
+          onClick={() => changeLanguageHandler(LANGUAGE.Ukrainian)}
+          loading={isPending}
         />
       </Stack>
     </Stack>

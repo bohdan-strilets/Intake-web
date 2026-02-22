@@ -1,26 +1,41 @@
+import { useUpdateSettingsMutation } from '@features/user/updateSettings';
+
+import { THEME, type Theme } from '@entities/user';
+
 import { useTranslation } from '@shared/i18n';
 import { useModal } from '@shared/lib/modal';
-import { THEME } from '@shared/styles/enums';
+import { notify } from '@shared/lib/notify';
 import { useResolvedTheme } from '@shared/styles/model';
-import type { Theme } from '@shared/styles/types';
 import { Stack } from '@shared/ui/layout/Stack';
 import { Paragraph } from '@shared/ui/typography/Paragraph';
 
 import { SelectionItem } from '../SelectionItem';
 
-export const ProfileThemeSheet = () => {
-  const { theme, setTheme } = useResolvedTheme();
+import type { ProfileThemeSheetProps } from './ProfileThemeSheetProps';
+
+export const ProfileThemeSheet = ({ theme }: ProfileThemeSheetProps) => {
   const { close } = useModal();
+  const { setTheme } = useResolvedTheme();
 
   const { t: tProfile } = useTranslation('profile');
   const { t: tCommon } = useTranslation('common');
 
-  const handleSelect = (value: Theme) => {
-    setTheme(value);
+  const { mutateAsync: updateSettings, isPending } =
+    useUpdateSettingsMutation();
 
-    requestAnimationFrame(() => {
+  const handleSelect = async (value: Theme) => {
+    if (value === theme || isPending) return;
+
+    const previousTheme = theme;
+
+    try {
+      setTheme(value);
+      await updateSettings({ theme: value });
       close();
-    });
+    } catch {
+      setTheme(previousTheme);
+      notify.error(tCommon('errors.generic'));
+    }
   };
 
   return (
@@ -30,23 +45,26 @@ export const ProfileThemeSheet = () => {
       <Stack gap="xl">
         <SelectionItem
           iconName="themeSystem"
-          label={tCommon(`themes.${THEME.SYSTEM}`)}
-          selected={theme === THEME.SYSTEM}
-          onClick={() => handleSelect(THEME.SYSTEM)}
+          label={tCommon(`themes.${THEME.System}`)}
+          selected={theme === THEME.System}
+          onClick={() => handleSelect(THEME.System)}
+          loading={isPending}
         />
 
         <SelectionItem
           iconName="themeLight"
-          label={tCommon(`themes.${THEME.LIGHT}`)}
-          selected={theme === THEME.LIGHT}
-          onClick={() => handleSelect(THEME.LIGHT)}
+          label={tCommon(`themes.${THEME.Light}`)}
+          selected={theme === THEME.Light}
+          onClick={() => handleSelect(THEME.Light)}
+          loading={isPending}
         />
 
         <SelectionItem
           iconName="themeDark"
-          label={tCommon(`themes.${THEME.DARK}`)}
-          selected={theme === THEME.DARK}
-          onClick={() => handleSelect(THEME.DARK)}
+          label={tCommon(`themes.${THEME.Dark}`)}
+          selected={theme === THEME.Dark}
+          onClick={() => handleSelect(THEME.Dark)}
+          loading={isPending}
         />
       </Stack>
     </Stack>
