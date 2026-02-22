@@ -1,16 +1,14 @@
+import type { TFunction } from '@shared/i18n';
+
 import type { SelectOption } from '../../Select';
 
-export const monthOptions: SelectOption[] = [
-  { value: '0', label: 'January' },
-  { value: '1', label: 'February' },
-  { value: '2', label: 'March' },
-  { value: '3', label: 'April' },
-  { value: '4', label: 'May' },
-  { value: '5', label: 'June' },
-  { value: '6', label: 'July' },
-  { value: '7', label: 'August' },
-  { value: '8', label: 'September' },
-  { value: '9', label: 'October' },
-  { value: '10', label: 'November' },
-  { value: '11', label: 'December' },
-];
+const MONTH_INDEXES = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11] as const;
+
+export const createMonthOptions = (
+  t: TFunction<'calendar'>,
+): SelectOption<string>[] =>
+  MONTH_INDEXES.map((index) => ({
+    value: String(index),
+    label: t(`months.${index}`),
+    isDisabled: false,
+  }));

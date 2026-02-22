@@ -2,7 +2,7 @@ import type { SelectOption } from '../../Select';
 
 const CURRENT_YEAR = new Date().getFullYear();
 
-export const yearOptions: SelectOption[] = Array.from(
+export const yearOptions: SelectOption<string>[] = Array.from(
   { length: 100 },
   (_, index) => {
     const year = CURRENT_YEAR - index;

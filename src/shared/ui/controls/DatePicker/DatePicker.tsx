@@ -13,7 +13,7 @@ import { Select } from '../Select';
 
 import { cellBtn, picker, root, select, trigger } from './DatePicker.css';
 import { useDatePicker } from './model';
-import { monthOptions, yearOptions } from './options';
+import { createMonthOptions, yearOptions } from './options';
 import type { DatePickerProps } from './types';
 
 export const DatePicker = ({
@@ -66,7 +66,7 @@ export const DatePicker = ({
         <Card gap="lg" shadow="lg" className={picker}>
           <Inline justify="between" gap="sm">
             <Select
-              options={monthOptions}
+              options={createMonthOptions(tCalendar)}
               value={String(viewMonth)}
               onChange={(month) => setViewMonth(Number(month))}
               placeholder={tCalendar('range.month')}
