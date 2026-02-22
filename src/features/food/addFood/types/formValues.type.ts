@@ -1,5 +1,5 @@
 import type { Infer } from '@shared/lib/zod';
 
-import type { schema } from '../schema';
+import type { createSchema } from '../schema';
 
-export type FormValues = Infer<typeof schema>;
+export type FormValues = Infer<ReturnType<typeof createSchema>>;

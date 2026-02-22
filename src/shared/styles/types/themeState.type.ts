@@ -1,4 +1,4 @@
-import type { Theme } from './themeMode.type';
+import type { Theme } from '@entities/user';
 
 export type ThemeState = {
   theme: Theme;
