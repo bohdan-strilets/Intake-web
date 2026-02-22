@@ -56,7 +56,7 @@ export const DatePicker = ({
       >
         <Inline justify="between">
           {value
-            ? formatDisplayDate(value, 'en-US', true)
+            ? formatDisplayDate(value, true)
             : tCommon('actions.selectDate')}
           <Icon name="calendar" size="md" color="muted" />
         </Inline>

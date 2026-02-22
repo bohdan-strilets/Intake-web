@@ -1,0 +1,1 @@
+export { intlLocaleMap } from './intlLocale';

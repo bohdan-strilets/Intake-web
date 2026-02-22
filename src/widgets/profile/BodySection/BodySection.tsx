@@ -32,7 +32,7 @@ export const BodySection = ({
       <InfoRow label={tUser('fields.sex')} value={tUser(`sex.${sex}`)} />
       <InfoRow
         label={tUser('fields.dateOfBirth')}
-        value={formatDisplayDate(dateOfBirth, 'en-US', true)}
+        value={formatDisplayDate(dateOfBirth, true)}
       />
       <InfoRow label={tUser('fields.age')} value={age.toString()} />
 
