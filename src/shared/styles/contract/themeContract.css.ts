@@ -99,10 +99,10 @@ export const themeContract = {
     header: null,
     navigation: null,
 
-    modal: null,
     overlay: null,
+    modal: null,
 
-    tooltip: null,
     dropdown: null,
+    tooltip: null,
   },
 } as const;
