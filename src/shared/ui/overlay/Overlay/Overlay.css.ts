@@ -5,7 +5,7 @@ import { vars } from '@shared/styles/contract';
 export const root = style({
   position: 'fixed',
   inset: 0,
-  zIndex: 1000,
+  zIndex: vars.zIndex.overlay,
 
   display: 'flex',
   background: vars.colors.overlay,

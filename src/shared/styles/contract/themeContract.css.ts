@@ -92,10 +92,16 @@ export const themeContract = {
   },
   zIndex: {
     base: null,
+
+    cellProgressBar: null,
+    cellContent: null,
+
     header: null,
     navigation: null,
+
     modal: null,
     overlay: null,
+
     tooltip: null,
     dropdown: null,
   },

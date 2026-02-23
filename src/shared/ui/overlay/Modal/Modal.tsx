@@ -1,7 +1,5 @@
 import { useEffect, useRef } from 'react';
 
-import { useClickOutside } from '@shared/hooks/clickOutside';
-
 import { Overlay } from '../Overlay';
 import { Portal } from '../Portal';
 
@@ -15,8 +13,6 @@ export const Modal = ({
   variant = 'sheet',
 }: ModalProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
-
-  useClickOutside(containerRef, onClose, open);
 
   useEffect(() => {
     if (!open) return;

@@ -29,7 +29,7 @@ export const progressBar = recipe({
     position: 'absolute',
     bottom: 0,
     left: 0,
-    zIndex: 1,
+    zIndex: vars.zIndex.cellProgressBar,
 
     width: 3,
     borderRadius: vars.radius.full,
@@ -49,6 +49,6 @@ export const progressBar = recipe({
 
 export const content = style({
   position: 'relative',
-  zIndex: 2,
+  zIndex: vars.zIndex.cellContent,
   width: '100%',
 });
