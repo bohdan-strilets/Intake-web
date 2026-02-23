@@ -19,6 +19,7 @@ export const API_ROUTES = {
   days: {
     list: '/days',
     byDate: (date: string) => `/day-details/${date}`,
+    editWeight: (dateId: string) => `/days/${dateId}/weight`,
   },
 
   food: {

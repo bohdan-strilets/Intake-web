@@ -16,6 +16,8 @@ export const errorKeyMap = {
   FOOD_BAD_REQUEST: 'errors.foodBadRequest',
   AI_PARSE_FAILED: 'errors.aiParseFailed',
 
+  DAY_NOT_FOUND: 'errors.dayNotFound',
+
   VALIDATION_ERROR: 'errors.validation',
   SERVER_ERROR: 'errors.server',
   NETWORK_ERROR: 'errors.connection',

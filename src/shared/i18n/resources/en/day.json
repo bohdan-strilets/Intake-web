@@ -1,15 +1,21 @@
 {
   "summary": {
     "dailyGoal": "Daily Goal",
-    "remaining": "Remaining"
+    "remaining": "Remaining",
+    "addWeightDescription": "Add your weight to build a simple progress history"
   },
 
   "states": {
     "empty": "No entries for this day."
   },
 
+  "actions": {
+    "addWeight": "Add weight"
+  },
+
   "entities": {
-    "food": "Food"
+    "food": "Food",
+    "weight": "Weight"
   },
 
   "dialogs": {
@@ -23,6 +29,23 @@
     "dayLoad": {
       "title": "Failed to load day",
       "description": "Please check your connection and try again."
+    },
+
+    "dayNotFound": "Day not found."
+  },
+
+  "fields": {
+    "weight": {
+      "label": "Weight (kg)",
+      "helper": "Your weight is saved by date and shown in statistics."
+    }
+  },
+
+  "validation": {
+    "weight": {
+      "min": "Must be at least {{min}} kg",
+      "max": "Must be less than {{max}} kg",
+      "decimal": "Only one decimal place is allowed"
     }
   }
 }

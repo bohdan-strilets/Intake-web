@@ -1,15 +1,21 @@
 {
   "summary": {
     "dailyGoal": "Cel dzienny",
-    "remaining": "Pozostało"
+    "remaining": "Pozostało",
+    "addWeightDescription": "Dodaj wagę, aby budować prostą historię postępów."
   },
 
   "states": {
     "empty": "Brak wpisów w tym dniu."
   },
 
+  "actions": {
+    "addWeight": "Dodaj wagę"
+  },
+
   "entities": {
-    "food": "Jedzenie"
+    "food": "Jedzenie",
+    "weight": "Waga"
   },
 
   "dialogs": {
@@ -23,6 +29,22 @@
     "dayLoad": {
       "title": "Nie udało się wczytać dnia",
       "description": "Sprawdź połączenie z internetem i spróbuj ponownie."
+    },
+
+    "dayNotFound": "Nie znaleziono dnia."
+  },
+
+  "fields": {
+    "weight": {
+      "label": "Waga (kg)",
+      "helper": "Waga jest zapisywana według daty i widoczna w statystykach."
+    }
+  },
+  "validation": {
+    "weight": {
+      "min": "Minimalna wartość to {{min}} kg",
+      "max": "Maksymalna wartość to {{max}} kg",
+      "decimal": "Dozwolona jest tylko jedna cyfra po przecinku"
     }
   }
 }
