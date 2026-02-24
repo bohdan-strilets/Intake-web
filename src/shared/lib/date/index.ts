@@ -10,3 +10,5 @@ export { getMonthRange } from './getMonthRange';
 export { isValidISODate } from './isValidISODate';
 export { isWithinRange } from './isWithinRange';
 export { toMidnight } from './toMidnight';
+export { formatShortWeekday } from './formatShortWeekday';
+export { formatDay } from './formatDay';
