@@ -1,3 +1,5 @@
+import type { DailyStatsItem } from './dailyStatsItem.type';
+
 export type StatsEntity = {
   period: {
     start: string;
@@ -7,6 +9,7 @@ export type StatsEntity = {
   };
 
   calories: {
+    tdee: number;
     average: number;
     goal: number;
     delta: number;
@@ -30,4 +33,6 @@ export type StatsEntity = {
   weight?: {
     delta: number;
   };
+
+  days: DailyStatsItem[];
 };

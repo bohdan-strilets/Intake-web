@@ -5,7 +5,10 @@
     "onTarget": "У межах цілі",
     "kcalVsGoal": "ккал відносно цілі",
     "averageMacros": "Середні макроси",
-    "weightChange": "Зміна ваги"
+    "weightChange": "Зміна ваги",
+    "averageCalories": "Середні калорії",
+    "dailyGoal": "Добова норма",
+    "maintenanceCalories": "Підтримка ваги"
   },
 
   "progress": {

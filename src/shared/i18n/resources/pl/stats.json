@@ -5,7 +5,10 @@
     "onTarget": "Zgodnie z celem",
     "kcalVsGoal": "kcal vs cel",
     "averageMacros": "Średnie makroskładniki",
-    "weightChange": "Zmiana wagi"
+    "weightChange": "Zmiana wagi",
+    "averageCalories": "Średnie kalorie",
+    "dailyGoal": "Dzienne zapotrzebowanie",
+    "maintenanceCalories": "Utrzymanie wagi"
   },
 
   "progress": {

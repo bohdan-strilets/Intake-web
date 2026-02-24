@@ -5,7 +5,10 @@
     "onTarget": "On target",
     "kcalVsGoal": "kcal vs goal",
     "averageMacros": "Average Macros",
-    "weightChange": "Weight change"
+    "weightChange": "Weight change",
+    "averageCalories": "Average calories",
+    "dailyGoal": "Daily goal",
+    "maintenanceCalories": "Maintenance calories"
   },
 
   "progress": {
