@@ -1,9 +1,10 @@
 import {
+  wrapper,
+  chartArea,
+  chartContainer,
   chart,
   labelsWrapper,
-  root,
   scaleWrapper,
-  wrapper,
 } from './BarChart.css';
 import { useBarChart } from './model';
 import type { BarChartProps } from './types';
@@ -24,7 +25,6 @@ export const BarChart = ({
     scaleValues,
     guideValues,
     getBarMeta,
-    getLabelPosition,
     shouldShowLabel,
     getScalePosition,
     averagePosition,
@@ -38,10 +38,10 @@ export const BarChart = ({
   if (!items.length) return null;
 
   return (
-    <>
-      <div className={wrapper}>
-        <div className={root}>
-          <div className={chart} style={{ height }}>
+    <div className={wrapper}>
+      <div className={chartArea}>
+        <div className={chartContainer} style={{ height }}>
+          <div className={chart}>
             {guideValues.map((value) => (
               <GuideLine key={value} position={getScalePosition(value)} />
             ))}
@@ -64,32 +64,26 @@ export const BarChart = ({
             })}
           </div>
 
-          <div className={labelsWrapper}>
-            {items.map((item, index) => {
-              if (!item.label) return null;
-              if (!shouldShowLabel(index)) return null;
-
-              return (
-                <Labels
-                  key={index}
-                  position={getLabelPosition(index)}
-                  value={item.label}
-                />
-              );
-            })}
+          <div className={scaleWrapper}>
+            {scaleValues.map((value) => (
+              <Scale
+                key={value}
+                value={value}
+                position={getScalePosition(value)}
+              />
+            ))}
           </div>
         </div>
 
-        <div className={scaleWrapper}>
-          {scaleValues.map((value) => (
-            <Scale
-              key={value}
-              value={value}
-              position={getScalePosition(value)}
-            />
-          ))}
+        <div className={labelsWrapper}>
+          {items.map((item, index) => {
+            if (!item.label) return null;
+            if (!shouldShowLabel(index)) return null;
+
+            return <Labels key={index} value={item.label} />;
+          })}
         </div>
       </div>
-    </>
+    </div>
   );
 };

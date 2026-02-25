@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 
-import type { Tone } from '../ui/Bar/Bar.types';
 import type { UseBarChartParams } from '../types';
+import type { Tone } from '../ui/Bar/Bar.types';
 
 import { calculateStep, createPercentCalculator } from './chartMath';
 
@@ -12,8 +12,10 @@ export const useBarChart = ({
   itemsLength,
 }: UseBarChartParams) => {
   return useMemo(() => {
-    const max = Math.max(goal, 1);
-    const step = calculateStep(max);
+    const rawMax = Math.max(goal, average ?? 0, 1);
+
+    const step = calculateStep(rawMax);
+    const max = Math.ceil(rawMax / step) * step;
 
     const getPercent = createPercentCalculator(max);
 
@@ -61,10 +63,6 @@ export const useBarChart = ({
       average !== undefined ? getPercent(Math.min(average, max)) : undefined;
 
     // ---- Label ----
-    const getLabelPosition = (index: number): number => {
-      if (itemsLength <= 0) return 0;
-      return (index + 0.5) * (100 / itemsLength);
-    };
 
     const shouldShowLabel = (index: number): boolean => {
       if (itemsLength <= 7) return true;
@@ -80,7 +78,6 @@ export const useBarChart = ({
       scaleValues,
       guideValues,
       getBarMeta,
-      getLabelPosition,
       shouldShowLabel,
       getScalePosition,
       averagePosition,
