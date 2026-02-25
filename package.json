@@ -20,6 +20,7 @@
     "@vanilla-extract/vite-plugin": "^5.1.4",
     "axios": "^1.13.4",
     "clsx": "^2.1.1",
+    "framer-motion": "^12.34.3",
     "i": "^0.3.7",
     "i18next": "^25.8.13",
     "lucide-react": "^0.563.0",
