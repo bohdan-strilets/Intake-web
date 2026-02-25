@@ -11,8 +11,16 @@ export const InfoRow = ({ label, value, onClick, icon }: InfoRowProps) => {
   return (
     <Inline as={Component} justify="between" gap="xs" onClick={onClick}>
       {icon && <Icon name={icon} />}
-      {label && <Paragraph tone="muted">{label}:</Paragraph>}
-      {value && <Paragraph weight="medium">{value}</Paragraph>}
+      {label && (
+        <Paragraph tone="muted" align="left" size="sm">
+          {label}:
+        </Paragraph>
+      )}
+      {value && (
+        <Paragraph weight="medium" align="right" size="sm">
+          {value}
+        </Paragraph>
+      )}
     </Inline>
   );
 };
