@@ -14,8 +14,9 @@ export const wrapper = style({
 
 export const bar = recipe({
   base: {
-    minWidth: 4,
-    borderRadius: vars.radius.sm,
+    minWidth: 6,
+    borderTopLeftRadius: vars.radius.sm,
+    borderTopRightRadius: vars.radius.sm,
     transition: 'height 0.25s ease',
   },
 
