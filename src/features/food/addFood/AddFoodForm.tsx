@@ -7,7 +7,6 @@ import { Textarea } from '@shared/ui/controls/Textarea';
 import { Field } from '@shared/ui/form/Field';
 import { Form } from '@shared/ui/form/Form';
 import { FormError } from '@shared/ui/form/FormError';
-import { Paragraph } from '@shared/ui/typography/Paragraph';
 
 import { useSubmit } from './model';
 import { createSchema } from './schema';
@@ -41,12 +40,6 @@ export const AddFoodForm = ({ date }: FormProps) => {
       <Button type="submit" disabled={!isValid} loading={isPending} fullWidth>
         {isPending ? tFood('states.analyzing') : tFood('actions.addFood')}
       </Button>
-
-      {isPending && (
-        <Paragraph size="sm" tone="muted">
-          {tFood('states.calculating')}
-        </Paragraph>
-      )}
     </Form>
   );
 };
