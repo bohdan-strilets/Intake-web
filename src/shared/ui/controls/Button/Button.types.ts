@@ -1,5 +1,6 @@
 import type { RecipeVariants } from '@vanilla-extract/recipes';
-import type { ButtonHTMLAttributes, ReactNode } from 'react';
+import type { HTMLMotionProps } from 'framer-motion';
+import type { ReactNode } from 'react';
 
 import type { IconName, IconProps } from '../Icon/Icon.types';
 
@@ -20,4 +21,4 @@ export type Props = {
 
 export type ButtonProps = Props &
   ButtonVariants &
-  Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'className'>;
+  Omit<HTMLMotionProps<'button'>, 'className'>;
