@@ -2,6 +2,7 @@ import { useTranslation } from '@shared/i18n';
 import { Progress } from '@shared/ui/feedback/Progress';
 import { Card } from '@shared/ui/layout/Card';
 import { Inline } from '@shared/ui/layout/Inline';
+import { AnimatedNumber } from '@shared/ui/motion/AnimatedNumber';
 import { Paragraph } from '@shared/ui/typography/Paragraph';
 
 import type { DailyStatsProps } from './DailyStats.types';
@@ -31,9 +32,8 @@ export const DailyStats = ({ consumed, target }: DailyStatsProps) => {
       <Inline justify="between">
         <Paragraph size="sm">{tDay('summary.remaining')}</Paragraph>
         <Paragraph weight="medium" tone={isExceeded ? 'warning' : 'default'}>
-          {isExceeded
-            ? `${Math.abs(remaining)} ${tCommon('units.cal')}`
-            : `${remaining} ${tCommon('units.cal')}`}
+          <AnimatedNumber value={Math.abs(remaining)} />
+          {tCommon('units.cal')}
         </Paragraph>
       </Inline>
     </Card>

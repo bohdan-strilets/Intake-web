@@ -1,15 +1,15 @@
-import { useDeleteFoodMutation } from '@features/food/deleteFood';
-import { EditWeightForm } from '@features/food/editFoodWeight';
+import { motion } from 'framer-motion';
 
 import { useTranslation } from '@shared/i18n';
-import { useConfirm } from '@shared/lib/confirm';
-import { useModal } from '@shared/lib/modal';
+import { listItem } from '@shared/motion';
 import { Icon } from '@shared/ui/controls/Icon';
 import { Card } from '@shared/ui/layout/Card';
 import { Divider } from '@shared/ui/layout/Divider';
 import { Inline } from '@shared/ui/layout/Inline';
-import { Dropdown } from '@shared/ui/overlay/Dropdown';
+import { AnimatedNumber } from '@shared/ui/motion/AnimatedNumber';
 import { Paragraph } from '@shared/ui/typography/Paragraph';
+
+import { FoodDropdown } from '../FoodDropdown';
 
 import type { FoodItemProps } from './FoodItem.types';
 
@@ -25,28 +25,15 @@ export const FoodItem = ({
   carbs,
 }: FoodItemProps) => {
   const { t: tCommon } = useTranslation('common');
-  const { t: tDay } = useTranslation('day');
-
-  const { mutateAsync: deleteFoodMutation } = useDeleteFoodMutation();
-  const { open } = useModal();
-  const { openConfirm } = useConfirm();
-
-  const handleDelete = () => {
-    openConfirm({
-      title: tDay('dialogs.deleteFood.title', { title }),
-      description: tDay('dialogs.deleteFood.description'),
-      confirmText: tCommon('actions.delete'),
-      confirmVariant: 'danger',
-      onConfirm: async () => await deleteFoodMutation({ foodId: id, date }),
-    });
-  };
-
-  const handleEdit = () => {
-    open(<EditWeightForm foodId={id} date={date} initialState={{ weight }} />);
-  };
 
   return (
-    <li>
+    <motion.li
+      variants={listItem}
+      initial={false}
+      animate="animate"
+      exit="exit"
+      layout="position"
+    >
       <Card tone="primary" shadow="sm" gap="none">
         <Inline justify="between">
           <Inline gap="sm" align="center">
@@ -56,54 +43,41 @@ export const FoodItem = ({
             <Paragraph weight="medium">{title}</Paragraph>
           </Inline>
 
-          <Dropdown
-            trigger={<Icon name="more" />}
-            items={[
-              {
-                id: 'edit',
-                label: tCommon('actions.edit'),
-                icon: 'edit',
-                onSelect: handleEdit,
-              },
-              {
-                id: 'delete',
-                label: tCommon('actions.delete'),
-                icon: 'trash',
-                danger: true,
-                onSelect: handleDelete,
-              },
-            ]}
-          />
+          <FoodDropdown id={id} date={date} title={title} weight={weight} />
         </Inline>
 
         <Divider />
 
         <Inline justify="between">
           <Paragraph>
-            {weight}
+            <AnimatedNumber value={weight} />
             {tCommon('units.gramsShort')}
           </Paragraph>
+
           <Paragraph>
-            {calories}
+            <AnimatedNumber value={calories} />
             {tCommon('units.cal')}
           </Paragraph>
         </Inline>
 
         <Inline justify="between">
           <Paragraph size="sm" tone="muted">
-            {tCommon('macroNutrients.protein')} {protein}
+            {tCommon('macroNutrients.protein')}{' '}
+            <AnimatedNumber value={protein} />
             {tCommon('units.gramsShort')}
           </Paragraph>
+
           <Paragraph size="sm" tone="muted">
-            {tCommon('macroNutrients.fat')} {fat}
+            {tCommon('macroNutrients.fat')} <AnimatedNumber value={fat} />
             {tCommon('units.gramsShort')}
           </Paragraph>
+
           <Paragraph size="sm" tone="muted">
-            {tCommon('macroNutrients.carbs')} {carbs}
+            {tCommon('macroNutrients.carbs')} <AnimatedNumber value={carbs} />
             {tCommon('units.gramsShort')}
           </Paragraph>
         </Inline>
       </Card>
-    </li>
+    </motion.li>
   );
 };

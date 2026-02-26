@@ -1,6 +1,7 @@
 import { useTranslation } from '@shared/i18n';
 import { Card } from '@shared/ui/layout/Card';
 import { Inline } from '@shared/ui/layout/Inline';
+import { AnimatedNumber } from '@shared/ui/motion/AnimatedNumber';
 import { Paragraph } from '@shared/ui/typography/Paragraph';
 
 import type { TotalsProps } from './Totals.types';
@@ -17,7 +18,11 @@ export const Totals = ({
     <Card shadow="sm">
       <Inline align="baseline">
         <Paragraph tone="accentPrimary" weight="bold" size="display">
-          {calories}
+          <AnimatedNumber
+            value={calories}
+            variants="numberChange"
+            speed="normal"
+          />
         </Paragraph>
         <Paragraph weight="medium" size="lg" tone="muted">
           {tCommon('macroNutrients.calories')}
@@ -29,25 +34,27 @@ export const Totals = ({
           <Inline gap="xs">
             <Paragraph size="sm">{tCommon('macroNutrients.protein')}</Paragraph>
             <Paragraph weight="bold" size="sm">
-              {protein}
+              <AnimatedNumber value={protein} />
               {tCommon('units.gramsShort')}
             </Paragraph>
           </Inline>
         </Card>
+
         <Card tone="accentSoft" shadow="sm">
           <Inline gap="xs">
             <Paragraph size="sm">{tCommon('macroNutrients.fat')}</Paragraph>
             <Paragraph weight="bold" size="sm">
-              {fat}
+              <AnimatedNumber value={fat} />
               {tCommon('units.gramsShort')}
             </Paragraph>
           </Inline>
         </Card>
+
         <Card tone="accentSoft" shadow="sm">
           <Inline gap="xs">
             <Paragraph size="sm">{tCommon('macroNutrients.carbs')}</Paragraph>
             <Paragraph weight="bold" size="sm">
-              {carbs}
+              <AnimatedNumber value={carbs} />
               {tCommon('units.gramsShort')}
             </Paragraph>
           </Inline>
