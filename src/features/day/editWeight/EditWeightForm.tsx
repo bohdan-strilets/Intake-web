@@ -34,7 +34,7 @@ export const EditWeightForm = ({ dayId, date, initialState }: FormProps) => {
         helperText={tDay('fields.weight.helper')}
         valueAsNumber
       >
-        <TextInput type="number" inputMode="numeric" />
+        <TextInput type="number" inputMode="decimal" />
       </Field>
 
       {errors.root && <FormError>{errors.root.message}</FormError>}

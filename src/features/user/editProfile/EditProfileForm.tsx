@@ -91,7 +91,7 @@ export const EditProfileForm = ({ initialState }: FormProps) => {
           helperText={tUser('helpers.height')}
           valueAsNumber
         >
-          <TextInput type="number" />
+          <TextInput type="number" inputMode="decimal" />
         </Field>
 
         <Field<FormValues>
@@ -100,7 +100,7 @@ export const EditProfileForm = ({ initialState }: FormProps) => {
           helperText={tUser('helpers.weight')}
           valueAsNumber
         >
-          <TextInput type="number" />
+          <TextInput type="number" inputMode="decimal" />
         </Field>
 
         <Field<FormValues>
@@ -109,7 +109,7 @@ export const EditProfileForm = ({ initialState }: FormProps) => {
           helperText={tUser('helpers.targetWeight')}
           valueAsNumber
         >
-          <TextInput type="number" />
+          <TextInput type="number" inputMode="decimal" />
         </Field>
       </Card>
 

@@ -103,7 +103,7 @@ export const RegisterForm = () => {
           required
           valueAsNumber
         >
-          <TextInput type="number" />
+          <TextInput type="number" inputMode="decimal" />
         </Field>
 
         <Field<FormValues>
@@ -113,7 +113,7 @@ export const RegisterForm = () => {
           required
           valueAsNumber
         >
-          <TextInput type="number" />
+          <TextInput type="number" inputMode="decimal" />
         </Field>
       </Card>
 
