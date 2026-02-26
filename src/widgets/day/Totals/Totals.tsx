@@ -18,11 +18,7 @@ export const Totals = ({
     <Card shadow="sm">
       <Inline align="baseline">
         <Paragraph tone="accentPrimary" weight="bold" size="display">
-          <AnimatedNumber
-            value={calories}
-            variants="numberChange"
-            speed="normal"
-          />
+          <AnimatedNumber value={calories} />
         </Paragraph>
         <Paragraph weight="medium" size="lg" tone="muted">
           {tCommon('macroNutrients.calories')}
