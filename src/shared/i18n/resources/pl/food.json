@@ -4,8 +4,7 @@
   },
 
   "states": {
-    "analyzing": "Analizowanie...",
-    "calculating": "Obliczanie wartości odżywczych..."
+    "analyzing": "Analizowanie..."
   },
 
   "fields": {

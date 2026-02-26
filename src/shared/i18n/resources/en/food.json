@@ -4,8 +4,7 @@
   },
 
   "states": {
-    "analyzing": "Analyzing...",
-    "calculating": "Calculating nutrition..."
+    "analyzing": "Analyzing..."
   },
 
   "fields": {
