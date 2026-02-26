@@ -26,7 +26,6 @@ export const DayPage = () => {
 
   if (isPending) return <Loading />;
   if (isError) return <Error refetch={refetch} />;
-  if (!data) return null;
 
   const dayDetails = data;
   const { day, food, targetCalories } = dayDetails;
