@@ -1,28 +1,27 @@
-import { recipe } from '@vanilla-extract/recipes';
+import { style } from '@vanilla-extract/css';
 
 import { vars } from '@shared/styles/contract';
 
-export const navLink = recipe({
-  base: {
-    display: 'flex',
-    flex: 1,
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
+export const navLink = style({
+  position: 'relative',
 
-    textDecoration: 'none',
+  flex: 1,
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
 
-    width: '100%',
-    height: '62px',
-    minHeight: '56px',
-  },
+  height: '56px',
+});
 
-  variants: {
-    isActive: {
-      true: {
-        backgroundColor: vars.colors.accentSoft,
-        boxShadow: vars.shadows.sm,
-      },
-    },
-  },
+export const indicator = style({
+  position: 'absolute',
+  inset: 0,
+  zIndex: vars.zIndex.base,
+
+  borderRadius: vars.radius.sm,
+  background: vars.colors.accentSoft,
+});
+
+export const iconWrapper = style({
+  position: 'relative',
 });
