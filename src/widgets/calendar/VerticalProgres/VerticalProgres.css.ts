@@ -10,10 +10,9 @@ export const root = recipe({
     zIndex: vars.zIndex.cellProgressBar,
 
     width: 3,
-    borderRadius: vars.radius.full,
 
+    borderRadius: vars.radius.full,
     backgroundColor: vars.colors.successSoft,
-    transition: 'height 200ms ease',
   },
 
   variants: {
