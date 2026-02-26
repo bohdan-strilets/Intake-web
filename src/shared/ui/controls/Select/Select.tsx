@@ -1,9 +1,11 @@
 import clsx from 'clsx';
+import { AnimatePresence, motion } from 'framer-motion';
 import { useRef, useState } from 'react';
 
 import { useClickOutside } from '@shared/hooks/clickOutside';
 import { useKeyboardNavigation } from '@shared/hooks/keyboardNavigation';
 import { useTranslation } from '@shared/i18n';
+import { quickTransition, rotateChevron, scaleIn } from '@shared/motion';
 import { Inline } from '@shared/ui/layout/Inline';
 
 import { Icon } from '../Icon';
@@ -77,42 +79,60 @@ export const Select = <T extends string | number | null>({
       >
         <Inline justify="between">
           {selectedLabel || placeholder || t('actions.select')}
-          <Icon name="chevronDown" color="muted" />
+
+          <motion.span
+            variants={rotateChevron}
+            animate={isOpen ? 'open' : 'closed'}
+            transition={quickTransition}
+          >
+            <Icon name="chevronDown" color="muted" />
+          </motion.span>
         </Inline>
       </button>
 
-      {isOpen && (
-        <ul id={listboxId} className={list} role="listbox">
-          {options.map((option, index) => {
-            const isSelected = option.value === value;
-            const isActive = index === activeIndex;
+      <AnimatePresence mode="wait">
+        {isOpen && (
+          <motion.ul
+            key="select-list"
+            id={listboxId}
+            role="listbox"
+            className={list}
+            variants={scaleIn}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+          >
+            {options.map((option, index) => {
+              const isSelected = option.value === value;
+              const isActive = index === activeIndex;
 
-            return (
-              <li
-                key={`${option.value ?? 'null'}-${index}`}
-                id={getOptionId(index)}
-                className={item}
-                role="option"
-                aria-selected={isSelected}
-              >
-                <button
-                  type="button"
-                  tabIndex={-1}
-                  onMouseDown={() => selectByIndex(index)}
-                  className={optionBtn({
-                    selected: isSelected,
-                    active: isActive,
-                  })}
-                  disabled={option.isDisabled || disabled}
+              return (
+                <li
+                  key={`${option.value ?? 'null'}-${index}`}
+                  id={getOptionId(index)}
+                  className={item}
+                  role="option"
+                  aria-selected={isSelected}
                 >
-                  {option.label}
-                  {isSelected && <Icon name="check" color="accentPrimary" />}
-                </button>
-              </li>
-            );
-          })}
-        </ul>
-      )}
+                  <button
+                    type="button"
+                    tabIndex={-1}
+                    onMouseDown={() => selectByIndex(index)}
+                    className={optionBtn({
+                      selected: isSelected,
+                      active: isActive,
+                    })}
+                    disabled={option.isDisabled || disabled}
+                  >
+                    {option.label}
+                    {isSelected && <Icon name="check" color="accentPrimary" />}
+                  </button>
+                </li>
+              );
+            })}
+          </motion.ul>
+        )}
+      </AnimatePresence>
     </div>
   );
 };

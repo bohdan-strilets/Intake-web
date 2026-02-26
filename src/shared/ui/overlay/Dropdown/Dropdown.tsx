@@ -1,7 +1,9 @@
+import { AnimatePresence, motion } from 'framer-motion';
 import { useEffect, useId, useRef, useState } from 'react';
 
 import { useClickOutside } from '@shared/hooks/clickOutside';
 import { useKeyboardNavigation } from '@shared/hooks/keyboardNavigation';
+import { scaleIn, tapScale } from '@shared/motion';
 import { Icon } from '@shared/ui/controls/Icon';
 import { Inline } from '@shared/ui/layout/Inline';
 
@@ -65,47 +67,59 @@ export const Dropdown = ({
         {trigger}
       </button>
 
-      {isOpen && (
-        <div id={menuId} role="menu" className={menu({ align })}>
-          {items.map((item, index) => {
-            const itemId = `${menuId}-item-${index}`;
+      <AnimatePresence mode="wait">
+        {isOpen && (
+          <motion.div
+            key="dropdown"
+            id={menuId}
+            role="menu"
+            className={menu({ align, transformOrigin: align })}
+            initial={false}
+            animate="animate"
+            exit="exit"
+            variants={scaleIn}
+          >
+            {items.map((item, index) => {
+              const itemId = `${menuId}-item-${index}`;
 
-            return (
-              <button
-                key={item.id}
-                id={itemId}
-                type="button"
-                role="menuitem"
-                aria-disabled={item.disabled || undefined}
-                disabled={item.disabled}
-                className={itemButton({
-                  danger: item.danger ?? false,
-                  disabled: item.disabled ?? false,
-                  active: index === activeIndex,
-                })}
-                onClick={() => {
-                  if (!item.disabled) {
-                    item.onSelect();
-                    close();
-                  }
-                }}
-                tabIndex={-1}
-              >
-                <Inline gap="md" align="center">
-                  {item.icon && (
-                    <Icon
-                      name={item.icon}
-                      size="sm"
-                      color={item.danger ? 'danger' : 'primary'}
-                    />
-                  )}
-                  {item.label}
-                </Inline>
-              </button>
-            );
-          })}
-        </div>
-      )}
+              return (
+                <motion.button
+                  key={item.id}
+                  {...tapScale}
+                  id={itemId}
+                  type="button"
+                  role="menuitem"
+                  aria-disabled={item.disabled || undefined}
+                  disabled={item.disabled}
+                  className={itemButton({
+                    danger: item.danger ?? false,
+                    disabled: item.disabled ?? false,
+                    active: index === activeIndex,
+                  })}
+                  onClick={() => {
+                    if (!item.disabled) {
+                      item.onSelect();
+                      close();
+                    }
+                  }}
+                  tabIndex={-1}
+                >
+                  <Inline gap="md" align="center">
+                    {item.icon && (
+                      <Icon
+                        name={item.icon}
+                        size="sm"
+                        color={item.danger ? 'danger' : 'primary'}
+                      />
+                    )}
+                    {item.label}
+                  </Inline>
+                </motion.button>
+              );
+            })}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };

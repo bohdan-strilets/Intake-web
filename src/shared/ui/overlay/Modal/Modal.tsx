@@ -1,4 +1,7 @@
-import { useEffect, useRef } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
+import { useEffect } from 'react';
+
+import { scaleIn, slideUp, slowTransition } from '@shared/motion';
 
 import { Overlay } from '../Overlay';
 import { Portal } from '../Portal';
@@ -12,8 +15,6 @@ export const Modal = ({
   children,
   variant = 'sheet',
 }: ModalProps) => {
-  const containerRef = useRef<HTMLDivElement>(null);
-
   useEffect(() => {
     if (!open) return;
 
@@ -30,19 +31,26 @@ export const Modal = ({
     };
   }, [open, onClose]);
 
-  if (!open) return null;
-
   return (
     <Portal>
-      <Overlay onClick={onClose}>
-        <div
-          ref={containerRef}
-          className={container({ variant })}
-          onClick={(e) => e.stopPropagation()}
-        >
-          {children}
-        </div>
-      </Overlay>
+      <AnimatePresence mode="wait">
+        {open && (
+          <Overlay onClick={onClose}>
+            <motion.div
+              key="modal"
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              variants={variant === 'sheet' ? slideUp : scaleIn}
+              transition={slowTransition}
+              className={container({ variant })}
+              onClick={(e) => e.stopPropagation()}
+            >
+              {children}
+            </motion.div>
+          </Overlay>
+        )}
+      </AnimatePresence>
     </Portal>
   );
 };

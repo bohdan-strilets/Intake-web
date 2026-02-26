@@ -35,6 +35,11 @@ export const menu = recipe({
       left: { left: 0 },
       right: { right: 0 },
     },
+
+    transformOrigin: {
+      left: { transformOrigin: 'top left' },
+      right: { transformOrigin: 'top right' },
+    },
   },
 });
 

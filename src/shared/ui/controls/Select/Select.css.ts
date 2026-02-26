@@ -87,6 +87,7 @@ export const list = style({
   boxShadow: vars.shadows.md,
 
   overflowY: 'auto',
+  transformOrigin: 'top',
 });
 
 export const item = style({
