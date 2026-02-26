@@ -15,20 +15,14 @@ export const bar = recipe({
   base: {
     height: '100%',
     borderRadius: vars.radius.full,
-    transition: 'width 0.2s ease',
+    transformOrigin: 'left',
   },
 
   variants: {
     tone: {
-      normal: {
-        backgroundColor: vars.colors.accentPrimary,
-      },
-      over: {
-        backgroundColor: vars.colors.warning,
-      },
-      success: {
-        backgroundColor: vars.colors.success,
-      },
+      normal: { backgroundColor: vars.colors.accentPrimary },
+      over: { backgroundColor: vars.colors.warning },
+      success: { backgroundColor: vars.colors.success },
     },
   },
 

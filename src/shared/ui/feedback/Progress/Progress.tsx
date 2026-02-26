@@ -1,3 +1,5 @@
+import { motion } from 'framer-motion';
+
 import { Stack } from '@shared/ui/layout/Stack';
 import { Paragraph } from '@shared/ui/typography/Paragraph';
 
@@ -10,7 +12,7 @@ export const Progress = ({
   unit = '',
   label,
 }: ProgressProps) => {
-  const percent = Math.min((value / target) * 100, 100);
+  const progress = target > 0 ? Math.min(value / target, 1) : 0;
 
   const tone =
     value > target ? 'over' : value === target ? 'success' : 'normal';
@@ -24,7 +26,11 @@ export const Progress = ({
       )}
 
       <div className={track}>
-        <div className={bar({ tone })} style={{ width: `${percent}%` }} />
+        <motion.div
+          className={bar({ tone })}
+          initial={{ scaleX: 0 }}
+          animate={{ scaleX: progress }}
+        />
       </div>
 
       <Paragraph size="sm" tone="muted">
