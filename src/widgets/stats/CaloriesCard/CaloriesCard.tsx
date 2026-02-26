@@ -1,6 +1,7 @@
 import { useTranslation } from '@shared/i18n';
 import { Card } from '@shared/ui/layout/Card';
 import { Stack } from '@shared/ui/layout/Stack';
+import { AnimatedCounter } from '@shared/ui/motion/AnimatedCounter';
 import { Paragraph } from '@shared/ui/typography/Paragraph';
 
 import type { CaloriesCardProps } from './CaloriesCard.types';
@@ -20,7 +21,7 @@ export const CaloriesCard = ({
       <Paragraph align="center">{t('summary.averagePerDay')}</Paragraph>
 
       <Paragraph weight="bold" size="display" align="center">
-        {caloriesAverage}
+        <AnimatedCounter value={caloriesAverage} />
       </Paragraph>
 
       <Stack>
