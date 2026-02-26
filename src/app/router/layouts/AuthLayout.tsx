@@ -4,10 +4,14 @@ import { AppShell } from '@app/layouts/AppShell';
 
 import { AuthHeader } from '@widgets/layout/AuthHeader';
 
+import { PageTransition } from '@shared/ui/motion/PageTransition';
+
 export const AuthLayout = () => {
   return (
     <AppShell header={<AuthHeader />} navigation={null}>
-      <Outlet />
+      <PageTransition>
+        <Outlet />
+      </PageTransition>
     </AppShell>
   );
 };
