@@ -1,6 +1,7 @@
 import { useTranslation } from '@shared/i18n';
 import { Card } from '@shared/ui/layout/Card';
 import { Stack } from '@shared/ui/layout/Stack';
+import { AnimatedCounter } from '@shared/ui/motion/AnimatedCounter';
 import { Paragraph } from '@shared/ui/typography/Paragraph';
 
 import type { DailyIntakeProps } from './DailyIntake.types';
@@ -20,7 +21,7 @@ export const DailyIntake = ({
 
         <Stack gap="none" align="center">
           <Paragraph size="3xl" weight="bold" tone="accentPrimary">
-            {recommendedCalories}
+            <AnimatedCounter value={recommendedCalories} />
           </Paragraph>
           <Paragraph size="sm" tone="muted">
             {t('intake.kcalPerDay')}
