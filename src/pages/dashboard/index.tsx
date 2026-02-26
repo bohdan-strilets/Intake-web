@@ -45,6 +45,8 @@ export const DashboardPage = () => {
     navigate({ to: ROUTES.app.day, params: { date } });
   };
 
+  const monthKey = `${year}-${month}`;
+
   return (
     <Stack gap="lg">
       <Card shadow="sm">
@@ -61,6 +63,7 @@ export const DashboardPage = () => {
         <MonthGrid
           matrix={matrix}
           onDayClick={handleDayClick}
+          monthKey={monthKey}
           caloriesByDate={caloriesByDate}
           targetCalories={targetCalories}
         />

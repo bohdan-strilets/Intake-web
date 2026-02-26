@@ -1,0 +1,1 @@
+export { VerticalProgres } from './VerticalProgres';

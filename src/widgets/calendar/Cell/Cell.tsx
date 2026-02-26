@@ -3,7 +3,9 @@ import { Button } from '@shared/ui/controls/Button';
 import { Stack } from '@shared/ui/layout/Stack';
 import { Paragraph } from '@shared/ui/typography/Paragraph';
 
-import { content, progressBar, root } from './Cell.css';
+import { VerticalProgres } from '../VerticalProgres';
+
+import { content, root } from './Cell.css';
 import type { CellProps } from './Cell.type';
 
 export const Cell = ({
@@ -41,12 +43,7 @@ export const Cell = ({
       disabled={!cell.isCurrentMonth}
       className={root({ isToday: cell.isToday })}
     >
-      {progress > 0 && (
-        <div
-          className={progressBar({ isOver })}
-          style={{ height: `${percent}%` }}
-        />
-      )}
+      {progress > 0 && <VerticalProgres isOver={isOver} percent={percent} />}
 
       <Stack gap="xs" align="center" className={content}>
         <Paragraph
