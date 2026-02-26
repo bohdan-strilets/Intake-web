@@ -1,6 +1,7 @@
 import { useTranslation } from '@shared/i18n';
 import { Card } from '@shared/ui/layout/Card';
 import { Inline } from '@shared/ui/layout/Inline';
+import { AnimatedCounter } from '@shared/ui/motion/AnimatedCounter';
 import { AnimatedNumber } from '@shared/ui/motion/AnimatedNumber';
 import { Paragraph } from '@shared/ui/typography/Paragraph';
 
@@ -18,7 +19,7 @@ export const Totals = ({
     <Card shadow="sm">
       <Inline align="baseline">
         <Paragraph tone="accentPrimary" weight="bold" size="display">
-          <AnimatedNumber value={calories} />
+          <AnimatedCounter value={calories} />
         </Paragraph>
         <Paragraph weight="medium" size="lg" tone="muted">
           {tCommon('macroNutrients.calories')}
