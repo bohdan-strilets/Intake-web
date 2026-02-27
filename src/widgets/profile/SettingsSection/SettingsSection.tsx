@@ -1,4 +1,5 @@
 import { AnimatePresence, motion } from 'framer-motion';
+import { useEffect, useRef } from 'react';
 
 import { useUpdateSettingsMutation } from '@features/user/updateSettings';
 
@@ -18,10 +19,16 @@ import { ThemeSheet } from '../ThemeSheet';
 import type { SettingsSectionProps } from './SettingsSection.types';
 
 export const SettingsSection = ({ settings }: SettingsSectionProps) => {
-  const { theme, language, sound } = settings;
+  const { theme, language, sound, volume } = settings;
 
   const { open } = useModal();
-  const { setEnabled } = useSound();
+  const { setEnabled, setVolume } = useSound();
+
+  useEffect(() => {
+    if (volume !== undefined) {
+      setVolume(volume);
+    }
+  }, [volume, setVolume]);
 
   const { t: tProfile } = useTranslation('profile');
   const { t: tCommon } = useTranslation('common');
@@ -37,9 +44,45 @@ export const SettingsSection = ({ settings }: SettingsSectionProps) => {
   const { mutateAsync: updateSettings, isPending } =
     useUpdateSettingsMutation();
 
+  const soundOffTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    return () => {
+      if (soundOffTimeoutRef.current) {
+        clearTimeout(soundOffTimeoutRef.current);
+      }
+    };
+  }, []);
+
   const handleSounds = async (enabled: boolean) => {
     setEnabled(enabled);
-    await updateSettings({ sound: enabled });
+    if (enabled) {
+      setVolume(25);
+      await updateSettings({ sound: true, volume: 25 });
+    } else {
+      await updateSettings({ sound: false });
+    }
+  };
+
+  const handleVolume = async (value: number) => {
+    if (soundOffTimeoutRef.current) {
+      clearTimeout(soundOffTimeoutRef.current);
+      soundOffTimeoutRef.current = null;
+    }
+
+    setVolume(value);
+
+    if (value === 0) {
+      await updateSettings({ volume: 0 });
+      soundOffTimeoutRef.current = setTimeout(() => {
+        soundOffTimeoutRef.current = null;
+        setEnabled(false);
+        updateSettings({ sound: false });
+      }, 500);
+    } else {
+      setEnabled(true);
+      await updateSettings({ volume: value, sound: true });
+    }
   };
 
   return (
@@ -80,7 +123,16 @@ export const SettingsSection = ({ settings }: SettingsSectionProps) => {
           >
             <InfoRow
               label={tProfile('fields.volume')}
-              value={<Range min={0} max={100} step={25} />}
+              value={
+                <Range
+                  min={0}
+                  max={100}
+                  step={25}
+                  value={volume}
+                  onValueChange={handleVolume}
+                  disabled={isPending}
+                />
+              }
             />
           </motion.div>
         )}
