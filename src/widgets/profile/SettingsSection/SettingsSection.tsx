@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from 'framer-motion';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import { useUpdateSettingsMutation } from '@features/user/updateSettings';
 
@@ -20,6 +20,15 @@ import type { SettingsSectionProps } from './SettingsSection.types';
 
 export const SettingsSection = ({ settings }: SettingsSectionProps) => {
   const { theme, language, sound, volume } = settings;
+
+  const [localVolume, setLocalVolume] = useState(volume);
+
+  const latestVolumeRef = useRef(volume);
+
+  useEffect(() => {
+    setLocalVolume(volume);
+    latestVolumeRef.current = volume;
+  }, [volume]);
 
   const { open } = useModal();
   const { setEnabled, setVolume } = useSound();
@@ -64,7 +73,10 @@ export const SettingsSection = ({ settings }: SettingsSectionProps) => {
     }
   };
 
-  const handleVolume = async (value: number) => {
+  const handleVolume = (value: number) => {
+    setLocalVolume(value);
+    latestVolumeRef.current = value;
+
     if (soundOffTimeoutRef.current) {
       clearTimeout(soundOffTimeoutRef.current);
       soundOffTimeoutRef.current = null;
@@ -73,16 +85,18 @@ export const SettingsSection = ({ settings }: SettingsSectionProps) => {
     setVolume(value);
 
     if (value === 0) {
-      await updateSettings({ volume: 0 });
       soundOffTimeoutRef.current = setTimeout(() => {
         soundOffTimeoutRef.current = null;
         setEnabled(false);
-        updateSettings({ sound: false });
       }, 500);
     } else {
       setEnabled(true);
-      await updateSettings({ volume: value, sound: true });
     }
+  };
+
+  const handleVolumeCommit = () => {
+    const v = latestVolumeRef.current;
+    updateSettings({ volume: v, sound: v > 0 });
   };
 
   return (
@@ -127,9 +141,12 @@ export const SettingsSection = ({ settings }: SettingsSectionProps) => {
                 <Range
                   min={0}
                   max={100}
-                  step={25}
-                  value={volume}
+                  step={1}
+                  value={localVolume}
                   onValueChange={handleVolume}
+                  onMouseUp={handleVolumeCommit}
+                  onTouchEnd={handleVolumeCommit}
+                  onBlur={handleVolumeCommit}
                   disabled={isPending}
                 />
               }
