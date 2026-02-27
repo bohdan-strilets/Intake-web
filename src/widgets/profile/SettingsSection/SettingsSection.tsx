@@ -11,7 +11,7 @@ import { LanguageSheet } from '../LanguageSheet';
 import { SectionTitle } from '../SectionTitle';
 import { ThemeSheet } from '../ThemeSheet';
 
-import type { SettingsSectionProps } from './SettingsSection,types';
+import type { SettingsSectionProps } from './SettingsSection.types';
 
 export const SettingsSection = ({ settings }: SettingsSectionProps) => {
   const { theme, language, sound } = settings;
