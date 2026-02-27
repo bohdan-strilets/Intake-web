@@ -72,8 +72,6 @@ export const Field = <T extends FieldValues>(props: FieldProps<T>) => {
               ...commonProps,
 
               value: field.value,
-              checked:
-                typeof field.value === 'boolean' ? field.value : undefined,
 
               onChange: (value: PathValue<T, typeof name>) => {
                 setValue(name, value, {
@@ -82,17 +80,6 @@ export const Field = <T extends FieldValues>(props: FieldProps<T>) => {
                   shouldValidate: true,
                 });
               },
-
-              onCheckedChange:
-                typeof field.value === 'boolean'
-                  ? (checked: boolean) => {
-                      setValue(name, checked as PathValue<T, typeof name>, {
-                        shouldDirty: true,
-                        shouldTouch: true,
-                        shouldValidate: true,
-                      });
-                    }
-                  : undefined,
 
               onBlur: () => {
                 field.onBlur();
