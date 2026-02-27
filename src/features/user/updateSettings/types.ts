@@ -4,4 +4,5 @@ export type ApiDto = {
   language?: Language;
   theme?: Theme;
   sound?: boolean;
+  volume?: number;
 };

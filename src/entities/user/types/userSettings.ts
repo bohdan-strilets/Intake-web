@@ -4,4 +4,5 @@ export type UserSettings = {
   theme: Theme;
   language: Language;
   sound: boolean;
+  volume: number;
 };
