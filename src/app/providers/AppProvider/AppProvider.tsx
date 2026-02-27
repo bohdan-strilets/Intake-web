@@ -1,3 +1,4 @@
+import { useInitSound } from '@shared/lib/sound';
 import { ModalHost } from '@shared/ui/overlay/ModalHost';
 
 import { AppBootstrap } from '../AppBootstrap';
@@ -9,6 +10,8 @@ import { ThemeProvider } from '../ThemeProvider';
 import { ToastProvider } from '../ToastProvider';
 
 export const AppProvider = () => {
+  useInitSound();
+
   return (
     <ThemeProvider>
       <MotionProvider>
