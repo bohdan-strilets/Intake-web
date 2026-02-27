@@ -6,19 +6,25 @@ import { errorKeyMap } from '@shared/api/error';
 import { useTranslation } from '@shared/i18n';
 import { getMonthFromDate } from '@shared/lib/date';
 import { notify } from '@shared/lib/notify';
+import { useSound } from '@shared/lib/sound';
 
 import { deleteFoodApi } from './api';
 import type { MutationParams } from './types';
 
 export const useDeleteFoodMutation = () => {
   const queryClient = useQueryClient();
+
   const { t: tCommon } = useTranslation('common');
+
+  const { playSounds } = useSound();
 
   return useMutation({
     mutationFn: ({ foodId }: MutationParams) => deleteFoodApi(foodId),
 
     onSuccess: (_data, variables) => {
       const { date } = variables;
+
+      playSounds.remove();
 
       queryClient.invalidateQueries({
         queryKey: dayQueryKeys.byDate(date),
