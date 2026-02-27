@@ -57,3 +57,63 @@ globalStyle('::selection', {
   backgroundColor: vars.colors.accentSoft,
   color: vars.colors.textOnAccent,
 });
+
+globalStyle('input[type="range"]::-webkit-slider-runnable-track', {
+  height: 4,
+  borderRadius: vars.radius.full,
+  backgroundColor: vars.colors.backgroundSecondary,
+});
+
+globalStyle('input[type="range"]::-webkit-slider-thumb', {
+  WebkitAppearance: 'none',
+  appearance: 'none',
+  width: 16,
+  height: 16,
+  marginTop: -6,
+  borderRadius: vars.radius.full,
+  backgroundColor: vars.colors.accentPrimary,
+  boxShadow: vars.shadows.sm,
+  transition: 'transform 0.15s ease, box-shadow 0.15s ease',
+});
+
+globalStyle('input[type="range"]:hover::-webkit-slider-thumb', {
+  boxShadow: vars.shadows.sm,
+});
+
+globalStyle('input[type="range"]:active::-webkit-slider-thumb', {
+  transform: 'scale(0.96)',
+});
+
+globalStyle('input[type="range"]:disabled::-webkit-slider-thumb', {
+  cursor: 'not-allowed',
+  opacity: 0.8,
+});
+
+globalStyle('input[type="range"]::-moz-range-track', {
+  height: 4,
+  borderRadius: vars.radius.full,
+  backgroundColor: vars.colors.backgroundSecondary,
+});
+
+globalStyle('input[type="range"]::-moz-range-thumb', {
+  width: 16,
+  height: 16,
+  border: 'none',
+  borderRadius: vars.radius.full,
+  backgroundColor: vars.colors.accentPrimary,
+  boxShadow: vars.shadows.sm,
+  transition: 'transform 0.15s ease, box-shadow 0.15s ease',
+});
+
+globalStyle('input[type="range"]:hover::-moz-range-thumb', {
+  boxShadow: vars.shadows.sm,
+});
+
+globalStyle('input[type="range"]:active::-moz-range-thumb', {
+  transform: 'scale(0.96)',
+});
+
+globalStyle('input[type="range"]:disabled::-moz-range-thumb', {
+  cursor: 'not-allowed',
+  opacity: 0.8,
+});

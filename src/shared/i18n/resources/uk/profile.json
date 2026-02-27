@@ -21,7 +21,8 @@
   "fields": {
     "theme": "Тема",
     "language": "Мова",
-    "sounds": "Звуки"
+    "sounds": "Звуки",
+    "volume": "Гучність звуку"
   },
 
   "intake": {

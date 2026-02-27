@@ -21,7 +21,8 @@
   "fields": {
     "theme": "Theme",
     "language": "Language",
-    "sounds": "Sounds"
+    "sounds": "Sounds",
+    "volume": "Sound volume"
   },
 
   "intake": {

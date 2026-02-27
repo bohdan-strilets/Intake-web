@@ -1,8 +1,12 @@
+import { AnimatePresence, motion } from 'framer-motion';
+
 import { useUpdateSettingsMutation } from '@features/user/updateSettings';
 
 import { useTranslation } from '@shared/i18n';
 import { useModal } from '@shared/lib/modal';
 import { useSound } from '@shared/lib/sound';
+import { fadeTransition, fadeUp } from '@shared/motion';
+import { Range } from '@shared/ui/controls/Range';
 import { Switch } from '@shared/ui/controls/Switch';
 import { Card } from '@shared/ui/layout/Card';
 
@@ -64,6 +68,23 @@ export const SettingsSection = ({ settings }: SettingsSectionProps) => {
           />
         }
       />
+      <AnimatePresence initial={false}>
+        {sound && (
+          <motion.div
+            key="volume"
+            variants={fadeUp}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            transition={fadeTransition}
+          >
+            <InfoRow
+              label={tProfile('fields.volume')}
+              value={<Range min={0} max={100} step={25} />}
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </Card>
   );
 };
