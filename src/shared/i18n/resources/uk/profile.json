@@ -20,7 +20,8 @@
 
   "fields": {
     "theme": "Тема",
-    "language": "Мова"
+    "language": "Мова",
+    "sounds": "Звуки"
   },
 
   "intake": {
@@ -53,3 +54,4 @@
     }
   }
 }
+

@@ -1,5 +1,9 @@
+import { useUpdateSettingsMutation } from '@features/user/updateSettings';
+
 import { useTranslation } from '@shared/i18n';
 import { useModal } from '@shared/lib/modal';
+import { useSound } from '@shared/lib/sound';
+import { Switch } from '@shared/ui/controls/Switch';
 import { Card } from '@shared/ui/layout/Card';
 
 import { InfoRow } from '../InfoRow';
@@ -10,9 +14,10 @@ import { ThemeSheet } from '../ThemeSheet';
 import type { SettingsSectionProps } from './SettingsSection,types';
 
 export const SettingsSection = ({ settings }: SettingsSectionProps) => {
-  const { theme, language } = settings;
+  const { theme, language, sound } = settings;
 
   const { open } = useModal();
+  const { setEnabled } = useSound();
 
   const { t: tProfile } = useTranslation('profile');
   const { t: tCommon } = useTranslation('common');
@@ -23,6 +28,14 @@ export const SettingsSection = ({ settings }: SettingsSectionProps) => {
 
   const handleLanguage = () => {
     open(<LanguageSheet language={language} />);
+  };
+
+  const { mutateAsync: updateSettings, isPending } =
+    useUpdateSettingsMutation();
+
+  const handleSounds = async (enabled: boolean) => {
+    setEnabled(enabled);
+    await updateSettings({ sound: enabled });
   };
 
   return (
@@ -39,6 +52,17 @@ export const SettingsSection = ({ settings }: SettingsSectionProps) => {
         label={tProfile('fields.language')}
         value={tCommon(`languages.${language}`)}
         onClick={handleLanguage}
+      />
+
+      <InfoRow
+        label={tProfile('fields.sounds')}
+        value={
+          <Switch
+            checked={sound}
+            onCheckedChange={handleSounds}
+            disabled={isPending}
+          />
+        }
       />
     </Card>
   );

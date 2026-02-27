@@ -20,7 +20,8 @@
 
   "fields": {
     "theme": "Motyw",
-    "language": "Język"
+    "language": "Język",
+    "sounds": "Dźwięki"
   },
 
   "intake": {
@@ -53,3 +54,4 @@
     }
   }
 }
+
