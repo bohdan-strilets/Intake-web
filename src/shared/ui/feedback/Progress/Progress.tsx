@@ -11,6 +11,8 @@ export const Progress = ({
   target,
   unit = '',
   label,
+  valueSize = 'sm',
+  valueWeight,
 }: ProgressProps) => {
   const progress = target > 0 ? Math.min(value / target, 1) : 0;
 
@@ -33,7 +35,11 @@ export const Progress = ({
         />
       </div>
 
-      <Paragraph size="sm" tone="muted">
+      <Paragraph
+        size={valueSize}
+        weight={valueWeight}
+        tone="muted"
+      >
         {value} {unit}
       </Paragraph>
     </Stack>

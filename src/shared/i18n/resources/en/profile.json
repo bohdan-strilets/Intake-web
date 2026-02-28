@@ -4,8 +4,21 @@
   "sections": {
     "account": "Account",
     "body": "Body parameters",
+    "goalProgress": "Goal progress",
     "goals": "Goals",
     "settings": "Settings"
+  },
+
+  "goalProgress": {
+    "averagePace": "Average pace: {{value}} kg / week",
+    "estimatedTime": "Estimated time: ~{{weeks}} weeks",
+    "notEnoughData": "Not enough data for prediction",
+    "addWeightToTrack": "Add your weight and target to track progress",
+    "goalAchieved": "Goal achieved",
+    "errorLoad": "Could not load goal progress.",
+    "condition1": "Go to profile and set target weight",
+    "condition2": "Add weight every day",
+    "startWeight": "Start weight"
   },
 
   "actions": {

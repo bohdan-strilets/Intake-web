@@ -1,6 +1,7 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 
 import { dayQueryKeys } from '@entities/day';
+import { userQueryKeys } from '@entities/user';
 
 import { editWeightApi } from '../api';
 import type { MutationParams } from '../types';
@@ -20,6 +21,9 @@ export const useEditWeightMutation = () => {
 
       queryClient.invalidateQueries({
         queryKey: dayQueryKeys.byDate(date),
+      });
+      queryClient.invalidateQueries({
+        queryKey: userQueryKeys.goalProgress(),
       });
     },
   });

@@ -15,6 +15,9 @@ export const useEditProfileMutation = () => {
       queryClient.invalidateQueries({
         queryKey: userQueryKeys.profile(),
       });
+      queryClient.invalidateQueries({
+        queryKey: userQueryKeys.goalProgress(),
+      });
 
       queryClient.invalidateQueries({
         queryKey: statsQueryKeys.all,

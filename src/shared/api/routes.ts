@@ -9,6 +9,7 @@ export const API_ROUTES = {
 
   users: {
     me: '/users/me',
+    goalProgress: '/users/goal-progress',
     profile: '/users/me/profile',
     email: '/users/me/email',
     password: '/users/me/password',

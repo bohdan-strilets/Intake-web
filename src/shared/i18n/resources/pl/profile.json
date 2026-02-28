@@ -4,8 +4,21 @@
   "sections": {
     "account": "Konto",
     "body": "Parametry ciała",
+    "goalProgress": "Postęp celu",
     "goals": "Cele",
     "settings": "Ustawienia"
+  },
+
+  "goalProgress": {
+    "averagePace": "Średnie tempo: {{value}} kg / tydzień",
+    "estimatedTime": "Szacowany czas: ~{{weeks}} tygodni",
+    "notEnoughData": "Za mało danych do prognozy",
+    "addWeightToTrack": "Dodawaj wagę i cel, aby śledzić postęp",
+    "goalAchieved": "Cel osiągnięty",
+    "errorLoad": "Nie udało się załadować postępu celu.",
+    "condition1": "Przejdź do profilu i ustaw wagę docelową",
+    "condition2": "Dodawaj wagę codziennie",
+    "startWeight": "Waga początkowa"
   },
 
   "actions": {

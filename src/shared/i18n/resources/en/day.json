@@ -2,7 +2,8 @@
   "summary": {
     "dailyGoal": "Daily Goal",
     "remaining": "Remaining",
-    "addWeightDescription": "Add your weight to build a simple progress history"
+    "addWeightDescription": "Add your weight to build a simple progress history",
+    "goalProgressHint": "Enter your weight daily to track progress toward your goal."
   },
 
   "states": {
