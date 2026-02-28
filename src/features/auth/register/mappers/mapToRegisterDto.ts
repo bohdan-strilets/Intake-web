@@ -9,7 +9,9 @@ export const mapToRegisterDto = (values: FormValues) => {
     dateOfBirth: values.dateOfBirth,
     height: values.height,
     weight: values.weight,
+    targetWeight: values.targetWeight ?? undefined,
     goal: values.goal,
+    goalDelta: values.goalDelta ?? undefined,
     activityLevel: values.activityLevel,
   };
 };

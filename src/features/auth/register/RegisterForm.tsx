@@ -1,8 +1,10 @@
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 
 import {
   createActivityLevelOptions,
+  createGoalDeltaOptions,
   createGoalOptions,
   createSexOptions,
   PasswordConstraints,
@@ -37,6 +39,18 @@ export const RegisterForm = () => {
 
   const { isValid, errors } = methods.formState;
   const { onSubmit, isPending } = useSubmit(methods);
+
+  const goal = methods.watch('goal');
+  const isMaintainGoal = goal === 'maintain';
+
+  useEffect(() => {
+    if (isMaintainGoal) {
+      methods.setValue('goalDelta', null, {
+        shouldDirty: true,
+        shouldValidate: true,
+      });
+    }
+  }, [isMaintainGoal, methods]);
 
   return (
     <Form<FormValues> methods={methods} onSubmit={onSubmit}>
@@ -115,6 +129,15 @@ export const RegisterForm = () => {
         >
           <TextInput type="number" inputMode="decimal" />
         </Field>
+
+        <Field<FormValues>
+          name="targetWeight"
+          label={tUser('fields.targetWeight')}
+          helperText={tUser('helpers.targetWeight')}
+          valueAsNumber
+        >
+          <TextInput type="number" inputMode="decimal" />
+        </Field>
       </Card>
 
       <Card gap="lg" shadow="sm">
@@ -130,6 +153,23 @@ export const RegisterForm = () => {
         >
           <Select options={createGoalOptions(tUser)} />
         </Field>
+
+        {!isMaintainGoal && (
+          <Field<FormValues>
+            name="goalDelta"
+            label={tUser('fields.goalDelta')}
+            helperText={tUser('helpers.goalDelta')}
+            controlType="controlled"
+          >
+            <Select
+              options={
+                goal === 'lose'
+                  ? createGoalDeltaOptions(tUser, 'deficit')
+                  : createGoalDeltaOptions(tUser, 'surplus')
+              }
+            />
+          </Field>
+        )}
 
         <Field<FormValues>
           name="activityLevel"

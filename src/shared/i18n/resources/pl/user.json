@@ -13,7 +13,7 @@
     "weight": "Waga (kg)",
     "targetWeight": "Docelowa waga (kg)",
     "goal": "Cel",
-    "goalDelta": "Dzienna korekta kalorii",
+    "goalDelta": "O ile zmienić dzienną normę kalorii",
     "activityLevel": "Poziom aktywności",
     "theme": "Motyw",
     "language": "Język"
@@ -39,18 +39,18 @@
   },
 
   "goalDelta": {
-    "none": "Brak korekty",
+    "none": "Bez zmiany",
 
     "deficit": {
-      "small": "Mały deficyt ({{value}} kcal/dzień)",
-      "moderate": "Umiarkowany deficyt ({{value}} kcal/dzień)",
-      "aggressive": "Duży deficyt ({{value}} kcal/dzień)"
+      "small": "O {{value}} kcal mniej dziennie",
+      "moderate": "O {{value}} kcal mniej dziennie",
+      "aggressive": "O {{value}} kcal mniej dziennie"
     },
 
     "surplus": {
-      "small": "Mała nadwyżka (+{{value}} kcal/dzień)",
-      "moderate": "Umiarkowana nadwyżka (+{{value}} kcal/dzień)",
-      "aggressive": "Duża nadwyżka (+{{value}} kcal/dzień)"
+      "small": "O {{value}} kcal więcej dziennie",
+      "moderate": "O {{value}} kcal więcej dziennie",
+      "aggressive": "O {{value}} kcal więcej dziennie"
     }
   },
 
@@ -59,7 +59,7 @@
     "height": "Podaj wzrost w centymetrach",
     "weight": "Podaj aktualną masę ciała",
     "targetWeight": "Podaj docelową masę ciała",
-    "goalDelta": "Ile kcal dziennie odejmować (przy redukcji) lub dodawać (przy budowaniu masy) do podstawowego zapotrzebowania. Wpływa na tempo realizacji celu.",
+    "goalDelta": "Przy redukcji — ta ilość kcal jest odejmowana od dziennej normy; przy budowaniu masy — dodawana. Określa tempo zmiany wagi.",
     "activityLevel": "Wpływa na dzienne zapotrzebowanie kaloryczne"
   },
 
@@ -109,8 +109,8 @@
     },
 
     "goalDelta": {
-      "min": "Korekta kalorii musi wynosić co najmniej {{min}}",
-      "max": "Korekta kalorii może wynosić maksymalnie {{max}}"
+      "min": "Wartość musi wynosić co najmniej {{min}} kcal",
+      "max": "Wartość może wynosić maksymalnie {{max}} kcal"
     }
   },
 

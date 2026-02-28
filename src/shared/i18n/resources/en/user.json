@@ -13,7 +13,7 @@
     "weight": "Weight (kg)",
     "targetWeight": "Target weight (kg)",
     "goal": "Goal",
-    "goalDelta": "Daily calorie adjustment",
+    "goalDelta": "Adjust daily calories by",
     "activityLevel": "Activity level",
     "theme": "Theme",
     "language": "Language"
@@ -39,18 +39,18 @@
   },
 
   "goalDelta": {
-    "none": "None",
+    "none": "No change",
 
     "deficit": {
-      "small": "Small deficit ({{value}} kcal/day)",
-      "moderate": "Moderate deficit ({{value}} kcal/day)",
-      "aggressive": "Aggressive deficit ({{value}} kcal/day)"
+      "small": "{{value}} kcal less per day",
+      "moderate": "{{value}} kcal less per day",
+      "aggressive": "{{value}} kcal less per day"
     },
 
     "surplus": {
-      "small": "Small surplus (+{{value}} kcal/day)",
-      "moderate": "Moderate surplus (+{{value}} kcal/day)",
-      "aggressive": "Aggressive surplus (+{{value}} kcal/day)"
+      "small": "{{value}} kcal more per day",
+      "moderate": "{{value}} kcal more per day",
+      "aggressive": "{{value}} kcal more per day"
     }
   },
 
@@ -59,7 +59,7 @@
     "height": "Enter your height in centimeters",
     "weight": "Enter your current body weight",
     "targetWeight": "Enter your target body weight",
-    "goalDelta": "How many kcal per day to subtract (when losing) or add (when gaining) from your base intake. Affects how quickly you reach your goal.",
+    "goalDelta": "When losing weight: this amount is subtracted from your daily norm; when gaining: it is added. Determines how fast your weight changes.",
     "activityLevel": "Affects your daily calorie recommendation"
   },
 
@@ -109,8 +109,8 @@
     },
 
     "goalDelta": {
-      "min": "Goal delta must be at least {{min}}",
-      "max": "Goal delta must be at most {{max}}"
+      "min": "Value must be at least {{min}} kcal",
+      "max": "Value must be at most {{max}} kcal"
     }
   },
 

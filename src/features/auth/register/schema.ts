@@ -8,6 +8,7 @@ import {
 
 import type { TFunction } from '@shared/i18n';
 import { isValidISODate, isWithinRange } from '@shared/lib/date';
+import { hasOneDecimal } from '@shared/lib/number';
 import { z } from '@shared/lib/zod';
 import { dateRegex, digitRegex, letterRegex } from '@shared/regex';
 
@@ -100,7 +101,41 @@ export const createSchema = (t: TFunction<'user'>) =>
           }),
         }),
 
+      targetWeight: z
+        .number({ message: t('validation.common.number') })
+        .min(UserConstraints.targetWeight.min, {
+          message: t('validation.targetWeight.min', {
+            min: UserConstraints.targetWeight.min,
+          }),
+        })
+        .max(UserConstraints.targetWeight.max, {
+          message: t('validation.targetWeight.max', {
+            max: UserConstraints.targetWeight.max,
+          }),
+        })
+        .refine(hasOneDecimal, {
+          message: t('validation.common.decimal'),
+        })
+        .optional()
+        .nullable(),
+
       goal: z.enum(GOAL, { message: t('validation.common.required') }),
+
+      goalDelta: z
+        .number({ message: t('validation.common.number') })
+        .int({ message: t('validation.common.integer') })
+        .min(UserConstraints.goalDelta.min, {
+          message: t('validation.goalDelta.min', {
+            min: UserConstraints.goalDelta.min,
+          }),
+        })
+        .max(UserConstraints.goalDelta.max, {
+          message: t('validation.goalDelta.max', {
+            max: UserConstraints.goalDelta.max,
+          }),
+        })
+        .optional()
+        .nullable(),
 
       activityLevel: z.enum(ACTIVITY_LEVEL, {
         message: t('validation.common.required'),

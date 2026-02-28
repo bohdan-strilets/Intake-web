@@ -10,7 +10,9 @@ export type ApiDto = {
 
   height: number;
   weight: number;
+  targetWeight?: number | null;
 
   goal: Goal;
+  goalDelta?: number | null;
   activityLevel: ActivityLevel;
 };
