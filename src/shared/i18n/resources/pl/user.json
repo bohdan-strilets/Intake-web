@@ -59,7 +59,7 @@
     "height": "Podaj wzrost w centymetrach",
     "weight": "Podaj aktualną masę ciała",
     "targetWeight": "Podaj docelową masę ciała",
-    "goalDelta": "Dostosuj dzienny cel kaloryczny",
+    "goalDelta": "Ile kcal dziennie odejmować (przy redukcji) lub dodawać (przy budowaniu masy) do podstawowego zapotrzebowania. Wpływa na tempo realizacji celu.",
     "activityLevel": "Wpływa na dzienne zapotrzebowanie kaloryczne"
   },
 

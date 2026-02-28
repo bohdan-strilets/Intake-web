@@ -59,7 +59,7 @@
     "height": "Enter your height in centimeters",
     "weight": "Enter your current body weight",
     "targetWeight": "Enter your target body weight",
-    "goalDelta": "Fine-tune your daily calorie target",
+    "goalDelta": "How many kcal per day to subtract (when losing) or add (when gaining) from your base intake. Affects how quickly you reach your goal.",
     "activityLevel": "Affects your daily calorie recommendation"
   },
 
