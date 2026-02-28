@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react';
 
 import { CaloriesBarChart } from '@widgets/stats/CaloriesBarChart';
+import { WeightBarChart } from '@widgets/stats/WeightBarChart';
 import { CaloriesCard } from '@widgets/stats/CaloriesCard';
 import { Error } from '@widgets/stats/Error';
 import { Loading } from '@widgets/stats/Loading';
@@ -66,6 +67,8 @@ export const StatsPage = () => {
       {stats.weight && <WeightCard weightDelta={stats.weight.delta} />}
 
       <CaloriesBarChart stats={stats} period={period} />
+
+      <WeightBarChart stats={stats} period={period} />
     </Stack>
   );
 };

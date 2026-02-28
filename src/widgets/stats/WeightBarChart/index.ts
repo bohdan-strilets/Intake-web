@@ -1,0 +1,1 @@
+export { WeightBarChart } from './WeightBarChart';
