@@ -27,6 +27,14 @@
     "veryHigh": "Bardzo wysoka aktywność"
   },
 
+  "activityLevelDescriptions": {
+    "sedentary": "Głównie siedzący tryb życia, mało chodzenia, brak lub prawie brak treningów",
+    "light": "Głównie siedzący tryb z odrobiną ruchu, lekki trening lub sport 1–3 razy w tygodniu",
+    "moderate": "Umiarkowana aktywność na co dzień (chodzenie, sprawunki) plus trening 3–5 razy w tygodniu",
+    "high": "Aktywne życie codzienne i trening lub sport 6–7 razy w tygodniu",
+    "veryHigh": "Praca fizyczna lub bardzo aktywny tryb życia plus intensywny trening lub trening dwa razy dziennie"
+  },
+
   "goals": {
     "lose": "Redukcja masy ciała",
     "maintain": "Utrzymanie masy ciała",
@@ -60,7 +68,7 @@
     "weight": "Podaj aktualną masę ciała",
     "targetWeight": "Podaj docelową masę ciała",
     "goalDelta": "Przy redukcji — ta ilość kcal jest odejmowana od dziennej normy; przy budowaniu masy — dodawana. Określa tempo zmiany wagi.",
-    "activityLevel": "Wpływa na dzienne zapotrzebowanie kaloryczne"
+    "activityLevel": "Oceń ruch w życiu codziennym i częstość treningów"
   },
 
   "validation": {

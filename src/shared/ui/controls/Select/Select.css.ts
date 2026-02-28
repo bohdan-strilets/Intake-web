@@ -94,11 +94,27 @@ export const item = style({
   listStyle: 'none',
 });
 
+export const optionContent = style({
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'flex-start',
+  gap: vars.spacing.xs,
+  minWidth: 0,
+});
+
+export const optionDescription = style({
+  fontSize: vars.typography.fontSize.sm,
+  color: vars.colors.textMuted,
+  fontWeight: vars.typography.fontWeight.regular,
+  lineHeight: 1.3,
+});
+
 export const optionBtn = recipe({
   base: {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
+    gap: vars.spacing.sm,
 
     width: '100%',
     padding: vars.spacing.md,

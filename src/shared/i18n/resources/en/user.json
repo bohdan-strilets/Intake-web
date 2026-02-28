@@ -27,6 +27,14 @@
     "veryHigh": "Very high activity"
   },
 
+  "activityLevelDescriptions": {
+    "sedentary": "Mostly sitting in daily life, little walking, no or almost no training",
+    "light": "Mostly sitting with some movement, light training or sport 1–3 times a week",
+    "moderate": "Moderate daily activity (walking, errands) plus training 3–5 times a week",
+    "high": "Active daily life and training or sport 6–7 times a week",
+    "veryHigh": "Physical job or very active daily life, plus intense training or training twice a day"
+  },
+
   "goals": {
     "lose": "Lose weight",
     "maintain": "Maintain weight",
@@ -60,7 +68,7 @@
     "weight": "Enter your current body weight",
     "targetWeight": "Enter your target body weight",
     "goalDelta": "When losing weight: this amount is subtracted from your daily norm; when gaining: it is added. Determines how fast your weight changes.",
-    "activityLevel": "Affects your daily calorie recommendation"
+    "activityLevel": "Based on your everyday movement and how often you train"
   },
 
   "validation": {

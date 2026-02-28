@@ -10,7 +10,15 @@ import { Inline } from '@shared/ui/layout/Inline';
 
 import { Icon } from '../Icon';
 
-import { item, list, optionBtn, trigger, wrapper } from './Select.css';
+import {
+  item,
+  list,
+  optionBtn,
+  optionContent,
+  optionDescription,
+  trigger,
+  wrapper,
+} from './Select.css';
 import type { SelectProps } from './Select.types';
 
 export const Select = <T extends string | number | null>({
@@ -123,8 +131,16 @@ export const Select = <T extends string | number | null>({
                       active: isActive,
                     })}
                     disabled={option.isDisabled || disabled}
+                    title={option.helperText}
                   >
-                    {option.label}
+                    <span className={optionContent}>
+                      <span>{option.label}</span>
+                      {option.description && (
+                        <span className={optionDescription}>
+                          {option.description}
+                        </span>
+                      )}
+                    </span>
                     {isSelected && <Icon name="check" color="accentPrimary" />}
                   </button>
                 </li>

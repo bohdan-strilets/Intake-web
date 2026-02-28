@@ -5,6 +5,10 @@ import type { trigger } from './Select.css';
 export type SelectOption<T extends string | number | null> = {
   value: T;
   label: string;
+  /** Short hint for the option (e.g. in tooltip or inline) */
+  helperText?: string;
+  /** Longer description shown under the option label in the dropdown */
+  description?: string;
   isDisabled?: boolean;
 };
 
