@@ -30,7 +30,8 @@
     "logout": "Logout",
     "deleteAccount": "Delete account",
     "chooseLanguage": "Choose language",
-    "chooseTheme": "Choose theme"
+    "chooseTheme": "Choose theme",
+    "installApp": "Install app"
   },
 
   "fields": {

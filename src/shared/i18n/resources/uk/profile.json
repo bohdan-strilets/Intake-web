@@ -30,7 +30,8 @@
     "logout": "Вийти",
     "deleteAccount": "Видалити акаунт",
     "chooseLanguage": "Обрати мову",
-    "chooseTheme": "Обрати тему"
+    "chooseTheme": "Обрати тему",
+    "installApp": "Встановити застосунок"
   },
 
   "fields": {

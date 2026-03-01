@@ -30,7 +30,8 @@
     "logout": "Wyloguj się",
     "deleteAccount": "Usuń konto",
     "chooseLanguage": "Wybierz język",
-    "chooseTheme": "Wybierz motyw"
+    "chooseTheme": "Wybierz motyw",
+    "installApp": "Zainstaluj aplikację"
   },
 
   "fields": {

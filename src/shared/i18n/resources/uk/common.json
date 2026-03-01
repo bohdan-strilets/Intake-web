@@ -53,5 +53,10 @@
     "actions": {
       "goToToday": "Перейти до сьогодні"
     }
+  },
+  "pwa": {
+    "offline": "Ви offline",
+    "newVersion": "Доступна нова версія",
+    "reload": "Оновити"
   }
 }

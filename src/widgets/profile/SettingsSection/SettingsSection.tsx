@@ -5,6 +5,7 @@ import { useUpdateSettingsMutation } from '@features/user/updateSettings';
 
 import { useTranslation } from '@shared/i18n';
 import { useModal } from '@shared/lib/modal';
+import { usePWAInstall } from '@shared/lib/pwa';
 import { useSound } from '@shared/lib/sound';
 import { fadeTransition, fadeUp } from '@shared/motion';
 import { Range } from '@shared/ui/controls/Range';
@@ -19,6 +20,7 @@ import { ThemeSheet } from '../ThemeSheet';
 import type { SettingsSectionProps } from './SettingsSection.types';
 
 export const SettingsSection = ({ settings }: SettingsSectionProps) => {
+  const { canInstall, install } = usePWAInstall();
   const { theme, language, sound, volume } = settings;
 
   const [localVolume, setLocalVolume] = useState(volume);
@@ -102,6 +104,14 @@ export const SettingsSection = ({ settings }: SettingsSectionProps) => {
   return (
     <Card shadow="sm" gap="lg">
       <SectionTitle title={tProfile('sections.settings')} />
+
+      {canInstall && (
+        <InfoRow
+          label={tProfile('actions.installApp')}
+          value={null}
+          onClick={() => void install()}
+        />
+      )}
 
       <InfoRow
         label={tProfile('fields.theme')}

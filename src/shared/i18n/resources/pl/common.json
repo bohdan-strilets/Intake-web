@@ -53,5 +53,10 @@
     "actions": {
       "goToToday": "Przejdź do dzisiaj"
     }
+  },
+  "pwa": {
+    "offline": "Jesteś offline",
+    "newVersion": "Dostępna nowa wersja",
+    "reload": "Odśwież"
   }
 }

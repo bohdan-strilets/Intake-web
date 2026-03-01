@@ -53,5 +53,10 @@
     "actions": {
       "goToToday": "Go to Today"
     }
+  },
+  "pwa": {
+    "offline": "You're offline",
+    "newVersion": "New version available",
+    "reload": "Reload"
   }
 }
