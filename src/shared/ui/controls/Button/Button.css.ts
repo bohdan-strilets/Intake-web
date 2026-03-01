@@ -72,6 +72,18 @@ export const root = recipe({
         },
       },
 
+      ghostMuted: {
+        backgroundColor: 'transparent',
+        color: vars.colors.textMuted,
+        borderColor: 'transparent',
+
+        selectors: {
+          '&:hover:not(:disabled)': {
+            color: vars.colors.textSecondary,
+          },
+        },
+      },
+
       danger: {
         backgroundColor: vars.colors.dangerSoft,
         color: vars.colors.danger,
@@ -110,6 +122,14 @@ export const root = recipe({
     },
 
     size: {
+      xs: {
+        height: 'auto',
+        minHeight: vars.layout.controlHeight.sm,
+        paddingInline: vars.spacing.sm,
+        paddingBlock: vars.spacing.xs,
+        fontSize: vars.typography.fontSize.xs,
+      },
+
       sm: {
         height: vars.layout.controlHeight.sm,
         paddingInline: vars.spacing.md,

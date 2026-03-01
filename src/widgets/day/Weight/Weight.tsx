@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 
 import { EditWeightForm } from '@features/day/editWeight';
@@ -23,6 +24,7 @@ import { root } from './Weight.css';
 import type { WeightProps } from './Weight.types';
 
 export const Weight = ({ dayId, date, weight }: WeightProps) => {
+  const [isGoalProgressVisible, setIsGoalProgressVisible] = useState(false);
   const { open } = useModal();
   const { data: goalProgress, isPending: isGoalProgressPending } =
     useGoalProgressQuery();
@@ -92,69 +94,87 @@ export const Weight = ({ dayId, date, weight }: WeightProps) => {
 
         {hasValidGoalProgress && goalProgress ? (
           <>
-            <Divider />
-            <Stack gap="md" as="section" role="region" aria-label={tProfile('sections.goalProgress')}>
-              <Inline gap="sm" align="center" wrap>
-                <Paragraph size="xs" tone="muted">
-                  {goalProgress.startWeight}
-                </Paragraph>
-                <Paragraph size="xs" tone="muted" aria-hidden>
-                  →
-                </Paragraph>
-                <Paragraph size="md" weight="bold">
-                  {goalProgress.currentWeight}
-                </Paragraph>
-                <Paragraph size="xs" tone="muted" aria-hidden>
-                  →
-                </Paragraph>
-                <Paragraph size="xs" tone="muted">
-                  {goalProgress.targetWeight}
-                </Paragraph>
-                <Paragraph size="xs" tone="muted">
-                  {tCommon('units.kilograms')}
-                </Paragraph>
-              </Inline>
-              <Progress
-                value={Math.round(
-                  calcGoalProgressPercent(
-                    goalProgress.startWeight,
-                    goalProgress.currentWeight,
-                    goalProgress.targetWeight,
-                  ),
-                )}
-                target={100}
-                unit="%"
-                valueSize="md"
-                valueWeight="bold"
-              />
-              {goalProgress.kgPerWeek != null && (
-                    <Paragraph size="xs" tone="muted">
-                      {tProfile('goalProgress.averagePace', {
-                        value: Math.abs(goalProgress.kgPerWeek).toFixed(1),
-                      })}
-                    </Paragraph>
-                  )}
-              {goalProgress.estimatedWeeks === 0 ? (
-                    <Paragraph size="xs" tone="muted">
-                      {tProfile('goalProgress.goalAchieved')}
-                    </Paragraph>
-                  ) : (
-                goalProgress.estimatedWeeks != null &&
-                goalProgress.estimatedWeeks > 0 && (
+            {isGoalProgressVisible ? (
+              <Stack gap="md" as="section" role="region" aria-label={tProfile('sections.goalProgress')}>
+                <Divider />
+                <Inline gap="sm" align="center" wrap>
                   <Paragraph size="xs" tone="muted">
-                    {tProfile('goalProgress.estimatedTime', {
-                      weeks: goalProgress.estimatedWeeks,
+                    {goalProgress.startWeight}
+                  </Paragraph>
+                  <Paragraph size="xs" tone="muted" aria-hidden>
+                    →
+                  </Paragraph>
+                  <Paragraph size="md" weight="bold">
+                    {goalProgress.currentWeight}
+                  </Paragraph>
+                  <Paragraph size="xs" tone="muted" aria-hidden>
+                    →
+                  </Paragraph>
+                  <Paragraph size="xs" tone="muted">
+                    {goalProgress.targetWeight}
+                  </Paragraph>
+                  <Paragraph size="xs" tone="muted">
+                    {tCommon('units.kilograms')}
+                  </Paragraph>
+                </Inline>
+                <Progress
+                  value={Math.round(
+                    calcGoalProgressPercent(
+                      goalProgress.startWeight,
+                      goalProgress.currentWeight,
+                      goalProgress.targetWeight,
+                    ),
+                  )}
+                  target={100}
+                  unit="%"
+                  valueSize="md"
+                  valueWeight="bold"
+                />
+                {goalProgress.kgPerWeek != null && (
+                  <Paragraph size="xs" tone="muted">
+                    {tProfile('goalProgress.averagePace', {
+                      value: Math.abs(goalProgress.kgPerWeek).toFixed(1),
                     })}
                   </Paragraph>
-                )
-              )}
-              {goalProgress.kgPerWeek == null &&
-                goalProgress.estimatedWeeks == null && (
-                  <Paragraph size="xs" tone="muted">
-                    {tProfile('goalProgress.notEnoughData')}
-                  </Paragraph>
                 )}
-            </Stack>
+                {goalProgress.estimatedWeeks === 0 ? (
+                  <Paragraph size="xs" tone="muted">
+                    {tProfile('goalProgress.goalAchieved')}
+                  </Paragraph>
+                ) : (
+                  goalProgress.estimatedWeeks != null &&
+                  goalProgress.estimatedWeeks > 0 && (
+                    <Paragraph size="xs" tone="muted">
+                      {tProfile('goalProgress.estimatedTime', {
+                        weeks: goalProgress.estimatedWeeks,
+                      })}
+                    </Paragraph>
+                  )
+                )}
+                {goalProgress.kgPerWeek == null &&
+                  goalProgress.estimatedWeeks == null && (
+                    <Paragraph size="xs" tone="muted">
+                      {tProfile('goalProgress.notEnoughData')}
+                    </Paragraph>
+                  )}
+                <Button
+                  variant="ghostMuted"
+                  size="xs"
+                  onClick={() => setIsGoalProgressVisible(false)}
+                >
+                  {tProfile('goalProgress.tapToHide')}
+                </Button>
+              </Stack>
+            ) : (
+              <Button
+                variant="ghostMuted"
+                size="xs"
+                fullWidth
+                onClick={() => setIsGoalProgressVisible(true)}
+              >
+                {tProfile('goalProgress.tapToViewProgress')}
+              </Button>
+            )}
           </>
         ) : (
           <>

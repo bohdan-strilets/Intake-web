@@ -10,6 +10,8 @@
   },
 
   "goalProgress": {
+    "tapToViewProgress": "Tap to view progress",
+    "tapToHide": "Tap to hide",
     "averagePace": "Average pace: {{value}} kg / week",
     "estimatedTime": "Estimated time: ~{{weeks}} weeks",
     "notEnoughData": "Not enough data for prediction",

@@ -10,6 +10,8 @@
   },
 
   "goalProgress": {
+    "tapToViewProgress": "Натисніть, щоб переглянути прогрес",
+    "tapToHide": "Натисніть, щоб сховати",
     "averagePace": "Середній темп: {{value}} кг / тиждень",
     "estimatedTime": "Орієнтовно: ~{{weeks}} тижнів",
     "notEnoughData": "Недостатньо даних для прогнозу",

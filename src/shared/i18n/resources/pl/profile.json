@@ -10,6 +10,8 @@
   },
 
   "goalProgress": {
+    "tapToViewProgress": "Dotknij, aby zobaczyć postęp",
+    "tapToHide": "Dotknij, aby ukryć",
     "averagePace": "Średnie tempo: {{value}} kg / tydzień",
     "estimatedTime": "Szacowany czas: ~{{weeks}} tygodni",
     "notEnoughData": "Za mało danych do prognozy",

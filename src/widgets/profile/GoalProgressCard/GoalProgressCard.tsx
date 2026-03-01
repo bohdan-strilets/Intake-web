@@ -5,7 +5,7 @@ import {
 
 import { useTranslation } from '@shared/i18n';
 import { Progress } from '@shared/ui/feedback/Progress';
-import { Skeleton } from '@shared/ui/feedback/Skeleton';
+import { Spinner } from '@shared/ui/feedback/Spinner';
 import { Card } from '@shared/ui/layout/Card';
 import { Inline } from '@shared/ui/layout/Inline';
 import { Spacer } from '@shared/ui/layout/Spacer';
@@ -25,14 +25,9 @@ export const GoalProgressCard = () => {
     return (
       <section role="region" aria-label={sectionTitle}>
         <Card shadow="sm" gap="lg">
-          <Skeleton width="40%" height={24} />
-          <Stack gap="md">
-            <Skeleton width="100%" />
-            <Skeleton width="100%" />
-            <Skeleton width="80%" height={32} />
-            <Skeleton width="60%" />
-            <Skeleton width="70%" />
-          </Stack>
+          <Inline justify="center">
+            <Spinner size="sm" />
+          </Inline>
         </Card>
       </section>
     );
@@ -52,6 +47,10 @@ export const GoalProgressCard = () => {
   }
 
   const progress = data;
+  if (!progress) {
+    return null;
+  }
+
   const hasTargetWeight =
     progress.targetWeight != null && progress.targetWeight > 0;
 
