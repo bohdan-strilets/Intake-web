@@ -13,6 +13,7 @@ import { useMonthDetailsQuery } from '@features/calendar/monthDetails';
 
 import { getMonthMatrix } from '@shared/lib/calendar';
 import { formatMonthLabel } from '@shared/lib/date';
+import { useSwipe } from '@shared/lib/swipe';
 import { ROUTES } from '@shared/routes';
 import { Card } from '@shared/ui/layout/Card';
 import { Stack } from '@shared/ui/layout/Stack';
@@ -22,6 +23,11 @@ export const DashboardPage = () => {
 
   const { year, month, monthParam, goPrevMonth, goNextMonth } =
     useCalendarNavigation();
+
+  const swipe = useSwipe({
+    onSwipeLeft: goPrevMonth,
+    onSwipeRight: goNextMonth,
+  });
 
   const { data, isLoading, isError, refetch } = useMonthDetailsQuery({
     month: monthParam,
@@ -57,7 +63,11 @@ export const DashboardPage = () => {
         />
       </Card>
 
-      <Card shadow="sm">
+      <Card
+        shadow="sm"
+        onTouchStart={swipe.onTouchStart}
+        onTouchEnd={swipe.onTouchEnd}
+      >
         <WeekDays />
 
         <MonthGrid
