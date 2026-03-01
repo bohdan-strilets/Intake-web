@@ -25,8 +25,8 @@ export const DashboardPage = () => {
     useCalendarNavigation();
 
   const swipe = useSwipe({
-    onSwipeLeft: goPrevMonth,
-    onSwipeRight: goNextMonth,
+    onSwipeLeft: goNextMonth,
+    onSwipeRight: goPrevMonth,
   });
 
   const { data, isLoading, isError, refetch } = useMonthDetailsQuery({
