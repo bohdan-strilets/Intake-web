@@ -61,7 +61,21 @@ export const DayPage = () => {
       onTouchStart={swipe.onTouchStart}
       onTouchEnd={swipe.onTouchEnd}
     >
-      <Header date={day.date} />
+      <Header
+        date={day.date}
+        onPrevDay={() =>
+          navigate({
+            to: ROUTES.app.day,
+            params: { date: getAdjacentDate(day.date, -1) },
+          })
+        }
+        onNextDay={() =>
+          navigate({
+            to: ROUTES.app.day,
+            params: { date: getAdjacentDate(day.date, 1) },
+          })
+        }
+      />
 
       <Weight dayId={day.id} date={day.date} weight={day.weight} />
 
