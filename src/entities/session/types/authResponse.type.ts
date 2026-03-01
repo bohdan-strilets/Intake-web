@@ -1,4 +1,8 @@
+import type { UserEntity } from '@entities/user';
+
+import type { TokenResponse } from './tokenResponse.type';
+
 export type AuthResponse = {
-  accessToken: string;
-  refreshToken: string;
+  tokens: TokenResponse;
+  user: UserEntity;
 };
