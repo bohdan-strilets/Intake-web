@@ -13,7 +13,7 @@
     "maintenanceCalories": "Utrzymanie wagi"
   },
 
-  "progress": {
+  "nav":{"prev":"Poprzedni okres","next":"Następny okres"},"progress": {
     "loggedDays": "{{logged}} z {{total}} dni zapisanych"
   },
 

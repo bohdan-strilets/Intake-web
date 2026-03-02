@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 
 import { CaloriesBarChart } from '@widgets/stats/CaloriesBarChart';
 import { WeightBarChart } from '@widgets/stats/WeightBarChart';
@@ -15,34 +15,56 @@ import type { PeriodStats } from '@entities/stats';
 
 import { useTranslation } from '@shared/i18n';
 import { getMonthRange, getWeekRange } from '@shared/lib/date';
+import { useSwipe } from '@shared/lib/swipe/useSwipe';
 import { SegmentedControl } from '@shared/ui/controls/SegmentedControl';
 import { Stack } from '@shared/ui/layout/Stack';
 
 export const StatsPage = () => {
   const [period, setPeriod] = useState<PeriodStats>('week');
+  const [offset, setOffset] = useState(0);
 
   const { t } = useTranslation('calendar');
 
   const range = useMemo(() => {
-    return period === 'week' ? getWeekRange() : getMonthRange();
-  }, [period]);
+    const base = new Date();
+    if (period === 'week') {
+      base.setDate(base.getDate() - offset * 7);
+      return getWeekRange(base);
+    }
+    base.setMonth(base.getMonth() - offset);
+    return getMonthRange(base);
+  }, [period, offset]);
+
+  const goPrev = useCallback(() => setOffset((o) => o + 1), []);
+  const goNext = useCallback(() => setOffset((o) => o - 1), []);
+
+  const handlePeriodChange = useCallback((value: PeriodStats) => {
+    setPeriod(value);
+    setOffset(0);
+  }, []);
+
+  const swipe = useSwipe({
+    onSwipeLeft: goPrev,
+    onSwipeRight: goNext,
+  });
 
   const { data, isPending, isError, refetch } = useStatsQuery(range);
 
-  if (isPending) return <Loading />;
+  if (isPending && !data) return <Loading />;
   if (isError) return <Error refetch={refetch} />;
+  if (!data) return <Loading />;
 
   const stats = data;
 
   return (
-    <Stack gap="lg">
+    <Stack gap="lg" {...swipe}>
       <SegmentedControl
         value={period}
         options={[
           { label: t('range.week'), value: 'week' },
           { label: t('range.month'), value: 'month' },
         ]}
-        onChange={setPeriod}
+        onChange={handlePeriodChange}
       />
 
       <PeriodCard
@@ -50,6 +72,8 @@ export const StatsPage = () => {
         periodEnd={stats.period.end}
         loggedDays={stats.period.loggedDays}
         totalDays={stats.period.totalDays}
+        onPrev={goPrev}
+        onNext={goNext}
       />
 
       <CaloriesCard

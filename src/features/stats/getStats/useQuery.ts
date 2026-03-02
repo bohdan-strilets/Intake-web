@@ -1,4 +1,4 @@
-import { useQuery } from '@tanstack/react-query';
+import { keepPreviousData, useQuery } from '@tanstack/react-query';
 
 import { statsQueryKeys } from '@entities/stats';
 
@@ -9,5 +9,6 @@ export const useStatsQuery = (params: QueryParams) => {
   return useQuery({
     queryKey: statsQueryKeys.range(params.start, params.end),
     queryFn: () => getStatsApi(params),
+    placeholderData: keepPreviousData,
   });
 };

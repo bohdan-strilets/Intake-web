@@ -13,7 +13,7 @@
     "maintenanceCalories": "Підтримка ваги"
   },
 
-  "progress": {
+  "nav":{"prev":"Попередній період","next":"Наступний період"},"progress": {
     "loggedDays": "{{logged}} з {{total}} днів заповнено"
   },
 

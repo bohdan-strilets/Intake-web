@@ -13,7 +13,7 @@
     "maintenanceCalories": "Maintenance calories"
   },
 
-  "progress": {
+  "nav":{"prev":"Previous period","next":"Next period"},"progress": {
     "loggedDays": "{{logged}} of {{total}} days logged"
   },
 
