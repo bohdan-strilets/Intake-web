@@ -58,6 +58,11 @@
     "offline": "You're offline",
     "newVersion": "New version available",
     "reload": "Reload",
-    "installInstructions": "To install:\n1. Tap Share\n2. Tap 'Add to Home Screen'"
+    "installInstructions": "To install:\n1. Tap Share\n2. Tap 'Add to Home Screen'",
+    "installStep1": "Tap the Share button",
+    "installStep2": "Tap 'Add to Home Screen'",
+    "installStep3": "Tap 'Add' to confirm",
+    "dismissBanner": "Close",
+    "confirmBanner": "Got it"
   }
 }

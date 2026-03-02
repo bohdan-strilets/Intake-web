@@ -58,6 +58,11 @@
     "offline": "Jesteś offline",
     "newVersion": "Dostępna nowa wersja",
     "reload": "Odśwież",
-    "installInstructions": "Aby zainstalować:\n1. Dotknij Udostępnij\n2. Dotknij „Dodaj do ekranu początkowego”"
+    "installInstructions": "Aby zainstalować:\n1. Dotknij Udostępnij\n2. Dotknij „Dodaj do ekranu początkowego”",
+    "installStep1": "Dotknij przycisku Udostępnij",
+    "installStep2": "Dotknij „Dodaj do ekranu początkowego”",
+    "installStep3": "Dotknij „Dodaj” aby potwierdzić",
+    "dismissBanner": "Zamknij",
+    "confirmBanner": "Rozumiem"
   }
 }

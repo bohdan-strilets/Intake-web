@@ -1,4 +1,5 @@
 import { useInitSound } from '@shared/lib/sound';
+import { IOSInstallBanner } from '@shared/ui/feedback/IOSInstallBanner';
 import { OfflineBanner } from '@shared/ui/feedback/OfflineBanner';
 import { ModalHost } from '@shared/ui/overlay/ModalHost';
 
@@ -20,6 +21,7 @@ export const AppProvider = () => {
         <I18nProvider>
           <QueryProvider>
             <PWAProvider>
+              <IOSInstallBanner />
               <OfflineBanner />
               <AppBootstrap>
                 <AppRouterProvider />
