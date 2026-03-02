@@ -1,4 +1,5 @@
 import { AppContainer } from '@app/layouts/AppContainer';
+
 import { Logo } from '@shared/ui/brand/Logo';
 import { Spacer } from '@shared/ui/layout/Spacer';
 import { Stack } from '@shared/ui/layout/Stack';

@@ -1,12 +1,18 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { useCallback, useEffect, useState } from 'react';
 
-import { usePWAInstall } from '@shared/lib/pwa';
 import { useTranslation } from '@shared/i18n';
+import { usePWAInstall } from '@shared/lib/pwa';
 import { fadeTransition, fadeUp } from '@shared/motion';
 import { Button } from '@shared/ui/controls/Button';
 
-import { confirmButton, list, listItem, root, title } from './IOSInstallBanner.css';
+import {
+  confirmButton,
+  list,
+  listItem,
+  root,
+  title,
+} from './IOSInstallBanner.css';
 
 const STORAGE_KEY = 'pwa-ios-install-dismissed';
 

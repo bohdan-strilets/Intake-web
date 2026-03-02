@@ -1,5 +1,5 @@
-import { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
+import { useState } from 'react';
 
 import { EditWeightForm } from '@features/day/editWeight';
 import {
@@ -32,9 +32,9 @@ export const Weight = ({ dayId, date, weight }: WeightProps) => {
   const isWeightEmpty = weight == null;
   const hasValidGoalProgress = Boolean(
     goalProgress &&
-      !isGoalProgressPending &&
-      goalProgress.targetWeight != null &&
-      goalProgress.targetWeight > 0,
+    !isGoalProgressPending &&
+    goalProgress.targetWeight != null &&
+    goalProgress.targetWeight > 0,
   );
 
   const { t: tDay } = useTranslation('day');
@@ -60,7 +60,12 @@ export const Weight = ({ dayId, date, weight }: WeightProps) => {
               exit="exit"
             >
               <Stack gap="md">
-                <Button variant="ghost" size="sm" onClick={handleEdit} fullWidth>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={handleEdit}
+                  fullWidth
+                >
                   {tDay('actions.addWeight')}
                 </Button>
 
@@ -81,7 +86,8 @@ export const Weight = ({ dayId, date, weight }: WeightProps) => {
                 <Inline justify="between" className={root}>
                   <Paragraph>{tDay('entities.weight')}:</Paragraph>
                   <Paragraph weight="medium">
-                    <AnimatedNumber value={weight} /> {tCommon('units.kilograms')}
+                    <AnimatedNumber value={weight} />{' '}
+                    {tCommon('units.kilograms')}
                   </Paragraph>
                 </Inline>
                 <Button variant="ghost" size="sm" onClick={handleEdit}>
@@ -95,7 +101,12 @@ export const Weight = ({ dayId, date, weight }: WeightProps) => {
         {hasValidGoalProgress && goalProgress ? (
           <>
             {isGoalProgressVisible ? (
-              <Stack gap="md" as="section" role="region" aria-label={tProfile('sections.goalProgress')}>
+              <Stack
+                gap="md"
+                as="section"
+                role="region"
+                aria-label={tProfile('sections.goalProgress')}
+              >
                 <Divider />
                 <Inline gap="sm" align="center" wrap>
                   <Paragraph size="xs" tone="muted">

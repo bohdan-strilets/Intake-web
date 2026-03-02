@@ -6,6 +6,9 @@ export const ROUTES = {
   auth: {
     login: '/login',
     register: '/register',
+    forgotPassword: '/forgot-password',
+    resetPassword: '/reset-password',
+    verifyEmail: '/verify-email',
   },
 
   app: {

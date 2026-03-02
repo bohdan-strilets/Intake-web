@@ -1,9 +1,9 @@
 import { useTranslation } from '@shared/i18n';
+import { cardGradients } from '@shared/styles/gradients.css';
 import { Card } from '@shared/ui/layout/Card';
 import { Stack } from '@shared/ui/layout/Stack';
 import { AnimatedCounter } from '@shared/ui/motion/AnimatedCounter';
 import { Paragraph } from '@shared/ui/typography/Paragraph';
-import { cardGradients } from '@shared/styles/gradients.css';
 
 import type { CaloriesCardProps } from './CaloriesCard.types';
 

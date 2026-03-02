@@ -4,4 +4,3 @@ export type RangeProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'type'> & {
   className?: string;
   onValueChange?: (value: number) => void;
 };
-

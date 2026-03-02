@@ -5,6 +5,9 @@ export const API_ROUTES = {
     refresh: '/auth/refresh',
     logout: '/auth/logout',
     restore: '/auth/restore',
+    requestPasswordReset: '/auth/password-reset/request',
+    resetPassword: '/auth/password-reset/confirm',
+    verifyEmail: '/auth/verify-email',
   },
 
   users: {

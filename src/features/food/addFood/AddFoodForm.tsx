@@ -1,8 +1,8 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 
-import { useOnline } from '@shared/lib/online';
 import { useTranslation } from '@shared/i18n';
+import { useOnline } from '@shared/lib/online';
 import { Button } from '@shared/ui/controls/Button';
 import { Textarea } from '@shared/ui/controls/Textarea';
 import { Field } from '@shared/ui/form/Field';

@@ -9,6 +9,8 @@ export const errorKeyMap = {
 
   INVALID_SESSION: 'errors.invalidSession',
   ACCOUNT_DELETED: 'errors.accountDeleted',
+  INVALID_RESET_TOKEN: 'errors.invalidResetToken',
+  INVALID_VERIFICATION_TOKEN: 'errors.invalidVerificationToken',
 
   USER_NOT_FOUND: 'errors.userNotFound',
 

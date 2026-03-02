@@ -1,1 +1,7 @@
-export { loginRoute, registerRoute } from './auth.routes';
+export {
+  forgotPasswordRoute,
+  loginRoute,
+  registerRoute,
+  resetPasswordRoute,
+  verifyEmailRoute,
+} from './auth.routes';

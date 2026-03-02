@@ -61,7 +61,8 @@ export default defineConfig(({ mode }) => {
                 if (request.method !== 'POST') return false;
                 const pathname = new URL(request.url).pathname;
                 return (
-                  pathname === '/food/add/from-ai' || pathname.startsWith('/food/')
+                  pathname === '/food/add/from-ai' ||
+                  pathname.startsWith('/food/')
                 );
               },
               handler: 'NetworkOnly',
@@ -71,7 +72,10 @@ export default defineConfig(({ mode }) => {
               handler: 'CacheFirst',
               options: {
                 cacheName: 'google-fonts-cache',
-                expiration: { maxEntries: 32, maxAgeSeconds: 60 * 60 * 24 * 365 },
+                expiration: {
+                  maxEntries: 32,
+                  maxAgeSeconds: 60 * 60 * 24 * 365,
+                },
                 cacheableResponse: { statuses: [0, 200] },
               },
             },
@@ -80,7 +84,10 @@ export default defineConfig(({ mode }) => {
               handler: 'CacheFirst',
               options: {
                 cacheName: 'static-assets',
-                expiration: { maxEntries: 128, maxAgeSeconds: 60 * 60 * 24 * 365 },
+                expiration: {
+                  maxEntries: 128,
+                  maxAgeSeconds: 60 * 60 * 24 * 365,
+                },
                 cacheableResponse: { statuses: [0, 200] },
               },
             },

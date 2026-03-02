@@ -86,65 +86,65 @@ export const GoalProgressCard = () => {
         <SectionTitle title={sectionTitle} />
 
         <Inline gap="sm" align="center" wrap>
-            <Paragraph size="sm" tone="muted">
-              {progress.startWeight}
-            </Paragraph>
-            <Paragraph size="xs" tone="muted" aria-hidden>
-              →
-            </Paragraph>
-            <Paragraph size="lg" weight="bold">
-              {progress.currentWeight}
-            </Paragraph>
-            <Paragraph size="xs" tone="muted" aria-hidden>
-              →
-            </Paragraph>
-            <Paragraph size="sm" tone="muted">
-              {progress.targetWeight}
-            </Paragraph>
-            <Paragraph size="sm" tone="muted">
-              {tCommon('units.kilograms')}
-            </Paragraph>
+          <Paragraph size="sm" tone="muted">
+            {progress.startWeight}
+          </Paragraph>
+          <Paragraph size="xs" tone="muted" aria-hidden>
+            →
+          </Paragraph>
+          <Paragraph size="lg" weight="bold">
+            {progress.currentWeight}
+          </Paragraph>
+          <Paragraph size="xs" tone="muted" aria-hidden>
+            →
+          </Paragraph>
+          <Paragraph size="sm" tone="muted">
+            {progress.targetWeight}
+          </Paragraph>
+          <Paragraph size="sm" tone="muted">
+            {tCommon('units.kilograms')}
+          </Paragraph>
         </Inline>
 
         <Spacer size="lg" />
 
         <>
           <Progress
-              value={roundedPercent}
-              target={100}
-              unit="%"
-              valueSize="md"
-              valueWeight="bold"
-            />
-            <Spacer size="md" />
-            {progress.kgPerWeek != null && (
+            value={roundedPercent}
+            target={100}
+            unit="%"
+            valueSize="md"
+            valueWeight="bold"
+          />
+          <Spacer size="md" />
+          {progress.kgPerWeek != null && (
+            <Paragraph size="sm" tone="muted">
+              {tProfile('goalProgress.averagePace', {
+                value: Math.abs(progress.kgPerWeek).toFixed(1),
+              })}
+            </Paragraph>
+          )}
+          {isGoalAchieved ? (
+            <Paragraph size="sm" tone="muted">
+              {tProfile('goalProgress.goalAchieved')}
+            </Paragraph>
+          ) : (
+            progress.estimatedWeeks != null &&
+            progress.estimatedWeeks > 0 && (
               <Paragraph size="sm" tone="muted">
-                {tProfile('goalProgress.averagePace', {
-                  value: Math.abs(progress.kgPerWeek).toFixed(1),
+                {tProfile('goalProgress.estimatedTime', {
+                  weeks: progress.estimatedWeeks,
                 })}
               </Paragraph>
-            )}
-            {isGoalAchieved ? (
+            )
+          )}
+          {progress.kgPerWeek == null &&
+            progress.estimatedWeeks == null &&
+            !isGoalAchieved && (
               <Paragraph size="sm" tone="muted">
-                {tProfile('goalProgress.goalAchieved')}
+                {tProfile('goalProgress.notEnoughData')}
               </Paragraph>
-            ) : (
-              progress.estimatedWeeks != null &&
-              progress.estimatedWeeks > 0 && (
-                <Paragraph size="sm" tone="muted">
-                  {tProfile('goalProgress.estimatedTime', {
-                    weeks: progress.estimatedWeeks,
-                  })}
-                </Paragraph>
-              )
             )}
-            {progress.kgPerWeek == null &&
-              progress.estimatedWeeks == null &&
-              !isGoalAchieved && (
-                <Paragraph size="sm" tone="muted">
-                  {tProfile('goalProgress.notEnoughData')}
-                </Paragraph>
-              )}
         </>
       </Card>
     </section>

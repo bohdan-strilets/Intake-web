@@ -10,11 +10,7 @@ import { Title } from '@shared/ui/typography/Title';
 
 import type { HeaderProps } from './Header.types';
 
-export const Header = ({
-  date,
-  onPrevDay,
-  onNextDay,
-}: HeaderProps) => {
+export const Header = ({ date, onPrevDay, onNextDay }: HeaderProps) => {
   const { t } = useTranslation('calendar');
 
   const relativeLabel = getRelativeDayLabel(date);

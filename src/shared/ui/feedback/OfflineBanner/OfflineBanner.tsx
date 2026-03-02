@@ -1,6 +1,5 @@
-import { useOnline } from '@shared/lib/online';
-
 import { useTranslation } from '@shared/i18n';
+import { useOnline } from '@shared/lib/online';
 
 import { root } from './OfflineBanner.css';
 

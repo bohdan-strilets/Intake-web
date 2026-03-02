@@ -33,6 +33,10 @@ export const LoginPage = () => {
 
       <LoginForm />
 
+      <TextLink to={ROUTES.auth.forgotPassword}>
+        {t('actions.forgotPassword')}
+      </TextLink>
+
       <TextLink to={ROUTES.auth.register}>
         {t('switch.noAccount')} {t('actions.createAccount')}
       </TextLink>

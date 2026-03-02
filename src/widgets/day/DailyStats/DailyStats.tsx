@@ -1,10 +1,10 @@
 import { useTranslation } from '@shared/i18n';
+import { cardGradients } from '@shared/styles/gradients.css';
 import { Progress } from '@shared/ui/feedback/Progress';
 import { Card } from '@shared/ui/layout/Card';
 import { Inline } from '@shared/ui/layout/Inline';
 import { AnimatedNumber } from '@shared/ui/motion/AnimatedNumber';
 import { Paragraph } from '@shared/ui/typography/Paragraph';
-import { cardGradients } from '@shared/styles/gradients.css';
 
 import type { DailyStatsProps } from './DailyStats.types';
 

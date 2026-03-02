@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
-import { useRegisterSW } from 'virtual:pwa-register/react';
 import { toast } from 'sonner';
+import { useRegisterSW } from 'virtual:pwa-register/react';
 
 import { useTranslation } from '@shared/i18n';
 
@@ -13,10 +13,7 @@ export function PWAProvider({ children }: { children: React.ReactNode }) {
   } = useRegisterSW({
     onRegistered(registration) {
       if (registration) {
-        setInterval(
-          () => registration.update(),
-          60 * 60 * 1000,
-        );
+        setInterval(() => registration.update(), 60 * 60 * 1000);
       }
     },
   });

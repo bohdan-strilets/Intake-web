@@ -1,4 +1,5 @@
 import { useMemo } from 'react';
+
 import { useTranslation } from '@shared/i18n';
 import { formatDay, formatShortWeekday } from '@shared/lib/date';
 import { BarChart } from '@shared/ui/chart/BarChart';
@@ -14,7 +15,8 @@ export const WeightBarChart = ({ stats, period }: WeightBarChartProps) => {
   const chartItems = useMemo(() => {
     return stats.days.map((day) => ({
       value: day.weight ?? null,
-      label: period === 'week' ? formatShortWeekday(day.date) : formatDay(day.date),
+      label:
+        period === 'week' ? formatShortWeekday(day.date) : formatDay(day.date),
     }));
   }, [stats.days, period]);
 

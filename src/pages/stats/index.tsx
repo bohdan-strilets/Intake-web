@@ -1,12 +1,12 @@
 import { useCallback, useMemo, useState } from 'react';
 
 import { CaloriesBarChart } from '@widgets/stats/CaloriesBarChart';
-import { WeightBarChart } from '@widgets/stats/WeightBarChart';
 import { CaloriesCard } from '@widgets/stats/CaloriesCard';
 import { Error } from '@widgets/stats/Error';
 import { Loading } from '@widgets/stats/Loading';
 import { MacrosCard } from '@widgets/stats/MacrosCard';
 import { PeriodCard } from '@widgets/stats/PeriodCard';
+import { WeightBarChart } from '@widgets/stats/WeightBarChart';
 import { WeightCard } from '@widgets/stats/WeightCard';
 
 import { useStatsQuery } from '@features/stats/getStats';

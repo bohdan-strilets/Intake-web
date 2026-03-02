@@ -35,11 +35,7 @@ export const Progress = ({
         />
       </div>
 
-      <Paragraph
-        size={valueSize}
-        weight={valueWeight}
-        tone="muted"
-      >
+      <Paragraph size={valueSize} weight={valueWeight} tone="muted">
         {value} {unit}
       </Paragraph>
     </Stack>
