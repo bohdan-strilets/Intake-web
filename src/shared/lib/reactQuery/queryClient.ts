@@ -4,7 +4,7 @@ export const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
       staleTime: 1000 * 60,
-      retry: (failureCount, error) => {
+      retry: (failureCount, _error) => {
         if (typeof navigator !== 'undefined' && !navigator.onLine) return false;
         return failureCount < 2;
       },
