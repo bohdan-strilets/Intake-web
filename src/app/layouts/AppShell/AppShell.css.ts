@@ -1,7 +1,6 @@
 import { style } from '@vanilla-extract/css';
 
 import { vars } from '@shared/styles/contract';
-import { media } from '@shared/styles/lib/mediaQuery';
 
 export const root = style({
   display: 'flex',
@@ -11,24 +10,18 @@ export const root = style({
   background: vars.colors.backgroundSecondary,
 });
 
-export const container = style({
+export const inner = style({
   position: 'relative',
 
   display: 'flex',
   flexDirection: 'column',
 
-  width: '480px',
+  width: '100%',
   minHeight: '100dvh',
   paddingTop: 'env(safe-area-inset-top)',
   paddingBottom: 'env(safe-area-inset-bottom)',
 
   background: vars.colors.backgroundPrimary,
-
-  '@media': {
-    [media.min('tablet')]: { width: '960px' },
-    [media.min('laptop')]: { width: '1180px' },
-    [media.min('desktop')]: { width: '1640px' },
-  },
 });
 
 export const headerSection = style({

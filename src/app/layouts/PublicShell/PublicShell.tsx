@@ -1,3 +1,4 @@
+import { AppContainer } from '@app/layouts/AppContainer';
 import { Logo } from '@shared/ui/brand/Logo';
 import { Spacer } from '@shared/ui/layout/Spacer';
 import { Stack } from '@shared/ui/layout/Stack';
@@ -6,7 +7,7 @@ import type { PublicShellProps } from './PublicShell.types';
 
 export const PublicShell = ({ children }: PublicShellProps) => {
   return (
-    <>
+    <AppContainer>
       <Stack as="header" align="center">
         <Spacer size="xl" />
         <Logo size="md" />
@@ -14,6 +15,6 @@ export const PublicShell = ({ children }: PublicShellProps) => {
       </Stack>
 
       <main>{children}</main>
-    </>
+    </AppContainer>
   );
 };
