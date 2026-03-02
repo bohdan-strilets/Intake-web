@@ -44,8 +44,8 @@ export const StatsPage = () => {
   }, []);
 
   const swipe = useSwipe({
-    onSwipeLeft: goPrev,
-    onSwipeRight: goNext,
+    onSwipeLeft: goNext,
+    onSwipeRight: goPrev,
   });
 
   const { data, isPending, isError, refetch } = useStatsQuery(range);
