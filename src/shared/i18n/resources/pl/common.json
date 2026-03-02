@@ -57,6 +57,7 @@
   "pwa": {
     "offline": "Jesteś offline",
     "newVersion": "Dostępna nowa wersja",
-    "reload": "Odśwież"
+    "reload": "Odśwież",
+    "installInstructions": "Aby zainstalować:\n1. Dotknij Udostępnij\n2. Dotknij „Dodaj do ekranu początkowego”"
   }
 }

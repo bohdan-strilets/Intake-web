@@ -20,7 +20,8 @@ import { ThemeSheet } from '../ThemeSheet';
 import type { SettingsSectionProps } from './SettingsSection.types';
 
 export const SettingsSection = ({ settings }: SettingsSectionProps) => {
-  const { canInstall, install } = usePWAInstall();
+  const { canInstall, isIOSInstallable, install } = usePWAInstall();
+  const { t: tCommon } = useTranslation('common');
   const { theme, language, sound, volume } = settings;
 
   const [localVolume, setLocalVolume] = useState(volume);
@@ -42,7 +43,6 @@ export const SettingsSection = ({ settings }: SettingsSectionProps) => {
   }, [volume, setVolume]);
 
   const { t: tProfile } = useTranslation('profile');
-  const { t: tCommon } = useTranslation('common');
 
   const handleTheme = () => {
     open(<ThemeSheet theme={theme} />);
@@ -110,6 +110,13 @@ export const SettingsSection = ({ settings }: SettingsSectionProps) => {
           label={tProfile('actions.installApp')}
           value={null}
           onClick={() => void install()}
+        />
+      )}
+      {isIOSInstallable && (
+        <InfoRow
+          label={tProfile('actions.installApp')}
+          value={tCommon('pwa.installInstructions').replace(/\n/g, ' • ')}
+          onClick={undefined}
         />
       )}
 

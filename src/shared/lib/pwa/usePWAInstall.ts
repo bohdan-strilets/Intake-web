@@ -5,34 +5,56 @@ export interface BeforeInstallPromptEvent extends Event {
   userChoice: Promise<{ outcome: 'accepted' | 'dismissed' }>;
 }
 
+/** Standalone: either display-mode: standalone (Android) or navigator.standalone (iOS) */
+function getIsStandalone(): boolean {
+  return (
+    window.matchMedia('(display-mode: standalone)').matches ||
+    (navigator as Navigator & { standalone?: boolean }).standalone === true
+  );
+}
+
+/** iOS: Safari does not fire beforeinstallprompt; user must use Share > Add to Home Screen */
+function getIsIOS(): boolean {
+  return /iphone|ipad|ipod/i.test(navigator.userAgent);
+}
+
 export function usePWAInstall(): {
   canInstall: boolean;
   isInstalled: boolean;
+  isIOSInstallable: boolean;
   install: () => Promise<void>;
 } {
   const [deferredPrompt, setDeferredPrompt] =
     useState<BeforeInstallPromptEvent | null>(null);
   const [isInstalled, setIsInstalled] = useState(false);
+  const [isIOS, setIsIOS] = useState(false);
 
   useEffect(() => {
-    const handler = (e: Event) => {
+    setIsIOS(getIsIOS());
+    const checkStandalone = () => setIsInstalled(getIsStandalone());
+    checkStandalone();
+
+    // Android/Chrome only: beforeinstallprompt lets us show a custom install UI
+    // iOS Safari never fires this; install must be manual (Share > Add to Home Screen)
+    const handleBeforeInstall = (e: Event) => {
       e.preventDefault();
       setDeferredPrompt(e as BeforeInstallPromptEvent);
     };
 
-    const checkStandalone = () => {
-      const standalone =
-        window.matchMedia('(display-mode: standalone)').matches ||
-        (window.navigator as Navigator & { standalone?: boolean }).standalone ===
-          true;
-      setIsInstalled(standalone);
+    const handleAppInstalled = () => {
+      setDeferredPrompt(null);
+      setIsInstalled(true);
     };
 
-    window.addEventListener('beforeinstallprompt', handler);
-    checkStandalone();
+    window.addEventListener('beforeinstallprompt', handleBeforeInstall);
+    window.addEventListener('appinstalled', handleAppInstalled);
+    const mediaQuery = window.matchMedia('(display-mode: standalone)');
+    mediaQuery.addEventListener('change', checkStandalone);
 
     return () => {
-      window.removeEventListener('beforeinstallprompt', handler);
+      window.removeEventListener('beforeinstallprompt', handleBeforeInstall);
+      window.removeEventListener('appinstalled', handleAppInstalled);
+      mediaQuery.removeEventListener('change', checkStandalone);
     };
   }, []);
 
@@ -44,6 +66,7 @@ export function usePWAInstall(): {
   }, [deferredPrompt]);
 
   const canInstall = Boolean(deferredPrompt) && !isInstalled;
+  const isIOSInstallable = isIOS && !isInstalled;
 
-  return { canInstall, isInstalled, install };
+  return { canInstall, isInstalled, isIOSInstallable, install };
 }

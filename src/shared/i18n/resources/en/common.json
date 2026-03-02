@@ -57,6 +57,7 @@
   "pwa": {
     "offline": "You're offline",
     "newVersion": "New version available",
-    "reload": "Reload"
+    "reload": "Reload",
+    "installInstructions": "To install:\n1. Tap Share\n2. Tap 'Add to Home Screen'"
   }
 }
