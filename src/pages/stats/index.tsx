@@ -57,7 +57,7 @@ export const StatsPage = () => {
   const stats = data;
 
   return (
-    <Stack gap="lg" {...swipe}>
+    <Stack gap="lg">
       <SegmentedControl
         value={period}
         options={[
@@ -67,14 +67,16 @@ export const StatsPage = () => {
         onChange={handlePeriodChange}
       />
 
-      <PeriodCard
-        periodStart={stats.period.start}
-        periodEnd={stats.period.end}
-        loggedDays={stats.period.loggedDays}
-        totalDays={stats.period.totalDays}
-        onPrev={goPrev}
-        onNext={goNext}
-      />
+      <div {...swipe}>
+        <PeriodCard
+          periodStart={stats.period.start}
+          periodEnd={stats.period.end}
+          loggedDays={stats.period.loggedDays}
+          totalDays={stats.period.totalDays}
+          onPrev={goPrev}
+          onNext={goNext}
+        />
+      </div>
 
       <CaloriesCard
         caloriesAverage={stats.calories.average}
