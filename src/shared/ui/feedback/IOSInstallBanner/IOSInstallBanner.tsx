@@ -6,7 +6,7 @@ import { useTranslation } from '@shared/i18n';
 import { fadeTransition, fadeUp } from '@shared/motion';
 import { Button } from '@shared/ui/controls/Button';
 
-import { confirmButton, list, listItem, root } from './IOSInstallBanner.css';
+import { confirmButton, list, listItem, root, title } from './IOSInstallBanner.css';
 
 const STORAGE_KEY = 'pwa-ios-install-dismissed';
 
@@ -54,6 +54,7 @@ export function IOSInstallBanner() {
           exit="exit"
           transition={fadeTransition}
         >
+          <h2 className={title}>{t('pwa.installBannerTitle')}</h2>
           <ol className={list}>
             {INSTALL_STEPS.map((key) => (
               <li key={key} className={listItem}>

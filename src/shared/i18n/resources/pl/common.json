@@ -55,6 +55,7 @@
     }
   },
   "pwa": {
+    "installBannerTitle": "Dodaj do ekranu początkowego",
     "offline": "Jesteś offline",
     "newVersion": "Dostępna nowa wersja",
     "reload": "Odśwież",

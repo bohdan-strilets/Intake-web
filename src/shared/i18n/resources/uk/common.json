@@ -55,6 +55,7 @@
     }
   },
   "pwa": {
+    "installBannerTitle": "Додати на початковий екран",
     "offline": "Ви offline",
     "newVersion": "Доступна нова версія",
     "reload": "Оновити",

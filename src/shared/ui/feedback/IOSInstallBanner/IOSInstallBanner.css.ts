@@ -12,14 +12,22 @@ export const root = style({
   display: 'flex',
   flexDirection: 'column',
   gap: vars.spacing.md,
-  padding: vars.spacing.md,
-  paddingTop: `calc(${vars.spacing.md} + env(safe-area-inset-top, 0px))`,
+  margin: vars.spacing.md,
+  marginTop: `calc(${vars.spacing.md} + env(safe-area-inset-top, 0px))`,
+  padding: vars.spacing.lg,
 
   backgroundColor: vars.colors.accentSoft,
   color: vars.colors.accentPrimary,
 
   fontSize: vars.typography.fontSize.sm,
   fontWeight: vars.typography.fontWeight.medium,
+  borderRadius: vars.radius.lg,
+});
+
+export const title = style({
+  margin: 0,
+  fontSize: vars.typography.fontSize.md,
+  fontWeight: vars.typography.fontWeight.bold,
 });
 
 export const list = style({

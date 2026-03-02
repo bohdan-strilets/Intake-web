@@ -55,6 +55,7 @@
     }
   },
   "pwa": {
+    "installBannerTitle": "Add to Home Screen",
     "offline": "You're offline",
     "newVersion": "New version available",
     "reload": "Reload",
