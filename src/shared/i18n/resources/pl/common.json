@@ -2,6 +2,8 @@
   "actions": {
     "save": "Zapisz",
     "cancel": "Anuluj",
+    "continue": "Dalej",
+    "back": "Wstecz",
     "confirm": "Potwierdź",
     "edit": "Edytuj",
     "delete": "Usuń",

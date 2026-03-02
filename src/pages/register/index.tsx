@@ -1,4 +1,4 @@
-import { RegisterForm } from '@features/auth/register';
+import { RegisterStepper } from '@features/auth/register';
 
 import { useTranslation } from '@shared/i18n';
 import { ROUTES } from '@shared/routes';
@@ -15,7 +15,7 @@ export const RegisterPage = () => {
         {t('titles.createAccount')}
       </Title>
 
-      <RegisterForm />
+      <RegisterStepper />
 
       <TextLink to={ROUTES.auth.login}>
         {t('switch.haveAccount')} {t('actions.logIn')}

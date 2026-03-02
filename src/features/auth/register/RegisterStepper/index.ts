@@ -1,2 +1,1 @@
-export { RegisterForm } from './RegisterForm';
 export { RegisterStepper } from './RegisterStepper';
