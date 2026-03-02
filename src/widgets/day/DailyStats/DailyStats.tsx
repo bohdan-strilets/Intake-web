@@ -4,6 +4,7 @@ import { Card } from '@shared/ui/layout/Card';
 import { Inline } from '@shared/ui/layout/Inline';
 import { AnimatedNumber } from '@shared/ui/motion/AnimatedNumber';
 import { Paragraph } from '@shared/ui/typography/Paragraph';
+import { cardGradients } from '@shared/styles/gradients.css';
 
 import type { DailyStatsProps } from './DailyStats.types';
 
@@ -15,7 +16,7 @@ export const DailyStats = ({ consumed, target }: DailyStatsProps) => {
   const isExceeded = remaining < 0;
 
   return (
-    <Card gap="md" shadow="sm">
+    <Card gap="md" shadow="sm" className={cardGradients.dailyIntake}>
       <Inline justify="between">
         <Paragraph size="sm">{tDay('summary.dailyGoal')}</Paragraph>
         <Paragraph weight="medium">

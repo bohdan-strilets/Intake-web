@@ -3,6 +3,7 @@ import { Card } from '@shared/ui/layout/Card';
 import { Stack } from '@shared/ui/layout/Stack';
 import { AnimatedCounter } from '@shared/ui/motion/AnimatedCounter';
 import { Paragraph } from '@shared/ui/typography/Paragraph';
+import { cardGradients } from '@shared/styles/gradients.css';
 
 import type { CaloriesCardProps } from './CaloriesCard.types';
 
@@ -17,7 +18,7 @@ export const CaloriesCard = ({
     caloriesDelta > 0 ? 'warning' : caloriesDelta < 0 ? 'success' : 'secondary';
 
   return (
-    <Card shadow="sm" tone="accentSoft">
+    <Card shadow="sm" tone="accentSoft" className={cardGradients.calories}>
       <Paragraph align="center">{t('summary.averagePerDay')}</Paragraph>
 
       <Paragraph weight="bold" size="display" align="center">

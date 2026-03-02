@@ -1,4 +1,5 @@
 import { useTranslation } from '@shared/i18n';
+import { cardGradients } from '@shared/styles/gradients.css';
 import { Card } from '@shared/ui/layout/Card';
 import { Stack } from '@shared/ui/layout/Stack';
 import { AnimatedCounter } from '@shared/ui/motion/AnimatedCounter';
@@ -13,7 +14,7 @@ export const DailyIntake = ({
   const { t } = useTranslation('profile');
 
   return (
-    <Card shadow="md" tone="accentSoft">
+    <Card shadow="md" tone="accentSoft" className={cardGradients.dailyIntake}>
       <Stack align="center" gap="lg">
         <Paragraph tone="muted" weight="medium">
           {t('intake.recommended')}
