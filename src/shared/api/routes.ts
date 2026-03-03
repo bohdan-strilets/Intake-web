@@ -8,6 +8,7 @@ export const API_ROUTES = {
     requestPasswordReset: '/auth/password-reset/request',
     resetPassword: '/auth/password-reset/confirm',
     verifyEmail: '/auth/verify-email',
+    resendVerificationEmail: '/auth/verify-email/resend',
   },
 
   users: {
