@@ -1,4 +1,10 @@
 {
+  "macroDonut": {
+    "title": "Makroskładniki {{period}}",
+    "total": "Razem",
+    "noData": "Brak danych",
+    "chartDescription": "Białko {{protein}}g, tłuszcze {{fat}}g, węglowodany {{carbs}}g"
+  },
   "summary": {
     "averagePerDay": "Średnio na dzień",
     "kcalPerDay": "kcal dziennie",

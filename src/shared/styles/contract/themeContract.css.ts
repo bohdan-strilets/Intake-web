@@ -26,6 +26,10 @@ export const themeContract = {
     info: null,
     infoSoft: null,
 
+    macroProtein: null,
+    macroFat: null,
+    macroCarbs: null,
+
     overlay: null,
   },
 

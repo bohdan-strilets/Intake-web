@@ -1,4 +1,10 @@
 {
+  "macroDonut": {
+    "title": "Макроси за {{period}}",
+    "total": "Всього",
+    "noData": "Немає даних",
+    "chartDescription": "Білок {{protein}}г, жири {{fat}}г, вуглеводи {{carbs}}г"
+  },
   "summary": {
     "averagePerDay": "У середньому за день",
     "kcalPerDay": "ккал на день",

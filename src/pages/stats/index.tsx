@@ -4,7 +4,7 @@ import { CaloriesBarChart } from '@widgets/stats/CaloriesBarChart';
 import { CaloriesCard } from '@widgets/stats/CaloriesCard';
 import { Error } from '@widgets/stats/Error';
 import { Loading } from '@widgets/stats/Loading';
-import { MacrosCard } from '@widgets/stats/MacrosCard';
+import { MacroDonutChart } from '@widgets/stats/MacroDonutChart';
 import { PeriodCard } from '@widgets/stats/PeriodCard';
 import { WeightBarChart } from '@widgets/stats/WeightBarChart';
 import { WeightCard } from '@widgets/stats/WeightCard';
@@ -84,10 +84,11 @@ export const StatsPage = () => {
         caloriesDelta={stats.calories.delta}
       />
 
-      <MacrosCard
+      <MacroDonutChart
         protein={stats.macros.protein}
         fat={stats.macros.fat}
         carbs={stats.macros.carbs}
+        periodLabel={period === 'week' ? t('range.week') : t('range.month')}
       />
 
       {stats.weight && <WeightCard weightDelta={stats.weight.delta} />}

@@ -28,5 +28,9 @@ export const lightColors = {
   info: '#3B82F6',
   infoSoft: '#CFE1FF',
 
+  macroProtein: '#5C6AC4',
+  macroFat: '#D9A441',
+  macroCarbs: '#4BA3A6',
+
   overlay: 'rgba(0,0,0,0.5)',
 } as const;

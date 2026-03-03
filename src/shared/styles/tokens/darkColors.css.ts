@@ -28,5 +28,9 @@ export const darkColors = {
   info: '#5FA8FF',
   infoSoft: '#2F5696',
 
+  macroProtein: '#5C6AC4',
+  macroFat: '#D9A441',
+  macroCarbs: '#4BA3A6',
+
   overlay: 'rgba(0,0,0,0.8)',
 } as const;

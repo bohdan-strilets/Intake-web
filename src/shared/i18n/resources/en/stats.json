@@ -1,4 +1,10 @@
 {
+  "macroDonut": {
+    "title": "{{period}} macros",
+    "total": "Total",
+    "noData": "No data",
+    "chartDescription": "Protein {{protein}}g, fat {{fat}}g, carbs {{carbs}}g"
+  },
   "summary": {
     "averagePerDay": "Average per day",
     "kcalPerDay": "kcal per day",
