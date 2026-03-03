@@ -1,6 +1,12 @@
 {
   "title": "Profile",
 
+  "account": {
+    "emailStatus": "Email status",
+    "emailVerified": "Verified",
+    "emailNotVerified": "Not verified"
+  },
+
   "sections": {
     "account": "Account",
     "body": "Body parameters",

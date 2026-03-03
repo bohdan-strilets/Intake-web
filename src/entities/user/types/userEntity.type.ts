@@ -24,4 +24,7 @@ export type UserEntity = {
   metabolism: Metabolism;
 
   settings: UserSettings;
+
+  /** Present when backend supports it; treat undefined as false for backward compatibility */
+  emailVerified?: boolean;
 };

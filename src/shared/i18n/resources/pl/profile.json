@@ -1,6 +1,12 @@
 {
   "title": "Profil",
 
+  "account": {
+    "emailStatus": "Status e-mail",
+    "emailVerified": "Zweryfikowano",
+    "emailNotVerified": "Nie zweryfikowano"
+  },
+
   "sections": {
     "account": "Konto",
     "body": "Parametry ciała",

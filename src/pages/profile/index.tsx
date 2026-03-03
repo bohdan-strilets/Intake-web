@@ -13,11 +13,11 @@ import { useTranslation } from '@shared/i18n';
 import { Stack } from '@shared/ui/layout/Stack';
 
 export const ProfilePage = () => {
-  const { data, isPending, isError, refetch } = useProfileDetailsQuery();
+  const { data, isPending, isError, error, refetch } = useProfileDetailsQuery();
   const { t } = useTranslation('profile');
 
   if (isPending) return <Loading />;
-  if (isError) return <Error refetch={refetch} />;
+  if (isError) return <Error refetch={refetch} error={error} />;
 
   const userProfile = data;
 
@@ -30,7 +30,11 @@ export const ProfilePage = () => {
         goal={userProfile.goal}
       />
 
-      <AccountSection name={userProfile.name} email={userProfile.email} />
+      <AccountSection
+        name={userProfile.name}
+        email={userProfile.email}
+        emailVerified={userProfile.emailVerified}
+      />
 
       <BodySection
         sex={userProfile.sex}

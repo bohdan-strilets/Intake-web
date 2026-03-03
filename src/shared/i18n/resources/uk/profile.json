@@ -1,6 +1,12 @@
 {
   "title": "Профіль",
 
+  "account": {
+    "emailStatus": "Статус email",
+    "emailVerified": "Підтверджено",
+    "emailNotVerified": "Не підтверджено"
+  },
+
   "sections": {
     "account": "Акаунт",
     "body": "Параметри тіла",
