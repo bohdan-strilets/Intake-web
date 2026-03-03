@@ -12,6 +12,8 @@ export const useSound = () => {
   const favoriteOn = () => play('favoriteOn');
   const favoriteOff = () => play('favoriteOff');
   const promptDelete = () => play('promptDelete');
+  const micStart = () => play('micStart');
+  const micStop = () => play('micStop');
 
   const playSounds = {
     success,
@@ -19,6 +21,8 @@ export const useSound = () => {
     favoriteOn,
     favoriteOff,
     promptDelete,
+    micStart,
+    micStop,
   };
 
   const setVolumePercent = (percent: number) => {

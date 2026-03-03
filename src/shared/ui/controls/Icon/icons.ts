@@ -46,6 +46,8 @@ import {
   CameraOff,
   ClipboardList,
   Star,
+  Mic,
+  Square,
 } from 'lucide-react';
 
 export const icons = {
@@ -81,6 +83,8 @@ export const icons = {
   cameraOff: CameraOff,
   list: ClipboardList,
   star: Star,
+  mic: Mic,
+  micStop: Square,
 
   // theme
   themeLight: Sun,

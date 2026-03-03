@@ -1,6 +1,8 @@
 {
   "actions": {
-    "addFood": "Додати їжу"
+    "addFood": "Додати їжу",
+    "voiceInput": "Утримуйте для запису голосу",
+    "voiceInputRecording": "Запис..."
   },
 
   "states": {

@@ -1,6 +1,8 @@
 {
   "actions": {
-    "addFood": "Dodaj jedzenie"
+    "addFood": "Dodaj jedzenie",
+    "voiceInput": "Przytrzymaj, aby nagrać głos",
+    "voiceInputRecording": "Nagrywanie..."
   },
 
   "states": {

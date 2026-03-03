@@ -3,7 +3,9 @@ export type SoundKey =
   | 'delete'
   | 'favoriteOn'
   | 'favoriteOff'
-  | 'promptDelete';
+  | 'promptDelete'
+  | 'micStart'
+  | 'micStop';
 
 export type SoundStore = {
   enabled: boolean;

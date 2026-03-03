@@ -1,6 +1,8 @@
 {
   "actions": {
-    "addFood": "Add Food"
+    "addFood": "Add Food",
+    "voiceInput": "Hold to record voice",
+    "voiceInputRecording": "Recording..."
   },
 
   "states": {
