@@ -29,12 +29,12 @@ export const DashboardPage = () => {
     onSwipeRight: goPrevMonth,
   });
 
-  const { data, isLoading, isError, refetch } = useMonthDetailsQuery({
+  const { data, isLoading, isError, error, refetch } = useMonthDetailsQuery({
     month: monthParam,
   });
 
   if (isLoading) return <Loading />;
-  if (isError) return <Error refetch={refetch} />;
+  if (isError) return <Error refetch={refetch} error={error} />;
   if (!data) return null;
 
   const monthDays = data;

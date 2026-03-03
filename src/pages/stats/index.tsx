@@ -48,10 +48,10 @@ export const StatsPage = () => {
     onSwipeRight: goPrev,
   });
 
-  const { data, isPending, isError, refetch } = useStatsQuery(range);
+  const { data, isPending, isError, error, refetch } = useStatsQuery(range);
 
   if (isPending && !data) return <Loading />;
-  if (isError) return <Error refetch={refetch} />;
+  if (isError) return <Error refetch={refetch} error={error} />;
   if (!data) return <Loading />;
 
   const stats = data;

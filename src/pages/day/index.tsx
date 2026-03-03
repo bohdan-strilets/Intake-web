@@ -46,10 +46,10 @@ export const DayPage = () => {
       }),
   });
 
-  const { data, isPending, isError, refetch } = useDayDetailsQury(resolvedDate);
+  const { data, isPending, isError, error, refetch } = useDayDetailsQury(resolvedDate);
 
   if (isPending) return <Loading />;
-  if (isError) return <Error refetch={refetch} />;
+  if (isError) return <Error refetch={refetch} error={error} />;
 
   const dayDetails = data;
   const { day, food, targetCalories } = dayDetails;
