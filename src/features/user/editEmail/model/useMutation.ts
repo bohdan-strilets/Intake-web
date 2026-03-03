@@ -10,10 +10,8 @@ export const useEditEmailMutation = () => {
   return useMutation({
     mutationFn: editEmailApi,
 
-    onSuccess: () => {
-      queryClient.invalidateQueries({
-        queryKey: userQueryKeys.profile(),
-      });
+    onSuccess: (updatedUser) => {
+      queryClient.setQueryData(userQueryKeys.profile(), updatedUser);
     },
   });
 };
