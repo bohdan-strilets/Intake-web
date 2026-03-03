@@ -4,12 +4,15 @@ import { recipe } from '@vanilla-extract/recipes';
 import { vars } from '@shared/styles/contract';
 
 export const wrapper = style({
+  position: 'relative',
+  zIndex: 2,
   flex: 1,
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'flex-end',
 
   height: '100%',
+  cursor: 'pointer',
 });
 
 export const bar = recipe({
@@ -24,7 +27,8 @@ export const bar = recipe({
     tone: {
       neutral: { backgroundColor: vars.colors.backgroundSurface },
       success: { backgroundColor: vars.colors.success },
-      danger: { backgroundColor: vars.colors.warning },
+      warning: { backgroundColor: vars.colors.warning },
+      danger: { backgroundColor: vars.colors.danger },
     },
 
     opacity: {

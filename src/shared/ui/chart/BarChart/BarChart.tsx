@@ -1,10 +1,15 @@
+import { useRef, useState } from 'react';
+
 import {
   wrapper,
   chartArea,
   chartContainer,
   chart,
+  chartBg,
+  chartContent,
   labelsWrapper,
   scaleWrapper,
+  tooltip as tooltipClass,
 } from './BarChart.css';
 import { useBarChart } from './model';
 import type { BarChartProps } from './types';
@@ -18,9 +23,27 @@ export const BarChart = ({
   items,
   average,
   goal,
-  height = 220,
+  secondaryLine,
+  height = 280,
   toneStrategy = 'above-is-bad',
+  fewerGuides = false,
+  fewerLabels = false,
+  getTooltip,
 }: BarChartProps) => {
+  const [tooltip, setTooltip] = useState<{
+    content: string;
+    x: number;
+    y: number;
+  } | null>(null);
+  const tooltipTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const TOOLTIP_DELAY_MS = 400;
+
+  const dataMax = Math.max(
+    0,
+    ...items.map((i) => i.value).filter((v): v is number => v !== null),
+  );
+
   const {
     scaleValues,
     guideValues,
@@ -28,50 +51,95 @@ export const BarChart = ({
     shouldShowLabel,
     getScalePosition,
     averagePosition,
+    secondaryLinePosition,
   } = useBarChart({
     goal,
     average,
+    secondaryLine,
+    dataMax,
     toneStrategy,
     itemsLength: items.length,
+    fewerGuides,
+    fewerLabels,
   });
 
   if (!items.length) return null;
 
+  const handleTooltipShow = (e: React.MouseEvent<HTMLElement>, content: string) => {
+    if (tooltipTimeoutRef.current) clearTimeout(tooltipTimeoutRef.current);
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = rect.left + rect.width / 2;
+    const y = rect.top;
+    tooltipTimeoutRef.current = setTimeout(() => {
+      tooltipTimeoutRef.current = null;
+      setTooltip({ content, x, y });
+    }, TOOLTIP_DELAY_MS);
+  };
+
+  const handleTooltipHide = () => {
+    if (tooltipTimeoutRef.current) {
+      clearTimeout(tooltipTimeoutRef.current);
+      tooltipTimeoutRef.current = null;
+    }
+    setTooltip(null);
+  };
+
   return (
-    <div className={wrapper}>
+    <div className={wrapper} role="img" aria-label="Bar chart">
       <div className={chartArea}>
         <div className={chartContainer} style={{ height }}>
           <div className={chart}>
-            {guideValues.map((value) => (
-              <GuideLine key={value} position={getScalePosition(value)} />
-            ))}
+            <div className={chartBg} aria-hidden />
+            <div className={chartContent}>
+              {guideValues.map((value) => (
+                <GuideLine key={value} position={getScalePosition(value)} />
+              ))}
 
-            {averagePosition !== undefined && (
-              <AverageLine position={averagePosition} />
-            )}
+              {averagePosition !== undefined && (
+                <AverageLine position={averagePosition} variant="accentSoft" />
+              )}
 
-            {items.map((item, index) => {
-              const { percent, tone } = getBarMeta(item.value);
+              {secondaryLinePosition !== undefined &&
+                secondaryLinePosition !== averagePosition && (
+                  <AverageLine
+                    position={secondaryLinePosition}
+                    variant="warningSoft"
+                  />
+                )}
 
-              return (
-                <Bar
-                  key={index}
-                  tone={tone}
-                  height={percent}
-                  value={item.value}
-                />
-              );
-            })}
+              {items.map((item, index) => {
+                const { percent, tone } = getBarMeta(item.value);
+                const tooltipContent = getTooltip?.(item, index);
+
+                return (
+                  <Bar
+                    key={index}
+                    tone={tone}
+                    height={percent}
+                    value={item.value}
+                    title={getTooltip ? undefined : tooltipContent}
+                    tooltipContent={tooltipContent}
+                    onTooltipShow={handleTooltipShow}
+                    onTooltipHide={handleTooltipHide}
+                  />
+                );
+              })}
+            </div>
           </div>
 
           <div className={scaleWrapper}>
-            {scaleValues.map((value) => (
-              <Scale
-                key={value}
-                value={value}
-                position={getScalePosition(value)}
-              />
-            ))}
+            {scaleValues.map((value) => {
+              const position = getScalePosition(value);
+              // Clamp so min (0) and max labels stay visible and not clipped
+              const clampedPosition = Math.min(98, Math.max(2, position));
+              return (
+                <Scale
+                  key={value}
+                  value={value}
+                  position={clampedPosition}
+                />
+              );
+            })}
           </div>
         </div>
 
@@ -84,6 +152,16 @@ export const BarChart = ({
           })}
         </div>
       </div>
+
+      {tooltip && (
+        <div
+          className={tooltipClass}
+          style={{ left: tooltip.x, top: tooltip.y }}
+          role="tooltip"
+        >
+          {tooltip.content}
+        </div>
+      )}
     </div>
   );
 };

@@ -10,7 +10,14 @@ export type BarChartProps = {
 
   average?: number;
   goal: number;
+  /** Second reference line (e.g. maintenance). */
+  secondaryLine?: number;
 
   height?: number;
   toneStrategy?: ToneStrategy;
+  fewerGuides?: boolean;
+  fewerLabels?: boolean;
+
+  /** Tooltip content for each bar (e.g. date + value). Shown on hover. */
+  getTooltip?: (item: BarChartItem, index: number) => string;
 };

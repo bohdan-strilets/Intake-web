@@ -1,5 +1,6 @@
-export const calculateStep = (value: number) => {
-  const roughStep = value / 6;
+/** @param maxSteps Approximate number of steps (e.g. 6 = more lines, 3 = fewer). */
+export const calculateStep = (value: number, maxSteps = 6) => {
+  const roughStep = value / maxSteps;
 
   if (roughStep <= 0) return 1;
 

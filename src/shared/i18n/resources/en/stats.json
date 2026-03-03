@@ -15,6 +15,9 @@
     "weightByDay": "Weight by day",
     "averageWeight": "Average weight",
     "averageCalories": "Average calories",
+    "caloriesByDay": "Calories by day",
+    "averageThisPeriod": "Average this period",
+    "chartNoData": "No data for this period",
     "dailyGoal": "Daily goal",
     "maintenanceCalories": "Maintenance calories"
   },
