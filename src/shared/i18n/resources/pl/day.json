@@ -2,6 +2,7 @@
   "summary": {
     "dailyGoal": "Cel dzienny",
     "remaining": "Pozostało",
+    "exceededBy": "Przekroczono o",
     "addWeightDescription": "Dodaj wagę, aby budować prostą historię postępów.",
     "goalProgressHint": "Wprowadzaj wagę codziennie, aby śledzić postęp do celu."
   },

@@ -12,8 +12,9 @@ export const DailyStats = ({ consumed, target }: DailyStatsProps) => {
   const { t: tDay } = useTranslation('day');
   const { t: tCommon } = useTranslation('common');
 
-  const remaining = target - consumed;
-  const isExceeded = remaining < 0;
+  const remaining = Math.max(0, target - consumed);
+  const exceededBy = consumed > target ? consumed - target : 0;
+  const isExceeded = exceededBy > 0;
 
   return (
     <Card gap="md" shadow="sm" className={cardGradients.dailyIntake}>
@@ -30,13 +31,23 @@ export const DailyStats = ({ consumed, target }: DailyStatsProps) => {
         unit={tCommon('macroNutrients.calories')}
       />
 
-      <Inline justify="between">
-        <Paragraph size="sm">{tDay('summary.remaining')}</Paragraph>
-        <Paragraph weight="medium" tone={isExceeded ? 'warning' : 'default'}>
-          <AnimatedNumber value={Math.abs(remaining)} />
-          {tCommon('units.cal')}
-        </Paragraph>
-      </Inline>
+      {isExceeded ? (
+        <Inline justify="between">
+          <Paragraph size="sm">{tDay('summary.exceededBy')}</Paragraph>
+          <Paragraph weight="medium" tone="warning">
+            <AnimatedNumber value={exceededBy} />
+            {tCommon('units.cal')}
+          </Paragraph>
+        </Inline>
+      ) : (
+        <Inline justify="between">
+          <Paragraph size="sm">{tDay('summary.remaining')}</Paragraph>
+          <Paragraph weight="medium">
+            <AnimatedNumber value={remaining} />
+            {tCommon('units.cal')}
+          </Paragraph>
+        </Inline>
+      )}
     </Card>
   );
 };
