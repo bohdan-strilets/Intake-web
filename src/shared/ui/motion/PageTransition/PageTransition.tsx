@@ -1,7 +1,7 @@
 import { useRouterState } from '@tanstack/react-router';
 import { AnimatePresence, motion } from 'framer-motion';
 
-import { page, slowTransition } from '@shared/motion';
+import { page, screenTransition } from '@shared/motion';
 
 import type { PageTransitionProps } from './PageTransition.types';
 
@@ -18,7 +18,7 @@ export const PageTransition = ({ children }: PageTransitionProps) => {
         initial="initial"
         animate="animate"
         exit="exit"
-        transition={slowTransition}
+        transition={screenTransition}
       >
         {children}
       </motion.div>

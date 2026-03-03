@@ -7,7 +7,9 @@ import {
   Controller,
   type PathValue,
 } from 'react-hook-form';
+import { AnimatePresence, motion } from 'framer-motion';
 
+import { fadeTransition } from '@shared/motion';
 import { Stack } from '@shared/ui/layout/Stack';
 import { ErrorText } from '@shared/ui/typography/ErrorText';
 import { HelperText } from '@shared/ui/typography/HelperText';
@@ -89,11 +91,21 @@ export const Field = <T extends FieldValues>(props: FieldProps<T>) => {
         />
       )}
 
-      {error && (
-        <ErrorText id={errorId} aria-live="polite">
-          {error}
-        </ErrorText>
-      )}
+      <AnimatePresence mode="wait">
+        {error ? (
+          <motion.div
+            key={`${name}-error`}
+            initial={{ opacity: 0, y: -4 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -4 }}
+            transition={fadeTransition}
+          >
+            <ErrorText id={errorId} aria-live="polite">
+              {error}
+            </ErrorText>
+          </motion.div>
+        ) : null}
+      </AnimatePresence>
     </Stack>
   );
 };

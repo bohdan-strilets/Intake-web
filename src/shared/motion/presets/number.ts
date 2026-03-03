@@ -1,4 +1,10 @@
+import { quickTransition } from '../transitions';
+
 export const numberChange = {
-  initial: { opacity: 0, y: -4 },
-  animate: { opacity: 1, y: 0 },
+  initial: { opacity: 0, y: 4 },
+  animate: {
+    opacity: 1,
+    y: 0,
+    transition: quickTransition,
+  },
 } as const;

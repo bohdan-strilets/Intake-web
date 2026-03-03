@@ -1,4 +1,12 @@
-export { fade, fadeUp, scaleIn, slideUp, tapScale } from './base';
+export {
+  fade,
+  fadeUp,
+  fadeUpModal,
+  scaleIn,
+  sheetUp,
+  slideUp,
+  tapScale,
+} from './base';
 export { listContainer, listItem } from './list';
 export { numberChange } from './number';
 export { backdrop } from './overlay';

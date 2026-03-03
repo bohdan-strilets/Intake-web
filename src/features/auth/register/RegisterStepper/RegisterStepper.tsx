@@ -5,7 +5,7 @@ import { useMemo, useState } from 'react';
 import { get, useForm } from 'react-hook-form';
 
 import { useTranslation } from '@shared/i18n';
-import { quickTransition } from '@shared/motion';
+import { fadeTransition } from '@shared/motion';
 import { Button } from '@shared/ui/controls/Button';
 import { Form } from '@shared/ui/form/Form';
 import { FormError } from '@shared/ui/form/FormError';
@@ -124,10 +124,10 @@ export const RegisterStepper = () => {
         <AnimatePresence mode="wait">
           <motion.div
             key={step}
-            initial={{ opacity: 0, x: 8 }}
+            initial={{ opacity: 0, x: 6 }}
             animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -8 }}
-            transition={quickTransition}
+            exit={{ opacity: 0, x: -6 }}
+            transition={fadeTransition}
           >
             <StepComponent />
           </motion.div>

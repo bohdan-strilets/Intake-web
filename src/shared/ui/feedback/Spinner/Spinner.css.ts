@@ -15,7 +15,7 @@ export const root = recipe({
     borderRadius: '50%',
     border: `2px solid ${vars.colors.borderMuted}`,
 
-    animation: `${spin} 0.8s linear infinite`,
+    animation: `${spin} 1s linear infinite`,
   },
 
   variants: {

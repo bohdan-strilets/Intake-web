@@ -88,6 +88,7 @@ export const themeContract = {
       sm: null,
       md: null,
       lg: null,
+      xl: null,
     },
   },
   zIndex: {

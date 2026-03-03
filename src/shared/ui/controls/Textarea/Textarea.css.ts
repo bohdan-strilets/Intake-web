@@ -21,6 +21,9 @@ export const textarea = recipe({
 
     padding: vars.spacing.md,
 
+    transition:
+      'border-color 200ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 200ms cubic-bezier(0.22, 1, 0.36, 1)',
+
     selectors: {
       '&::placeholder': {
         color: vars.colors.textMuted,

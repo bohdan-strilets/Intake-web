@@ -1,7 +1,7 @@
 import { clsx } from 'clsx';
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 
-import { tapScale } from '@shared/motion';
+import { fadeTransition, tapScale } from '@shared/motion';
 import { Spinner } from '@shared/ui/feedback/Spinner';
 import { Inline } from '@shared/ui/layout/Inline';
 
@@ -36,16 +36,39 @@ export const Button = ({
       aria-busy={loading || undefined}
       {...rest}
     >
-      <Inline gap="sm" align="center">
-        {iconLeft && <Icon name={iconLeft} color={iconColor} size={iconSize} />}
-
-        <span>{children}</span>
-
-        {iconRight && (
-          <Icon name={iconRight} color={iconColor} size={iconSize} />
-        )}
-
-        {loading && <Spinner size="sm" color="primary" />}
+      <Inline gap="sm" align="center" style={{ position: 'relative' }}>
+        <AnimatePresence mode="wait" initial={false}>
+          {loading ? (
+            <motion.span
+              key="loading"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={fadeTransition}
+              style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}
+            >
+              <Spinner size="sm" color="primary" />
+              <span>{children}</span>
+            </motion.span>
+          ) : (
+            <motion.span
+              key="idle"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={fadeTransition}
+              style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}
+            >
+              {iconLeft && (
+                <Icon name={iconLeft} color={iconColor} size={iconSize} />
+              )}
+              <span>{children}</span>
+              {iconRight && (
+                <Icon name={iconRight} color={iconColor} size={iconSize} />
+              )}
+            </motion.span>
+          )}
+        </AnimatePresence>
       </Inline>
     </motion.button>
   );

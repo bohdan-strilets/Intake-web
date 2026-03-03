@@ -36,7 +36,7 @@ export const AddFoodForm = ({ date }: FormProps) => {
         helperText={tFood('fields.text.helper')}
         required
       >
-        <Textarea readOnly={isPending} />
+        <Textarea readOnly={isPending} size="lg" />
       </Field>
 
       {errors.root && <FormError>{errors.root.message}</FormError>}
@@ -46,6 +46,7 @@ export const AddFoodForm = ({ date }: FormProps) => {
         disabled={submitDisabled}
         loading={isPending}
         fullWidth
+        size="xl"
       >
         {isPending ? tFood('states.analyzing') : tFood('actions.addFood')}
       </Button>

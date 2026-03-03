@@ -19,8 +19,8 @@ export const BottomNavItem = ({ to, params, icon }: BottomNavItemProps) => {
           className={indicator}
           transition={{
             type: 'spring',
-            stiffness: 480,
-            damping: 32,
+            stiffness: 280,
+            damping: 36,
           }}
         />
       )}

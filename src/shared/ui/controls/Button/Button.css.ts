@@ -25,7 +25,8 @@ export const root = recipe({
 
     borderRadius: vars.radius.md,
 
-    transition: 'background-color 220ms ease, color 220ms ease',
+    transition:
+      'background-color 250ms cubic-bezier(0.22, 1, 0.36, 1), color 250ms cubic-bezier(0.22, 1, 0.36, 1)',
 
     selectors: {
       '&:disabled': {
@@ -145,6 +146,12 @@ export const root = recipe({
       lg: {
         height: vars.layout.controlHeight.lg,
         paddingInline: vars.spacing['3xl'],
+      },
+
+      xl: {
+        height: vars.layout.controlHeight.xl,
+        paddingInline: vars.spacing['3xl'],
+        fontSize: vars.typography.fontSize.lg,
       },
     },
 

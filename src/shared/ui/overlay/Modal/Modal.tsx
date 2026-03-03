@@ -1,7 +1,7 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { useEffect } from 'react';
 
-import { scaleIn, slideUp, slowTransition } from '@shared/motion';
+import { fadeUpModal, screenTransition, sheetUp } from '@shared/motion';
 
 import { Overlay } from '../Overlay';
 import { Portal } from '../Portal';
@@ -41,8 +41,8 @@ export const Modal = ({
               initial="initial"
               animate="animate"
               exit="exit"
-              variants={variant === 'sheet' ? slideUp : scaleIn}
-              transition={slowTransition}
+              variants={variant === 'sheet' ? sheetUp : fadeUpModal}
+              transition={screenTransition}
               className={container({ variant })}
               onClick={(e) => e.stopPropagation()}
             >
