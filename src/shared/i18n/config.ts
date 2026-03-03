@@ -8,6 +8,8 @@ import pl from './resources/pl';
 import uk from './resources/uk';
 
 void i18n.use(initReactI18next).init({
+  showSupportNotice: false,
+
   resources: {
     en,
     pl,
