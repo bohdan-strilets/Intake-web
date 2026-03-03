@@ -1,5 +1,5 @@
+import type { HTMLMotionProps } from 'framer-motion';
 import type { RecipeVariants } from '@vanilla-extract/recipes';
-import type { ButtonHTMLAttributes } from 'react';
 
 import type { IconName, IconProps } from '../Icon/Icon.types';
 
@@ -15,4 +15,4 @@ export type IconButtonProps = {
   pulse?: boolean;
   className?: string;
 } & IconButtonVariants &
-  Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'className'>;
+  Omit<HTMLMotionProps<'button'>, 'className' | 'children'>;

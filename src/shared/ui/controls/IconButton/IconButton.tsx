@@ -2,14 +2,14 @@ import { clsx } from 'clsx';
 import { forwardRef } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 
-import { tapScale } from '@shared/motion';
+import { motionEase, motionDurations, tapScale } from '@shared/motion';
 
 import { Icon } from '../Icon';
 
 import { iconPulse, root } from './IconButton.css';
 import type { IconButtonProps } from './IconButton.types';
 
-const iconTransition = { duration: 0.2, ease: [0.22, 1, 0.36, 1] };
+const iconTransition = { duration: motionDurations.fast, ease: motionEase.smooth };
 
 export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
   (
