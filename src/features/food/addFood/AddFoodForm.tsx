@@ -177,62 +177,62 @@ export const AddFoodForm = ({ date }: FormProps) => {
           <Textarea readOnly={isPending} size="lg" />
         </Field>
 
+        <Stack gap="xs">
+          <Inline gap="sm" align="stretch" style={{ alignItems: 'stretch' }}>
+            <Button
+              type="submit"
+              disabled={submitDisabled}
+              loading={isPending}
+              fullWidth
+              size="lg"
+            >
+              {isPending ? tFood('states.analyzing') : tFood('actions.addFood')}
+            </Button>
+            {isSupported && (
+              <IconButton
+                ref={voiceButtonRef}
+                icon={isRecording ? 'micStop' : 'mic'}
+                variant={isRecording ? 'danger' : 'secondary'}
+                size="lg"
+                iconSize="lg"
+                pulse={isRecording}
+                disabled={isPending || permissionDenied}
+                aria-pressed={isRecording}
+                aria-label={
+                  isRecording
+                    ? tFood('actions.voiceInputRecording')
+                    : tFood('actions.voiceInput')
+                }
+                onMouseDown={(e) => {
+                  e.preventDefault();
+                  if (permissionDenied) return;
+                  handleVoicePress();
+                }}
+                onMouseUp={(e) => {
+                  e.preventDefault();
+                  if (pendingStartTimeoutRef.current !== null) {
+                    clearTimeout(pendingStartTimeoutRef.current);
+                    pendingStartTimeoutRef.current = null;
+                    removeReleaseListenersRef.current?.();
+                    removeReleaseListenersRef.current = null;
+                    return;
+                  }
+                  handleVoiceStop();
+                }}
+              />
+            )}
+          </Inline>
+          {permissionDenied && (
+            <Paragraph size="xs" tone="muted" style={{ textAlign: 'right' }}>
+              {tFood('voice.microphoneDisabled')}
+            </Paragraph>
+          )}
+        </Stack>
+
         <PromptSuggestions onSelect={handleSelectPrompt} />
       </Stack>
 
       {errors.root && <FormError>{errors.root.message}</FormError>}
-
-      <Stack gap="xs">
-        <Inline gap="sm" align="stretch" style={{ alignItems: 'stretch' }}>
-          <Button
-            type="submit"
-            disabled={submitDisabled}
-            loading={isPending}
-            fullWidth
-            size="lg"
-          >
-            {isPending ? tFood('states.analyzing') : tFood('actions.addFood')}
-          </Button>
-          {isSupported && (
-            <IconButton
-              ref={voiceButtonRef}
-              icon={isRecording ? 'micStop' : 'mic'}
-              variant={isRecording ? 'danger' : 'secondary'}
-              size="lg"
-              iconSize="lg"
-              pulse={isRecording}
-              disabled={isPending || permissionDenied}
-              aria-pressed={isRecording}
-              aria-label={
-                isRecording
-                  ? tFood('actions.voiceInputRecording')
-                  : tFood('actions.voiceInput')
-              }
-            onMouseDown={(e) => {
-              e.preventDefault();
-              if (permissionDenied) return;
-              handleVoicePress();
-            }}
-              onMouseUp={(e) => {
-                e.preventDefault();
-                if (pendingStartTimeoutRef.current !== null) {
-                  clearTimeout(pendingStartTimeoutRef.current);
-                  pendingStartTimeoutRef.current = null;
-                  removeReleaseListenersRef.current?.();
-                  removeReleaseListenersRef.current = null;
-                  return;
-                }
-                handleVoiceStop();
-              }}
-            />
-          )}
-        </Inline>
-        {permissionDenied && (
-          <Paragraph size="xs" tone="muted" style={{ textAlign: 'right' }}>
-            {tFood('voice.microphoneDisabled')}
-          </Paragraph>
-        )}
-      </Stack>
     </Form>
   );
 };
