@@ -7,7 +7,8 @@
   },
 
   "states": {
-    "empty": "No entries for this day."
+    "empty": "No entries for this day.",
+    "promptsEmpty": "No recent prompts yet. Add food with AI to see suggestions here."
   },
 
   "actions": {
@@ -23,6 +24,10 @@
     "deleteFood": {
       "title": "Delete {{title}}?",
       "description": "This action cannot be undone."
+    },
+    "deletePrompt": {
+      "title": "Remove this prompt?",
+      "description": "It will disappear from recent suggestions."
     }
   },
 

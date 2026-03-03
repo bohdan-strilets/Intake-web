@@ -1,4 +1,9 @@
-export type SoundKey = 'success' | 'delete';
+export type SoundKey =
+  | 'success'
+  | 'delete'
+  | 'favoriteOn'
+  | 'favoriteOff'
+  | 'promptDelete';
 
 export type SoundStore = {
   enabled: boolean;

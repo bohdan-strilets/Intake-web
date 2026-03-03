@@ -7,7 +7,8 @@
   },
 
   "states": {
-    "empty": "Brak wpisów w tym dniu."
+    "empty": "Brak wpisów w tym dniu.",
+    "promptsEmpty": "Brak ostatnich zapytań. Dodaj posiłek przez AI — pojawią się tutaj."
   },
 
   "actions": {
@@ -23,6 +24,10 @@
     "deleteFood": {
       "title": "Usunąć {{title}}?",
       "description": "Tej operacji nie można cofnąć."
+    },
+    "deletePrompt": {
+      "title": "Usunąć ten prompt?",
+      "description": "Zniknie z ostatnich sugestii."
     }
   },
 

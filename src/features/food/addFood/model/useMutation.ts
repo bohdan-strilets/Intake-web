@@ -1,6 +1,7 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 
 import { dayQueryKeys } from '@entities/day';
+import { promptsQueryKeys } from '@entities/savedPrompt';
 import { statsQueryKeys } from '@entities/stats';
 
 import { getMonthFromDate } from '@shared/lib/date';
@@ -26,6 +27,10 @@ export const useAddFoodMutation = () => {
 
       queryClient.invalidateQueries({
         queryKey: statsQueryKeys.all,
+      });
+
+      queryClient.invalidateQueries({
+        queryKey: promptsQueryKeys.recent,
       });
     },
   });

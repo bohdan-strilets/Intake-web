@@ -9,10 +9,16 @@ export const useSound = () => {
 
   const success = () => play('success');
   const remove = () => play('delete');
+  const favoriteOn = () => play('favoriteOn');
+  const favoriteOff = () => play('favoriteOff');
+  const promptDelete = () => play('promptDelete');
 
   const playSounds = {
     success,
     remove,
+    favoriteOn,
+    favoriteOff,
+    promptDelete,
   };
 
   const setVolumePercent = (percent: number) => {

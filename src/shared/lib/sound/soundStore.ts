@@ -13,17 +13,29 @@ export const useSoundStore = create<SoundStore>((set, get) => ({
     const { volume } = get();
     const success = new Audio('/sounds/intake-success.wav');
     const del = new Audio('/sounds/intake-delete.wav');
+    const favoriteOn = new Audio('/sounds/intake-favorite-on.wav');
+    const favoriteOff = new Audio('/sounds/intake-favorite-off.wav');
+    const promptDelete = new Audio('/sounds/intake-prompt-delete.wav');
 
     success.preload = 'auto';
     del.preload = 'auto';
+    favoriteOn.preload = 'auto';
+    favoriteOff.preload = 'auto';
+    promptDelete.preload = 'auto';
 
     success.volume = volume;
     del.volume = volume;
+    favoriteOn.volume = volume;
+    favoriteOff.volume = volume;
+    promptDelete.volume = volume;
 
     set({
       sounds: {
         success,
         delete: del,
+        favoriteOn,
+        favoriteOff,
+        promptDelete,
       },
     });
   },
@@ -46,6 +58,9 @@ export const useSoundStore = create<SoundStore>((set, get) => ({
     if (sounds) {
       sounds.success.volume = clamped;
       sounds.delete.volume = clamped;
+      sounds.favoriteOn.volume = clamped;
+      sounds.favoriteOff.volume = clamped;
+      sounds.promptDelete.volume = clamped;
     }
     set({ volume: clamped });
   },

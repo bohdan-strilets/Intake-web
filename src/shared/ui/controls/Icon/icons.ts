@@ -45,6 +45,7 @@ import {
   BadgeCheck,
   CameraOff,
   ClipboardList,
+  Star,
 } from 'lucide-react';
 
 export const icons = {
@@ -79,6 +80,7 @@ export const icons = {
   magic: Sparkles,
   cameraOff: CameraOff,
   list: ClipboardList,
+  star: Star,
 
   // theme
   themeLight: Sun,

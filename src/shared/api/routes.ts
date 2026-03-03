@@ -36,4 +36,10 @@ export const API_ROUTES = {
   stats: {
     range: '/stats',
   },
+
+  prompts: {
+    recent: '/prompts/recent',
+    toggleFavorite: (id: string) => `/prompts/${id}/favorite`,
+    delete: (id: string) => `/prompts/${id}`,
+  },
 } as const;
