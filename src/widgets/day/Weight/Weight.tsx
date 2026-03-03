@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { EditWeightForm } from '@features/day/editWeight';
 import { useGoalProgressQuery } from '@features/user/goalProgress';
 
-import { useTranslation } from '@shared/i18n';
+import { useTranslation, type TFunction } from '@shared/i18n';
 import { useModal } from '@shared/lib/modal';
 import { collapse } from '@shared/motion';
 import { Button } from '@shared/ui/controls/Button';
@@ -51,8 +51,8 @@ function ExpandedView({
   goalProgress: GoalProgressResponse;
   progressPercent: number;
   remainingKg: number;
-  tProfile: (key: string, params?: Record<string, string | number>) => string;
-  tCommon: (key: string, params?: unknown) => string;
+  tProfile: TFunction<'profile', undefined>;
+  tCommon: TFunction<'common', undefined>;
 }) {
   const hasMeaningfulTempo =
     goalProgress.kgPerWeek != null &&
