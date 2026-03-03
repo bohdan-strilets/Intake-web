@@ -1,7 +1,4 @@
-import {
-  calcGoalProgressPercent,
-  useGoalProgressQuery,
-} from '@features/user/goalProgress';
+import { useGoalProgressQuery } from '@features/user/goalProgress';
 
 import { useTranslation } from '@shared/i18n';
 import { Progress } from '@shared/ui/feedback/Progress';
@@ -72,12 +69,10 @@ export const GoalProgressCard = () => {
     );
   }
 
-  const progressPercent = calcGoalProgressPercent(
-    progress.startWeight,
-    progress.currentWeight,
-    progress.targetWeight,
-  );
-  const roundedPercent = Math.round(progressPercent);
+  const roundedPercent =
+    progress.progressPercent != null
+      ? Math.round(progress.progressPercent)
+      : 0;
   const isGoalAchieved = progress.estimatedWeeks === 0;
 
   return (

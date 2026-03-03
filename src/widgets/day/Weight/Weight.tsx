@@ -52,7 +52,7 @@ function ExpandedView({
   progressPercent: number;
   remainingKg: number;
   tProfile: (key: string, params?: Record<string, string | number>) => string;
-  tCommon: (key: string) => string;
+  tCommon: (key: string, params?: unknown) => string;
 }) {
   const hasMeaningfulTempo =
     goalProgress.kgPerWeek != null &&
