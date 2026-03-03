@@ -1,4 +1,4 @@
-export type ErrorStateProps = {
+export type ErrorProps = {
   refetch: () => void;
   error?: unknown;
 };
