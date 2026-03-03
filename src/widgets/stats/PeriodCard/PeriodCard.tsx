@@ -1,5 +1,6 @@
 import { useTranslation } from '@shared/i18n';
 import { formatDisplayDate } from '@shared/lib/date';
+import { gradients } from '@shared/styles/gradients.css';
 import { Button } from '@shared/ui/controls/Button';
 import { Icon } from '@shared/ui/controls/Icon';
 import { Card } from '@shared/ui/layout/Card';
@@ -19,7 +20,7 @@ export const PeriodCard = ({
   const { t } = useTranslation('stats');
 
   return (
-    <Card shadow="sm">
+    <Card shadow="sm" className={gradients.surfaceSoft}>
       <Inline gap="md" align="center" justify="between">
         {onPrev ? (
           <Button

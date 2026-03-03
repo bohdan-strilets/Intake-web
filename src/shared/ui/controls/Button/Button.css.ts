@@ -39,13 +39,12 @@ export const root = recipe({
   variants: {
     variant: {
       primary: {
-        backgroundColor: vars.colors.accentPrimary,
+        background: vars.gradients.accentButton,
         color: vars.colors.textOnAccent,
 
         selectors: {
           '&:hover:not(:disabled)': {
-            backgroundColor: vars.colors.accentSoft,
-            color: vars.colors.textPrimary,
+            filter: 'brightness(0.96)',
           },
         },
       },

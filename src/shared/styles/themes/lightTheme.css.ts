@@ -4,6 +4,7 @@ import { vars } from '../contract';
 import {
   layout,
   lightColors,
+  lightGradients,
   lightShadows,
   radius,
   spacing,
@@ -13,6 +14,7 @@ import {
 
 export const lightThemeClass = createTheme(vars, {
   colors: lightColors,
+  gradients: lightGradients,
   shadows: lightShadows,
   spacing,
   radius,

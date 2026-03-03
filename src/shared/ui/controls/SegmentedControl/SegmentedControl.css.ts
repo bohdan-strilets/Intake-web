@@ -27,7 +27,9 @@ export const segment = recipe({
   variants: {
     active: {
       true: {
-        backgroundColor: vars.colors.backgroundSurface,
+        backgroundImage: vars.gradients.surfaceSoft,
+        backgroundSize: '100% 100%',
+        backgroundRepeat: 'no-repeat',
         fontWeight: vars.typography.fontWeight.medium,
       },
     },

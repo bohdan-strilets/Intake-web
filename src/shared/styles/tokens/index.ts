@@ -1,6 +1,8 @@
 export { darkColors } from './darkColors.css';
+export { darkGradients } from './darkGradients.css';
 export { darkShadows } from './darkShadows.css';
 export { lightColors } from './lightColors.css';
+export { lightGradients } from './lightGradients.css';
 export { lightShadows } from './lightShadows.css';
 export { radius } from './radius.css';
 export { spacing } from './spacing.css';

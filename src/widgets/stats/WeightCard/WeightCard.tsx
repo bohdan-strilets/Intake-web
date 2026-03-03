@@ -1,4 +1,5 @@
 import { useTranslation } from '@shared/i18n';
+import { gradients } from '@shared/styles/gradients.css';
 import { Card } from '@shared/ui/layout/Card';
 import { Paragraph } from '@shared/ui/typography/Paragraph';
 
@@ -11,7 +12,7 @@ export const WeightCard = ({ weightDelta }: WeightCardProps) => {
   const weightTone = weightDelta > 0 ? 'warning' : 'success';
 
   return (
-    <Card shadow="sm">
+    <Card shadow="sm" className={gradients.surfaceSoft}>
       <Paragraph align="center" weight="medium">
         {tStats('summary.weightChange')}
       </Paragraph>

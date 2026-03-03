@@ -1,5 +1,6 @@
 import { useTranslation } from '@shared/i18n';
 import { formatDisplayDate, getRelativeDayLabel } from '@shared/lib/date';
+import { gradients } from '@shared/styles/gradients.css';
 import { Button } from '@shared/ui/controls/Button';
 import { Icon } from '@shared/ui/controls/Icon';
 import { Card } from '@shared/ui/layout/Card';
@@ -17,7 +18,7 @@ export const Header = ({ date, onPrevDay, onNextDay }: HeaderProps) => {
   const showNav = Boolean(onPrevDay ?? onNextDay);
 
   return (
-    <Card gap="xs" shadow="sm">
+    <Card gap="xs" shadow="sm" className={gradients.header}>
       <Inline gap="md" align="center" justify="between">
         {showNav ? (
           <Button

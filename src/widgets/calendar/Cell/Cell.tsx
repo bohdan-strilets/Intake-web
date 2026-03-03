@@ -1,5 +1,4 @@
 import { useTranslation } from '@shared/i18n';
-import { Button } from '@shared/ui/controls/Button';
 import { Stack } from '@shared/ui/layout/Stack';
 import { Paragraph } from '@shared/ui/typography/Paragraph';
 
@@ -36,9 +35,8 @@ export const Cell = ({
   const isOver = progress > 1;
 
   return (
-    <Button
+    <button
       type="button"
-      variant="ghost"
       onClick={handleClick}
       disabled={!cell.isCurrentMonth}
       className={root({ isToday: cell.isToday })}
@@ -62,6 +60,6 @@ export const Cell = ({
           {tCommon('units.kcal')}
         </Paragraph>
       </Stack>
-    </Button>
+    </button>
   );
 };

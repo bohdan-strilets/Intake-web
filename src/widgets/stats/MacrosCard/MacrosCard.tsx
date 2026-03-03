@@ -1,5 +1,6 @@
 import { useTranslation } from '@shared/i18n';
 import { Progress } from '@shared/ui/feedback/Progress';
+import { gradients } from '@shared/styles/gradients.css';
 import { Card } from '@shared/ui/layout/Card';
 import { Divider } from '@shared/ui/layout/Divider';
 import { Inline } from '@shared/ui/layout/Inline';
@@ -13,7 +14,7 @@ export const MacrosCard = ({ protein, fat, carbs }: MacrosCardProps) => {
   const { t: tCommon } = useTranslation('common');
 
   return (
-    <Card shadow="sm" gap="lg">
+    <Card shadow="sm" gap="lg" className={gradients.surfaceSoft}>
       <Paragraph>{tStats('summary.averageMacros')}</Paragraph>
       <Stack gap="xs">
         <Paragraph size="sm" tone="muted">

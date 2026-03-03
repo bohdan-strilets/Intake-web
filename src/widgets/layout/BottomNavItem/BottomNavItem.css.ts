@@ -19,7 +19,9 @@ export const indicator = style({
   zIndex: vars.zIndex.base,
 
   borderRadius: vars.radius.sm,
-  background: vars.colors.accentSoft,
+  backgroundImage: vars.gradients.accentSoft,
+  backgroundSize: '100% 100%',
+  backgroundRepeat: 'no-repeat',
 });
 
 export const iconWrapper = style({

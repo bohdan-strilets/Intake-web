@@ -3,6 +3,7 @@ import { createTheme } from '@vanilla-extract/css';
 import { vars } from '../contract';
 import {
   darkColors,
+  darkGradients,
   darkShadows,
   layout,
   radius,
@@ -13,6 +14,7 @@ import {
 
 export const darkThemeClass = createTheme(vars, {
   colors: darkColors,
+  gradients: darkGradients,
   shadows: darkShadows,
   spacing,
   radius,

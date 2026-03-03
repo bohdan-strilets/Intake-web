@@ -1,4 +1,5 @@
 import { useTranslation } from '@shared/i18n';
+import { gradients } from '@shared/styles/gradients.css';
 import { Card } from '@shared/ui/layout/Card';
 import { Inline } from '@shared/ui/layout/Inline';
 import { AnimatedCounter } from '@shared/ui/motion/AnimatedCounter';
@@ -16,7 +17,7 @@ export const Totals = ({
   const { t: tCommon } = useTranslation('common');
 
   return (
-    <Card shadow="sm">
+    <Card shadow="sm" className={gradients.surfaceSoft}>
       <Inline align="baseline">
         <Paragraph tone="accentPrimary" weight="bold" size="display">
           <AnimatedCounter value={calories} />
@@ -27,7 +28,7 @@ export const Totals = ({
       </Inline>
 
       <Inline justify="between">
-        <Card tone="accentSoft" shadow="sm">
+        <Card tone="accentSoft" shadow="sm" className={gradients.accentSoft}>
           <Inline gap="xs">
             <Paragraph size="sm">{tCommon('macroNutrients.protein')}</Paragraph>
             <Paragraph weight="bold" size="sm">
@@ -37,7 +38,7 @@ export const Totals = ({
           </Inline>
         </Card>
 
-        <Card tone="accentSoft" shadow="sm">
+        <Card tone="accentSoft" shadow="sm" className={gradients.accentSoft}>
           <Inline gap="xs">
             <Paragraph size="sm">{tCommon('macroNutrients.fat')}</Paragraph>
             <Paragraph weight="bold" size="sm">
@@ -47,7 +48,7 @@ export const Totals = ({
           </Inline>
         </Card>
 
-        <Card tone="accentSoft" shadow="sm">
+        <Card tone="accentSoft" shadow="sm" className={gradients.accentSoft}>
           <Inline gap="xs">
             <Paragraph size="sm">{tCommon('macroNutrients.carbs')}</Paragraph>
             <Paragraph weight="bold" size="sm">

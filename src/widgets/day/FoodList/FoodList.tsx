@@ -4,6 +4,7 @@ import { FoodItem } from '@widgets/day/FoodItem';
 
 import { useTranslation } from '@shared/i18n';
 import { fade } from '@shared/motion';
+import { gradients } from '@shared/styles/gradients.css';
 import { Card } from '@shared/ui/layout/Card';
 import { Stack } from '@shared/ui/layout/Stack';
 import { Paragraph } from '@shared/ui/typography/Paragraph';
@@ -17,7 +18,11 @@ export const FoodList = ({ foods, date }: FoodListProps) => {
   const isEmpty = foods?.length === 0;
 
   return (
-    <Card gap="xs" shadow="sm">
+    <Card
+      gap="xs"
+      shadow="sm"
+      className={isEmpty ? gradients.emptyState : undefined}
+    >
       <Title level={2}>{tDay('entities.food')}</Title>
 
       <AnimatePresence mode="wait" initial={false}>

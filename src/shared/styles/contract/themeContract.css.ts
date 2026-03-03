@@ -29,6 +29,16 @@ export const themeContract = {
     overlay: null,
   },
 
+  gradients: {
+    header: null,
+    surfaceSoft: null,
+    dailySummary: null,
+    accentSoft: null,
+    accentButton: null,
+    statsCard: null,
+    emptyState: null,
+  },
+
   typography: {
     fontFamily: {
       base: null,
