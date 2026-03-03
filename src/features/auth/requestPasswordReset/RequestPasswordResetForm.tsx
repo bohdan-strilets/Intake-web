@@ -11,9 +11,9 @@ import { Form } from '@shared/ui/form/Form';
 import { FormError } from '@shared/ui/form/FormError';
 import { Paragraph } from '@shared/ui/typography/Paragraph';
 
-import { useRequestPasswordResetMutation } from './useMutation';
 import { createSchema } from './schema';
 import type { FormValues } from './types';
+import { useRequestPasswordResetMutation } from './useMutation';
 
 export const RequestPasswordResetForm = () => {
   const { t: tUser } = useTranslation('user');
@@ -35,7 +35,9 @@ export const RequestPasswordResetForm = () => {
       methods.reset();
     } catch (error: unknown) {
       if (!(error instanceof ApiError)) {
-        methods.setError('root', { message: tCommon(errorKeyMap.NETWORK_ERROR) });
+        methods.setError('root', {
+          message: tCommon(errorKeyMap.NETWORK_ERROR),
+        });
         return;
       }
       methods.setError('root', {
@@ -45,9 +47,7 @@ export const RequestPasswordResetForm = () => {
   };
 
   if (success) {
-    return (
-      <Paragraph>{tAuth('passwordReset.requestSuccess')}</Paragraph>
-    );
+    return <Paragraph>{tAuth('passwordReset.requestSuccess')}</Paragraph>;
   }
 
   return (

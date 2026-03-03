@@ -7,6 +7,7 @@ import prettier from 'eslint-plugin-prettier';
 import unusedImports from 'eslint-plugin-unused-imports';
 
 export default [
+  { ignores: ['dist/**', 'node_modules/**', '**/dist/**'] },
   js.configs.recommended,
   ...tseslint.configs.recommended,
 

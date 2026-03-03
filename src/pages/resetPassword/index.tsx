@@ -1,5 +1,5 @@
-import { useEffect } from 'react';
 import { useMatch, useNavigate } from '@tanstack/react-router';
+import { useEffect } from 'react';
 
 import { resetPasswordRoute } from '@app/router/routes/auth';
 
@@ -39,7 +39,9 @@ export const ResetPasswordPage = () => {
 
       <ResetPasswordForm token={token} />
 
-      <TextLink to={ROUTES.auth.login}>{t('actions.back')} {t('titles.logIn')}</TextLink>
+      <TextLink to={ROUTES.auth.login}>
+        {t('actions.back')} {t('titles.logIn')}
+      </TextLink>
     </Card>
   );
 };

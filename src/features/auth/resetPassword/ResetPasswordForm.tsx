@@ -11,9 +11,9 @@ import { Form } from '@shared/ui/form/Form';
 import { FormError } from '@shared/ui/form/FormError';
 import { Paragraph } from '@shared/ui/typography/Paragraph';
 
-import { useResetPasswordMutation } from './useMutation';
 import { createSchema } from './schema';
 import type { FormValues } from './types';
+import { useResetPasswordMutation } from './useMutation';
 
 type ResetPasswordFormProps = {
   token: string;
@@ -38,11 +38,15 @@ export const ResetPasswordForm = ({ token }: ResetPasswordFormProps) => {
       setSuccess(true);
     } catch (error: unknown) {
       if (!(error instanceof ApiError)) {
-        methods.setError('root', { message: tCommon(errorKeyMap.NETWORK_ERROR) });
+        methods.setError('root', {
+          message: tCommon(errorKeyMap.NETWORK_ERROR),
+        });
         return;
       }
       if (error.code === 'INVALID_RESET_TOKEN') {
-        methods.setError('root', { message: tAuth(errorKeyMap.INVALID_RESET_TOKEN) });
+        methods.setError('root', {
+          message: tAuth(errorKeyMap.INVALID_RESET_TOKEN),
+        });
         return;
       }
       methods.setError('root', {
@@ -52,9 +56,7 @@ export const ResetPasswordForm = ({ token }: ResetPasswordFormProps) => {
   };
 
   if (success) {
-    return (
-      <Paragraph>{tAuth('passwordReset.success')}</Paragraph>
-    );
+    return <Paragraph>{tAuth('passwordReset.success')}</Paragraph>;
   }
 
   return (
