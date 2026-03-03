@@ -5,6 +5,10 @@
     "voiceInputRecording": "Nagrywanie..."
   },
 
+  "voice": {
+    "microphoneDisabled": "Mikrofon wyłączony w ustawieniach przeglądarki"
+  },
+
   "states": {
     "analyzing": "Analizowanie..."
   },

@@ -5,6 +5,10 @@
     "voiceInputRecording": "Recording..."
   },
 
+  "voice": {
+    "microphoneDisabled": "Microphone is disabled in browser settings"
+  },
+
   "states": {
     "analyzing": "Analyzing..."
   },

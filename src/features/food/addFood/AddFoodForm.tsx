@@ -16,10 +16,14 @@ import { Form } from '@shared/ui/form/Form';
 import { FormError } from '@shared/ui/form/FormError';
 import { Inline } from '@shared/ui/layout/Inline';
 import { Stack } from '@shared/ui/layout/Stack';
+import { Paragraph } from '@shared/ui/typography/Paragraph';
 
 import { useSubmit } from './model';
 import { createSchema } from './schema';
 import type { FormProps, FormValues } from './types';
+
+/** Затримка (мс) утримання перед стартом запису — запис не почнеться при короткому кліку */
+const VOICE_RECORD_START_DELAY_MS = 300;
 
 export const AddFoodForm = ({ date }: FormProps) => {
   const isOnline = useOnline();
@@ -48,40 +52,107 @@ export const AddFoodForm = ({ date }: FormProps) => {
     [setValue],
   );
 
-  const { start, stop, isRecording, isSupported } = useHoldToRecord({
+  const { start, stop, isRecording, isSupported, permissionDenied } = useHoldToRecord({
     onResult: handleVoiceResult,
     lang: i18n.language,
   });
 
   const voiceButtonRef = useRef<HTMLButtonElement>(null);
   const releasedRef = useRef(false);
+  const removeReleaseListenersRef = useRef<(() => void) | null>(null);
+  const pendingStartTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const permissionDeniedRef = useRef(permissionDenied);
+  permissionDeniedRef.current = permissionDenied;
 
-  const handleVoiceStart = useCallback(() => {
-    useSoundStore.getState().play('micStart');
-    start();
+  const handleVoiceStop = useCallback(() => {
+    if (releasedRef.current) return;
+    releasedRef.current = true;
+    removeReleaseListenersRef.current?.();
+    removeReleaseListenersRef.current = null;
+    useSoundStore.getState().play('micStop');
+    stop();
+  }, [stop]);
+
+  const handleVoicePress = useCallback(() => {
+    if (permissionDeniedRef.current) return;
     releasedRef.current = false;
 
-    const onRelease = () => {
-      if (releasedRef.current) return;
-      releasedRef.current = true;
-      useSoundStore.getState().play('micStop');
-      stop();
+    const handleRelease = () => {
+      if (pendingStartTimeoutRef.current !== null) {
+        clearTimeout(pendingStartTimeoutRef.current);
+        pendingStartTimeoutRef.current = null;
+        removeReleaseListenersRef.current?.();
+        removeReleaseListenersRef.current = null;
+        return;
+      }
+      handleVoiceStop();
     };
 
-    document.addEventListener('touchend', onRelease, { passive: true, once: true });
-    document.addEventListener('mouseup', onRelease, { once: true });
-  }, [start, stop]);
+    const remove = () => {
+      document.removeEventListener('touchend', handleRelease);
+      document.removeEventListener('touchcancel', handleRelease);
+      document.removeEventListener('mouseup', handleRelease);
+      document.removeEventListener('pointerup', handleRelease);
+    };
+
+    removeReleaseListenersRef.current = remove;
+    document.addEventListener('touchend', handleRelease, { passive: true });
+    document.addEventListener('touchcancel', handleRelease, { passive: true });
+    document.addEventListener('mouseup', handleRelease);
+    document.addEventListener('pointerup', handleRelease);
+
+    pendingStartTimeoutRef.current = setTimeout(() => {
+      pendingStartTimeoutRef.current = null;
+      removeReleaseListenersRef.current?.();
+      removeReleaseListenersRef.current = null;
+
+      useSoundStore.getState().play('micStart');
+      start();
+      releasedRef.current = false;
+
+      const onRelease = () => handleVoiceStop();
+      const removeAfterStart = () => {
+        document.removeEventListener('touchend', onRelease);
+        document.removeEventListener('touchcancel', onRelease);
+        document.removeEventListener('mouseup', onRelease);
+        document.removeEventListener('pointerup', onRelease);
+      };
+      removeReleaseListenersRef.current = removeAfterStart;
+      document.addEventListener('touchend', onRelease, { passive: true });
+      document.addEventListener('touchcancel', onRelease, { passive: true });
+      document.addEventListener('mouseup', onRelease);
+      document.addEventListener('pointerup', onRelease);
+    }, VOICE_RECORD_START_DELAY_MS);
+  }, [start, handleVoiceStop]);
 
   useEffect(() => {
     const el = voiceButtonRef.current;
-    if (!el || !isSupported) return;
+    if (!el || !isSupported || permissionDenied) return;
     const onTouchStart = (e: TouchEvent) => {
       e.preventDefault();
-      handleVoiceStart();
+      handleVoicePress();
+    };
+    const onTouchEnd = () => {
+      if (pendingStartTimeoutRef.current !== null) {
+        clearTimeout(pendingStartTimeoutRef.current);
+        pendingStartTimeoutRef.current = null;
+        removeReleaseListenersRef.current?.();
+        removeReleaseListenersRef.current = null;
+        return;
+      }
+      handleVoiceStop();
     };
     el.addEventListener('touchstart', onTouchStart, { passive: false });
-    return () => el.removeEventListener('touchstart', onTouchStart);
-  }, [isSupported, handleVoiceStart]);
+    el.addEventListener('touchend', onTouchEnd, { passive: true });
+    return () => {
+      el.removeEventListener('touchstart', onTouchStart);
+      el.removeEventListener('touchend', onTouchEnd);
+      if (pendingStartTimeoutRef.current !== null) {
+        clearTimeout(pendingStartTimeoutRef.current);
+        pendingStartTimeoutRef.current = null;
+      }
+    };
+  }, [isSupported, permissionDenied, handleVoicePress, handleVoiceStop]);
 
   const handleSelectPrompt = useCallback(
     (text: string) => {
@@ -111,38 +182,57 @@ export const AddFoodForm = ({ date }: FormProps) => {
 
       {errors.root && <FormError>{errors.root.message}</FormError>}
 
-      <Inline gap="sm" align="stretch" style={{ alignItems: 'stretch' }}>
-        <Button
-          type="submit"
-          disabled={submitDisabled}
-          loading={isPending}
-          fullWidth
-          size="lg"
-        >
-          {isPending ? tFood('states.analyzing') : tFood('actions.addFood')}
-        </Button>
-        {isSupported && (
-          <IconButton
-            ref={voiceButtonRef}
-            icon={isRecording ? 'micStop' : 'mic'}
-            variant={isRecording ? 'danger' : 'secondary'}
+      <Stack gap="xs">
+        <Inline gap="sm" align="stretch" style={{ alignItems: 'stretch' }}>
+          <Button
+            type="submit"
+            disabled={submitDisabled}
+            loading={isPending}
+            fullWidth
             size="lg"
-            iconSize="lg"
-            pulse={isRecording}
-            disabled={isPending}
-            aria-pressed={isRecording}
-            aria-label={
-              isRecording
-                ? tFood('actions.voiceInputRecording')
-                : tFood('actions.voiceInput')
-            }
+          >
+            {isPending ? tFood('states.analyzing') : tFood('actions.addFood')}
+          </Button>
+          {isSupported && (
+            <IconButton
+              ref={voiceButtonRef}
+              icon={isRecording ? 'micStop' : 'mic'}
+              variant={isRecording ? 'danger' : 'secondary'}
+              size="lg"
+              iconSize="lg"
+              pulse={isRecording}
+              disabled={isPending || permissionDenied}
+              aria-pressed={isRecording}
+              aria-label={
+                isRecording
+                  ? tFood('actions.voiceInputRecording')
+                  : tFood('actions.voiceInput')
+              }
             onMouseDown={(e) => {
               e.preventDefault();
-              handleVoiceStart();
+              if (permissionDenied) return;
+              handleVoicePress();
             }}
-          />
+              onMouseUp={(e) => {
+                e.preventDefault();
+                if (pendingStartTimeoutRef.current !== null) {
+                  clearTimeout(pendingStartTimeoutRef.current);
+                  pendingStartTimeoutRef.current = null;
+                  removeReleaseListenersRef.current?.();
+                  removeReleaseListenersRef.current = null;
+                  return;
+                }
+                handleVoiceStop();
+              }}
+            />
+          )}
+        </Inline>
+        {permissionDenied && (
+          <Paragraph size="xs" tone="muted" style={{ textAlign: 'right' }}>
+            {tFood('voice.microphoneDisabled')}
+          </Paragraph>
         )}
-      </Inline>
+      </Stack>
     </Form>
   );
 };

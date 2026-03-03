@@ -31,9 +31,9 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
         ref={ref}
         type="button"
         className={clsx(root({ variant, size }), className)}
+        {...rest}
         disabled={disabled}
         {...(!disabled ? tapScale : {})}
-        {...rest}
       >
         <AnimatePresence mode="wait" initial={false}>
           <motion.span

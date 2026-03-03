@@ -5,6 +5,10 @@
     "voiceInputRecording": "Запис..."
   },
 
+  "voice": {
+    "microphoneDisabled": "Мікрофон вимкнено в налаштуваннях браузера"
+  },
+
   "states": {
     "analyzing": "Аналізування..."
   },
