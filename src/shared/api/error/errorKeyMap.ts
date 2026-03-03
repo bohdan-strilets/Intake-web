@@ -11,6 +11,8 @@ export const errorKeyMap = {
   ACCOUNT_DELETED: 'errors.accountDeleted',
   INVALID_RESET_TOKEN: 'errors.invalidResetToken',
   INVALID_VERIFICATION_TOKEN: 'errors.invalidVerificationToken',
+  VERIFICATION_EMAIL_SEND_FAILED: 'errors.verificationEmailSendFailed',
+  EMAIL_NOT_VERIFIED: 'errors.emailNotVerified',
 
   USER_NOT_FOUND: 'errors.userNotFound',
 
