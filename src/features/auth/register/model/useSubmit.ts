@@ -57,12 +57,13 @@ export const useSubmit = (methods: UseFormReturn<FormValues>) => {
       }
 
       switch (error.code) {
-        case 'EMAIL_ALREADY_EXISTS':
-          methods.setError('email', {
-            message: tAuth(errorKeyMap.EMAIL_ALREADY_EXISTS),
-          });
+        case 'EMAIL_ALREADY_EXISTS': {
+          const message = tAuth(errorKeyMap.EMAIL_ALREADY_EXISTS);
+          methods.setError('root', { message });
+          methods.setError('email', { message });
           methods.setFocus('email');
           return;
+        }
 
         case 'VALIDATION_ERROR':
           methods.setError('root', {

@@ -27,7 +27,8 @@ export const RegisterStepGoal = () => {
         shouldValidate: true,
       });
     }
-  }, [isMaintainGoal, methods]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- methods from useFormContext is stable; omit to avoid loop when setValue triggers re-render
+  }, [isMaintainGoal]);
 
   return (
     <Stack gap="xl">

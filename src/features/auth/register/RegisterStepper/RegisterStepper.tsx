@@ -1,7 +1,7 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { clsx } from 'clsx';
 import { AnimatePresence, motion } from 'framer-motion';
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { get, useForm } from 'react-hook-form';
 
 import { useTranslation } from '@shared/i18n';
@@ -59,7 +59,7 @@ export const RegisterStepper = () => {
   const { t: tAuth } = useTranslation('auth');
   const { t: tCommon } = useTranslation('common');
 
-  const schema = createSchema(tUser);
+  const schema = useMemo(() => createSchema(tUser), [tUser]);
   const methods = useForm<FormValues>({
     resolver: zodResolver(schema),
     mode: 'onChange',
