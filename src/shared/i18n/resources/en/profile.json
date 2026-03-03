@@ -44,7 +44,20 @@
     "theme": "Theme",
     "language": "Language",
     "sounds": "Sounds",
-    "volume": "Sound volume"
+    "volume": "Sound volume",
+    "reminders": "Reminders"
+  },
+
+  "reminders": {
+    "title": "Daily food reminder",
+    "enabled": "Remind me to log food",
+    "valueOn": "On",
+    "valueOff": "Off",
+    "time": "Reminder time",
+    "timezone": "Timezone",
+    "channels": "Notify via",
+    "channelEmail": "Email",
+    "channelPush": "Push notifications"
   },
 
   "intake": {

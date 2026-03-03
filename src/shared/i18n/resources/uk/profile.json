@@ -44,7 +44,20 @@
     "theme": "Тема",
     "language": "Мова",
     "sounds": "Звуки",
-    "volume": "Гучність звуку"
+    "volume": "Гучність звуку",
+    "reminders": "Нагадування"
+  },
+
+  "reminders": {
+    "title": "Щоденне нагадування про їжу",
+    "enabled": "Нагадувати записати їжу",
+    "valueOn": "Вімк.",
+    "valueOff": "Вимк.",
+    "time": "Час нагадувань",
+    "timezone": "Часовий пояс",
+    "channels": "Сповіщення",
+    "channelEmail": "Email",
+    "channelPush": "Push"
   },
 
   "intake": {

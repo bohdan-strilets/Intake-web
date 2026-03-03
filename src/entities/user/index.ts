@@ -1,4 +1,5 @@
 export * from './config';
+export * from './constants/reminders';
 export * from './enums';
 export * from './mappers';
 export * from './meta';

@@ -13,6 +13,7 @@ import { Card } from '@shared/ui/layout/Card';
 
 import { InfoRow } from '../InfoRow';
 import { LanguageSheet } from '../LanguageSheet';
+import { RemindersSheet } from '../RemindersSheet';
 import { SectionTitle } from '../SectionTitle';
 import { ThemeSheet } from '../ThemeSheet';
 
@@ -20,7 +21,7 @@ import type { SettingsSectionProps } from './SettingsSection.types';
 
 export const SettingsSection = ({ settings }: SettingsSectionProps) => {
   const { t: tCommon } = useTranslation('common');
-  const { theme, language, sound, volume } = settings;
+  const { theme, language, sound, volume, reminders } = settings;
 
   const [localVolume, setLocalVolume] = useState(volume);
 
@@ -48,6 +49,10 @@ export const SettingsSection = ({ settings }: SettingsSectionProps) => {
 
   const handleLanguage = () => {
     open(<LanguageSheet language={language} />);
+  };
+
+  const handleReminders = () => {
+    open(<RemindersSheet reminders={reminders} />);
   };
 
   const { mutateAsync: updateSettings, isPending } =
@@ -113,6 +118,16 @@ export const SettingsSection = ({ settings }: SettingsSectionProps) => {
         label={tProfile('fields.language')}
         value={tCommon(`languages.${language}`)}
         onClick={handleLanguage}
+      />
+
+      <InfoRow
+        label={tProfile('fields.reminders')}
+        value={
+          reminders?.enabled
+            ? `${tProfile('reminders.valueOn')} • ${reminders.time ?? '20:00'}`
+            : tProfile('reminders.valueOff')
+        }
+        onClick={handleReminders}
       />
 
       <InfoRow

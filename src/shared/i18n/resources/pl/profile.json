@@ -44,7 +44,20 @@
     "theme": "Motyw",
     "language": "Język",
     "sounds": "Dźwięki",
-    "volume": "Głośność dźwięku"
+    "volume": "Głośność dźwięku",
+    "reminders": "Przypomnienia"
+  },
+
+  "reminders": {
+    "title": "Dzienne przypomnienie o jedzeniu",
+    "enabled": "Przypomnij o zapisaniu jedzenia",
+    "valueOn": "Wł.",
+    "valueOff": "Wył.",
+    "time": "Godzina przypomnienia",
+    "timezone": "Strefa czasowa",
+    "channels": "Powiadomienia",
+    "channelEmail": "E-mail",
+    "channelPush": "Push"
   },
 
   "intake": {

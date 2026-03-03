@@ -19,6 +19,8 @@ export const API_ROUTES = {
     password: '/users/me/password',
     delete: '/users/me/delete',
     settings: '/users/me/settings',
+    reminders: '/users/reminders',
+    pushSubscription: '/users/push-subscription',
   },
 
   days: {
