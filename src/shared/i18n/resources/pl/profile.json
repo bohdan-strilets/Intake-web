@@ -26,7 +26,18 @@
     "errorLoad": "Nie udało się załadować postępu celu.",
     "condition1": "Przejdź do profilu i ustaw wagę docelową",
     "condition2": "Dodawaj wagę codziennie",
-    "startWeight": "Waga początkowa"
+    "startWeight": "Waga początkowa",
+    "fromStart": "−{{delta}} kg od początku",
+    "remaining": "Pozostało {{value}} kg",
+    "startLabel": "Start",
+    "goalLabel": "Cel",
+    "avgPacePerWeek": "Średnie tempo: −{{value}} kg/tydz.",
+    "weeksAtPace": "Przy tym tempie — ~{{weeks}} tyg.",
+    "addGoal": "Dodaj cel",
+    "showMoreInfo": "Pokaż więcej",
+    "showLess": "Zwiń",
+    "showProgress": "Pokaż postęp",
+    "hideProgress": "Ukryj postęp"
   },
 
   "actions": {

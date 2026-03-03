@@ -26,7 +26,18 @@
     "errorLoad": "Не вдалося завантажити прогрес до цілі.",
     "condition1": "Перейти в профіль і встановити цільову вагу",
     "condition2": "Додавати вагу щодня",
-    "startWeight": "Початкова вага"
+    "startWeight": "Початкова вага",
+    "fromStart": "−{{delta}} кг від старту",
+    "remaining": "Залишилось {{value}} кг",
+    "startLabel": "Старт",
+    "goalLabel": "Ціль",
+    "avgPacePerWeek": "Середній темп: −{{value}} кг/тиж",
+    "weeksAtPace": "При такому темпі — ~{{weeks}} тижнів",
+    "addGoal": "Додати ціль",
+    "showMoreInfo": "Детальніше",
+    "showLess": "Згорнути",
+    "showProgress": "Показати прогрес",
+    "hideProgress": "Сховати прогрес"
   },
 
   "actions": {

@@ -13,7 +13,8 @@
   },
 
   "actions": {
-    "addWeight": "Add weight"
+    "addWeight": "Add weight",
+    "setWeight": "Set weight"
   },
 
   "entities": {

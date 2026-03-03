@@ -26,7 +26,18 @@
     "errorLoad": "Could not load goal progress.",
     "condition1": "Go to profile and set target weight",
     "condition2": "Add weight every day",
-    "startWeight": "Start weight"
+    "startWeight": "Start weight",
+    "fromStart": "−{{delta}} kg from start",
+    "remaining": "{{value}} kg left",
+    "startLabel": "Start",
+    "goalLabel": "Goal",
+    "avgPacePerWeek": "Avg pace: −{{value}} kg/week",
+    "weeksAtPace": "At this pace — ~{{weeks}} weeks",
+    "addGoal": "Add goal",
+    "showMoreInfo": "Show more",
+    "showLess": "Show less",
+    "showProgress": "Show progress",
+    "hideProgress": "Hide progress"
   },
 
   "actions": {

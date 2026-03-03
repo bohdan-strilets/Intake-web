@@ -13,7 +13,8 @@
   },
 
   "actions": {
-    "addWeight": "Додати вагу"
+    "addWeight": "Додати вагу",
+    "setWeight": "Встановити вагу"
   },
 
   "entities": {
