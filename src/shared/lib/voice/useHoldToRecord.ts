@@ -112,17 +112,19 @@ export function useHoldToRecord(options: UseHoldToRecordOptions): UseHoldToRecor
     setIsRecording(true);
 
     rec.continuous = true;
-    rec.interimResults = false;
+    rec.interimResults = true;
     if (lang) rec.lang = lang;
 
     rec.onresult = (event: SpeechRecognitionResultEvent) => {
       const results = event.results;
+      let full = '';
       for (let i = 0; i < results.length; i++) {
         const result = results[i];
-        if (result.isFinal && result.length > 0) {
-          transcriptRef.current += result[0].transcript;
+        if (result.length > 0) {
+          full += result[0].transcript;
         }
       }
+      transcriptRef.current = full;
     };
 
     rec.onerror = (event: SpeechRecognitionErrorEvent) => {
