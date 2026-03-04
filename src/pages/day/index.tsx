@@ -52,7 +52,7 @@ export const DayPage = () => {
   if (isError) return <Error refetch={refetch} error={error} />;
 
   const dayDetails = data;
-  const { day, food, targetCalories } = dayDetails;
+  const { day, food, targetCalories, targetProtein, targetFat, targetCarbs } = dayDetails;
   const totals = day.totals;
 
   return (
@@ -82,8 +82,11 @@ export const DayPage = () => {
       <Totals
         calories={totals.calories}
         protein={totals.protein}
+        proteinTarget={targetProtein}
         fat={totals.fat}
+        fatTarget={targetFat}
         carbs={totals.carbs}
+        carbsTarget={targetCarbs}
       />
 
       <DailyStats consumed={totals.calories} target={targetCalories} />
