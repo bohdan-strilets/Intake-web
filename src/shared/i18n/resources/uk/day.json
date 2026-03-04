@@ -14,7 +14,9 @@
 
   "actions": {
     "addWeight": "Додати вагу",
-    "setWeight": "Встановити вагу"
+    "setWeight": "Встановити вагу",
+    "showPrompts": "Показати підказки",
+    "hidePrompts": "Приховати підказки"
   },
 
   "entities": {

@@ -14,7 +14,9 @@
 
   "actions": {
     "addWeight": "Add weight",
-    "setWeight": "Set weight"
+    "setWeight": "Set weight",
+    "showPrompts": "Show prompts",
+    "hidePrompts": "Hide prompts"
   },
 
   "entities": {

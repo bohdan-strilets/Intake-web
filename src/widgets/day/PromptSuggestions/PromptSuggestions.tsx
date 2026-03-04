@@ -1,4 +1,4 @@
-import { memo, useCallback } from 'react';
+import { memo, useCallback, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 
 import type { SavedPromptEntity } from '@entities/savedPrompt';
@@ -11,6 +11,7 @@ import { useTranslation } from '@shared/i18n';
 import { useConfirm } from '@shared/lib/confirm';
 import { listItem } from '@shared/motion';
 import { gradients } from '@shared/styles/gradients.css';
+import { Button } from '@shared/ui/controls/Button';
 import { Card } from '@shared/ui/layout/Card';
 import { Stack } from '@shared/ui/layout/Stack';
 import { Paragraph } from '@shared/ui/typography/Paragraph';
@@ -19,6 +20,10 @@ import { PromptRow } from './PromptRow';
 import type { PromptSuggestionsProps } from './PromptSuggestions.types';
 
 const MAX_ITEMS = 8;
+const expandTransition = {
+  duration: 0.25,
+  ease: [0.4, 0, 0.2, 1] as const,
+};
 
 function sortPrompts(prompts: SavedPromptEntity[]): SavedPromptEntity[] {
   return [...prompts].sort((a, b) => {
@@ -32,6 +37,7 @@ function sortPrompts(prompts: SavedPromptEntity[]): SavedPromptEntity[] {
 export const PromptSuggestions = memo(function PromptSuggestions({
   onSelect,
 }: PromptSuggestionsProps) {
+  const [isExpanded, setIsExpanded] = useState(false);
   const { t: tCommon } = useTranslation('common');
   const { t: tDay } = useTranslation('day');
   const { data: prompts = [], isPending } = useRecentPrompts();
@@ -58,38 +64,69 @@ export const PromptSuggestions = memo(function PromptSuggestions({
   );
 
   if (isPending) return null;
-  if (sorted.length === 0) {
-    return (
-      <Card gap="xs" shadow="sm" className={gradients.emptyState}>
-        <Paragraph tone="muted" size="sm">
-          {tDay('states.promptsEmpty')}
-        </Paragraph>
-      </Card>
-    );
-  }
 
   return (
-    <Stack as="ul" gap="sm" aria-label="Recent prompts">
+    <Stack gap="sm">
+      <Button
+        variant="ghostMuted"
+        size="sm"
+        fullWidth
+        onClick={() => setIsExpanded((e) => !e)}
+      >
+        {isExpanded
+          ? tDay('actions.hidePrompts')
+          : tDay('actions.showPrompts')}
+      </Button>
       <AnimatePresence initial={false}>
-        {sorted.map((prompt) => (
-          <motion.li
-            key={prompt.id}
-            variants={listItem}
-            initial="initial"
-            animate="animate"
-            exit="exit"
-            layout="position"
+        {isExpanded && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{
+              height: 'auto',
+              opacity: 1,
+              transition: expandTransition,
+            }}
+            exit={{
+              height: 0,
+              opacity: 0,
+              transition: expandTransition,
+            }}
+            transition={expandTransition}
+            style={{ overflow: 'hidden' }}
           >
-            <PromptRow
-              id={prompt.id}
-              text={prompt.text}
-              isFavorite={prompt.isFavorite}
-              onSelect={onSelect}
-              onToggleFavorite={handleToggleFavorite}
-              onDelete={handleDelete}
-            />
-          </motion.li>
-        ))}
+            {sorted.length === 0 ? (
+              <Card gap="xs" shadow="sm" className={gradients.emptyState}>
+                <Paragraph tone="muted" size="sm">
+                  {tDay('states.promptsEmpty')}
+                </Paragraph>
+              </Card>
+            ) : (
+              <Stack as="ul" gap="sm" aria-label="Recent prompts">
+                <AnimatePresence initial={false}>
+                  {sorted.map((prompt) => (
+                    <motion.li
+                      key={prompt.id}
+                      variants={listItem}
+                      initial="initial"
+                      animate="animate"
+                      exit="exit"
+                      layout="position"
+                    >
+                      <PromptRow
+                        id={prompt.id}
+                        text={prompt.text}
+                        isFavorite={prompt.isFavorite}
+                        onSelect={onSelect}
+                        onToggleFavorite={handleToggleFavorite}
+                        onDelete={handleDelete}
+                      />
+                    </motion.li>
+                  ))}
+                </AnimatePresence>
+              </Stack>
+            )}
+          </motion.div>
+        )}
       </AnimatePresence>
     </Stack>
   );

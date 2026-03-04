@@ -14,7 +14,9 @@
 
   "actions": {
     "addWeight": "Dodaj wagę",
-    "setWeight": "Ustaw wagę"
+    "setWeight": "Ustaw wagę",
+    "showPrompts": "Pokaż podpowiedzi",
+    "hidePrompts": "Ukryj podpowiedzi"
   },
 
   "entities": {
