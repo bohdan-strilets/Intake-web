@@ -1,6 +1,7 @@
 import { AnimatePresence, motion } from 'framer-motion';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
+import { breakpoints } from '@shared/styles/tokens/breakpoints.css';
 import { fadeUpModal, screenTransition, sheetUp } from '@shared/motion';
 
 import { Overlay } from '../Overlay';
@@ -9,12 +10,28 @@ import { Portal } from '../Portal';
 import { container } from './Modal.css';
 import type { ModalProps } from './Modal.types';
 
+const LAPTOP_MIN_PX = breakpoints.laptop;
+
 export const Modal = ({
   open,
   onClose,
   children,
   variant = 'sheet',
 }: ModalProps) => {
+  const [isLaptopOrUp, setIsLaptopOrUp] = useState(
+    () => typeof window !== 'undefined' && window.matchMedia(`(min-width: ${LAPTOP_MIN_PX}px)`).matches,
+  );
+
+  useEffect(() => {
+    const mql = window.matchMedia(`(min-width: ${LAPTOP_MIN_PX}px)`);
+    const handle = () => setIsLaptopOrUp(mql.matches);
+    mql.addEventListener('change', handle);
+    return () => mql.removeEventListener('change', handle);
+  }, []);
+
+  const effectiveVariant =
+    variant === 'sheet' && isLaptopOrUp ? 'centered' : variant;
+
   useEffect(() => {
     if (!open) return;
 
@@ -41,9 +58,9 @@ export const Modal = ({
               initial="initial"
               animate="animate"
               exit="exit"
-              variants={variant === 'sheet' ? sheetUp : fadeUpModal}
+              variants={effectiveVariant === 'sheet' ? sheetUp : fadeUpModal}
               transition={screenTransition}
-              className={container({ variant })}
+              className={container({ variant: effectiveVariant })}
               onClick={(e) => e.stopPropagation()}
             >
               {children}
