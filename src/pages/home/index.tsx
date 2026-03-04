@@ -1,32 +1,25 @@
-import { CalendarSection } from '@widgets/landing/CalendarSection';
-import { CTASection } from '@widgets/landing/CTASection';
-import { DailyFocusSection } from '@widgets/landing/DailyFocusSection';
-import { HeroSection } from '@widgets/landing/HeroSection';
-import { HowItWorksSection } from '@widgets/landing/HowItWorksSection';
-import { PhilosophySection } from '@widgets/landing/PhilosophySection';
-import { ProblemSection } from '@widgets/landing/ProblemSection';
+import { LandingBenefits } from '@widgets/landing/LandingBenefits';
+import { LandingCTA } from '@widgets/landing/LandingCTA';
+import { LandingFooter } from '@widgets/landing/LandingFooter';
+import { LandingHero } from '@widgets/landing/LandingHero';
+import { LandingHowItWorks } from '@widgets/landing/LandingHowItWorks';
+import { LandingProblem } from '@widgets/landing/LandingProblem';
+import { LandingProductPreview } from '@widgets/landing/LandingProductPreview';
+import { LandingSolution } from '@widgets/landing/LandingSolution';
 
-import { Spacer } from '@shared/ui/layout/Spacer';
 import { Stack } from '@shared/ui/layout/Stack';
 
 export const HomePage = () => {
   return (
-    <Stack gap="3xl">
-      <HeroSection />
-
-      <ProblemSection />
-
-      <HowItWorksSection />
-
-      <CalendarSection />
-
-      <DailyFocusSection />
-
-      <PhilosophySection />
-
-      <CTASection />
-
-      <Spacer size="xl" />
+    <Stack gap="none">
+      <LandingHero />
+      <LandingProblem />
+      <LandingSolution />
+      <LandingHowItWorks />
+      <LandingProductPreview />
+      <LandingBenefits />
+      <LandingCTA />
+      <LandingFooter />
     </Stack>
   );
 };

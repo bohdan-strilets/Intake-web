@@ -4,25 +4,23 @@
       "line1": "Śledź jedzenie.",
       "line2": "Nie liczby."
     },
-
-    "subtitle": "Opisz posiłek. Intake zrobi obliczenia.",
-
-    "description": "Opisz, co zjadłeś, własnymi słowami. Intake zrozumie i automatycznie wszystko obliczy.",
-    "imageAlt": "Ekran codziennego śledzenia jedzenia"
+    "subtitle": "Opisz, co zjadłeś. Intake zrobi resztę.",
+    "mockupTitle": "Dziś",
+    "mockupPlaceholder": "np. Pierś z kurczaka 200 g, ryż, brokuły",
+    "mockupChip": "383 kcal · B 36g T 5g W 45g"
   },
 
   "problem": {
     "title": {
-      "line1": "Śledzenie jedzenia",
-      "line2": "nie działa"
+      "line1": "Aplikacje kaloryczne",
+      "line2": "przeszkadzają"
     },
-
+    "description": "Większość trackerów każe szukać w bazach, wybierać porcje i klikać przez ekrany. Kończysz liczeniem aplikacji zamiast życiem.",
     "points": {
       "tooManyFields": {
         "title": "Za dużo pól",
-        "description": "Przeszukiwanie baz danych, wybór porcji, dopasowywanie gramatury"
+        "description": "Przeszukiwanie baz, wybór porcji, dopasowywanie gramatury"
       },
-
       "tooMuchCounting": {
         "title": "Za dużo liczenia",
         "description": "Ręczne obliczenia, ciągłe śledzenie, niekończące się kalkulacje"
@@ -30,86 +28,65 @@
     }
   },
 
+  "solution": {
+    "title": "Intake jest inny.",
+    "description": "Opisujesz posiłek zwykłymi słowami. AI analizuje i uzupełnia kalorie oraz makro. Jedno pole, jeden wynik. Bez szukania dań i porcji."
+  },
+
   "howItWorks": {
-    "title": {
-      "line1": "Jedno pole. Jeden dzień.",
-      "line2": "Jeden wynik."
-    },
-
-    "subtitle": "Po prostu opisz, co zjadłeś. AI zrobi resztę.",
-    "youType": {
-      "label": "Ty wpisujesz",
-      "example": "Pierś z kurczaka 200 g i ryż"
-    },
-
-    "systemCalculates": {
-      "label": "System oblicza",
-      "caloriesExample": "383 kcal"
+    "title": "Opisz → AI analizuje → Zobacz swój dzień.",
+    "subtitle": "Trzy kroki. Bez bałaganu.",
+    "steps": {
+      "describe": {
+        "title": "Opisz jedzenie",
+        "description": "Wpisz lub powiedz własnymi słowami, co zjadłeś."
+      },
+      "analyze": {
+        "title": "AI analizuje",
+        "description": "Intake rozpoznaje dania i liczy kalorie oraz makro."
+      },
+      "see": {
+        "title": "Zobacz swój dzień",
+        "description": "Podsumowanie dnia i postępy na pierwszy rzut oka."
+      }
     }
   },
 
-  "calendar": {
-    "title": {
-      "line1": "Twoja historia.",
-      "line2": "W jednym spojrzeniu."
-    },
-
-    "description": "Zobacz swoje dzienne spożycie w prostym widoku kalendarza. Sprawdź dowolny dzień natychmiast.",
-
-    "imageAlt": "Widok kalendarza dziennego spożycia"
+  "productPreview": {
+    "title": "Twój dzień w jednym spojrzeniu.",
+    "description": "Kalorie i makro na dziś. Prosto. Bez przeładowanego panelu.",
+    "screenTitle": "Dziś"
   },
 
-  "dailyFocus": {
-    "title": {
-      "line1": "Stworzone",
-      "line2": "na każdy dzień."
-    },
-
-    "description": "Bez przeładowanych dashboardów. Bez skomplikowanych wykresów. Tylko dzisiejsze dane.",
-
-    "imageAlt": "Widok statystyk dziennego spożycia"
-  },
-
-  "philosophy": {
-    "intake": {
-      "title": {
-        "line1": "Zobacz swoje",
-        "line2": "prawdziwe spożycie."
+  "benefits": {
+    "title": "Dlaczego Intake",
+    "subtitle": "Stworzony do jasności, nie złożoności.",
+    "items": {
+      "noManualLogging": {
+        "title": "Bez ręcznego wpisywania",
+        "description": "Bez szukania dań i wyboru porcji. Wystarczy opisać i gotowe."
       },
-
-      "description": "Średnie tygodniowe i miesięczne. Porównanie z celem. Prosty podział makroskładników.",
-
-      "imageAlt": "Owoce i warzywa"
-    },
-
-    "design": {
-      "title": "Spokój w projekcie.",
-      "points": {
-        "minimalInterface": {
-          "title": "Minimalny interfejs",
-          "description": "Tylko to, czego potrzebujesz do śledzenia dnia"
-        },
-
-        "noBloat": {
-          "title": "Bez zbędnych funkcji",
-          "description": "Bez grywalizacji, bez funkcji społecznościowych, bez rozpraszaczy"
-        },
-
-        "dataByDay": {
-          "title": "Dane według dni",
-          "description": "Wszystko uporządkowane według daty w kalendarzu"
-        },
-
-        "clearFeedback": {
-          "title": "Jasna informacja zwrotna",
-          "description": "Proste porównanie z Twoim celem"
-        }
+      "aiParsing": {
+        "title": "Analiza AI",
+        "description": "Naturalny język na wejściu — kalorie i makro na wyjściu. Jedno pole załatwia sprawę."
+      },
+      "dailyClarity": {
+        "title": "Jasność dnia",
+        "description": "Skupienie na dziś. Zobacz spożycie i porównanie z celem."
+      },
+      "minimalUi": {
+        "title": "Minimalny interfejs",
+        "description": "Tylko to, czego potrzebujesz. Bez zbędnych funkcji, grywalizacji i szumu."
       }
     }
   },
 
   "cta": {
     "title": "Zacznij już dziś.",
-    "description": "Załóż konto w mniej niż minutę."
+    "description": "Załóż konto w mniej niż minutę. Bez karty."
+  },
+
+  "footer": {
+    "tagline": "Śledź jedzenie, nie liczby."
   }
 }

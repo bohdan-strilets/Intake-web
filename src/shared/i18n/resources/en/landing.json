@@ -4,25 +4,23 @@
       "line1": "Track food.",
       "line2": "Not numbers."
     },
-
-    "subtitle": "Describe your meal. Intake does the math.",
-
-    "description": "Describe what you ate in your own words. Intake understands and calculates everything automatically.",
-    "imageAlt": "Daily food tracking screen"
+    "subtitle": "Describe what you ate. Intake does the math.",
+    "mockupTitle": "Today",
+    "mockupPlaceholder": "e.g. Chicken breast 200g, rice, broccoli",
+    "mockupChip": "383 kcal · P 36g F 5g C 45g"
   },
 
   "problem": {
     "title": {
-      "line1": "Food tracking",
-      "line2": "is broken"
+      "line1": "Calorie apps",
+      "line2": "get in the way"
     },
-
+    "description": "Most trackers force you to search databases, pick portions, and tap through endless screens. You end up counting the app instead of living your day.",
     "points": {
       "tooManyFields": {
         "title": "Too many fields",
         "description": "Search databases, select portions, adjust serving sizes"
       },
-
       "tooMuchCounting": {
         "title": "Too much counting",
         "description": "Manual math, endless tracking, constant calculations"
@@ -30,86 +28,65 @@
     }
   },
 
+  "solution": {
+    "title": "Intake is different.",
+    "description": "You describe your meal in plain words. AI parses it and fills in calories and macros. One field, one result. No hunting for foods or portions."
+  },
+
   "howItWorks": {
-    "title": {
-      "line1": "One field. One day.",
-      "line2": "One result."
-    },
-
-    "subtitle": "Just describe what you ate. AI does the rest.",
-    "youType": {
-      "label": "You type",
-      "example": "Chicken breast 200g and rice"
-    },
-
-    "systemCalculates": {
-      "label": "System calculates",
-      "caloriesExample": "383 kcal"
+    "title": "Describe → AI analyzes → See your day.",
+    "subtitle": "Three steps. No clutter.",
+    "steps": {
+      "describe": {
+        "title": "Describe food",
+        "description": "Type or say what you ate in your own words."
+      },
+      "analyze": {
+        "title": "AI analyzes",
+        "description": "Intake recognizes foods and counts calories and macros."
+      },
+      "see": {
+        "title": "See your day",
+        "description": "Your daily totals and progress at a glance."
+      }
     }
   },
 
-  "calendar": {
-    "title": {
-      "line1": "Your history.",
-      "line2": "At a glance."
-    },
-
-    "description": "See your daily intake on a simple calendar view. Review any past day instantly.",
-
-    "imageAlt": "Calendar view of daily intake"
+  "productPreview": {
+    "title": "Your day, at a glance.",
+    "description": "Calories and macros for today. Simple. No dashboard overload.",
+    "screenTitle": "Today"
   },
 
-  "dailyFocus": {
-    "title": {
-      "line1": "Built for",
-      "line2": "every day."
-    },
-
-    "description": "No dashboard overload. No complex charts. Just today's intake.",
-
-    "imageAlt": "Statistics view of daily intake"
-  },
-
-  "philosophy": {
-    "intake": {
-      "title": {
-        "line1": "See your",
-        "line2": "real intake."
+  "benefits": {
+    "title": "Why Intake",
+    "subtitle": "Built for clarity, not complexity.",
+    "items": {
+      "noManualLogging": {
+        "title": "No manual logging",
+        "description": "No searching for foods or tapping through portions. Just describe and go."
       },
-
-      "description": "Weekly and monthly averages. Compare to your goal. Simple macro breakdown.",
-
-      "imageAlt": "Fruits and vegetables"
-    },
-
-    "design": {
-      "title": "Calm by design.",
-      "points": {
-        "minimalInterface": {
-          "title": "Minimal interface",
-          "description": "Only what you need to track your day"
-        },
-
-        "noBloat": {
-          "title": "No feature bloat",
-          "description": "No gamification, no social features, no distractions"
-        },
-
-        "dataByDay": {
-          "title": "Data by day",
-          "description": "Everything organized by calendar date"
-        },
-
-        "clearFeedback": {
-          "title": "Clear feedback",
-          "description": "Simple comparison to your personal goal"
-        }
+      "aiParsing": {
+        "title": "AI parsing",
+        "description": "Natural language in, calories and macros out. One field does it all."
+      },
+      "dailyClarity": {
+        "title": "Daily clarity",
+        "description": "Focus on today. See your intake and how it compares to your goal."
+      },
+      "minimalUi": {
+        "title": "Minimal UI",
+        "description": "Only what you need. No bloat, no gamification, no noise."
       }
     }
   },
 
   "cta": {
     "title": "Start tracking today.",
-    "description": "Create your account in less than a minute."
+    "description": "Create your account in under a minute. No credit card."
+  },
+
+  "footer": {
+    "tagline": "Track food, not numbers."
   }
 }
