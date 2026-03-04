@@ -4,6 +4,40 @@
     "chartNoData": "No weight data for this period.",
     "averageWeight": "Average weight",
     "initialWeight": "Initial weight",
-    "targetWeight": "Target weight"
+    "targetWeight": "Target weight",
+    "insightClosestToTarget": "Closest to target",
+    "insightMostAboveTarget": "Most above target",
+    "caloriesByDay": "Calories by day",
+    "dailyGoal": "Daily goal",
+    "maintenanceCalories": "Maintenance",
+    "averagePerDay": "Average per day",
+    "kcalPerDay": "kcal/day goal",
+    "onTarget": "On target",
+    "kcalVsGoal": "kcal vs goal",
+    "averageMacros": "Average macros"
+  },
+  "errors": {
+    "statsLoad": {
+      "title": "Could not load stats",
+      "description": "Something went wrong. Please try again."
+    }
+  },
+  "macroDonut": {
+    "title": "{{period}} — average intake",
+    "chartDescription": "Protein: {{protein}}g, Fat: {{fat}}g, Carbs: {{carbs}}g",
+    "noData": "No macro data for this period."
+  },
+  "nav": {
+    "prev": "Previous period",
+    "next": "Next period"
+  },
+  "progress": {
+    "loggedDays": "{{logged}} of {{total}} days logged"
+  },
+  "streak": {
+    "daysInRow": "{{count}} days in a row",
+    "skippedInLast7": "{{count}} skipped in last 7 days",
+    "description0": "Log your intake to start a streak.",
+    "last7DaysLabel": "Last 7 days"
   }
 }

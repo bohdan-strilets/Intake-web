@@ -56,6 +56,13 @@
       "goToToday": "Перейти до сьогодні"
     }
   },
+  "streak": {
+    "daysInRow": "{{count}} дні поспіль",
+    "skippedInLast7": "{{count}} пропущено за останні 7 днів",
+    "description0": "Додавайте прийоми їжі, щоб почати серію.",
+    "last7DaysLabel": "Останні 7 днів"
+  },
+
   "pwa": {
     "installBannerTitle": "Додати на початковий екран",
     "offline": "Ви offline",

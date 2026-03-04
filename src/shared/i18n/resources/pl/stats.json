@@ -4,6 +4,40 @@
     "chartNoData": "Brak danych o wadze w tym okresie.",
     "averageWeight": "Średnia waga",
     "initialWeight": "Waga początkowa",
-    "targetWeight": "Waga docelowa"
+    "targetWeight": "Waga docelowa",
+    "insightClosestToTarget": "Najbliżej celu",
+    "insightMostAboveTarget": "Najbardziej powyżej celu",
+    "caloriesByDay": "Kalorie według dni",
+    "dailyGoal": "Cel dzienny",
+    "maintenanceCalories": "Utrzymanie",
+    "averagePerDay": "Średnia dzienna",
+    "kcalPerDay": "kcal/dzień cel",
+    "onTarget": "W normie",
+    "kcalVsGoal": "kcal vs cel",
+    "averageMacros": "Średnie makro"
+  },
+  "errors": {
+    "statsLoad": {
+      "title": "Nie udało się załadować statystyk",
+      "description": "Coś poszło nie tak. Spróbuj ponownie."
+    }
+  },
+  "macroDonut": {
+    "title": "{{period}} — średnie spożycie",
+    "chartDescription": "Białko: {{protein}}g, Tłuszcz: {{fat}}g, Węglowodany: {{carbs}}g",
+    "noData": "Brak danych o makro w tym okresie."
+  },
+  "nav": {
+    "prev": "Poprzedni okres",
+    "next": "Następny okres"
+  },
+  "progress": {
+    "loggedDays": "{{logged}} z {{total}} dni zapisanych"
+  },
+  "streak": {
+    "daysInRow": "{{count}} dni z rzędu",
+    "skippedInLast7": "{{count}} pominięto w ostatnich 7 dniach",
+    "description0": "Dodawaj posiłki, aby rozpocząć serię.",
+    "last7DaysLabel": "Ostatnie 7 dni"
   }
 }

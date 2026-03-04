@@ -56,6 +56,13 @@
       "goToToday": "Przejdź do dzisiaj"
     }
   },
+  "streak": {
+    "daysInRow": "{{count}} dni z rzędu",
+    "skippedInLast7": "{{count}} pominięto w ostatnich 7 dniach",
+    "description0": "Dodawaj posiłki, aby rozpocząć serię.",
+    "last7DaysLabel": "Ostatnie 7 dni"
+  },
+
   "pwa": {
     "installBannerTitle": "Dodaj do ekranu początkowego",
     "offline": "Jesteś offline",

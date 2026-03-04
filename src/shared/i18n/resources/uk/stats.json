@@ -4,6 +4,40 @@
     "chartNoData": "Немає даних про вагу за цей період.",
     "averageWeight": "Середня вага",
     "initialWeight": "Початкова вага",
-    "targetWeight": "Цільова вага"
+    "targetWeight": "Цільова вага",
+    "insightClosestToTarget": "Найближче до цілі",
+    "insightMostAboveTarget": "Найбільше вище цілі",
+    "caloriesByDay": "Калорії по днях",
+    "dailyGoal": "Денна ціль",
+    "maintenanceCalories": "Утримання",
+    "averagePerDay": "Середнє за день",
+    "kcalPerDay": "ккал/день ціль",
+    "onTarget": "У межах цілі",
+    "kcalVsGoal": "ккал відносно цілі",
+    "averageMacros": "Середні макроси"
+  },
+  "errors": {
+    "statsLoad": {
+      "title": "Не вдалося завантажити статистику",
+      "description": "Щось пішло не так. Спробуйте ще раз."
+    }
+  },
+  "macroDonut": {
+    "title": "{{period}} — середнє споживання",
+    "chartDescription": "Білки: {{protein}}г, Жири: {{fat}}г, Вуглеводи: {{carbs}}г",
+    "noData": "Немає даних про макроси за цей період."
+  },
+  "nav": {
+    "prev": "Попередній період",
+    "next": "Наступний період"
+  },
+  "progress": {
+    "loggedDays": "{{logged}} з {{total}} днів записано"
+  },
+  "streak": {
+    "daysInRow": "{{count}} дні поспіль",
+    "skippedInLast7": "{{count}} пропущено за останні 7 днів",
+    "description0": "Додавайте прийоми їжі, щоб почати серію.",
+    "last7DaysLabel": "Останні 7 днів"
   }
 }

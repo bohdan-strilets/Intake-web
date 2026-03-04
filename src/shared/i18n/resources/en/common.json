@@ -56,6 +56,13 @@
       "goToToday": "Go to Today"
     }
   },
+  "streak": {
+    "daysInRow": "{{count}} days in a row",
+    "skippedInLast7": "{{count}} skipped in last 7 days",
+    "description0": "Log your intake to start a streak.",
+    "last7DaysLabel": "Last 7 days"
+  },
+
   "pwa": {
     "installBannerTitle": "Add to Home Screen",
     "offline": "You're offline",
