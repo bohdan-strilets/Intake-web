@@ -7,21 +7,12 @@ import { Icon } from '@shared/ui/controls/Icon';
 import {
   card,
   description,
-  header,
   progressBlock,
-  title,
   weekGrid,
   weekdayLabel,
   flameWrap,
 } from './StreakCard.css';
 import type { StreakCardProps } from './StreakCard.types';
-
-const STREAK_DESCRIPTION_KEYS = [
-  'streak.description0',
-  'streak.description1',
-  'streak.description2',
-  'streak.description3',
-] as const;
 
 function getLast7DateStrings(): string[] {
   const dates: string[] = [];
@@ -42,18 +33,35 @@ export const StreakCard = ({ currentStreak, activityLast7Days }: StreakCardProps
 
   const last7Dates = useMemo(getLast7DateStrings, []);
 
-  const descriptionKey =
-    currentStreak <= 3 ? STREAK_DESCRIPTION_KEYS[currentStreak] : null;
+  const skippedInLast7 = useMemo(
+    () => activityLast7Days.filter((active) => !active).length,
+    [activityLast7Days],
+  );
+
+  const isZeroStreak = currentStreak === 0;
+  const daysInRowText = !isZeroStreak
+    ? t('streak.daysInRow', { count: currentStreak })
+    : null;
+  const skippedText =
+    skippedInLast7 > 0
+      ? t('streak.skippedInLast7', { count: skippedInLast7 })
+      : null;
 
   return (
     <div className={card}>
-      {descriptionKey == null && (
-        <div className={header}>
-          <span className={title}>{currentStreak}</span>
-        </div>
-      )}
-      {descriptionKey != null && (
-        <p className={description}>{t(descriptionKey)}</p>
+      {isZeroStreak ? (
+        <p className={description}>{t('streak.description0')}</p>
+      ) : (
+        <>
+          {daysInRowText != null && (
+            <p className={description}>{daysInRowText}</p>
+          )}
+          {skippedText != null && (
+            <p className={description} aria-live="polite">
+              {skippedText}
+            </p>
+          )}
+        </>
       )}
       <div className={progressBlock} role="img" aria-label={t('streak.last7DaysLabel')}>
         <div className={weekGrid}>

@@ -34,9 +34,10 @@
     "days": "days",
     "last7DaysLabel": "Activity in the last 7 days",
     "description0": "Log at least one meal today to start your streak.",
-    "description1": "One day down. Add food again tomorrow to keep it going.",
-    "description2": "Two days in a row. You're building a habit.",
-    "description3": "3 days in a row — keep it up!"
+    "daysInRow_one": "{{count}} day in a row",
+    "daysInRow_other": "{{count}} days in a row",
+    "skippedInLast7_one": "1 day missed in the last 7",
+    "skippedInLast7_other": "{{count}} days missed in the last 7"
   },
 
   "errors": {

@@ -34,9 +34,14 @@
     "days": "днів",
     "last7DaysLabel": "Активність за останні 7 днів",
     "description0": "Додай хоча б один прийом їжі сьогодні, щоб почати серію.",
-    "description1": "Один день готово. Додай їжу завтра, щоб продовжити.",
-    "description2": "Два дні поспіль. Ти формуєш звичку.",
-    "description3": "3 дні поспіль — так тримати!"
+    "daysInRow_one": "{{count}} день поспіль",
+    "daysInRow_few": "{{count}} дні поспіль",
+    "daysInRow_many": "{{count}} днів поспіль",
+    "daysInRow_other": "{{count}} днів поспіль",
+    "skippedInLast7_one": "1 день пропущено за останні 7 днів",
+    "skippedInLast7_few": "{{count}} дні пропущено за останні 7 днів",
+    "skippedInLast7_many": "{{count}} днів пропущено за останні 7 днів",
+    "skippedInLast7_other": "{{count}} днів пропущено за останні 7 днів"
   },
 
   "errors": {

@@ -34,9 +34,14 @@
     "days": "dni",
     "last7DaysLabel": "Aktywność w ostatnich 7 dniach",
     "description0": "Dodaj dziś przynajmniej jeden posiłek, aby rozpocząć serię.",
-    "description1": "Jeden dzień za tobą. Dodaj jedzenie jutro, aby kontynuować.",
-    "description2": "Dwa dni z rzędu. Budujesz nawyk.",
-    "description3": "3 dni z rzędu — tak trzymać!"
+    "daysInRow_one": "{{count}} dzień z rzędu",
+    "daysInRow_few": "{{count}} dni z rzędu",
+    "daysInRow_many": "{{count}} dni z rzędu",
+    "daysInRow_other": "{{count}} dni z rzędu",
+    "skippedInLast7_one": "1 dzień pominięty w ostatnich 7",
+    "skippedInLast7_few": "{{count}} dni pominięte w ostatnich 7",
+    "skippedInLast7_many": "{{count}} dni pominiętych w ostatnich 7",
+    "skippedInLast7_other": "{{count}} dni pominiętych w ostatnich 7"
   },
 
   "errors": {
