@@ -7,7 +7,6 @@ import { Loading } from '@widgets/stats/Loading';
 import { MacroDonutChart } from '@widgets/stats/MacroDonutChart';
 import { PeriodCard } from '@widgets/stats/PeriodCard';
 import { WeightBarChart } from '@widgets/stats/WeightBarChart';
-import { WeightCard } from '@widgets/stats/WeightCard';
 
 import { useStatsQuery } from '@features/stats/getStats';
 
@@ -91,7 +90,6 @@ export const StatsPage = () => {
         periodLabel={period === 'week' ? t('range.week') : t('range.month')}
       />
 
-      {stats.weight && <WeightCard weightDelta={stats.weight.delta} />}
 
       <CaloriesBarChart stats={stats} period={period} />
 
