@@ -6,9 +6,6 @@ export const AverageLine = ({
   variant = 'accentSoft',
 }: AverageLineProps) => {
   return (
-    <div
-      className={line({ variant })}
-      style={{ bottom: `${position}%` }}
-    />
+    <div className={line({ variant })} style={{ bottom: `${position}%` }} />
   );
 };

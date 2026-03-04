@@ -8,6 +8,7 @@ import { Paragraph } from '@shared/ui/typography/Paragraph';
 import { Title } from '@shared/ui/typography/Title';
 
 import { fadeUpInView } from '../motion';
+
 import {
   dayLabel,
   dayRow,
@@ -42,36 +43,54 @@ export const LandingProductPreview = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.5, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+              transition={{
+                duration: 0.5,
+                delay: 0.1,
+                ease: [0.22, 1, 0.36, 1],
+              }}
             >
-            <div className={frameHeader}>
-              <Paragraph size="sm" weight="bold">
-                {t('productPreview.screenTitle')}
-              </Paragraph>
-            </div>
-            <div className={frameContent}>
-              <div className={dayRow}>
-                <span className={dayLabel}>{tCommon('macroNutrients.calories')}</span>
-                <span className={dayValue}>1,847 / 2,100</span>
+              <div className={frameHeader}>
+                <Paragraph size="sm" weight="bold">
+                  {t('productPreview.screenTitle')}
+                </Paragraph>
               </div>
-              <div className={dayRow}>
-                <span className={dayLabel}>{tCommon('macroNutrients.protein')}</span>
-                <span className={dayValue}>92 {tCommon('units.gramsShort')}</span>
+              <div className={frameContent}>
+                <div className={dayRow}>
+                  <span className={dayLabel}>
+                    {tCommon('macroNutrients.calories')}
+                  </span>
+                  <span className={dayValue}>1,847 / 2,100</span>
+                </div>
+                <div className={dayRow}>
+                  <span className={dayLabel}>
+                    {tCommon('macroNutrients.protein')}
+                  </span>
+                  <span className={dayValue}>
+                    92 {tCommon('units.gramsShort')}
+                  </span>
+                </div>
+                <div className={dayRow}>
+                  <span className={dayLabel}>
+                    {tCommon('macroNutrients.fat')}
+                  </span>
+                  <span className={dayValue}>
+                    64 {tCommon('units.gramsShort')}
+                  </span>
+                </div>
+                <div className={dayRow}>
+                  <span className={dayLabel}>
+                    {tCommon('macroNutrients.carbs')}
+                  </span>
+                  <span className={dayValue}>
+                    198 {tCommon('units.gramsShort')}
+                  </span>
+                </div>
+                <div className={macroRow}>
+                  <div className={`${macroPill} ${pillProtein}`}>P</div>
+                  <div className={`${macroPill} ${pillFat}`}>F</div>
+                  <div className={`${macroPill} ${pillCarbs}`}>C</div>
+                </div>
               </div>
-              <div className={dayRow}>
-                <span className={dayLabel}>{tCommon('macroNutrients.fat')}</span>
-                <span className={dayValue}>64 {tCommon('units.gramsShort')}</span>
-              </div>
-              <div className={dayRow}>
-                <span className={dayLabel}>{tCommon('macroNutrients.carbs')}</span>
-                <span className={dayValue}>198 {tCommon('units.gramsShort')}</span>
-              </div>
-              <div className={macroRow}>
-                <div className={`${macroPill} ${pillProtein}`}>P</div>
-                <div className={`${macroPill} ${pillFat}`}>F</div>
-                <div className={`${macroPill} ${pillCarbs}`}>C</div>
-              </div>
-            </div>
             </motion.div>
           </Stack>
         </motion.div>

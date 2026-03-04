@@ -71,7 +71,9 @@ export type UseHoldToRecordReturn = {
 
 const MIC_DENIED_ERRORS = ['not-allowed', 'service-not-allowed'] as const;
 
-export function useHoldToRecord(options: UseHoldToRecordOptions): UseHoldToRecordReturn {
+export function useHoldToRecord(
+  options: UseHoldToRecordOptions,
+): UseHoldToRecordReturn {
   const { onResult, lang = '' } = options;
   const [isRecording, setIsRecording] = useState(false);
   const [permissionDenied, setPermissionDenied] = useState(false);
@@ -129,7 +131,11 @@ export function useHoldToRecord(options: UseHoldToRecordOptions): UseHoldToRecor
 
     rec.onerror = (event: SpeechRecognitionErrorEvent) => {
       if (!recognitionRef.current) return;
-      if (MIC_DENIED_ERRORS.includes(event.error as (typeof MIC_DENIED_ERRORS)[number])) {
+      if (
+        MIC_DENIED_ERRORS.includes(
+          event.error as (typeof MIC_DENIED_ERRORS)[number],
+        )
+      ) {
         setPermissionDenied(true);
       }
       recognitionRef.current = null;

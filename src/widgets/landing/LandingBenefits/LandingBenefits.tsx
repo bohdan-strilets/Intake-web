@@ -9,6 +9,7 @@ import { Paragraph } from '@shared/ui/typography/Paragraph';
 import { Title } from '@shared/ui/typography/Title';
 
 import { fadeUpInView, staggerContainer, staggerItem } from '../motion';
+
 import { card, cardIcon, grid } from './LandingBenefits.css';
 
 const BENEFITS = [
@@ -41,7 +42,11 @@ export const LandingBenefits = () => {
             viewport={staggerContainer.viewport}
           >
             {BENEFITS.map(({ key, icon }) => (
-              <motion.div key={key} className={card} variants={staggerItem.variants}>
+              <motion.div
+                key={key}
+                className={card}
+                variants={staggerItem.variants}
+              >
                 <div className={cardIcon}>
                   <Icon name={icon} color="accentPrimary" size="md" />
                 </div>

@@ -1,6 +1,6 @@
 import { useTranslation } from '@shared/i18n';
-import { Progress } from '@shared/ui/feedback/Progress';
 import { gradients } from '@shared/styles/gradients.css';
+import { Progress } from '@shared/ui/feedback/Progress';
 import { Card } from '@shared/ui/layout/Card';
 import { Divider } from '@shared/ui/layout/Divider';
 import { Inline } from '@shared/ui/layout/Inline';

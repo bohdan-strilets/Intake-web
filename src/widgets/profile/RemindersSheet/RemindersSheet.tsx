@@ -1,5 +1,6 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { useState } from 'react';
+import { toast } from 'sonner';
 
 import { useProfileDetailsQuery } from '@features/user/profileDetails';
 import { useRegisterPushSubscriptionMutation } from '@features/user/pushSubscription';
@@ -8,9 +9,8 @@ import { useUpdateRemindersMutation } from '@features/user/updateReminders';
 import { DEFAULT_REMINDERS } from '@entities/user';
 
 import { useTranslation } from '@shared/i18n';
-import { subscribeToPush } from '@shared/lib/push';
 import { notify } from '@shared/lib/notify';
-import { toast } from 'sonner';
+import { subscribeToPush } from '@shared/lib/push';
 import { fadeTransition, fadeUp } from '@shared/motion';
 import { Select } from '@shared/ui/controls/Select';
 import { Switch } from '@shared/ui/controls/Switch';
@@ -18,9 +18,12 @@ import { Inline } from '@shared/ui/layout/Inline';
 import { Stack } from '@shared/ui/layout/Stack';
 import { Paragraph } from '@shared/ui/typography/Paragraph';
 
-import { COMMON_TIMEZONES, REMINDER_HOUR_OPTIONS, REMINDER_MINUTE_OPTIONS } from './timezones';
-
 import type { RemindersSheetProps } from './RemindersSheet.types';
+import {
+  COMMON_TIMEZONES,
+  REMINDER_HOUR_OPTIONS,
+  REMINDER_MINUTE_OPTIONS,
+} from './timezones';
 
 async function safeUnsubscribe(): Promise<void> {
   try {
@@ -180,10 +183,7 @@ export const RemindersSheet = ({ reminders: initial }: RemindersSheetProps) => {
       current &&
       !COMMON_TIMEZONES.includes(current as (typeof COMMON_TIMEZONES)[number])
     ) {
-      return [
-        { value: current, label: current.replace(/_/g, ' ') },
-        ...base,
-      ];
+      return [{ value: current, label: current.replace(/_/g, ' ') }, ...base];
     }
     return base;
   })();
@@ -194,7 +194,7 @@ export const RemindersSheet = ({ reminders: initial }: RemindersSheetProps) => {
         ? reminders.time
         : reminders.time != null
           ? String(reminders.time)
-          : DEFAULT_REMINDERS.time ?? '20:00';
+          : (DEFAULT_REMINDERS.time ?? '20:00');
     const [h, m] = raw.split(':');
     const parsedHour = /^\d{1,2}$/.test(h) ? parseInt(h, 10) : 0;
     const hour = String(parsedHour % 24).padStart(2, '0');
@@ -208,7 +208,7 @@ export const RemindersSheet = ({ reminders: initial }: RemindersSheetProps) => {
       ? reminders.timezone
       : reminders.timezone != null
         ? String(reminders.timezone)
-        : DEFAULT_REMINDERS.timezone ?? 'Europe/Kyiv';
+        : (DEFAULT_REMINDERS.timezone ?? 'Europe/Kyiv');
 
   const stopPropagation = (e: React.MouseEvent | React.PointerEvent) => {
     e.stopPropagation();
@@ -259,10 +259,7 @@ export const RemindersSheet = ({ reminders: initial }: RemindersSheetProps) => {
                         value={timeHour}
                         options={REMINDER_HOUR_OPTIONS}
                         onChange={(hour) =>
-                          handleTimeChange(
-                            String(hour ?? timeHour),
-                            timeMinute,
-                          )
+                          handleTimeChange(String(hour ?? timeHour), timeMinute)
                         }
                         disabled={isPending}
                       />

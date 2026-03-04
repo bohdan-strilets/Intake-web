@@ -7,7 +7,11 @@ import { Card } from '@shared/ui/layout/Card';
 import { Stack } from '@shared/ui/layout/Stack';
 import { Paragraph } from '@shared/ui/typography/Paragraph';
 
-import { legendRow, legendSwatch } from '../CaloriesBarChart/CaloriesBarChart.css';
+import {
+  legendRow,
+  legendSwatch,
+} from '../CaloriesBarChart/CaloriesBarChart.css';
+
 import type { WeightBarChartProps } from './WeightBarChart.types';
 
 export const WeightBarChart = ({ stats, period }: WeightBarChartProps) => {
@@ -25,12 +29,17 @@ export const WeightBarChart = ({ stats, period }: WeightBarChartProps) => {
   const { hasWeight, maxWeight, initialWeight, targetWeight } = useMemo(() => {
     const withWeight = stats.days
       .map((d) => ({ date: d.date, weight: d.weight }))
-      .filter((d): d is { date: string; weight: number } => typeof d.weight === 'number')
+      .filter(
+        (d): d is { date: string; weight: number } =>
+          typeof d.weight === 'number',
+      )
       .sort((a, b) => a.date.localeCompare(b.date));
     const hasWeight = withWeight.length > 0;
-    const maxWeight = hasWeight ? Math.max(...withWeight.map((d) => d.weight)) : 1;
+    const maxWeight = hasWeight
+      ? Math.max(...withWeight.map((d) => d.weight))
+      : 1;
     // Backend sends initial, or fallback: weight from first day in period that has weight
-    const initialWeight = stats.weight?.initial ?? (withWeight[0]?.weight);
+    const initialWeight = stats.weight?.initial ?? withWeight[0]?.weight;
     const targetWeight = stats.weight?.target;
     return { hasWeight, maxWeight, initialWeight, targetWeight };
   }, [stats.days, stats.weight?.initial, stats.weight?.target]);
@@ -39,7 +48,10 @@ export const WeightBarChart = ({ stats, period }: WeightBarChartProps) => {
     .filter((v): v is number => typeof v === 'number')
     .reduce((acc, v) => Math.max(acc, v), maxWeight);
 
-  const getTooltipContent = (item: { value: number | null; label?: string }) => {
+  const getTooltipContent = (item: {
+    value: number | null;
+    label?: string;
+  }) => {
     const label = item.label ?? '';
     if (item.value === null) return label;
     return `${label} — ${item.value.toFixed(1)} ${tCommon('units.kilograms')}`;

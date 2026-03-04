@@ -29,7 +29,10 @@ export const CaloriesBarChart = ({ stats, period }: CaloriesBarChartProps) => {
 
   const hasAnyData = chartItems.some((item) => item.value !== null);
 
-  const getTooltipContent = (item: { value: number | null; label?: string }) => {
+  const getTooltipContent = (item: {
+    value: number | null;
+    label?: string;
+  }) => {
     const label = item.label ?? '';
     if (item.value === null) return label;
     return `${label} — ${item.value} ${tCommon('units.kcal')}`;

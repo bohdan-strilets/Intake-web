@@ -1,11 +1,10 @@
 import { useNavigate } from '@tanstack/react-router';
+import { clsx } from 'clsx';
 
 import { useTranslation } from '@shared/i18n';
 import { formatShortWeekday } from '@shared/lib/date';
 import { ROUTES } from '@shared/routes';
 import { Icon } from '@shared/ui/controls/Icon';
-
-import { clsx } from 'clsx';
 
 import {
   card,

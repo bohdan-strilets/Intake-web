@@ -1,7 +1,4 @@
-import type {
-  DayDetailsSortField,
-  DayDetailsSortOrder,
-} from '@entities/day';
+import type { DayDetailsSortField, DayDetailsSortOrder } from '@entities/day';
 import type { FoodEntity } from '@entities/food';
 
 export type FoodListProps = {

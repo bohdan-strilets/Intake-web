@@ -1,1 +1,1 @@
-export { useLogoutMutation } from './useMutatuin';
+export { useLogoutMutation } from './useMutation';

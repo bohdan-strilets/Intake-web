@@ -1,3 +1,4 @@
+import { AnimatePresence, motion } from 'framer-motion';
 import { cloneElement, isValidElement, useId } from 'react';
 import type { HTMLAttributes } from 'react';
 import {
@@ -7,7 +8,6 @@ import {
   Controller,
   type PathValue,
 } from 'react-hook-form';
-import { AnimatePresence, motion } from 'framer-motion';
 
 import { fadeTransition } from '@shared/motion';
 import { Stack } from '@shared/ui/layout/Stack';

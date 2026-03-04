@@ -1,8 +1,8 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 
-import { breakpoints } from '@shared/styles/tokens/breakpoints.css';
 import { fadeUpModal, screenTransition, sheetUp } from '@shared/motion';
+import { breakpoints } from '@shared/styles/tokens/breakpoints.css';
 
 import { Overlay } from '../Overlay';
 import { Portal } from '../Portal';
@@ -19,7 +19,9 @@ export const Modal = ({
   variant = 'sheet',
 }: ModalProps) => {
   const [isLaptopOrUp, setIsLaptopOrUp] = useState(
-    () => typeof window !== 'undefined' && window.matchMedia(`(min-width: ${LAPTOP_MIN_PX}px)`).matches,
+    () =>
+      typeof window !== 'undefined' &&
+      window.matchMedia(`(min-width: ${LAPTOP_MIN_PX}px)`).matches,
   );
 
   useEffect(() => {

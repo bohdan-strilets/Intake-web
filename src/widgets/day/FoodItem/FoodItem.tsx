@@ -65,14 +65,10 @@ export const FoodItem = ({
 
           <div className={secondRow}>
             <span className={weightSecondary}>
-              <AnimatedNumber value={weight} />
-              {' '}
-              {tCommon('units.gramsShort')}
+              <AnimatedNumber value={weight} /> {tCommon('units.gramsShort')}
             </span>
             <span className={caloriesEmphasis}>
-              <AnimatedNumber value={calories} />
-              {' '}
-              {tCommon('units.cal')}
+              <AnimatedNumber value={calories} /> {tCommon('units.cal')}
             </span>
           </div>
 
@@ -83,13 +79,11 @@ export const FoodItem = ({
               {tCommon('units.gramsShort')}
             </span>
             <span className={macroPillFat}>
-              {tCommon('macroNutrients.fat')}{' '}
-              <AnimatedNumber value={fat} />
+              {tCommon('macroNutrients.fat')} <AnimatedNumber value={fat} />
               {tCommon('units.gramsShort')}
             </span>
             <span className={macroPillCarbs}>
-              {tCommon('macroNutrients.carbs')}{' '}
-              <AnimatedNumber value={carbs} />
+              {tCommon('macroNutrients.carbs')} <AnimatedNumber value={carbs} />
               {tCommon('units.gramsShort')}
             </span>
           </div>

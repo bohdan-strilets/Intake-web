@@ -1,15 +1,15 @@
 import { Link, useNavigate } from '@tanstack/react-router';
 import { motion } from 'framer-motion';
 
+import { useTranslation } from '@shared/i18n';
 import { ROUTES } from '@shared/routes';
-import { Container } from '@shared/ui/layout/Container';
 import { Logo } from '@shared/ui/brand/Logo';
+import { Container } from '@shared/ui/layout/Container';
 import { Stack } from '@shared/ui/layout/Stack';
 import { Paragraph } from '@shared/ui/typography/Paragraph';
 
-import { useTranslation } from '@shared/i18n';
-
 import { fadeUpInView } from '../motion';
+
 import { links, root } from './LandingFooter.css';
 
 export const LandingFooter = () => {
@@ -28,7 +28,11 @@ export const LandingFooter = () => {
           <div className={links}>
             <Link
               to={ROUTES.auth.register}
-              style={{ color: 'inherit', textDecoration: 'none', fontWeight: 500 }}
+              style={{
+                color: 'inherit',
+                textDecoration: 'none',
+                fontWeight: 500,
+              }}
             >
               {tAuth('actions.createAccount')}
             </Link>

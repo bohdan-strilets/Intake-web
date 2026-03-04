@@ -17,7 +17,7 @@ const DEFAULT_THICKNESS = 16;
 /** Build conic-gradient stops from segments (percent of total). */
 function buildConicGradient(
   segments: DonutChartSegment[],
-  total: number
+  total: number,
 ): string {
   let acc = 0;
   const stops = segments.map(({ value, color }) => {
@@ -40,7 +40,7 @@ export function DonutChart({
     ? undefined
     : buildConicGradient(
         segments.filter((s) => s.value > 0),
-        total
+        total,
       );
 
   const holeSize = size - thickness * 2;
@@ -56,11 +56,7 @@ export function DonutChart({
     >
       <div
         className={isEmpty ? ringEmpty : ring}
-        style={
-          isEmpty
-            ? { borderWidth: thickness }
-            : undefined
-        }
+        style={isEmpty ? { borderWidth: thickness } : undefined}
         aria-hidden
       />
       <div

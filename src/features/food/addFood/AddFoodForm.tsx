@@ -1,8 +1,6 @@
-import { useCallback, useEffect, useRef } from 'react';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useCallback, useEffect, useRef } from 'react';
 import { useForm } from 'react-hook-form';
-
-import { PromptSuggestions } from '@widgets/day/PromptSuggestions';
 
 import { useTranslation } from '@shared/i18n';
 import { useOnline } from '@shared/lib/online';
@@ -25,7 +23,7 @@ import type { FormProps, FormValues } from './types';
 /** Затримка (мс) утримання перед стартом запису — запис не почнеться при короткому кліку */
 const VOICE_RECORD_START_DELAY_MS = 300;
 
-export const AddFoodForm = ({ date }: FormProps) => {
+export const AddFoodForm = ({ date, suggestionsSlot }: FormProps) => {
   const isOnline = useOnline();
   const { t: tFood, i18n } = useTranslation('food');
 
@@ -52,15 +50,18 @@ export const AddFoodForm = ({ date }: FormProps) => {
     [setValue],
   );
 
-  const { start, stop, isRecording, isSupported, permissionDenied } = useHoldToRecord({
-    onResult: handleVoiceResult,
-    lang: i18n.language,
-  });
+  const { start, stop, isRecording, isSupported, permissionDenied } =
+    useHoldToRecord({
+      onResult: handleVoiceResult,
+      lang: i18n.language,
+    });
 
   const voiceButtonRef = useRef<HTMLButtonElement>(null);
   const releasedRef = useRef(false);
   const removeReleaseListenersRef = useRef<(() => void) | null>(null);
-  const pendingStartTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const pendingStartTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(
+    null,
+  );
   const permissionDeniedRef = useRef(permissionDenied);
   permissionDeniedRef.current = permissionDenied;
 
@@ -229,7 +230,7 @@ export const AddFoodForm = ({ date }: FormProps) => {
           )}
         </Stack>
 
-        <PromptSuggestions onSelect={handleSelectPrompt} />
+        {suggestionsSlot?.(handleSelectPrompt)}
       </Stack>
 
       {errors.root && <FormError>{errors.root.message}</FormError>}

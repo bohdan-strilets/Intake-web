@@ -1,7 +1,7 @@
 import clsx from 'clsx';
-import { createPortal } from 'react-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useCallback, useEffect, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
 
 import { useKeyboardNavigation } from '@shared/hooks/keyboardNavigation';
 import { useTranslation } from '@shared/i18n';
@@ -34,7 +34,11 @@ export const Select = <T extends string | number | null>({
   className,
 }: SelectProps<T>) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [listRect, setListRect] = useState<{ top: number; left: number; width: number } | null>(null);
+  const [listRect, setListRect] = useState<{
+    top: number;
+    left: number;
+    width: number;
+  } | null>(null);
   const rootRef = useRef<HTMLDivElement>(null);
   const triggerRef = useRef<HTMLButtonElement>(null);
   const listRef = useRef<HTMLUListElement>(null);
@@ -197,7 +201,9 @@ export const Select = <T extends string | number | null>({
                           </span>
                         )}
                       </span>
-                      {isSelected && <Icon name="check" color="accentPrimary" />}
+                      {isSelected && (
+                        <Icon name="check" color="accentPrimary" />
+                      )}
                     </button>
                   </li>
                 );

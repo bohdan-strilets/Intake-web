@@ -1,6 +1,6 @@
 import { Header } from '@widgets/profile/Header';
 
-import { EditPasswordForm } from '@features/user/eidtPassword';
+import { EditPasswordForm } from '@features/user/editPassword';
 
 import { useTranslation } from '@shared/i18n';
 import { Stack } from '@shared/ui/layout/Stack';

@@ -1,6 +1,6 @@
 import { clsx } from 'clsx';
-import { forwardRef } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
+import { forwardRef } from 'react';
 
 import { motionEase, motionDurations, tapScale } from '@shared/motion';
 
@@ -9,7 +9,10 @@ import { Icon } from '../Icon';
 import { iconPulse, root } from './IconButton.css';
 import type { IconButtonProps } from './IconButton.types';
 
-const iconTransition = { duration: motionDurations.fast, ease: motionEase.smooth };
+const iconTransition = {
+  duration: motionDurations.fast,
+  ease: motionEase.smooth,
+};
 
 export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
   (
@@ -42,7 +45,11 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
             animate={{ opacity: 1, scale: 1 }}
             transition={iconTransition}
             className={pulse ? iconPulse : undefined}
-            style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
           >
             <Icon name={icon} color={iconColor} size={iconSize} />
           </motion.span>

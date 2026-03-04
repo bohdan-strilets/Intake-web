@@ -1,5 +1,5 @@
-import { useMemo, useRef, useState } from 'react';
 import { useNavigate, useParams } from '@tanstack/react-router';
+import { useMemo, useRef, useState } from 'react';
 
 import { dayRoute } from '@app/router/routes/protected';
 
@@ -8,10 +8,11 @@ import { Error } from '@widgets/day/Error';
 import { FoodList } from '@widgets/day/FoodList';
 import { Header } from '@widgets/day/Header';
 import { Loading } from '@widgets/day/Loading';
+import { PromptSuggestions } from '@widgets/day/PromptSuggestions';
 import { Totals } from '@widgets/day/Totals';
 import { Weight } from '@widgets/day/Weight';
 
-import { useDayDetailsQury } from '@features/day/dayDetails';
+import { useDayDetailsQuery } from '@features/day/dayDetails';
 import { AddFoodForm } from '@features/food/addFood';
 
 import type { DayDetailsResponse } from '@entities/day';
@@ -40,8 +41,12 @@ export const DayPage = () => {
   const { date } = useParams({ from: dayRoute.id });
   const resolvedDate = resolveDayParam(date);
 
-  const [sortBy, setSortBy] = useState<DayDetailsSortField | undefined>(undefined);
-  const [sortOrder, setSortOrder] = useState<DayDetailsSortOrder | undefined>(undefined);
+  const [sortBy, setSortBy] = useState<DayDetailsSortField | undefined>(
+    undefined,
+  );
+  const [sortOrder, setSortOrder] = useState<DayDetailsSortOrder | undefined>(
+    undefined,
+  );
   const [search, setSearch] = useState('');
 
   const dayDetailsParams: DayDetailsQueryParams | undefined = useMemo(() => {
@@ -67,10 +72,8 @@ export const DayPage = () => {
       }),
   });
 
-  const { data, isPending, isError, isFetching, error, refetch } = useDayDetailsQury(
-    resolvedDate,
-    dayDetailsParams,
-  );
+  const { data, isPending, isError, isFetching, error, refetch } =
+    useDayDetailsQuery(resolvedDate, dayDetailsParams);
 
   const lastDataRef = useRef<Record<string, DayDetailsResponse>>({});
   if (data) lastDataRef.current[resolvedDate] = data;
@@ -82,7 +85,8 @@ export const DayPage = () => {
   if (!displayData) return <Loading />;
 
   const dayDetails = displayData;
-  const { day, food, targetCalories, targetProtein, targetFat, targetCarbs } = dayDetails;
+  const { day, food, targetCalories, targetProtein, targetFat, targetCarbs } =
+    dayDetails;
   const totals = day.totals;
 
   return (
@@ -122,7 +126,12 @@ export const DayPage = () => {
       <DailyStats consumed={totals.calories} target={targetCalories} />
 
       <Card shadow="sm">
-        <AddFoodForm date={day.date} />
+        <AddFoodForm
+          date={day.date}
+          suggestionsSlot={(onSelect) => (
+            <PromptSuggestions onSelect={onSelect} />
+          )}
+        />
       </Card>
 
       <FoodList

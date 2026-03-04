@@ -15,7 +15,11 @@ import {
 } from './Totals.css';
 import type { TotalsProps } from './Totals.types';
 
-const formatMacroValue = (actual: number, target: number | undefined, unit: string): string => {
+const formatMacroValue = (
+  actual: number,
+  target: number | undefined,
+  unit: string,
+): string => {
   if (target != null && target > 0) {
     return `${actual.toFixed(1)} / ${target} ${unit}`;
   }

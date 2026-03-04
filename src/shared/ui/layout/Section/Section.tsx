@@ -11,10 +11,7 @@ export const Section = ({
   ...rest
 }: SectionProps) => {
   return (
-    <section
-      {...rest}
-      className={clsx(root({ tone, padding }), className)}
-    >
+    <section {...rest} className={clsx(root({ tone, padding }), className)}>
       {children}
     </section>
   );

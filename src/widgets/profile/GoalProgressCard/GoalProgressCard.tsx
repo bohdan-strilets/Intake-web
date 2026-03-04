@@ -70,9 +70,7 @@ export const GoalProgressCard = () => {
   }
 
   const roundedPercent =
-    progress.progressPercent != null
-      ? Math.round(progress.progressPercent)
-      : 0;
+    progress.progressPercent != null ? Math.round(progress.progressPercent) : 0;
   const isGoalAchieved = progress.estimatedWeeks === 0;
 
   return (

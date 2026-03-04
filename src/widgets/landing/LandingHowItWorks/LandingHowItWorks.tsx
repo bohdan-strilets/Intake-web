@@ -8,6 +8,7 @@ import { Paragraph } from '@shared/ui/typography/Paragraph';
 import { Title } from '@shared/ui/typography/Title';
 
 import { fadeUpInView, staggerContainer, staggerItem } from '../motion';
+
 import { step, stepNumber, stepsRow } from './LandingHowItWorks.css';
 
 const STEPS = [
@@ -39,9 +40,15 @@ export const LandingHowItWorks = () => {
             viewport={staggerContainer.viewport}
           >
             {STEPS.map(({ key, number }) => (
-              <motion.div key={key} className={step} variants={staggerItem.variants}>
+              <motion.div
+                key={key}
+                className={step}
+                variants={staggerItem.variants}
+              >
                 <div className={stepNumber}>{number}</div>
-                <Paragraph weight="bold">{t(`howItWorks.steps.${key}.title`)}</Paragraph>
+                <Paragraph weight="bold">
+                  {t(`howItWorks.steps.${key}.title`)}
+                </Paragraph>
                 <Paragraph tone="muted" size="sm">
                   {t(`howItWorks.steps.${key}.description`)}
                 </Paragraph>

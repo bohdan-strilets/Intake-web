@@ -1,5 +1,5 @@
-import type { ReactNode } from 'react';
 import type { RecipeVariants } from '@vanilla-extract/recipes';
+import type { ReactNode } from 'react';
 
 import type { trigger } from './Select.css';
 

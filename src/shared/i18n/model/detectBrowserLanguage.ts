@@ -1,8 +1,9 @@
-import type { Language } from '@entities/user';
+import type { Language } from '@shared/types';
 
 import { isLanguage } from './isLanguage';
 
-const toBaseLang = (locale: string): string => locale.split('-')[0].toLowerCase();
+const toBaseLang = (locale: string): string =>
+  locale.split('-')[0].toLowerCase();
 
 /**
  * Detects user's preferred language from device/browser.

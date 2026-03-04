@@ -2,14 +2,13 @@ import { Link } from '@tanstack/react-router';
 
 import { AppContainer } from '@app/layouts/AppContainer';
 
+import { useTranslation } from '@shared/i18n';
 import { ROUTES } from '@shared/routes';
 import { Logo } from '@shared/ui/brand/Logo';
 import { Inline } from '@shared/ui/layout/Inline';
 import { Spacer } from '@shared/ui/layout/Spacer';
 import { Stack } from '@shared/ui/layout/Stack';
 import { Paragraph } from '@shared/ui/typography/Paragraph';
-
-import { useTranslation } from '@shared/i18n';
 
 import type { PublicShellProps } from './PublicShell.types';
 

@@ -28,7 +28,10 @@ function getLast7DateStrings(): string[] {
   return dates;
 }
 
-export const StreakCard = ({ currentStreak, activityLast7Days }: StreakCardProps) => {
+export const StreakCard = ({
+  currentStreak,
+  activityLast7Days,
+}: StreakCardProps) => {
   const { t } = useTranslation('stats');
 
   const last7Dates = useMemo(getLast7DateStrings, []);
@@ -63,11 +66,17 @@ export const StreakCard = ({ currentStreak, activityLast7Days }: StreakCardProps
           )}
         </>
       )}
-      <div className={progressBlock} role="img" aria-label={t('streak.last7DaysLabel')}>
+      <div
+        className={progressBlock}
+        role="img"
+        aria-label={t('streak.last7DaysLabel')}
+      >
         <div className={weekGrid}>
           {last7Dates.map((dateStr) => (
             <div key={dateStr} className={flameWrap}>
-              <span className={weekdayLabel}>{formatShortWeekday(dateStr)}</span>
+              <span className={weekdayLabel}>
+                {formatShortWeekday(dateStr)}
+              </span>
             </div>
           ))}
         </div>

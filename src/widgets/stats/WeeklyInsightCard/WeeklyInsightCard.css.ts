@@ -2,7 +2,6 @@ import { style } from '@vanilla-extract/css';
 
 import { vars } from '@shared/styles/contract';
 
-
 export const card = style({
   background: vars.colors.backgroundSurface,
   borderRadius: vars.radius.lg,

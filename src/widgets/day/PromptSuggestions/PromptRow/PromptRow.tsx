@@ -1,3 +1,4 @@
+import { clsx } from 'clsx';
 import { memo } from 'react';
 
 import { useTranslation } from '@shared/i18n';
@@ -6,8 +7,6 @@ import { Card } from '@shared/ui/layout/Card';
 import { Inline } from '@shared/ui/layout/Inline';
 import { Dropdown, type DropdownItem } from '@shared/ui/overlay/Dropdown';
 import { Paragraph } from '@shared/ui/typography/Paragraph';
-
-import { clsx } from 'clsx';
 
 import { promptText, selectButton, starButton } from './PromptRow.css';
 import type { PromptRowProps } from './PromptRow.types';
@@ -57,7 +56,9 @@ export const PromptRow = memo(function PromptRow({
             onClick={handleToggle}
             className={starButton}
             aria-pressed={isFavorite}
-            aria-label={isFavorite ? 'Remove from favorites' : 'Add to favorites'}
+            aria-label={
+              isFavorite ? 'Remove from favorites' : 'Add to favorites'
+            }
           >
             <Icon
               name="star"

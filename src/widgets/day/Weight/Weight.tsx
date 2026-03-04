@@ -4,6 +4,8 @@ import { useState } from 'react';
 import { EditWeightForm } from '@features/day/editWeight';
 import { useGoalProgressQuery } from '@features/user/goalProgress';
 
+import type { GoalProgressResponse } from '@entities/user/types';
+
 import { useTranslation, type TFunction } from '@shared/i18n';
 import { useModal } from '@shared/lib/modal';
 import { collapse } from '@shared/motion';
@@ -14,8 +16,6 @@ import { Inline } from '@shared/ui/layout/Inline';
 import { Stack } from '@shared/ui/layout/Stack';
 import { AnimatedNumber } from '@shared/ui/motion/AnimatedNumber';
 import { Paragraph } from '@shared/ui/typography/Paragraph';
-
-import type { GoalProgressResponse } from '@entities/user/types';
 
 import { progressFill, progressTrack } from './Weight.css';
 import type { WeightProps } from './Weight.types';
@@ -61,7 +61,12 @@ function ExpandedView({
   const showTempoBlock = hasMeaningfulTempo;
 
   return (
-    <Stack gap="lg" as="section" role="region" aria-label={tProfile('sections.goalProgress')}>
+    <Stack
+      gap="lg"
+      as="section"
+      role="region"
+      aria-label={tProfile('sections.goalProgress')}
+    >
       <Stack gap="md">
         <Inline justify="between">
           <Paragraph size="xs" tone="muted">
@@ -130,9 +135,9 @@ export const Weight = ({ dayId, date, weight }: WeightProps) => {
   const isWeightEmpty = weight == null;
   const hasValidGoalProgress = Boolean(
     goalProgress &&
-      !isGoalProgressPending &&
-      goalProgress.targetWeight != null &&
-      goalProgress.targetWeight > 0,
+    !isGoalProgressPending &&
+    goalProgress.targetWeight != null &&
+    goalProgress.targetWeight > 0,
   );
 
   const { t: tDay } = useTranslation('day');
@@ -228,12 +233,11 @@ export const Weight = ({ dayId, date, weight }: WeightProps) => {
             >
               <Stack gap="md">
                 <Inline justify="between" align="center">
-                  <Paragraph weight="bold">
-                    {tDay('entities.weight')}
-                  </Paragraph>
+                  <Paragraph weight="bold">{tDay('entities.weight')}</Paragraph>
                   <Inline align="center" gap="md">
                     <Paragraph size="xl" weight="bold">
-                      <AnimatedNumber value={weight!} /> {tCommon('units.kilograms')}
+                      <AnimatedNumber value={weight!} />{' '}
+                      {tCommon('units.kilograms')}
                     </Paragraph>
                     <Button variant="ghost" size="sm" onClick={handleEdit}>
                       <Icon name="edit" size="sm" />
@@ -241,7 +245,7 @@ export const Weight = ({ dayId, date, weight }: WeightProps) => {
                   </Inline>
                 </Inline>
 
-                {(hasValidGoalProgress && goalProgress) ? (
+                {hasValidGoalProgress && goalProgress ? (
                   <>
                     <Button
                       variant="ghostMuted"

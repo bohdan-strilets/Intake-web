@@ -1,5 +1,5 @@
-import { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
+import { useState } from 'react';
 
 import { FoodItem } from '@widgets/day/FoodItem';
 
@@ -15,15 +15,20 @@ import { fade } from '@shared/motion';
 import { gradients } from '@shared/styles/gradients.css';
 import { Icon } from '@shared/ui/controls/Icon';
 import { IconButton } from '@shared/ui/controls/IconButton';
-import { TextInput } from '@shared/ui/controls/TextInput';
 import { Select } from '@shared/ui/controls/Select';
+import { TextInput } from '@shared/ui/controls/TextInput';
 import { Card } from '@shared/ui/layout/Card';
 import { Inline } from '@shared/ui/layout/Inline';
 import { Stack } from '@shared/ui/layout/Stack';
 import { Paragraph } from '@shared/ui/typography/Paragraph';
 import { Title } from '@shared/ui/typography/Title';
 
-import { filterBlock, filterSortLayout, sortRow, sortSelectWrap } from './FoodList.css';
+import {
+  filterBlock,
+  filterSortLayout,
+  sortRow,
+  sortSelectWrap,
+} from './FoodList.css';
 import type { FoodListProps } from './FoodList.types';
 
 const filtersTransition = { duration: 0.25, ease: 'easeInOut' as const };
@@ -45,7 +50,10 @@ export const FoodList = ({
   const isEmpty = foods?.length === 0;
   const showFilterButton = !isEmpty;
 
-  const sortByOptions: Array<{ value: DayDetailsSortField | null; label: string }> = [
+  const sortByOptions: Array<{
+    value: DayDetailsSortField | null;
+    label: string;
+  }> = [
     { value: null, label: tDay('sort.label') },
     ...DAY_DETAILS_SORT_FIELDS.map((field) => ({
       value: field,
@@ -53,7 +61,10 @@ export const FoodList = ({
     })),
   ];
 
-  const sortOrderOptions: Array<{ value: DayDetailsSortOrder | null; label: string }> = [
+  const sortOrderOptions: Array<{
+    value: DayDetailsSortOrder | null;
+    label: string;
+  }> = [
     { value: null, label: tDay('sort.order') },
     ...DAY_DETAILS_SORT_ORDERS.map((order) => ({
       value: order,
@@ -107,18 +118,34 @@ export const FoodList = ({
                 <div className={sortRow}>
                   <div className={sortSelectWrap}>
                     <Select<DayDetailsSortField | null>
-                      placeholder={<Icon name="arrowDownWideNarrow" color="muted" size="sm" />}
+                      placeholder={
+                        <Icon
+                          name="arrowDownWideNarrow"
+                          color="muted"
+                          size="sm"
+                        />
+                      }
                       value={sortBy ?? null}
-                      onChange={(v) => onSortByChange(v === null ? undefined : v)}
+                      onChange={(v) =>
+                        onSortByChange(v === null ? undefined : v)
+                      }
                       options={sortByOptions}
                       size="sm"
                     />
                   </div>
                   <div className={sortSelectWrap}>
                     <Select<DayDetailsSortOrder | null>
-                      placeholder={<Icon name="arrowDownWideNarrow" color="muted" size="sm" />}
+                      placeholder={
+                        <Icon
+                          name="arrowDownWideNarrow"
+                          color="muted"
+                          size="sm"
+                        />
+                      }
                       value={sortOrder ?? null}
-                      onChange={(v) => onSortOrderChange(v === null ? undefined : v)}
+                      onChange={(v) =>
+                        onSortOrderChange(v === null ? undefined : v)
+                      }
                       options={sortOrderOptions}
                       size="sm"
                     />

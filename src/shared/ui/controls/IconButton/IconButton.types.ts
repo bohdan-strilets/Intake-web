@@ -1,5 +1,5 @@
-import type { HTMLMotionProps } from 'framer-motion';
 import type { RecipeVariants } from '@vanilla-extract/recipes';
+import type { HTMLMotionProps } from 'framer-motion';
 
 import type { IconName, IconProps } from '../Icon/Icon.types';
 

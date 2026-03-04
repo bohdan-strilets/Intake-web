@@ -1,6 +1,5 @@
 import { toast } from 'sonner';
 
-import { useResendVerificationEmailMutation } from '@features/auth/resendVerificationEmail';
 import { ApiError, ERROR_CODES, errorKeyMap } from '@shared/api/error';
 import { useTranslation } from '@shared/i18n';
 import { EmailNotVerifiedState } from '@shared/ui/feedback/EmailNotVerifiedState';
@@ -13,6 +12,8 @@ export const QueryErrorWithVerification = ({
   error,
   title,
   description,
+  onResend: onResendProp,
+  isResendPending = false,
 }: QueryErrorWithVerificationProps) => {
   const { t: tAuth } = useTranslation('auth');
   const { t: tCommon } = useTranslation('common');
@@ -20,16 +21,17 @@ export const QueryErrorWithVerification = ({
   const isEmailNotVerified =
     error instanceof ApiError && error.code === ERROR_CODES.EMAIL_NOT_VERIFIED;
 
-  const { mutateAsync: resendVerification, isPending: isResendPending } =
-    useResendVerificationEmailMutation();
-
   const handleResend = async () => {
+    if (!onResendProp) return;
     try {
-      await resendVerification();
+      await onResendProp();
       toast.success(tAuth('feedback.verificationEmailResent'));
       refetch();
     } catch (err) {
-      if (err instanceof ApiError && err.code === ERROR_CODES.VERIFICATION_EMAIL_SEND_FAILED) {
+      if (
+        err instanceof ApiError &&
+        err.code === ERROR_CODES.VERIFICATION_EMAIL_SEND_FAILED
+      ) {
         toast.error(tAuth(errorKeyMap.VERIFICATION_EMAIL_SEND_FAILED));
       } else {
         toast.error(tCommon('errors.server'));
@@ -43,7 +45,7 @@ export const QueryErrorWithVerification = ({
         title={tAuth('verification.emailNotVerifiedTitle')}
         description={tAuth('verification.emailNotVerifiedDescription')}
         resendLabel={tAuth('verification.resendButton')}
-        onResend={handleResend}
+        onResend={onResendProp ? handleResend : undefined}
         isResendPending={isResendPending}
         tryAgainLabel={tCommon('actions.tryAgain')}
         onTryAgain={refetch}

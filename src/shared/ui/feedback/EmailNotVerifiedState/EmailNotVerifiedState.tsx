@@ -43,16 +43,18 @@ export const EmailNotVerifiedState = ({
       <Spacer size="lg" />
 
       <Stack gap="xs">
-        <Button
-          variant="primary"
-          size="sm"
-          onClick={onResend}
-          loading={isResendPending}
-          disabled={isResendPending}
-          fullWidth
-        >
-          {resendLabel}
-        </Button>
+        {onResend != null && (
+          <Button
+            variant="primary"
+            size="sm"
+            onClick={onResend}
+            loading={isResendPending}
+            disabled={isResendPending}
+            fullWidth
+          >
+            {resendLabel}
+          </Button>
+        )}
         {tryAgainLabel && onTryAgain && (
           <Button variant="secondary" size="sm" onClick={onTryAgain} fullWidth>
             {tryAgainLabel}

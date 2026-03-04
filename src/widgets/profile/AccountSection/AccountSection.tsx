@@ -6,7 +6,11 @@ import { SectionTitle } from '../SectionTitle';
 
 import type { AccountSectionProps } from './AccountSection.types';
 
-export const AccountSection = ({ name, email, emailVerified }: AccountSectionProps) => {
+export const AccountSection = ({
+  name,
+  email,
+  emailVerified,
+}: AccountSectionProps) => {
   const { t: tUser } = useTranslation('user');
   const { t: tProfile } = useTranslation('profile');
 
@@ -19,7 +23,7 @@ export const AccountSection = ({ name, email, emailVerified }: AccountSectionPro
       <InfoRow
         label={tProfile('account.emailStatus')}
         value={
-          Boolean(emailVerified)
+          emailVerified
             ? tProfile('account.emailVerified')
             : tProfile('account.emailNotVerified')
         }

@@ -18,31 +18,35 @@ export const LandingProblem = () => {
         <motion.div {...fadeUpInView}>
           <Stack gap="2xl" align="center">
             <Title level={2} size="xl" align="center">
-            {t('problem.title.line1')}
-            <br />
-            {t('problem.title.line2')}
-          </Title>
-          <Paragraph align="center" tone="muted" size="lg">
-            {t('problem.description')}
-          </Paragraph>
-          <Stack gap="xl" align="stretch" style={{ width: '100%', maxWidth: 360 }}>
-            <Stack gap="xs">
-              <Paragraph weight="bold">
-                {t('problem.points.tooManyFields.title')}
-              </Paragraph>
-              <Paragraph tone="muted" size="sm">
-                {t('problem.points.tooManyFields.description')}
-              </Paragraph>
+              {t('problem.title.line1')}
+              <br />
+              {t('problem.title.line2')}
+            </Title>
+            <Paragraph align="center" tone="muted" size="lg">
+              {t('problem.description')}
+            </Paragraph>
+            <Stack
+              gap="xl"
+              align="stretch"
+              style={{ width: '100%', maxWidth: 360 }}
+            >
+              <Stack gap="xs">
+                <Paragraph weight="bold">
+                  {t('problem.points.tooManyFields.title')}
+                </Paragraph>
+                <Paragraph tone="muted" size="sm">
+                  {t('problem.points.tooManyFields.description')}
+                </Paragraph>
+              </Stack>
+              <Stack gap="xs">
+                <Paragraph weight="bold">
+                  {t('problem.points.tooMuchCounting.title')}
+                </Paragraph>
+                <Paragraph tone="muted" size="sm">
+                  {t('problem.points.tooMuchCounting.description')}
+                </Paragraph>
+              </Stack>
             </Stack>
-            <Stack gap="xs">
-              <Paragraph weight="bold">
-                {t('problem.points.tooMuchCounting.title')}
-              </Paragraph>
-              <Paragraph tone="muted" size="sm">
-                {t('problem.points.tooMuchCounting.description')}
-              </Paragraph>
-            </Stack>
-          </Stack>
           </Stack>
         </motion.div>
       </Container>

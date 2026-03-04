@@ -1,5 +1,5 @@
-import { useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
+import { useRef, useState } from 'react';
 
 import { useClickOutside } from '@shared/hooks/clickOutside';
 import { useTranslation } from '@shared/i18n';
@@ -104,7 +104,9 @@ export const DatePicker = ({
                     key={index}
                     variant="ghost"
                     disabled={!cell.dayNumber}
-                    className={cellBtn({ selected: isSelected(cell.dayNumber) })}
+                    className={cellBtn({
+                      selected: isSelected(cell.dayNumber),
+                    })}
                     onClick={() => cell.dayNumber && selectDay(cell.dayNumber)}
                   >
                     {cell.dayNumber}

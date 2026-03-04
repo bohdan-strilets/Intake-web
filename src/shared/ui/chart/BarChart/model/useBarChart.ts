@@ -16,13 +16,7 @@ export const useBarChart = ({
   fewerLabels = false,
 }: UseBarChartParams) => {
   return useMemo(() => {
-    const rawMax = Math.max(
-      goal,
-      average ?? 0,
-      secondaryLine ?? 0,
-      dataMax,
-      1,
-    );
+    const rawMax = Math.max(goal, average ?? 0, secondaryLine ?? 0, dataMax, 1);
 
     // Use 6 steps so scale labels go every 1000 (e.g. 0, 1000, 2000, …) instead of every 2000
     const step = calculateStep(rawMax, 6);

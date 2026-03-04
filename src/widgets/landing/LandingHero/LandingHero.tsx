@@ -1,6 +1,7 @@
 import { useNavigate } from '@tanstack/react-router';
 import { motion } from 'framer-motion';
 
+import { useTranslation } from '@shared/i18n';
 import { ROUTES } from '@shared/routes';
 import { Button } from '@shared/ui/controls/Button';
 import { Container } from '@shared/ui/layout/Container';
@@ -9,9 +10,8 @@ import { Stack } from '@shared/ui/layout/Stack';
 import { Paragraph } from '@shared/ui/typography/Paragraph';
 import { Title } from '@shared/ui/typography/Title';
 
-import { useTranslation } from '@shared/i18n';
-
 import { heroTransition } from '../motion';
+
 import {
   content,
   gradientOrb,
@@ -39,12 +39,7 @@ export const LandingHero = () => {
         <Stack gap="xl" align="center">
           <Stack gap="md" align="center">
             <motion.div {...heroTransition(0)}>
-              <Title
-                level={1}
-                size="2xl"
-                align="center"
-                className={headline}
-              >
+              <Title level={1} size="2xl" align="center" className={headline}>
                 {tLanding('hero.title.line1')}
                 <br />
                 {tLanding('hero.title.line2')}
@@ -79,7 +74,11 @@ export const LandingHero = () => {
             </Stack>
           </motion.div>
 
-          <motion.div {...heroTransition(0.28)} style={{ width: '100%' }} className={mockup}>
+          <motion.div
+            {...heroTransition(0.28)}
+            style={{ width: '100%' }}
+            className={mockup}
+          >
             <div className={mockupBar}>
               <Paragraph size="xs" tone="muted">
                 {tLanding('hero.mockupTitle')}
@@ -94,9 +93,7 @@ export const LandingHero = () => {
                 tabIndex={-1}
                 aria-hidden
               />
-              <span className={mockupChip}>
-                {tLanding('hero.mockupChip')}
-              </span>
+              <span className={mockupChip}>{tLanding('hero.mockupChip')}</span>
             </div>
           </motion.div>
         </Stack>

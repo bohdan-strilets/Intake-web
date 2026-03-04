@@ -65,7 +65,10 @@ export const BarChart = ({
 
   if (!items.length) return null;
 
-  const handleTooltipShow = (e: React.MouseEvent<HTMLElement>, content: string) => {
+  const handleTooltipShow = (
+    e: React.MouseEvent<HTMLElement>,
+    content: string,
+  ) => {
     if (tooltipTimeoutRef.current) clearTimeout(tooltipTimeoutRef.current);
     const rect = e.currentTarget.getBoundingClientRect();
     const x = rect.left + rect.width / 2;
@@ -133,11 +136,7 @@ export const BarChart = ({
               // Clamp so min (0) and max labels stay visible and not clipped
               const clampedPosition = Math.min(98, Math.max(2, position));
               return (
-                <Scale
-                  key={value}
-                  value={value}
-                  position={clampedPosition}
-                />
+                <Scale key={value} value={value} position={clampedPosition} />
               );
             })}
           </div>

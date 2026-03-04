@@ -1,18 +1,18 @@
 import { useCallback, useMemo, useState } from 'react';
 
 import { CaloriesBarChart } from '@widgets/stats/CaloriesBarChart';
-import { WeeklyInsightCard } from '@widgets/stats/WeeklyInsightCard';
 import { CaloriesCard } from '@widgets/stats/CaloriesCard';
 import { Error } from '@widgets/stats/Error';
 import { Loading } from '@widgets/stats/Loading';
 import { MacroDonutChart } from '@widgets/stats/MacroDonutChart';
 import { PeriodCard } from '@widgets/stats/PeriodCard';
+import { WeeklyInsightCard } from '@widgets/stats/WeeklyInsightCard';
 import { WeightBarChart } from '@widgets/stats/WeightBarChart';
 import { StreakCard } from '@widgets/streak';
 
-import { useStreak } from '@entities/stats';
 import { useStatsQuery } from '@features/stats/getStats';
 
+import { useStreak } from '@entities/stats';
 import type { PeriodStats } from '@entities/stats';
 
 import { useTranslation } from '@shared/i18n';
@@ -100,7 +100,6 @@ export const StatsPage = () => {
         carbs={stats.macros.carbs}
         periodLabel={period === 'week' ? t('range.week') : t('range.month')}
       />
-
 
       <CaloriesBarChart stats={stats} period={period} />
 

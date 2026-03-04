@@ -1,12 +1,14 @@
-import { memo, useCallback, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
+import { memo, useCallback, useState } from 'react';
 
-import type { SavedPromptEntity } from '@entities/savedPrompt';
 import {
   useDeletePromptMutation,
   useRecentPrompts,
   useTogglePromptFavorite,
 } from '@features/prompts';
+
+import type { SavedPromptEntity } from '@entities/savedPrompt';
+
 import { useTranslation } from '@shared/i18n';
 import { useConfirm } from '@shared/lib/confirm';
 import { listItem } from '@shared/motion';
@@ -28,9 +30,7 @@ const expandTransition = {
 function sortPrompts(prompts: SavedPromptEntity[]): SavedPromptEntity[] {
   return [...prompts].sort((a, b) => {
     if (a.isFavorite !== b.isFavorite) return a.isFavorite ? -1 : 1;
-    return (
-      new Date(b.lastUsedAt).getTime() - new Date(a.lastUsedAt).getTime()
-    );
+    return new Date(b.lastUsedAt).getTime() - new Date(a.lastUsedAt).getTime();
   });
 }
 
@@ -73,9 +73,7 @@ export const PromptSuggestions = memo(function PromptSuggestions({
         fullWidth
         onClick={() => setIsExpanded((e) => !e)}
       >
-        {isExpanded
-          ? tDay('actions.hidePrompts')
-          : tDay('actions.showPrompts')}
+        {isExpanded ? tDay('actions.hidePrompts') : tDay('actions.showPrompts')}
       </Button>
       <AnimatePresence initial={false}>
         {isExpanded && (

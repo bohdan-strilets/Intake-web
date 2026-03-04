@@ -98,8 +98,18 @@ export function MacroDonutChart({
           <Stack gap="sm" className={macrosList}>
             {MACRO_KEYS.map(({ key, color }) => {
               const value = averages[key];
-              const target = key === 'protein' ? protein.target : key === 'fat' ? fat.target : carbs.target;
-              const barPercent = key === 'protein' ? protein.percent : key === 'fat' ? fat.percent : carbs.percent;
+              const target =
+                key === 'protein'
+                  ? protein.target
+                  : key === 'fat'
+                    ? fat.target
+                    : carbs.target;
+              const barPercent =
+                key === 'protein'
+                  ? protein.percent
+                  : key === 'fat'
+                    ? fat.percent
+                    : carbs.percent;
               return (
                 <Stack key={key} gap="xs">
                   <span className={macroLabel}>

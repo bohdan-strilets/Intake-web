@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 import { bootstrapAuth } from '@features/auth/bootstrap';
 
-import type { AppBootstrapProps } from './AppBootstrap.type';
+import type { AppBootstrapProps } from './AppBootstrap.types';
 
 export const AppBootstrap = ({ children }: AppBootstrapProps) => {
   const [ready, setReady] = useState(false);

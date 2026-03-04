@@ -1,6 +1,7 @@
 import { useNavigate } from '@tanstack/react-router';
 import { motion } from 'framer-motion';
 
+import { useTranslation } from '@shared/i18n';
 import { ROUTES } from '@shared/routes';
 import { Button } from '@shared/ui/controls/Button';
 import { Container } from '@shared/ui/layout/Container';
@@ -8,8 +9,6 @@ import { Section } from '@shared/ui/layout/Section';
 import { Stack } from '@shared/ui/layout/Stack';
 import { Paragraph } from '@shared/ui/typography/Paragraph';
 import { Title } from '@shared/ui/typography/Title';
-
-import { useTranslation } from '@shared/i18n';
 
 import { fadeUpInView } from '../motion';
 
@@ -31,7 +30,12 @@ export const LandingCTA = () => {
             <Paragraph align="center" tone="muted" size="lg">
               {tLanding('cta.description')}
             </Paragraph>
-            <Button size="lg" onClick={handleCta} iconRight="chevronRight" iconColor="accentOn">
+            <Button
+              size="lg"
+              onClick={handleCta}
+              iconRight="chevronRight"
+              iconColor="accentOn"
+            >
               {tAuth('actions.createAccount')}
             </Button>
           </Stack>

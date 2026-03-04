@@ -1,1 +1,1 @@
-export { useDayDetailsQury } from './useQuery';
+export { useDayDetailsQuery } from './useQuery';
