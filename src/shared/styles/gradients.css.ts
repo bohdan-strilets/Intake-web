@@ -45,6 +45,21 @@ export const gradients = {
     backgroundImage: vars.gradients.emptyState,
     backgroundSize: '100% 100%',
   }),
+  macroProtein: style({
+    ...gradientBase,
+    backgroundImage: vars.gradients.macroProtein,
+    backgroundSize: '100% 100%',
+  }),
+  macroFat: style({
+    ...gradientBase,
+    backgroundImage: vars.gradients.macroFat,
+    backgroundSize: '100% 100%',
+  }),
+  macroCarbs: style({
+    ...gradientBase,
+    backgroundImage: vars.gradients.macroCarbs,
+    backgroundSize: '100% 100%',
+  }),
 } as const;
 
 /**

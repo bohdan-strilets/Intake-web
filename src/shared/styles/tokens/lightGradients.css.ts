@@ -25,4 +25,9 @@ export const lightGradients = {
 
   /** Empty state: нейтральний, secondary → surface */
   emptyState: `linear-gradient(180deg, ${lightColors.backgroundSecondary} 0%, ${lightColors.backgroundSurface} 100%)`,
+
+  /** Макроси: світліший відтінок → темніший відтінок того ж кольору */
+  macroProtein: `linear-gradient(135deg, ${lightColors.macroProteinSoft} 0%, ${lightColors.macroProtein} 100%)`,
+  macroFat: `linear-gradient(135deg, ${lightColors.macroFatSoft} 0%, ${lightColors.macroFat} 100%)`,
+  macroCarbs: `linear-gradient(135deg, ${lightColors.macroCarbsSoft} 0%, ${lightColors.macroCarbs} 100%)`,
 } as const;

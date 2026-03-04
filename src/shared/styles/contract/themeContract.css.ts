@@ -27,8 +27,11 @@ export const themeContract = {
     infoSoft: null,
 
     macroProtein: null,
+    macroProteinSoft: null,
     macroFat: null,
+    macroFatSoft: null,
     macroCarbs: null,
+    macroCarbsSoft: null,
 
     overlay: null,
   },
@@ -41,6 +44,9 @@ export const themeContract = {
     accentButton: null,
     statsCard: null,
     emptyState: null,
+    macroProtein: null,
+    macroFat: null,
+    macroCarbs: null,
   },
 
   typography: {
