@@ -30,6 +30,15 @@
     "loggedDays": "{{logged}} z {{total}} dni zapisanych"
   },
 
+  "streak": {
+    "days": "dni",
+    "last7DaysLabel": "Aktywność w ostatnich 7 dniach",
+    "description0": "Dodaj dziś przynajmniej jeden posiłek, aby rozpocząć serię.",
+    "description1": "Jeden dzień za tobą. Dodaj jedzenie jutro, aby kontynuować.",
+    "description2": "Dwa dni z rzędu. Budujesz nawyk.",
+    "description3": "3 dni z rzędu — tak trzymać!"
+  },
+
   "errors": {
     "statsLoad": {
       "title": "Nie udało się wczytać statystyk",

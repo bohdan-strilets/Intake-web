@@ -8,7 +8,9 @@ import { Loading } from '@widgets/stats/Loading';
 import { MacroDonutChart } from '@widgets/stats/MacroDonutChart';
 import { PeriodCard } from '@widgets/stats/PeriodCard';
 import { WeightBarChart } from '@widgets/stats/WeightBarChart';
+import { StreakCard } from '@widgets/streak';
 
+import { useStreak } from '@entities/stats';
 import { useStatsQuery } from '@features/stats/getStats';
 
 import type { PeriodStats } from '@entities/stats';
@@ -49,6 +51,7 @@ export const StatsPage = () => {
   });
 
   const { data, isPending, isError, error, refetch } = useStatsQuery(range);
+  const { data: streakData } = useStreak();
 
   if (isPending && !data) return <Loading />;
   if (isError) return <Error refetch={refetch} error={error} />;
@@ -77,6 +80,13 @@ export const StatsPage = () => {
           onNext={goNext}
         />
       </div>
+
+      {streakData != null && (
+        <StreakCard
+          currentStreak={streakData.currentStreak}
+          activityLast7Days={streakData.activityLast7Days}
+        />
+      )}
 
       <CaloriesCard
         caloriesAverage={stats.calories.average}

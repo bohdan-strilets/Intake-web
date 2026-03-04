@@ -1,6 +1,7 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 
 import { dayQueryKeys } from '@entities/day';
+import { statsQueryKeys } from '@entities/stats';
 
 import { getMonthFromDate } from '@shared/lib/date';
 
@@ -26,6 +27,10 @@ export const useEditWeightMutation = () => {
 
       queryClient.invalidateQueries({
         queryKey: dayQueryKeys.calendar(getMonthFromDate(date)),
+      });
+
+      queryClient.invalidateQueries({
+        queryKey: statsQueryKeys.all,
       });
     },
   });

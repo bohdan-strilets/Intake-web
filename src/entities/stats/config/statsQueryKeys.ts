@@ -3,4 +3,6 @@ export const statsQueryKeys = {
 
   range: (start: string, end: string) =>
     ['stats', 'range', start, end] as const,
+
+  streak: ['stats', 'streak'] as const,
 } as const;

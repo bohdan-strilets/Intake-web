@@ -14,7 +14,6 @@ import {
   deviationDanger,
   deviationSuccess,
   deviationWarning,
-  divider,
   iconWrap,
   insightList,
   insightRow,
@@ -123,7 +122,6 @@ export const WeeklyInsightCard = ({ stats }: WeeklyInsightCardProps) => {
             onClick={() => goToDay(bestDay.date)}
           />
         )}
-        {hasClosest && hasMostAbove && <div className={divider} aria-hidden />}
         {hasMostAbove && (
           <InsightRow
             icon="warning"

@@ -37,6 +37,7 @@ export const API_ROUTES = {
 
   stats: {
     range: '/stats',
+    streak: '/stats/streak',
   },
 
   prompts: {

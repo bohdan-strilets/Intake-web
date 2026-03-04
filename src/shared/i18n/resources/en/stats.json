@@ -30,6 +30,15 @@
     "loggedDays": "{{logged}} of {{total}} days logged"
   },
 
+  "streak": {
+    "days": "days",
+    "last7DaysLabel": "Activity in the last 7 days",
+    "description0": "Log at least one meal today to start your streak.",
+    "description1": "One day down. Add food again tomorrow to keep it going.",
+    "description2": "Two days in a row. You're building a habit.",
+    "description3": "3 days in a row — keep it up!"
+  },
+
   "errors": {
     "statsLoad": {
       "title": "Failed to load statistics",

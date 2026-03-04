@@ -49,6 +49,7 @@ import {
   Star,
   Mic,
   Square,
+  Flame,
 } from 'lucide-react';
 
 export const icons = {
@@ -87,6 +88,7 @@ export const icons = {
   star: Star,
   mic: Mic,
   micStop: Square,
+  flame: Flame,
 
   // theme
   themeLight: Sun,

@@ -5,7 +5,6 @@ import { vars } from '@shared/styles/contract';
 
 export const card = style({
   background: vars.colors.backgroundSurface,
-  border: `1px solid ${vars.colors.borderMuted}`,
   borderRadius: vars.radius.lg,
   padding: vars.spacing.md,
 });
@@ -13,13 +12,7 @@ export const card = style({
 export const insightList = style({
   display: 'flex',
   flexDirection: 'column',
-  gap: 0,
-});
-
-export const divider = style({
-  height: 1,
-  backgroundColor: vars.colors.borderMuted,
-  margin: `${vars.spacing.sm} 0`,
+  gap: vars.spacing.xs,
 });
 
 export const insightRow = style({
