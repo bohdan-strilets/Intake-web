@@ -53,6 +53,19 @@ globalStyle(':focus-visible', {
   outlineOffset: '4px',
 });
 
+/* Приховати стрілки на number input у всіх браузерах */
+globalStyle(
+  'input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button',
+  {
+    WebkitAppearance: 'none',
+    appearance: 'none',
+    margin: 0,
+  },
+);
+globalStyle('input[type="number"]', {
+  MozAppearance: 'textfield',
+});
+
 globalStyle('::selection', {
   backgroundColor: vars.colors.accentSoft,
   color: vars.colors.textOnAccent,
