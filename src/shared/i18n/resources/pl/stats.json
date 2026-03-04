@@ -1,53 +1,9 @@
 {
-  "macroDonut": {
-    "title": "Makroskładniki {{period}}",
-    "total": "Razem",
-    "noData": "Brak danych",
-    "chartDescription": "Białko {{protein}}g, tłuszcze {{fat}}g, węglowodany {{carbs}}g"
-  },
   "summary": {
-    "averagePerDay": "Średnio na dzień",
-    "kcalPerDay": "kcal dziennie",
-    "onTarget": "Zgodnie z celem",
-    "kcalVsGoal": "kcal vs cel",
-    "averageMacros": "Średnie makroskładniki",
-    "weightChange": "Zmiana wagi",
     "weightByDay": "Waga według dni",
+    "chartNoData": "Brak danych o wadze w tym okresie.",
     "averageWeight": "Średnia waga",
-    "averageCalories": "Średnie kalorie",
-    "caloriesByDay": "Kalorie według dni",
-    "averageThisPeriod": "Średnia w okresie",
-    "chartNoData": "Brak danych za ten okres",
-    "dailyGoal": "Dzienne zapotrzebowanie",
-    "maintenanceCalories": "Utrzymanie wagi",
-    "bestDay": "Najbliżej celu",
-    "worstDay": "Największe odchylenie",
-    "insightClosestToTarget": "Najbliżej celu",
-    "insightMostAboveTarget": "Najwięcej ponad normę"
-  },
-
-  "nav":{"prev":"Poprzedni okres","next":"Następny okres"},"progress": {
-    "loggedDays": "{{logged}} z {{total}} dni zapisanych"
-  },
-
-  "streak": {
-    "days": "dni",
-    "last7DaysLabel": "Aktywność w ostatnich 7 dniach",
-    "description0": "Dodaj dziś przynajmniej jeden posiłek, aby rozpocząć serię.",
-    "daysInRow_one": "{{count}} dzień z rzędu",
-    "daysInRow_few": "{{count}} dni z rzędu",
-    "daysInRow_many": "{{count}} dni z rzędu",
-    "daysInRow_other": "{{count}} dni z rzędu",
-    "skippedInLast7_one": "1 dzień pominięty w ostatnich 7",
-    "skippedInLast7_few": "{{count}} dni pominięte w ostatnich 7",
-    "skippedInLast7_many": "{{count}} dni pominiętych w ostatnich 7",
-    "skippedInLast7_other": "{{count}} dni pominiętych w ostatnich 7"
-  },
-
-  "errors": {
-    "statsLoad": {
-      "title": "Nie udało się wczytać statystyk",
-      "description": "Nie można pobrać statystyk dla tego okresu. Sprawdź połączenie z internetem i spróbuj ponownie."
-    }
+    "initialWeight": "Waga początkowa",
+    "targetWeight": "Waga docelowa"
   }
 }

@@ -1,49 +1,9 @@
 {
-  "macroDonut": {
-    "title": "{{period}} macros",
-    "total": "Total",
-    "noData": "No data",
-    "chartDescription": "Protein {{protein}}g, fat {{fat}}g, carbs {{carbs}}g"
-  },
   "summary": {
-    "averagePerDay": "Average per day",
-    "kcalPerDay": "kcal per day",
-    "onTarget": "On target",
-    "kcalVsGoal": "kcal vs goal",
-    "averageMacros": "Average Macros",
-    "weightChange": "Weight change",
     "weightByDay": "Weight by day",
+    "chartNoData": "No weight data for this period.",
     "averageWeight": "Average weight",
-    "averageCalories": "Average calories",
-    "caloriesByDay": "Calories by day",
-    "averageThisPeriod": "Average this period",
-    "chartNoData": "No data for this period",
-    "dailyGoal": "Daily goal",
-    "maintenanceCalories": "Maintenance calories",
-    "bestDay": "Closest to goal",
-    "worstDay": "Largest deviation",
-    "insightClosestToTarget": "Closest to target",
-    "insightMostAboveTarget": "Most above target"
-  },
-
-  "nav":{"prev":"Previous period","next":"Next period"},"progress": {
-    "loggedDays": "{{logged}} of {{total}} days logged"
-  },
-
-  "streak": {
-    "days": "days",
-    "last7DaysLabel": "Activity in the last 7 days",
-    "description0": "Log at least one meal today to start your streak.",
-    "daysInRow_one": "{{count}} day in a row",
-    "daysInRow_other": "{{count}} days in a row",
-    "skippedInLast7_one": "1 day missed in the last 7",
-    "skippedInLast7_other": "{{count}} days missed in the last 7"
-  },
-
-  "errors": {
-    "statsLoad": {
-      "title": "Failed to load statistics",
-      "description": "Unable to fetch your stats for this period. Please check your connection and try again."
-    }
+    "initialWeight": "Initial weight",
+    "targetWeight": "Target weight"
   }
 }

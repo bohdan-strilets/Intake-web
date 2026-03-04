@@ -34,7 +34,12 @@ export type StatsEntity = {
   };
 
   weight?: {
-    delta: number;
+    /** Weight change over the period (optional when only initial/target are sent). */
+    delta?: number;
+    /** Weight from the user's first ever recorded day (fixed reference, does not change). */
+    initial?: number;
+    /** User's target (goal) weight from profile. */
+    target?: number;
   };
 
   /** Day closest to calorie goal (among logged days) */

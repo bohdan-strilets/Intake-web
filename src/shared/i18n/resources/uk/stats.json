@@ -1,53 +1,9 @@
 {
-  "macroDonut": {
-    "title": "Макроси за {{period}}",
-    "total": "Всього",
-    "noData": "Немає даних",
-    "chartDescription": "Білок {{protein}}г, жири {{fat}}г, вуглеводи {{carbs}}г"
-  },
   "summary": {
-    "averagePerDay": "У середньому за день",
-    "kcalPerDay": "ккал на день",
-    "onTarget": "У межах цілі",
-    "kcalVsGoal": "ккал відносно цілі",
-    "averageMacros": "Середні макроси",
-    "weightChange": "Зміна ваги",
     "weightByDay": "Вага по днях",
+    "chartNoData": "Немає даних про вагу за цей період.",
     "averageWeight": "Середня вага",
-    "averageCalories": "Середні калорії",
-    "caloriesByDay": "Калорії по днях",
-    "averageThisPeriod": "Середнє за період",
-    "chartNoData": "Немає даних за цей період",
-    "dailyGoal": "Добова норма",
-    "maintenanceCalories": "Підтримка ваги",
-    "bestDay": "Найближчий до норми",
-    "worstDay": "Найбільше відхилення",
-    "insightClosestToTarget": "Найближчий до норми",
-    "insightMostAboveTarget": "Найбільше понад норму"
-  },
-
-  "nav":{"prev":"Попередній період","next":"Наступний період"},"progress": {
-    "loggedDays": "{{logged}} з {{total}} днів заповнено"
-  },
-
-  "streak": {
-    "days": "днів",
-    "last7DaysLabel": "Активність за останні 7 днів",
-    "description0": "Додай хоча б один прийом їжі сьогодні, щоб почати серію.",
-    "daysInRow_one": "{{count}} день поспіль",
-    "daysInRow_few": "{{count}} дні поспіль",
-    "daysInRow_many": "{{count}} днів поспіль",
-    "daysInRow_other": "{{count}} днів поспіль",
-    "skippedInLast7_one": "1 день пропущено за останні 7 днів",
-    "skippedInLast7_few": "{{count}} дні пропущено за останні 7 днів",
-    "skippedInLast7_many": "{{count}} днів пропущено за останні 7 днів",
-    "skippedInLast7_other": "{{count}} днів пропущено за останні 7 днів"
-  },
-
-  "errors": {
-    "statsLoad": {
-      "title": "Не вдалося завантажити статистику",
-      "description": "Не вдалося отримати статистику за цей період. Перевірте з’єднання з інтернетом і спробуйте ще раз."
-    }
+    "initialWeight": "Початкова вага",
+    "targetWeight": "Цільова вага"
   }
 }
