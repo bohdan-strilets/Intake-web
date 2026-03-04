@@ -50,11 +50,11 @@ export const LandingHero = () => {
                 {tLanding('hero.title.line2')}
               </Title>
             </motion.div>
-            <motion.p {...heroTransition(0.08)}>
+            <motion.div {...heroTransition(0.08)}>
               <Paragraph align="center" size="lg" tone="muted">
                 {tLanding('hero.subtitle')}
               </Paragraph>
-            </motion.p>
+            </motion.div>
           </Stack>
 
           <motion.div {...heroTransition(0.16)} style={{ width: '100%' }}>
