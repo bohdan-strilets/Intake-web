@@ -12,4 +12,4 @@ export { numberChange } from './number';
 export { backdrop } from './overlay';
 export { page } from './page';
 export { collapse } from './expand';
-export { rotateChevron } from './feedback';
+export { calendarIcon, rotateChevron } from './feedback';

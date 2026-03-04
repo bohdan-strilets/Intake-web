@@ -1,8 +1,10 @@
 import { useRef, useState } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
 
 import { useClickOutside } from '@shared/hooks/clickOutside';
 import { useTranslation } from '@shared/i18n';
 import { formatDisplayDate } from '@shared/lib/date';
+import { calendarIcon, quickTransition, scaleIn } from '@shared/motion';
 import { Card } from '@shared/ui/layout/Card';
 import { Grid } from '@shared/ui/layout/Grid';
 import { Inline } from '@shared/ui/layout/Inline';
@@ -58,44 +60,61 @@ export const DatePicker = ({
           {value
             ? formatDisplayDate(value, true)
             : tCommon('actions.selectDate')}
-          <Icon name="calendar" size="md" color="muted" />
+          <motion.span
+            variants={calendarIcon}
+            animate={isOpen ? 'open' : 'closed'}
+            transition={quickTransition}
+          >
+            <Icon name="calendar" size="md" color="muted" />
+          </motion.span>
         </Inline>
       </button>
 
-      {isOpen && (
-        <Card gap="lg" shadow="lg" className={picker}>
-          <Inline justify="between" gap="sm">
-            <Select
-              options={createMonthOptions(tCalendar)}
-              value={String(viewMonth)}
-              onChange={(month) => setViewMonth(Number(month))}
-              placeholder={tCalendar('range.month')}
-              className={select}
-            />
-            <Select
-              options={yearOptions}
-              value={String(viewYear)}
-              onChange={(year) => setViewYear(Number(year))}
-              placeholder={tCalendar('range.year')}
-              className={select}
-            />
-          </Inline>
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            className={picker}
+            variants={scaleIn}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            transition={quickTransition}
+          >
+            <Card gap="lg" shadow="lg">
+              <Inline justify="between" gap="sm">
+                <Select
+                  options={createMonthOptions(tCalendar)}
+                  value={String(viewMonth)}
+                  onChange={(month) => setViewMonth(Number(month))}
+                  placeholder={tCalendar('range.month')}
+                  className={select}
+                />
+                <Select
+                  options={yearOptions}
+                  value={String(viewYear)}
+                  onChange={(year) => setViewYear(Number(year))}
+                  placeholder={tCalendar('range.year')}
+                  className={select}
+                />
+              </Inline>
 
-          <Grid columns={7} gap="sm">
-            {matrix.flat().map((cell, index) => (
-              <Button
-                key={index}
-                variant="ghost"
-                disabled={!cell.dayNumber}
-                className={cellBtn({ selected: isSelected(cell.dayNumber) })}
-                onClick={() => cell.dayNumber && selectDay(cell.dayNumber)}
-              >
-                {cell.dayNumber}
-              </Button>
-            ))}
-          </Grid>
-        </Card>
-      )}
+              <Grid columns={7} gap="sm">
+                {matrix.flat().map((cell, index) => (
+                  <Button
+                    key={index}
+                    variant="ghost"
+                    disabled={!cell.dayNumber}
+                    className={cellBtn({ selected: isSelected(cell.dayNumber) })}
+                    onClick={() => cell.dayNumber && selectDay(cell.dayNumber)}
+                  >
+                    {cell.dayNumber}
+                  </Button>
+                ))}
+              </Grid>
+            </Card>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
