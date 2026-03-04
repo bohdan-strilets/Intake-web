@@ -7,6 +7,7 @@ import { useModal } from '@shared/lib/modal';
 import { Icon } from '@shared/ui/controls/Icon';
 import { Dropdown, type DropdownItem } from '@shared/ui/overlay/Dropdown';
 
+import { triggerTouchTarget } from './FoodDropdown.css';
 import type { FoodDropdownProps } from './FoodDropdown.types';
 
 export const FoodDropdown = ({
@@ -52,5 +53,14 @@ export const FoodDropdown = ({
     },
   ];
 
-  return <Dropdown trigger={<Icon name="more" />} items={options} />;
+  return (
+    <Dropdown
+      trigger={
+        <span className={triggerTouchTarget} aria-hidden>
+          <Icon name="more" />
+        </span>
+      }
+      items={options}
+    />
+  );
 };
