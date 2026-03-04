@@ -24,6 +24,23 @@
     "weight": "Weight"
   },
 
+  "sort": {
+    "label": "Sort by",
+    "order": "Order",
+    "weight": "Weight",
+    "calories": "Calories",
+    "protein": "Protein",
+    "carbs": "Carbs",
+    "fat": "Fat",
+    "asc": "Ascending",
+    "desc": "Descending"
+  },
+
+  "filter": {
+    "searchPlaceholder": "Search by name...",
+    "toggle": "Show or hide filters"
+  },
+
   "dialogs": {
     "deleteFood": {
       "title": "Delete {{title}}?",

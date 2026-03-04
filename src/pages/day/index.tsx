@@ -1,3 +1,4 @@
+import { useMemo, useRef, useState } from 'react';
 import { useNavigate, useParams } from '@tanstack/react-router';
 
 import { dayRoute } from '@app/router/routes/protected';
@@ -13,7 +14,13 @@ import { Weight } from '@widgets/day/Weight';
 import { useDayDetailsQury } from '@features/day/dayDetails';
 import { AddFoodForm } from '@features/food/addFood';
 
-import { resolveDayParam } from '@entities/day';
+import type { DayDetailsResponse } from '@entities/day';
+import {
+  type DayDetailsQueryParams,
+  type DayDetailsSortField,
+  type DayDetailsSortOrder,
+  resolveDayParam,
+} from '@entities/day';
 
 import { formatDate } from '@shared/lib/date';
 import { useSwipe } from '@shared/lib/swipe';
@@ -33,6 +40,20 @@ export const DayPage = () => {
   const { date } = useParams({ from: dayRoute.id });
   const resolvedDate = resolveDayParam(date);
 
+  const [sortBy, setSortBy] = useState<DayDetailsSortField | undefined>(undefined);
+  const [sortOrder, setSortOrder] = useState<DayDetailsSortOrder | undefined>(undefined);
+  const [search, setSearch] = useState('');
+
+  const dayDetailsParams: DayDetailsQueryParams | undefined = useMemo(() => {
+    const hasSort = sortBy != null && sortOrder != null;
+    const hasSearch = search.trim().length > 0;
+    if (!hasSort && !hasSearch) return undefined;
+    return {
+      ...(hasSort && { sortBy, sortOrder }),
+      ...(hasSearch && { search: search.trim() }),
+    };
+  }, [sortBy, sortOrder, search]);
+
   const swipe = useSwipe({
     onSwipeLeft: () =>
       navigate({
@@ -46,12 +67,21 @@ export const DayPage = () => {
       }),
   });
 
-  const { data, isPending, isError, error, refetch } = useDayDetailsQury(resolvedDate);
+  const { data, isPending, isError, isFetching, error, refetch } = useDayDetailsQury(
+    resolvedDate,
+    dayDetailsParams,
+  );
 
-  if (isPending) return <Loading />;
-  if (isError) return <Error refetch={refetch} error={error} />;
+  const lastDataRef = useRef<Record<string, DayDetailsResponse>>({});
+  if (data) lastDataRef.current[resolvedDate] = data;
 
-  const dayDetails = data;
+  const displayData = data ?? lastDataRef.current[resolvedDate];
+
+  if (isPending && !displayData) return <Loading />;
+  if (isError && !displayData) return <Error refetch={refetch} error={error} />;
+  if (!displayData) return <Loading />;
+
+  const dayDetails = displayData;
   const { day, food, targetCalories, targetProtein, targetFat, targetCarbs } = dayDetails;
   const totals = day.totals;
 
@@ -95,7 +125,20 @@ export const DayPage = () => {
         <AddFoodForm date={day.date} />
       </Card>
 
-      <FoodList foods={food} date={day.date} />
+      <FoodList
+        foods={food}
+        date={day.date}
+        sortBy={sortBy}
+        sortOrder={sortOrder}
+        search={search}
+        isFetching={isFetching}
+        onSortByChange={(v) => {
+          setSortBy(v);
+          if (v != null && sortOrder == null) setSortOrder('desc');
+        }}
+        onSortOrderChange={setSortOrder}
+        onSearchChange={setSearch}
+      />
     </Stack>
   );
 };

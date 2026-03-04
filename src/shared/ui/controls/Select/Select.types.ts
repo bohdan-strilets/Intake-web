@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react';
 import type { RecipeVariants } from '@vanilla-extract/recipes';
 
 import type { trigger } from './Select.css';
@@ -20,7 +21,8 @@ export type SelectProps<T extends string | number | null> = SelectVariants & {
   onBlur?: () => void;
 
   options: SelectOption<T>[];
-  placeholder?: string;
+  /** Placeholder when no value selected. Can be string or icon (ReactNode). */
+  placeholder?: ReactNode;
   disabled?: boolean;
   className?: string;
 };

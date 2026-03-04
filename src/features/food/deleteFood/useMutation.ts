@@ -28,7 +28,7 @@ export const useDeleteFoodMutation = () => {
       playSounds.remove();
 
       queryClient.invalidateQueries({
-        queryKey: dayQueryKeys.byDate(date),
+        queryKey: dayQueryKeys.byDatePrefix(date),
       });
 
       queryClient.invalidateQueries({

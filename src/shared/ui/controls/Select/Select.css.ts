@@ -5,14 +5,26 @@ import { vars } from '@shared/styles/contract';
 
 export const wrapper = style({
   position: 'relative',
+  overflow: 'visible',
 
   display: 'flex',
   flexDirection: 'column',
   gap: vars.spacing.xs,
 });
 
+export const triggerContent = style({
+  display: 'flex',
+  flexDirection: 'row',
+  alignItems: 'center',
+  justifyContent: 'space-between',
+  width: '100%',
+  minWidth: 0,
+});
+
 export const trigger = recipe({
   base: {
+    display: 'flex',
+    alignItems: 'center',
     width: '100%',
     padding: `${vars.spacing.sm} ${vars.spacing.md}`,
 
@@ -75,6 +87,24 @@ export const list = style({
   top: '100%',
   left: 0,
   right: 0,
+  zIndex: vars.zIndex.dropdown,
+
+  maxHeight: '280px',
+  padding: 0,
+  marginTop: vars.spacing.xs,
+  backgroundColor: vars.colors.backgroundSurface,
+
+  borderRadius: vars.radius.md,
+  border: `1px solid ${vars.colors.borderMuted}`,
+  boxShadow: vars.shadows.md,
+
+  overflowY: 'auto',
+  transformOrigin: 'top',
+});
+
+/** For list rendered in portal (position: fixed, coordinates via inline style) */
+export const listPortal = style({
+  position: 'fixed',
   zIndex: vars.zIndex.dropdown,
 
   maxHeight: '280px',

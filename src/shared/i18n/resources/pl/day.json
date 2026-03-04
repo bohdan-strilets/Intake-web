@@ -24,6 +24,23 @@
     "weight": "Waga"
   },
 
+  "sort": {
+    "label": "Sortuj według",
+    "order": "Kolejność",
+    "weight": "Waga",
+    "calories": "Kalorie",
+    "protein": "Białko",
+    "carbs": "Węglowodany",
+    "fat": "Tłuszcze",
+    "asc": "Rosnąco",
+    "desc": "Malejąco"
+  },
+
+  "filter": {
+    "searchPlaceholder": "Szukaj po nazwie...",
+    "toggle": "Pokaż lub ukryj filtry"
+  },
+
   "dialogs": {
     "deleteFood": {
       "title": "Usunąć {{title}}?",

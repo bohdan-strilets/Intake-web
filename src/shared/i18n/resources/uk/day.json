@@ -24,6 +24,23 @@
     "weight": "Вага"
   },
 
+  "sort": {
+    "label": "Сортувати за",
+    "order": "Порядок",
+    "weight": "Вага",
+    "calories": "Калорії",
+    "protein": "Білки",
+    "carbs": "Вуглеводи",
+    "fat": "Жири",
+    "asc": "За зростанням",
+    "desc": "За спаданням"
+  },
+
+  "filter": {
+    "searchPlaceholder": "Пошук за назвою...",
+    "toggle": "Показати або приховати фільтри"
+  },
+
   "dialogs": {
     "deleteFood": {
       "title": "Видалити {{title}}?",
