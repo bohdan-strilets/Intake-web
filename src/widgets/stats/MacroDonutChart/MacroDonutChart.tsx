@@ -25,7 +25,7 @@ const MACRO_KEYS = [
   { key: 'carbs' as const, color: vars.colors.macroCarbs },
 ] as const;
 
-export type MacroValue = { average: number; target: number };
+export type MacroValue = { average: number; target: number; percent: number };
 
 export type MacroDonutChartProps = {
   protein: MacroValue;
@@ -99,7 +99,7 @@ export function MacroDonutChart({
             {MACRO_KEYS.map(({ key, color }) => {
               const value = averages[key];
               const target = key === 'protein' ? protein.target : key === 'fat' ? fat.target : carbs.target;
-              const percent = total > 0 ? (value / total) * 100 : 0;
+              const barPercent = key === 'protein' ? protein.percent : key === 'fat' ? fat.percent : carbs.percent;
               return (
                 <Stack key={key} gap="xs">
                   <span className={macroLabel}>
@@ -109,7 +109,7 @@ export function MacroDonutChart({
                     <div
                       className={progressFill}
                       style={{
-                        width: `${percent}%`,
+                        width: `${barPercent}%`,
                         backgroundColor: color,
                       }}
                       aria-hidden

@@ -19,7 +19,11 @@
     "averageThisPeriod": "Average this period",
     "chartNoData": "No data for this period",
     "dailyGoal": "Daily goal",
-    "maintenanceCalories": "Maintenance calories"
+    "maintenanceCalories": "Maintenance calories",
+    "bestDay": "Closest to goal",
+    "worstDay": "Largest deviation",
+    "insightClosestToTarget": "Closest to target",
+    "insightMostAboveTarget": "Most above target"
   },
 
   "nav":{"prev":"Previous period","next":"Next period"},"progress": {

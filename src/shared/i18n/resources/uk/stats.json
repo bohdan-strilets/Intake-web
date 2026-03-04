@@ -19,7 +19,11 @@
     "averageThisPeriod": "Середнє за період",
     "chartNoData": "Немає даних за цей період",
     "dailyGoal": "Добова норма",
-    "maintenanceCalories": "Підтримка ваги"
+    "maintenanceCalories": "Підтримка ваги",
+    "bestDay": "Найближчий до норми",
+    "worstDay": "Найбільше відхилення",
+    "insightClosestToTarget": "Найближчий до норми",
+    "insightMostAboveTarget": "Найбільше понад норму"
   },
 
   "nav":{"prev":"Попередній період","next":"Наступний період"},"progress": {

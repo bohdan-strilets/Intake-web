@@ -1,6 +1,7 @@
 import { useCallback, useMemo, useState } from 'react';
 
 import { CaloriesBarChart } from '@widgets/stats/CaloriesBarChart';
+import { WeeklyInsightCard } from '@widgets/stats/WeeklyInsightCard';
 import { CaloriesCard } from '@widgets/stats/CaloriesCard';
 import { Error } from '@widgets/stats/Error';
 import { Loading } from '@widgets/stats/Loading';
@@ -92,6 +93,8 @@ export const StatsPage = () => {
 
 
       <CaloriesBarChart stats={stats} period={period} />
+
+      <WeeklyInsightCard stats={stats} />
 
       <WeightBarChart stats={stats} period={period} />
     </Stack>

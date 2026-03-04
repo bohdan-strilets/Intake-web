@@ -19,7 +19,11 @@
     "averageThisPeriod": "Średnia w okresie",
     "chartNoData": "Brak danych za ten okres",
     "dailyGoal": "Dzienne zapotrzebowanie",
-    "maintenanceCalories": "Utrzymanie wagi"
+    "maintenanceCalories": "Utrzymanie wagi",
+    "bestDay": "Najbliżej celu",
+    "worstDay": "Największe odchylenie",
+    "insightClosestToTarget": "Najbliżej celu",
+    "insightMostAboveTarget": "Najwięcej ponad normę"
   },
 
   "nav":{"prev":"Poprzedni okres","next":"Następny okres"},"progress": {
