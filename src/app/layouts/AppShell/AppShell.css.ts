@@ -21,6 +21,10 @@ export const shellLayout = style({
   '@media': {
     [`screen and (min-width: ${breakpoints.lg}px)`]: {
       flexDirection: 'row',
+      height: '100dvh',
+      minHeight: '100dvh',
+      maxHeight: '100dvh',
+      overflow: 'hidden',
     },
   },
 });
@@ -42,6 +46,13 @@ export const mainColumn = style({
   flexDirection: 'column',
   flex: 1,
   minWidth: 0,
+  minHeight: 0,
+
+  '@media': {
+    [`screen and (min-width: ${breakpoints.lg}px)`]: {
+      overflow: 'hidden',
+    },
+  },
 });
 
 export const inner = style({

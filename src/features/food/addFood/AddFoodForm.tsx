@@ -27,6 +27,7 @@ import {
   hintTip,
   hintTitle,
   permissionNote,
+  submitButton,
 } from './AddFoodForm.css';
 import { useSubmit } from './model';
 import { createSchema } from './schema';
@@ -232,8 +233,8 @@ export const AddFoodForm = ({ date, suggestionsSlot }: FormProps) => {
               type="submit"
               disabled={submitDisabled}
               loading={isPending}
-              fullWidth
               size="lg"
+              className={submitButton}
             >
               {isPending ? tFood('states.analyzing') : tFood('actions.addFood')}
             </Button>

@@ -17,11 +17,11 @@ export const legendSwatch = recipe({
   variants: {
     variant: {
       goal: {
-        backgroundColor: vars.colors.accentSoft,
+        backgroundColor: vars.colors.accentPrimary,
         borderRadius: vars.radius.sm,
       },
       maintenance: {
-        backgroundColor: vars.colors.warningSoft,
+        backgroundColor: vars.colors.warning,
         borderRadius: vars.radius.sm,
       },
     },

@@ -17,6 +17,6 @@ export const line = style({
 	  transparent 8px
 	)`,
 
-  opacity: 0.75,
+  opacity: 0.95,
   pointerEvents: 'none',
 });

@@ -8,13 +8,13 @@ export const line = recipe({
     left: 0,
     right: 0,
     height: 1,
-    opacity: 0.8,
+    opacity: 1,
     pointerEvents: 'none',
   },
   variants: {
     variant: {
-      accentSoft: { backgroundColor: vars.colors.accentSoft },
-      warningSoft: { backgroundColor: vars.colors.warningSoft },
+      accentSoft: { backgroundColor: vars.colors.accentPrimary },
+      warningSoft: { backgroundColor: vars.colors.warning },
     },
   },
   defaultVariants: {
