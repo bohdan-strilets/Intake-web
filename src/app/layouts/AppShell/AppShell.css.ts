@@ -54,7 +54,8 @@ export const inner = style({
   flex: 1,
   minHeight: 0,
   paddingTop: 'env(safe-area-inset-top)',
-  paddingBottom: 'env(safe-area-inset-bottom)',
+  // На мобільному paddingBottom не потрібен — safe-area вже в navigationSection
+  paddingBottom: 0,
 
   background: vars.colors.backgroundPrimary,
 
