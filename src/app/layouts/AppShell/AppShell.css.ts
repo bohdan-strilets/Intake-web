@@ -54,8 +54,6 @@ export const inner = style({
   flex: 1,
   minHeight: 0,
   paddingTop: 'env(safe-area-inset-top)',
-  // На мобільному paddingBottom не потрібен — safe-area вже в navigationSection
-  paddingBottom: 0,
 
   background: vars.colors.backgroundPrimary,
 
@@ -90,8 +88,6 @@ export const navigationSection = style({
   bottom: 0,
   flexShrink: 0,
   zIndex: vars.zIndex.navigation,
-
-  paddingBottom: 'env(safe-area-inset-bottom)',
 
   background: vars.colors.backgroundSurface,
   borderTop: `1px solid ${vars.colors.borderMuted}`,
