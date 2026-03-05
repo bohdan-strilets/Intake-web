@@ -1,3 +1,4 @@
+import fs from 'node:fs';
 import path from 'node:path';
 
 import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin';
@@ -6,6 +7,55 @@ import { defineConfig, loadEnv } from 'vite';
 import { VitePWA } from 'vite-plugin-pwa';
 
 import { pwaManifest } from './pwa-manifest';
+
+const WB_DISABLE_LOGS_LINE = 'self.__WB_DISABLE_DEV_LOGS = true;\n';
+
+function patchServiceWorkerDisableLogs(filePath: string): void {
+  try {
+    if (!fs.existsSync(filePath)) return;
+    let content = fs.readFileSync(filePath, 'utf-8');
+    if (content.startsWith(WB_DISABLE_LOGS_LINE.trim()) || content.includes('__WB_DISABLE_DEV_LOGS')) return;
+    fs.writeFileSync(filePath, WB_DISABLE_LOGS_LINE + content, 'utf-8');
+  } catch {
+    // ignore
+  }
+}
+
+function createPWAWorkboxDisableLogsPlugin(): import('vite').Plugin {
+  return {
+    name: 'pwa-workbox-disable-logs',
+    configureServer(server) {
+      const root = server.config.root;
+      const devDistSw = path.resolve(root, 'dev-dist', 'sw.js');
+      patchServiceWorkerDisableLogs(devDistSw);
+      const watchDir = path.resolve(root, 'dev-dist');
+      const tryWatch = () => {
+        if (fs.existsSync(watchDir)) {
+          try {
+            fs.watch(watchDir, (_, filename) => {
+              if (filename === 'sw.js') setTimeout(() => patchServiceWorkerDisableLogs(devDistSw), 50);
+            });
+          } catch {
+            // ignore
+          }
+          return true;
+        }
+        return false;
+      };
+      if (!tryWatch()) {
+        const interval = setInterval(() => {
+          if (tryWatch()) clearInterval(interval);
+        }, 500);
+        setTimeout(() => clearInterval(interval), 15000);
+      }
+    },
+    closeBundle() {
+      const outDir = path.resolve(process.cwd(), 'dist');
+      const swPath = path.join(outDir, 'sw.js');
+      patchServiceWorkerDisableLogs(swPath);
+    },
+  };
+}
 
 function createApiReadUrlPattern(apiOrigin: string) {
   const origin = JSON.stringify(apiOrigin);
@@ -35,6 +85,8 @@ export default defineConfig(({ mode }) => {
         registerType: 'autoUpdate',
         devOptions: {
           enabled: true,
+          /** Avoid "One of the glob patterns doesn't match any files" in dev (dev-dist has no app assets). */
+          suppressWarnings: true,
         },
         includeAssets: [
           'favicon-16.png',
@@ -46,6 +98,7 @@ export default defineConfig(({ mode }) => {
         ],
         manifest: pwaManifest as import('vite-plugin-pwa').ManifestOptions,
         workbox: {
+          disableDevLogs: true,
           cleanupOutdatedCaches: true,
           clientsClaim: true,
           skipWaiting: true,
@@ -101,6 +154,7 @@ export default defineConfig(({ mode }) => {
           ],
         },
       }),
+      createPWAWorkboxDisableLogsPlugin(),
     ],
     resolve: {
       alias: {

@@ -42,10 +42,9 @@ export function usePWAInstall(): {
     const checkStandalone = () => setIsInstalled(getIsStandalone());
     checkStandalone();
 
-    // Android/Chrome only: beforeinstallprompt lets us show a custom install UI
+    // Android/Chrome: do not preventDefault so the browser can show its install banner.
     // iOS Safari never fires this; install must be manual (Share > Add to Home Screen)
     const handleBeforeInstall = (e: Event) => {
-      e.preventDefault();
       setDeferredPrompt(e as BeforeInstallPromptEvent);
     };
 

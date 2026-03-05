@@ -24,15 +24,21 @@ globalStyle('.no-theme-transition *', {
   transition: 'none !important',
 });
 
-globalStyle('html, body', {
+/* Fill viewport; 100dvh for iOS so layout fills screen with/without browser chrome */
+globalStyle('html', {
   height: '100%',
+  minHeight: '100dvh',
 });
 
-/* PWA: safe area for notch / home indicator (iOS, Android) */
+globalStyle('body', {
+  height: '100%',
+  minHeight: '100dvh',
+});
+
+/* Extend into safe area; top inset for notch, bottom handled by AppShell nav */
 globalStyle('#root', {
-  minHeight: '100%',
+  minHeight: '100dvh',
   paddingTop: 'env(safe-area-inset-top)',
-  paddingBottom: 'env(safe-area-inset-bottom)',
 });
 
 globalStyle('body', {
