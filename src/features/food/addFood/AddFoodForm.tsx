@@ -8,6 +8,7 @@ import { useSoundStore } from '@shared/lib/sound/soundStore';
 import { useHoldToRecord } from '@shared/lib/voice';
 import { Button } from '@shared/ui/controls/Button';
 import { IconButton } from '@shared/ui/controls/IconButton';
+import { InfoTooltip } from '@shared/ui/controls/InfoTooltip';
 import { Textarea } from '@shared/ui/controls/Textarea';
 import { Field } from '@shared/ui/form/Field';
 import { Form } from '@shared/ui/form/Form';
@@ -15,7 +16,18 @@ import { FormError } from '@shared/ui/form/FormError';
 import { Inline } from '@shared/ui/layout/Inline';
 import { Stack } from '@shared/ui/layout/Stack';
 import { Paragraph } from '@shared/ui/typography/Paragraph';
+import { TextLabel } from '@shared/ui/typography/TextLabel';
 
+import {
+  actionsRow,
+  hintContent,
+  hintSection,
+  hintSectionExamples,
+  hintSectionLabel,
+  hintTip,
+  hintTitle,
+  permissionNote,
+} from './AddFoodForm.css';
 import { useSubmit } from './model';
 import { createSchema } from './schema';
 import type { FormProps, FormValues } from './types';
@@ -23,22 +35,49 @@ import type { FormProps, FormValues } from './types';
 /** Затримка (мс) утримання перед стартом запису — запис не почнеться при короткому кліку */
 const VOICE_RECORD_START_DELAY_MS = 300;
 
+/** Контент підказки «Як додавати їжу» — використовує локалізацію */
+function AddFoodHintContent() {
+  const { t } = useTranslation('food');
+  return (
+    <div className={hintContent}>
+      <p className={hintTitle}>{t('hint.title')}</p>
+
+      <section className={hintSection}>
+        <p className={hintSectionLabel}>{t('hint.sectionSimple')}</p>
+        <p className={hintSectionExamples}>{t('hint.simpleExamples')}</p>
+      </section>
+
+      <section className={hintSection}>
+        <p className={hintSectionLabel}>{t('hint.sectionPortion')}</p>
+        <p className={hintSectionExamples}>{t('hint.portionExamples')}</p>
+      </section>
+
+      <section className={hintSection}>
+        <p className={hintSectionLabel}>{t('hint.sectionDish')}</p>
+        <p className={hintSectionExamples}>{t('hint.dishExamples')}</p>
+      </section>
+
+      <p className={hintTip}>{t('hint.tip')}</p>
+    </div>
+  );
+}
+
 export const AddFoodForm = ({ date, suggestionsSlot }: FormProps) => {
   const isOnline = useOnline();
   const { t: tFood, i18n } = useTranslation('food');
 
+  // Form
   const schema = createSchema(tFood);
   const methods = useForm<FormValues>({
     resolver: zodResolver(schema),
     mode: 'onChange',
   });
-
   const { isValid, errors } = methods.formState;
   const { setValue } = methods;
   const { onSubmit, isPending } = useSubmit(methods, date);
-
   const submitDisabled = !isValid || isPending || !isOnline;
 
+  // Voice input
   const handleVoiceResult = useCallback(
     (text: string) => {
       setValue('text', text, {
@@ -65,6 +104,7 @@ export const AddFoodForm = ({ date, suggestionsSlot }: FormProps) => {
   const permissionDeniedRef = useRef(permissionDenied);
   permissionDeniedRef.current = permissionDenied;
 
+  // Voice handlers
   const handleVoiceStop = useCallback(() => {
     if (releasedRef.current) return;
     releasedRef.current = true;
@@ -155,6 +195,7 @@ export const AddFoodForm = ({ date, suggestionsSlot }: FormProps) => {
     };
   }, [isSupported, permissionDenied, handleVoicePress, handleVoiceStop]);
 
+  // Prompt suggestions
   const handleSelectPrompt = useCallback(
     (text: string) => {
       setValue('text', text, {
@@ -171,7 +212,14 @@ export const AddFoodForm = ({ date, suggestionsSlot }: FormProps) => {
       <Stack gap="sm">
         <Field<FormValues>
           name="text"
-          label={tFood('fields.text.label')}
+          labelRow={(id) => (
+            <Inline justify="between" align="center">
+              <TextLabel htmlFor={id} required>
+                {tFood('fields.text.label')}
+              </TextLabel>
+              <InfoTooltip content={<AddFoodHintContent />} size="md" />
+            </Inline>
+          )}
           helperText={tFood('fields.text.helper')}
           required
         >
@@ -179,7 +227,7 @@ export const AddFoodForm = ({ date, suggestionsSlot }: FormProps) => {
         </Field>
 
         <Stack gap="xs">
-          <Inline gap="sm" align="stretch" style={{ alignItems: 'stretch' }}>
+          <div className={actionsRow}>
             <Button
               type="submit"
               disabled={submitDisabled}
@@ -222,9 +270,9 @@ export const AddFoodForm = ({ date, suggestionsSlot }: FormProps) => {
                 }}
               />
             )}
-          </Inline>
+          </div>
           {permissionDenied && (
-            <Paragraph size="xs" tone="muted" style={{ textAlign: 'right' }}>
+            <Paragraph size="xs" tone="muted" className={permissionNote}>
               {tFood('voice.microphoneDisabled')}
             </Paragraph>
           )}

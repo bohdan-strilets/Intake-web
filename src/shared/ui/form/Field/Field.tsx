@@ -10,15 +10,17 @@ import {
 } from 'react-hook-form';
 
 import { fadeTransition } from '@shared/motion';
+import { Inline } from '@shared/ui/layout/Inline';
 import { Stack } from '@shared/ui/layout/Stack';
 import { ErrorText } from '@shared/ui/typography/ErrorText';
 import { HelperText } from '@shared/ui/typography/HelperText';
 import { TextLabel } from '@shared/ui/typography/TextLabel';
 
+import { inputWrap } from './Field.css';
 import type { FieldProps } from './Field.types';
 
 export const Field = <T extends FieldValues>(props: FieldProps<T>) => {
-  const { name, label, helperText, required } = props;
+  const { name, label, labelRow, helperText, required, suffix } = props;
 
   const id = useId();
 
@@ -47,7 +49,7 @@ export const Field = <T extends FieldValues>(props: FieldProps<T>) => {
 
   return (
     <Stack gap="xs">
-      {label && (
+      {labelRow ? labelRow(id) : label != null && (
         <TextLabel htmlFor={id} required={required}>
           {label}
         </TextLabel>
@@ -55,7 +57,48 @@ export const Field = <T extends FieldValues>(props: FieldProps<T>) => {
 
       {helperText && <HelperText id={helperId}>{helperText}</HelperText>}
 
-      {props.controlType !== 'controlled' ? (
+      {suffix != null ? (
+        <Inline gap="sm" align="stretch">
+          <span className={inputWrap}>
+            {props.controlType !== 'controlled' ? (
+              cloneElement(props.children, {
+              ...commonProps,
+              ...register(name, {
+                setValueAs: props.valueAsNumber
+                  ? (value) =>
+                      value === '' || value === null ? undefined : Number(value)
+                  : undefined,
+              }),
+            })
+          ) : (
+            <Controller
+              name={name}
+              control={control}
+              render={({ field }) =>
+                cloneElement(props.children, {
+                  ...commonProps,
+
+                  value: field.value,
+
+                  onChange: (value: PathValue<T, typeof name>) => {
+                    setValue(name, value, {
+                      shouldDirty: true,
+                      shouldTouch: true,
+                      shouldValidate: true,
+                    });
+                  },
+
+                  onBlur: () => {
+                    field.onBlur();
+                  },
+                })
+              }
+            />
+          )}
+          </span>
+          {suffix}
+        </Inline>
+      ) : props.controlType !== 'controlled' ? (
         cloneElement(props.children, {
           ...commonProps,
           ...register(name, {

@@ -13,10 +13,21 @@
     "analyzing": "Analyzing..."
   },
 
+  "hint": {
+    "title": "How to add food",
+    "sectionSimple": "🍌 Simple product",
+    "simpleExamples": "banana\nyogurt",
+    "sectionPortion": "🥣 With portion",
+    "portionExamples": "banana 120 g\nyogurt 200 g",
+    "sectionDish": "🍳 Dish",
+    "dishExamples": "omelette with 2 eggs\nchicken with rice",
+    "tip": "💡 The more precise the description — the more accurate the result"
+  },
+
   "fields": {
     "text": {
       "label": "What did you eat?",
-      "helper": "Example: 2 fried eggs and a slice of bread"
+      "helper": "For example: 2 fried eggs and a slice of bread"
     },
 
     "weight": {

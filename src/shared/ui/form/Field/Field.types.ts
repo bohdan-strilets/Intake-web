@@ -1,4 +1,4 @@
-import type { ReactElement } from 'react';
+import type { ReactElement, ReactNode } from 'react';
 import type { FieldValues, Path, PathValue } from 'react-hook-form';
 import type { ChangeHandler } from 'react-hook-form';
 
@@ -25,9 +25,13 @@ export type ControlledUIProps<TValue> = {
 
 type BaseFieldProps<T extends FieldValues> = {
   name: Path<T>;
-  label?: string;
+  label?: ReactNode;
+  /** Custom label row (e.g. Inline with label + tooltip). Receives input id for htmlFor. When set, label is ignored. */
+  labelRow?: (id: string) => ReactNode;
   helperText?: string;
   required?: boolean;
+  /** Rendered in the same row as the input (e.g. tooltip button) */
+  suffix?: ReactNode;
 };
 
 type FieldInputProps<T extends FieldValues> = {

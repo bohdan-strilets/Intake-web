@@ -13,10 +13,21 @@
     "analyzing": "Analizowanie..."
   },
 
+  "hint": {
+    "title": "Jak dodawać jedzenie",
+    "sectionSimple": "🍌 Prosty produkt",
+    "simpleExamples": "banan\njogurt",
+    "sectionPortion": "🥣 Z porcją",
+    "portionExamples": "banan 120 g\njogurt 200 g",
+    "sectionDish": "🍳 Danie",
+    "dishExamples": "omlet z 2 jaj\nkurczak z ryżem",
+    "tip": "💡 Im dokładniejszy opis — tym dokładniejszy wynik"
+  },
+
   "fields": {
     "text": {
       "label": "Co zjadłeś?",
-      "helper": "Przykład: 2 jajka sadzone i kromka chleba"
+      "helper": "Na przykład: 2 jajka sadzone i kromka chleba"
     },
 
     "weight": {
