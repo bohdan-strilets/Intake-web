@@ -1,12 +1,15 @@
 import { useEffect } from 'react';
 
-import type { AnyEvent } from './clickOutside.types';
+import type { AnyEvent, UseClickOutsideOptions } from './clickOutside.types';
 
 export const useClickOutside = <T extends HTMLElement>(
   ref: React.RefObject<T | null>,
   handler: (event: AnyEvent) => void,
   enabled = true,
+  options?: UseClickOutsideOptions,
 ) => {
+  const { ignoreSelectors } = options ?? {};
+
   useEffect(() => {
     if (!enabled) return;
 
@@ -15,6 +18,11 @@ export const useClickOutside = <T extends HTMLElement>(
 
       if (!element) return;
       if (element.contains(event.target as Node)) return;
+
+      if (ignoreSelectors?.length) {
+        const target = event.target as Element;
+        if (target?.closest && ignoreSelectors.some((sel) => target.closest(sel))) return;
+      }
 
       handler(event);
     };
@@ -26,5 +34,5 @@ export const useClickOutside = <T extends HTMLElement>(
       document.removeEventListener('click', listener);
       document.removeEventListener('touchstart', listener);
     };
-  }, [ref, handler, enabled]);
+  }, [ref, handler, enabled, ignoreSelectors]);
 };

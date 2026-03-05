@@ -36,7 +36,9 @@ export const DatePicker = ({
 
   const containerRef = useRef<HTMLDivElement | null>(null);
 
-  useClickOutside(containerRef, handleClose, isOpen);
+  useClickOutside(containerRef, handleClose, isOpen, {
+    ignoreSelectors: ['[role="listbox"]'],
+  });
 
   const {
     viewYear,
