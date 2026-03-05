@@ -1,3 +1,4 @@
+import { UserProfile } from '@widgets/layout/UserProfile';
 import { ThemeToggle } from '@widgets/theme/ThemeToggle';
 
 import { Logo } from '@shared/ui/brand/Logo';
@@ -7,9 +8,12 @@ import { Inline } from '@shared/ui/layout/Inline';
 export const AppHeader = () => {
   return (
     <Container>
-      <Inline justify="between">
+      <Inline justify="between" align="center">
         <Logo size="md" />
-        <ThemeToggle />
+        <Inline gap="md" align="center">
+          <ThemeToggle />
+          <UserProfile />
+        </Inline>
       </Inline>
     </Container>
   );
