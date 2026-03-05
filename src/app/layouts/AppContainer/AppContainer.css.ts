@@ -13,10 +13,10 @@ export const root = style({
       maxWidth: '720px',
     },
     [`screen and (min-width: ${breakpoints.lg}px)`]: {
-      maxWidth: '840px',
+      maxWidth: '1000px',
     },
     [`screen and (min-width: ${breakpoints.xl}px)`]: {
-      maxWidth: '960px',
+      maxWidth: '1280px',
     },
   },
 });
