@@ -90,6 +90,8 @@ export const navigationSection = style({
   flexShrink: 0,
   zIndex: vars.zIndex.navigation,
 
+  paddingBottom: 'env(safe-area-inset-bottom)',
+
   background: vars.colors.backgroundSurface,
   borderTop: `1px solid ${vars.colors.borderMuted}`,
   boxShadow: vars.shadows.md,

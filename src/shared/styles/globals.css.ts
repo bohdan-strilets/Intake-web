@@ -28,6 +28,13 @@ globalStyle('html, body', {
   height: '100%',
 });
 
+/* PWA: safe area for notch / home indicator (iOS, Android) */
+globalStyle('#root', {
+  minHeight: '100%',
+  paddingTop: 'env(safe-area-inset-top)',
+  paddingBottom: 'env(safe-area-inset-bottom)',
+});
+
 globalStyle('body', {
   minHeight: '100%',
 

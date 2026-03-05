@@ -13,6 +13,12 @@ function getIsStandalone(): boolean {
   );
 }
 
+/** Launch from PWA (start_url with ?source=pwa) */
+function getIsPwaLaunch(): boolean {
+  const params = new URLSearchParams(window.location.search);
+  return params.get('source') === 'pwa';
+}
+
 /** iOS: Safari does not fire beforeinstallprompt; user must use Share > Add to Home Screen */
 function getIsIOS(): boolean {
   return /iphone|ipad|ipod/i.test(navigator.userAgent);
@@ -22,12 +28,14 @@ export function usePWAInstall(): {
   canInstall: boolean;
   isInstalled: boolean;
   isIOSInstallable: boolean;
+  isPwaLaunch: boolean;
   install: () => Promise<void>;
 } {
   const [deferredPrompt, setDeferredPrompt] =
     useState<BeforeInstallPromptEvent | null>(null);
   const [isInstalled, setIsInstalled] = useState(false);
   const [isIOS, setIsIOS] = useState(false);
+  const isPwaLaunch = getIsPwaLaunch();
 
   useEffect(() => {
     setIsIOS(getIsIOS());
@@ -68,5 +76,5 @@ export function usePWAInstall(): {
   const canInstall = Boolean(deferredPrompt) && !isInstalled;
   const isIOSInstallable = isIOS && !isInstalled;
 
-  return { canInstall, isInstalled, isIOSInstallable, install };
+  return { canInstall, isInstalled, isIOSInstallable, isPwaLaunch, install };
 }

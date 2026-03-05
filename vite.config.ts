@@ -32,16 +32,23 @@ export default defineConfig(({ mode }) => {
       react(),
       vanillaExtractPlugin(),
       VitePWA({
-        registerType: 'prompt',
+        registerType: 'autoUpdate',
+        devOptions: {
+          enabled: true,
+        },
         includeAssets: [
           'favicon-16.png',
           'favicon-32.png',
           'apple-touch-icon.png',
           'icon-192.png',
           'icon-512.png',
+          'icon-maskable-512.png',
         ],
-        manifest: pwaManifest,
+        manifest: pwaManifest as import('vite-plugin-pwa').ManifestOptions,
         workbox: {
+          cleanupOutdatedCaches: true,
+          clientsClaim: true,
+          skipWaiting: true,
           globPatterns: ['**/*.{js,css,html,ico,png,svg,woff2}'],
           navigateFallback: '/index.html',
           navigateFallbackDenylist: [/^\/api\//],
