@@ -6,12 +6,13 @@ import {
   createActivityLevelOptions,
   createGoalDeltaOptions,
   createGoalOptions,
-  createSexOptions,
+  SEX,
 } from '@entities/user';
 
 import { useTranslation } from '@shared/i18n';
 import { Button } from '@shared/ui/controls/Button';
 import { DatePicker } from '@shared/ui/controls/DatePicker';
+import { Radio, RadioGroup } from '@shared/ui/controls/RadioGroup';
 import { Select } from '@shared/ui/controls/Select';
 import { TextInput } from '@shared/ui/controls/TextInput';
 import { Field } from '@shared/ui/form/Field';
@@ -74,7 +75,10 @@ export const EditProfileForm = ({ initialState }: FormProps) => {
           label={tUser('fields.sex')}
           controlType="controlled"
         >
-          <Select options={createSexOptions(tUser)} />
+          <RadioGroup direction="row">
+            <Radio value={SEX.Male}>{tUser('sex.male')}</Radio>
+            <Radio value={SEX.Female}>{tUser('sex.female')}</Radio>
+          </RadioGroup>
         </Field>
 
         <Field<FormValues>

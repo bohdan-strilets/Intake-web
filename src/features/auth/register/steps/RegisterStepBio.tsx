@@ -1,8 +1,8 @@
-import { createSexOptions } from '@entities/user';
+import { SEX } from '@entities/user';
 
 import { useTranslation } from '@shared/i18n';
 import { DatePicker } from '@shared/ui/controls/DatePicker';
-import { Select } from '@shared/ui/controls/Select';
+import { Radio, RadioGroup } from '@shared/ui/controls/RadioGroup';
 import { Field } from '@shared/ui/form/Field';
 import { Stack } from '@shared/ui/layout/Stack';
 import { HelperText } from '@shared/ui/typography/HelperText';
@@ -23,7 +23,10 @@ export const RegisterStepBio = () => {
         controlType="controlled"
         required
       >
-        <Select options={createSexOptions(tUser)} />
+        <RadioGroup direction="row">
+          <Radio value={SEX.Male}>{tUser('sex.male')}</Radio>
+          <Radio value={SEX.Female}>{tUser('sex.female')}</Radio>
+        </RadioGroup>
       </Field>
 
       <Field<FormValues>
