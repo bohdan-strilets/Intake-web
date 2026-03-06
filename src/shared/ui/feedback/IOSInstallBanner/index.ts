@@ -1,1 +1,0 @@
-export { IOSInstallBanner } from './IOSInstallBanner';
