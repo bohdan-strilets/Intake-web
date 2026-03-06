@@ -27,7 +27,9 @@ export const CaloriesBarChart = ({ stats, period }: CaloriesBarChartProps) => {
     [stats.days, period],
   );
 
-  const hasAnyData = chartItems.some((item) => item.value !== null);
+  const hasAnyData = chartItems.some(
+    (item) => item.value != null && item.value > 0,
+  );
 
   const getTooltipContent = (item: {
     value: number | null;
@@ -43,7 +45,7 @@ export const CaloriesBarChart = ({ stats, period }: CaloriesBarChartProps) => {
       <Card shadow="sm" gap="sm">
         <Paragraph weight="medium">{tStats('summary.caloriesByDay')}</Paragraph>
         <Paragraph size="sm" tone="muted">
-          {tStats('summary.chartNoData')}
+          {tStats('summary.caloriesChartNoData')}
         </Paragraph>
       </Card>
     );

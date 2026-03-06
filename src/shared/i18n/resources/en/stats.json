@@ -8,6 +8,7 @@
     "insightClosestToTarget": "Closest to target",
     "insightMostAboveTarget": "Most above target",
     "caloriesByDay": "Calories by day",
+    "caloriesChartNoData": "Not enough data for this period.",
     "dailyGoal": "Daily goal",
     "maintenanceCalories": "Maintenance",
     "averagePerDay": "Average per day",
