@@ -31,15 +31,22 @@ function getLast7DateStrings(): string[] {
 export const StreakCard = ({
   currentStreak,
   activityLast7Days,
+  firstActivityDate = null,
 }: StreakCardProps) => {
   const { t } = useTranslation('stats');
 
   const last7Dates = useMemo(getLast7DateStrings, []);
 
-  const skippedInLast7 = useMemo(
-    () => activityLast7Days.filter((active) => !active).length,
-    [activityLast7Days],
-  );
+  const skippedInLast7 = useMemo(() => {
+    if (firstActivityDate == null) {
+      return activityLast7Days.filter((active) => !active).length;
+    }
+    return activityLast7Days.filter((active, i) => {
+      if (active) return false;
+      const dateStr = last7Dates[i];
+      return dateStr >= firstActivityDate;
+    }).length;
+  }, [activityLast7Days, firstActivityDate, last7Dates]);
 
   const isZeroStreak = currentStreak === 0;
   const daysInRowText = !isZeroStreak

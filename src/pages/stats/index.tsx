@@ -85,6 +85,7 @@ export const StatsPage = () => {
         <StreakCard
           currentStreak={streakData.currentStreak}
           activityLast7Days={streakData.activityLast7Days}
+          firstActivityDate={streakData.firstActivityDate}
         />
       )}
 
