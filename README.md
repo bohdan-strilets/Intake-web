@@ -38,32 +38,7 @@ password: demo123456
 
 # 📱 Screens
 
-### Landing
-
-![Landing](./docs/landing-dark.jpg)
-
-### Dashboard
-
-![Dashboard Dark](./docs/dashboard-dark.jpg)
-![Dashboard Light](./docs/dashboard-light.jpg)
-
-### Day
-
-![Day Dark](./docs/day-dark.jpg)
-![Day Light](./docs/day-light.jpg)
-
-### Food entries
-
-![Day With Food](./docs/day-with-food-dark.jpg)
-
-### Statistics
-
-![Stats](./docs/stats-dark.jpg)
-![Stats2](./docs/stats-dark2.jpg)
-
-### Profile
-
-![Profile](./docs/profile-dark.jpg)
+![screens](./docs/screens.jpg)
 
 ---
 
